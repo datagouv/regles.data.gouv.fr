@@ -1,0 +1,86 @@
+{
+  "@context": {
+    "cprmv": "https://standaarden.open-regels.nl/standards/cprmv/0.4.0/",
+    "cpsv":  "http://purl.org/vocab/cpsv#",
+    "cv":    "http://data.europa.eu/m8g/",
+    "dct":   "http://purl.org/dc/terms/",
+    "xsd":   "http://www.w3.org/2001/XMLSchema#"
+  },
+
+  "@id":    "https://regles.data.gouv.fr/algo/civique/droit-vote/v1",
+  "@type":  "cprmv:DecisionModel",
+
+  "dct:title":      "Droit de vote en France",
+  "dct:identifier": "civique.droit-vote.v1",
+  "dct:version":    "1.0.0",
+
+  "cprmv:isBasedOn": {
+    "@id":          "https://www.legifrance.gouv.fr/codes/id/LEGITEXT000006070239/",
+    "dct:title":    "Code électoral",
+    "dct:coverage": "Art. L.2, L.6, L.O. 227-1"
+  },
+  "cprmv:isAlsoBasedOn": {
+    "@id":          "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000006527438/",
+    "dct:title":    "Constitution du 4 octobre 1958",
+    "dct:coverage": "Art. 88-3"
+  },
+
+  "cv:hasCompetentAuthority": {
+    "@id": "https://www.data.gouv.fr/organizations/ministere-de-linterieur/",
+    "dct:title": "Ministère de l'Intérieur"
+  },
+
+  "cprmv:method": [
+    { "@type": "cprmv:FormalisationMethod" },
+    {
+      "@type":   "cprmv:CodificationMethod",
+      "dct:title":       "Python",
+      "dct:description": "Les règles sont codifiées et exécutées en Python."
+    }
+  ],
+
+  "cprmv:validFrom": {
+    "@value": "2024-01-01",
+    "@type":  "xsd:date"
+  },
+
+  "cprmv:hasInput": [
+    {
+      "@type":            "cprmv:Parameter",
+      "dct:identifier":   "nationalite",
+      "dct:title":        "Nationalité",
+      "cprmv:definition": "Nationalité de la personne (française ou UE pour élections municipales)",
+      "cprmv:type":       "xsd:string"
+    },
+    {
+      "@type":            "cprmv:Parameter",
+      "dct:identifier":   "age",
+      "dct:title":        "Âge",
+      "cprmv:definition": "Âge de la personne en années révolues",
+      "cprmv:type":       "xsd:integer"
+    },
+    {
+      "@type":            "cprmv:Parameter",
+      "dct:identifier":   "capacite_juridique",
+      "dct:title":        "Capacité juridique",
+      "cprmv:definition": "Indique si la personne dispose de sa capacité civile (non privée de droits civiques par jugement)",
+      "cprmv:type":       "xsd:boolean"
+    },
+    {
+      "@type":            "cprmv:Parameter",
+      "dct:identifier":   "inscription_liste",
+      "dct:title":        "Inscription sur liste électorale",
+      "cprmv:definition": "Indique si la personne est inscrite sur une liste électorale",
+      "cprmv:type":       "xsd:boolean"
+    }
+  ],
+  "cpsv:produces": {
+    "@type":            "cprmv:Rule",
+    "dct:identifier":   "peut_voter",
+    "dct:title":        "Éligibilité au droit de vote",
+    "cprmv:definition": "La personne a le droit de voter",
+    "cprmv:type":       "xsd:boolean"
+  },
+
+  "dct:subject": ["election", "civique", "droit-vote", "code-electoral"]
+}
