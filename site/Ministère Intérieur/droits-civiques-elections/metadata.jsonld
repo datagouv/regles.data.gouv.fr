@@ -1,86 +1,108 @@
 {
   "@context": {
-    "cprmv": "https://standaarden.open-regels.nl/standards/cprmv/0.4.0/",
-    "cpsv":  "http://purl.org/vocab/cpsv#",
-    "cv":    "http://data.europa.eu/m8g/",
-    "dct":   "http://purl.org/dc/terms/",
-    "xsd":   "http://www.w3.org/2001/XMLSchema#"
+    "cpsv": "http://purl.org/vocab/cpsv#",
+    "cv": "http://data.europa.eu/m8g/",
+    "dct": "http://purl.org/dc/terms/",
+    "eli": "http://data.europa.eu/eli/ontology#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "schema": "http://schema.org/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "cprmv": "https://regels.overheid.nl/def/cprmv#",
+    "px": "https://github.com/qloridant/regalgo-civique-droit-vote#vocab/",
+    "id": "@id",
+    "type": "@type",
+    "title": { "@id": "dct:title", "@language": "fr" },
+    "description": { "@id": "dct:description", "@language": "fr" }
   },
-
-  "@id":    "https://regles.data.gouv.fr/algo/civique/droit-vote/v1",
-  "@type":  "cprmv:DecisionModel",
-
-  "dct:title":      "Droit de vote en France",
-  "dct:identifier": "civique.droit-vote.v1",
-  "dct:version":    "1.0.0",
-
-  "cprmv:isBasedOn": {
-    "@id":          "https://www.legifrance.gouv.fr/codes/id/LEGITEXT000006070239/",
-    "dct:title":    "Code électoral",
-    "dct:coverage": "Art. L.2, L.6, L.O. 227-1"
-  },
-  "cprmv:isAlsoBasedOn": {
-    "@id":          "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000006527438/",
-    "dct:title":    "Constitution du 4 octobre 1958",
-    "dct:coverage": "Art. 88-3"
-  },
-
-  "cv:hasCompetentAuthority": {
-    "@id": "https://www.data.gouv.fr/organizations/ministere-de-linterieur/",
-    "dct:title": "Ministère de l'Intérieur"
-  },
-
-  "cprmv:method": [
-    { "@type": "cprmv:FormalisationMethod" },
+  "@graph": [
     {
-      "@type":   "cprmv:CodificationMethod",
-      "dct:title":       "Python",
-      "dct:description": "Les règles sont codifiées et exécutées en Python."
+      "id": "https://regles.gouv.fr/algo/civique/droit-vote/v1",
+      "type": "cpsv:PublicService",
+
+      "dct:identifier": "civique.droit-vote.v1",
+      "title": "Droit de vote en France",
+      "description": "Vérification algorithmique de l'éligibilité au droit de vote en France (élections nationales et municipales), codifiée en Python à partir du Code électoral et de la Constitution.",
+      "dct:version": "1.0.0",
+      "dct:valid": "2024-01-01/",
+
+      "cv:hasCompetentAuthority": { "id": "https://regles.gouv.fr/algo/civique/droit-vote/v1#organisation" },
+
+      "cv:hasLegalResource": [
+        {
+          "id": "https://www.legifrance.gouv.fr/codes/id/LEGITEXT000006070239/",
+          "type": "eli:LegalResource",
+          "title": "Code électoral",
+          "dct:coverage": "Art. L.2 à L.7, L.O. 227-1"
+        },
+        {
+          "id": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000006527438/",
+          "type": "eli:LegalResource",
+          "title": "Constitution du 4 octobre 1958",
+          "dct:coverage": "Art. 88-3"
+        }
+      ],
+
+      "cv:hasChannel": { "id": "https://regles.gouv.fr/algo/civique/droit-vote/v1#channel" },
+
+      "dct:source": [
+        { "id": "https://github.com/qloridant/regalgo-civique-droit-vote/blob/13d9f80ca21d47f55aef9710e6288e94ea10ccc6/src/regalgo_civique_droit_vote/algorithm.py" },
+        { "id": "https://github.com/qloridant/regalgo-civique-droit-vote/blob/13d9f80ca21d47f55aef9710e6288e94ea10ccc6/tests/test_algorithm.py" }
+      ],
+
+      "cv:hasInput": [
+        { "type": "cprmv:Parameter", "dct:identifier": "nationalite_francaise", "dct:title": "Nationalité française", "cprmv:definition": "La personne a la nationalité française (Art. L.2). Pour les élections municipales, une nationalité UE combinée à citoyennete_ue+domicile_france peut aussi ouvrir droit (Art. 88-3 C°).", "cprmv:type": "xsd:boolean", "schema:valueRequired": true },
+        { "type": "cprmv:Parameter", "dct:identifier": "age", "dct:title": "Âge", "cprmv:definition": "Âge de la personne en années révolues (Art. L.3 : doit être ≥ 18). Une valeur négative lève une erreur.", "cprmv:type": "xsd:integer", "schema:valueRequired": true },
+        { "type": "cprmv:Parameter", "dct:identifier": "capacite_civique", "dct:title": "Capacité civique", "cprmv:definition": "La personne n'est pas privée de ses droits civiques (Art. L.5, L.6).", "cprmv:type": "xsd:boolean", "schema:valueRequired": true },
+        { "type": "cprmv:Parameter", "dct:identifier": "inscrit_listes_electorales", "dct:title": "Inscription sur les listes électorales", "cprmv:definition": "La personne est inscrite sur les listes électorales (Art. L.7).", "cprmv:type": "xsd:boolean", "schema:valueRequired": true },
+        { "type": "cprmv:Parameter", "dct:identifier": "citoyennete_ue", "dct:title": "Citoyenneté UE", "cprmv:definition": "La personne est citoyenne d'un État membre de l'UE. N'est prise en compte que pour les élections municipales (context.type_election = \"municipale\"), combinée à domicile_france.", "cprmv:type": "xsd:boolean", "schema:valueRequired": false, "schema:defaultValue": false },
+        { "type": "cprmv:Parameter", "dct:identifier": "domicile_france", "dct:title": "Domicile en France", "cprmv:definition": "La personne est domiciliée en France. Combinée à citoyennete_ue pour l'éligibilité aux élections municipales (Art. 88-3 C° / L.O. 227-1).", "cprmv:type": "xsd:boolean", "schema:valueRequired": false, "schema:defaultValue": false },
+        { "type": "cprmv:Parameter", "dct:identifier": "type_election", "dct:title": "Type d'élection", "cprmv:definition": "Contexte d'exécution (paramètre 'context', pas 'data') : \"nationale\" (défaut) ou \"municipale\". Change la règle de nationalité appliquée.", "cprmv:type": "xsd:string", "schema:valueRequired": false, "schema:defaultValue": "nationale" }
+      ],
+
+      "cpsv:produces": [
+        { "type": ["cv:Output", "cprmv:Rule"], "dct:identifier": "value", "dct:title": "Éligibilité au droit de vote", "cprmv:definition": "Booléen : la personne a le droit de voter dans le contexte électoral demandé.", "cprmv:type": "xsd:boolean" },
+        { "type": ["cv:Output", "cprmv:Rule"], "dct:identifier": "metadata.conditions", "dct:title": "Détail des conditions évaluées", "cprmv:definition": "Trace structurée de chaque condition individuelle évaluée (éligible_nationalite, age_suffisant, capacite_civique, inscrit_listes_electorales, citoyennete_ue_avec_domicile_france) — utile pour expliquer un refus." }
+      ],
+
+      "dct:subject": ["election", "civique", "droit-vote", "code-electoral"]
+    },
+
+    {
+      "id": "https://regles.gouv.fr/algo/civique/droit-vote/v1#organisation",
+      "type": "cv:PublicOrganisation",
+      "skos:prefLabel": { "@value": "Ministère de l'Intérieur", "@language": "fr" }
+    },
+
+    {
+      "id": "https://regles.gouv.fr/algo/civique/droit-vote/v1#channel",
+      "type": "cv:Channel",
+      "dct:identifier": "civique-droit-vote-channel-python",
+      "dct:type": { "@type": "skos:Concept", "skos:prefLabel": { "@value": "Bibliothèque logicielle (package Python)", "@language": "fr" } },
+      "dct:description": { "@value": "Installation via pip. ATTENTION : le pyproject.toml référence test.pypi.org comme source — le package semble n'être publié qu'en environnement de test, pas sur PyPI officiel.", "@language": "fr" },
+      "foaf:page": { "id": "https://github.com/qloridant/regalgo-civique-droit-vote" },
+      "cv:ownedBy": { "id": "https://regles.gouv.fr/algo/civique/droit-vote/v1#organisation" }
+    },
+
+    {
+      "id": "https://github.com/qloridant/regalgo-civique-droit-vote#source-code",
+      "type": "schema:SoftwareSourceCode",
+      "schema:name": "regalgo-civique-droit-vote",
+      "schema:description": "Package Python implémentant l'éligibilité au droit de vote en France, avec deux modes d'appel : AlgoInput (données brutes) ou PersonInput (aligné sur Core Person Vocabulary / CCCEV — cv_nationality, schema_birth_date, cccev_civil_rights_intact, cccev_electoral_list_registered, cv_domicile_country). Fait partie de l'écosystème 'regalgo' d'algorithmes réglementaires.",
+      "schema:codeRepository": "https://github.com/qloridant/regalgo-civique-droit-vote/tree/13d9f80ca21d47f55aef9710e6288e94ea10ccc6",
+      "schema:programmingLanguage": "Python",
+      "schema:runtimePlatform": "Python >= 3.10 (build Poetry)",
+      "schema:softwareRequirements": ["regalgo ^0.0 (paquet partagé de l'écosystème regalgo : AlgoInput, AlgoResult, PersonInput)"],
+      "schema:softwareVersion": "1.0.4",
+      "px:howTo": {
+        "@type": "schema:HowTo",
+        "schema:name": "Installer et tester regalgo-civique-droit-vote",
+        "schema:step": [
+          { "@type": "schema:HowToStep", "schema:name": "Installer le package", "schema:text": "pip install regalgo-civique-droit-vote  # publié sur test.pypi.org d'après pyproject.toml" },
+          { "@type": "schema:HowToStep", "schema:name": "Lancer les tests", "schema:text": "pytest" },
+          { "@type": "schema:HowToStep", "schema:name": "Utiliser en Python (entrée brute)", "schema:text": "from regalgo_civique_droit_vote import DroitVoteAlgorithm\nfrom regalgo import AlgoInput\nalgo = DroitVoteAlgorithm()\nresult = algo.compute(AlgoInput(data={'nationalite_francaise': True, 'age': 25, 'capacite_civique': True, 'inscrit_listes_electorales': True}))" }
+        ]
+      }
     }
-  ],
-
-  "cprmv:validFrom": {
-    "@value": "2024-01-01",
-    "@type":  "xsd:date"
-  },
-
-  "cprmv:hasInput": [
-    {
-      "@type":            "cprmv:Parameter",
-      "dct:identifier":   "nationalite",
-      "dct:title":        "Nationalité",
-      "cprmv:definition": "Nationalité de la personne (française ou UE pour élections municipales)",
-      "cprmv:type":       "xsd:string"
-    },
-    {
-      "@type":            "cprmv:Parameter",
-      "dct:identifier":   "age",
-      "dct:title":        "Âge",
-      "cprmv:definition": "Âge de la personne en années révolues",
-      "cprmv:type":       "xsd:integer"
-    },
-    {
-      "@type":            "cprmv:Parameter",
-      "dct:identifier":   "capacite_juridique",
-      "dct:title":        "Capacité juridique",
-      "cprmv:definition": "Indique si la personne dispose de sa capacité civile (non privée de droits civiques par jugement)",
-      "cprmv:type":       "xsd:boolean"
-    },
-    {
-      "@type":            "cprmv:Parameter",
-      "dct:identifier":   "inscription_liste",
-      "dct:title":        "Inscription sur liste électorale",
-      "cprmv:definition": "Indique si la personne est inscrite sur une liste électorale",
-      "cprmv:type":       "xsd:boolean"
-    }
-  ],
-  "cpsv:produces": {
-    "@type":            "cprmv:Rule",
-    "dct:identifier":   "peut_voter",
-    "dct:title":        "Éligibilité au droit de vote",
-    "cprmv:definition": "La personne a le droit de voter",
-    "cprmv:type":       "xsd:boolean"
-  },
-
-  "dct:subject": ["election", "civique", "droit-vote", "code-electoral"]
+  ]
 }

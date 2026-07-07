@@ -1,0 +1,143 @@
+{
+  "@context": {
+    "cpsv": "http://purl.org/vocab/cpsv#",
+    "cv": "http://data.europa.eu/m8g/",
+    "dct": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "schema": "http://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "cprmv": "https://regels.overheid.nl/def/cprmv#",
+    "px": "https://github.com/betagouv/prestagri#vocab/",
+    "id": "@id",
+    "type": "@type",
+    "title": { "@id": "dct:title", "@language": "fr" },
+    "description": { "@id": "dct:description", "@language": "fr" }
+  },
+  "@graph": [
+    {
+      "id": "https://github.com/betagouv/prestagri#service",
+      "type": "cpsv:PublicService",
+      "dct:hasPart": [
+        { "id": "https://github.com/betagouv/prestagri#service-quotient-familial" },
+        { "id": "https://github.com/betagouv/prestagri#service-aide-scolarite" }
+      ],
+      "dct:source": { "id": "https://github.com/betagouv/prestagri#source-code" }
+    },
+
+    {
+      "id": "https://github.com/betagouv/prestagri#service-quotient-familial",
+      "type": "cpsv:PublicService",
+      "dct:identifier": "prestagri-quotient-familial",
+      "dct:isPartOf": { "id": "https://github.com/betagouv/prestagri#service" },
+      "title": "Calcul du quotient familial (QF)",
+      "description": "Calcule le quotient familial d'un agent selon la note de service MASA (revenu fiscal de référence rapporté au nombre d'unités du foyer, avec majorations parent isolé / handicap / garde alternée / abattement outre-mer).",
+      "cv:hasChannel": { "id": "https://github.com/betagouv/prestagri#channel-quotient-familial" },
+      "dct:source": [
+        { "id": "https://github.com/betagouv/prestagri/blob/478b3cc2ab28299c73b94fdd192b0559ae5873b8/catala/src/commun/quotient_familial.catala_fr#CalculQuotientFamilial" },
+        { "id": "https://github.com/betagouv/prestagri/blob/478b3cc2ab28299c73b94fdd192b0559ae5873b8/backend/app/api/default.py#read_quotient_familial" }
+      ],
+      "cv:hasInput": [
+        { "@type": "cprmv:Parameter", "dct:identifier": "agent_revenu", "dct:title": "Revenu de l'agent", "cprmv:definition": "Revenu fiscal de référence annuel de l'agent, en euros.", "cprmv:type": "xsd:integer", "schema:valueRequired": true },
+        { "@type": "cprmv:Parameter", "dct:identifier": "agent_enfants", "dct:title": "Enfants de l'agent", "cprmv:definition": "Nombre d'enfants à charge de l'agent.", "cprmv:type": "xsd:integer", "schema:valueRequired": true },
+        { "@type": "cprmv:Parameter", "dct:identifier": "conjoint_revenu", "dct:title": "Revenu du conjoint", "cprmv:definition": "Revenu fiscal de référence annuel du conjoint, en euros (si vie à deux).", "cprmv:type": "xsd:integer", "schema:valueRequired": false },
+        { "@type": "cprmv:Parameter", "dct:identifier": "conjoint_enfants", "dct:title": "Enfants du conjoint", "cprmv:definition": "Nombre d'enfants à charge du conjoint.", "cprmv:type": "xsd:integer", "schema:valueRequired": false },
+        { "@type": "cprmv:Parameter", "dct:identifier": "personne_ou_enfant_porteur_handicap", "dct:title": "Handicap au foyer", "cprmv:definition": "Un membre du foyer (agent, enfant ou personne à charge) est porteur de handicap.", "cprmv:type": "xsd:boolean", "schema:valueRequired": false, "schema:defaultValue": false },
+        { "@type": "cprmv:Parameter", "dct:identifier": "garde_alternee", "dct:title": "Garde alternée", "cprmv:definition": "L'agent a un ou des enfants en garde alternée.", "cprmv:type": "xsd:boolean", "schema:valueRequired": false, "schema:defaultValue": false },
+        { "@type": "cprmv:Parameter", "dct:identifier": "parent_isole", "dct:title": "Parent isolé", "cprmv:definition": "L'agent est parent isolé au sens fiscal (case T).", "cprmv:type": "xsd:boolean", "schema:valueRequired": false, "schema:defaultValue": false },
+        { "@type": "cprmv:Parameter", "dct:identifier": "outre_mer", "dct:title": "Outre-mer", "cprmv:definition": "L'agent est affecté en outre-mer (abattement de 20% sur le revenu fiscal de référence).", "cprmv:type": "xsd:boolean", "schema:valueRequired": false, "schema:defaultValue": false }
+      ],
+      "cpsv:produces": [
+        { "@type": ["cv:Output", "cprmv:Rule"], "dct:identifier": "value", "dct:title": "Quotient familial", "cprmv:definition": "Quotient familial calculé, exprimé en euros (ex. \"812.5€\").", "cprmv:type": "xsd:string" },
+        { "@type": ["cv:Output", "cprmv:Rule"], "dct:identifier": "explanation", "dct:title": "Explication du calcul", "cprmv:definition": "Trace explicative Catala détaillant les étapes et exceptions appliquées au calcul.", "cprmv:type": "xsd:string" }
+      ]
+    },
+
+    {
+      "id": "https://github.com/betagouv/prestagri#channel-quotient-familial",
+      "type": "cv:Channel",
+      "dct:identifier": "prestagri-channel-quotient-familial",
+      "dct:type": { "@type": "skos:Concept", "skos:prefLabel": { "@value": "En ligne (API)", "@language": "fr" } },
+      "dct:description": { "@value": "Point d'accès HTTP GET, réponses JSON.", "@language": "fr" },
+      "foaf:page": { "id": "https://api.prest-agri.beta.gouv.fr/quotient_familial" },
+      "cv:ownedBy": { "id": "https://github.com/betagouv/prestagri#organisation" }
+    },
+
+    {
+      "id": "https://github.com/betagouv/prestagri#service-aide-scolarite",
+      "type": "cpsv:PublicService",
+      "dct:identifier": "prestagri-aide-scolarite",
+      "dct:isPartOf": { "id": "https://github.com/betagouv/prestagri#service" },
+      "title": "Calcul de l'aide à la scolarité",
+      "description": "Calcule le montant de l'aide à la scolarité (fiche F16) à partir du quotient familial du foyer, du barème de points (dont l'éloignement domicile-établissement) et du plafond de 1000€ par enfant et par an.",
+      "cv:hasChannel": { "id": "https://github.com/betagouv/prestagri#channel-aide-scolarite" },
+      "dct:source": [
+        { "id": "https://github.com/betagouv/prestagri/blob/478b3cc2ab28299c73b94fdd192b0559ae5873b8/catala/src/aide_scolarite/aide_scolarite.catala_fr#CalculQuotientFamilialAideScolarite" },
+        { "id": "https://github.com/betagouv/prestagri/blob/478b3cc2ab28299c73b94fdd192b0559ae5873b8/catala/src/aide_scolarite/aide_scolarite.catala_fr#CalculPointsAideScolarite" },
+        { "id": "https://github.com/betagouv/prestagri/blob/478b3cc2ab28299c73b94fdd192b0559ae5873b8/catala/src/aide_scolarite/aide_scolarite.catala_fr#CalculAideScolarite" },
+        { "id": "https://github.com/betagouv/prestagri/blob/478b3cc2ab28299c73b94fdd192b0559ae5873b8/backend/app/api/default.py#read_quotient_familial_aide_scolarite" }
+      ],
+      "cv:hasInput": [
+        { "@type": "cprmv:Parameter", "dct:identifier": "agent_revenu", "dct:title": "Revenu de l'agent", "cprmv:definition": "Revenu fiscal de référence annuel de l'agent, en euros.", "cprmv:type": "xsd:integer", "schema:valueRequired": true },
+        { "@type": "cprmv:Parameter", "dct:identifier": "agent_enfants", "dct:title": "Enfants de l'agent", "cprmv:definition": "Nombre d'enfants à charge de l'agent.", "cprmv:type": "xsd:integer", "schema:valueRequired": true },
+        { "@type": "cprmv:Parameter", "dct:identifier": "adresse_agent", "dct:title": "Adresse de l'agent", "cprmv:definition": "Adresse du domicile de l'agent (utilisée pour calculer la distance vers l'établissement).", "cprmv:type": "xsd:string", "schema:valueRequired": true },
+        { "@type": "cprmv:Parameter", "dct:identifier": "adresse_etablissement", "dct:title": "Adresse de l'établissement", "cprmv:definition": "Adresse de l'établissement scolaire ou universitaire fréquenté par l'enfant.", "cprmv:type": "xsd:string", "schema:valueRequired": true },
+        { "@type": "cprmv:Parameter", "dct:identifier": "conjoint_revenu", "dct:title": "Revenu du conjoint", "cprmv:definition": "Revenu fiscal de référence annuel du conjoint, en euros.", "cprmv:type": "xsd:integer", "schema:valueRequired": false },
+        { "@type": "cprmv:Parameter", "dct:identifier": "conjoint_enfants", "dct:title": "Enfants du conjoint", "cprmv:definition": "Nombre d'enfants à charge du conjoint.", "cprmv:type": "xsd:integer", "schema:valueRequired": false },
+        { "@type": "cprmv:Parameter", "dct:identifier": "etudiant_revenu", "dct:title": "Revenu de l'étudiant", "cprmv:definition": "Revenu fiscal de référence de l'étudiant, si celui-ci fait sa propre déclaration fiscale.", "cprmv:type": "xsd:integer", "schema:valueRequired": false },
+        { "@type": "cprmv:Parameter", "dct:identifier": "etudiant_enfants", "dct:title": "Enfants de l'étudiant", "cprmv:definition": "Nombre d'enfants à charge de l'étudiant fiscalement indépendant.", "cprmv:type": "xsd:integer", "schema:valueRequired": false },
+        { "@type": "cprmv:Parameter", "dct:identifier": "personne_ou_enfant_porteur_handicap", "dct:title": "Handicap au foyer", "cprmv:definition": "Un membre du foyer est porteur de handicap.", "cprmv:type": "xsd:boolean", "schema:valueRequired": false, "schema:defaultValue": false },
+        { "@type": "cprmv:Parameter", "dct:identifier": "garde_alternee", "dct:title": "Garde alternée", "cprmv:definition": "L'agent a un ou des enfants en garde alternée.", "cprmv:type": "xsd:boolean", "schema:valueRequired": false, "schema:defaultValue": false },
+        { "@type": "cprmv:Parameter", "dct:identifier": "parent_isole", "dct:title": "Parent isolé", "cprmv:definition": "L'agent est parent isolé au sens fiscal.", "cprmv:type": "xsd:boolean", "schema:valueRequired": false, "schema:defaultValue": false },
+        { "@type": "cprmv:Parameter", "dct:identifier": "outre_mer", "dct:title": "Outre-mer", "cprmv:definition": "L'agent est affecté en outre-mer.", "cprmv:type": "xsd:boolean", "schema:valueRequired": false, "schema:defaultValue": false },
+        { "@type": "cprmv:Parameter", "dct:identifier": "adresse_etudiant", "dct:title": "Adresse de l'étudiant", "cprmv:definition": "Adresse de résidence de l'étudiant, si différente de celle de l'agent (ex. logement étudiant).", "cprmv:type": "xsd:string", "schema:valueRequired": false },
+        { "@type": "cprmv:Parameter", "dct:identifier": "montant_materiel_specifique", "dct:title": "Matériel spécifique", "cprmv:definition": "Montant des frais d'équipement scolaire obligatoire engagés, en euros.", "cprmv:type": "xsd:integer", "schema:valueRequired": false },
+        { "@type": "cprmv:Parameter", "dct:identifier": "etudiant_post_bac", "dct:title": "Post-bac", "cprmv:definition": "L'enfant/étudiant est inscrit dans une filière post-bac (impacte le barème de points).", "cprmv:type": "xsd:boolean", "schema:valueRequired": false, "schema:defaultValue": false }
+      ],
+      "cpsv:produces": [
+        { "@type": ["cv:Output", "cprmv:Rule"], "dct:identifier": "value", "dct:title": "Montant de l'aide", "cprmv:definition": "Montant de l'aide à la scolarité calculé, plafonné à 1000€ par enfant et par an, exprimé en euros.", "cprmv:type": "xsd:string" },
+        { "@type": ["cv:Output", "cprmv:Rule"], "dct:identifier": "explanation", "dct:title": "Explication du calcul", "cprmv:definition": "Trace explicative structurée (quotient_familial, criteres_eligibles, aide_scolarite) détaillant chaque étape du calcul.", "cprmv:type": "xsd:string" }
+      ]
+    },
+
+    {
+      "id": "https://github.com/betagouv/prestagri#channel-aide-scolarite",
+      "type": "cv:Channel",
+      "dct:identifier": "prestagri-channel-aide-scolarite",
+      "dct:type": { "@type": "skos:Concept", "skos:prefLabel": { "@value": "En ligne (API)", "@language": "fr" } },
+      "dct:description": { "@value": "Point d'accès HTTP GET, réponses JSON.", "@language": "fr" },
+      "foaf:page": { "id": "https://api.prest-agri.beta.gouv.fr/aide_scolarite" },
+      "cv:ownedBy": { "id": "https://github.com/betagouv/prestagri#organisation" }
+    },
+
+    {
+      "id": "https://github.com/betagouv/prestagri#source-code",
+      "type": "schema:SoftwareSourceCode",
+      "schema:name": "Prest'Agri - moteur de calcul",
+      "schema:description": "Backend FastAPI (Python) exposant des règles de droit codées en Catala (calcul du quotient familial et de l'aide à la scolarité), compilées en bibliothèque Python.",
+      "schema:codeRepository": "https://github.com/betagouv/prestagri/tree/478b3cc2ab28299c73b94fdd192b0559ae5873b8",
+      "schema:programmingLanguage": ["Python", "Catala"],
+      "schema:runtimePlatform": [
+        "Python >= 3.13 (gestionnaire de paquets uv)",
+        "Catala 1.2.0 (compilateur OCaml, installé via opam ; build orchestré par clerk)"
+      ],
+      "schema:softwareRequirements": [
+        "fastapi[standard] >= 0.136.1",
+        "gmpy2 >= 2.3.0",
+        "pyyaml >= 6.0.3, < 7.0.0"
+      ],
+      "schema:softwareVersion": "0.1.0",
+      "px:howTo": {
+        "@type": "schema:HowTo",
+        "schema:name": "Installer et exécuter Prest'Agri",
+        "schema:step": [
+          { "@type": "schema:HowToStep", "schema:name": "Installer les dépendances Python", "schema:text": "cd backend && uv install" },
+          { "@type": "schema:HowToStep", "schema:name": "Compiler les règles Catala vers Python", "schema:text": "cd catala && clerk build  # puis copier catala/_target/prestagri_catala/python/* vers backend/app/catala/generated (voir Taskfile.yml:update_backend_catala)" },
+          { "@type": "schema:HowToStep", "schema:name": "Lancer en développement", "schema:text": "cd backend && uv run fastapi dev" },
+          { "@type": "schema:HowToStep", "schema:name": "Lancer en production (comme sur Scalingo)", "schema:text": "cd backend && uv run uvicorn app.main:app --host 0.0.0.0 --port 8000" },
+          { "@type": "schema:HowToStep", "schema:name": "Lancer les tests Catala", "schema:text": "cd catala && clerk test" }
+        ]
+      }
+    }
+  ]
+}
