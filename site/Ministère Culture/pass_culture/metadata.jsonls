@@ -1,0 +1,182 @@
+{
+  "@context": {
+    "cpsv": "http://purl.org/vocab/cpsv#",
+    "cv": "http://data.europa.eu/m8g/",
+    "dct": "http://purl.org/dc/terms/",
+    "eli": "http://data.europa.eu/eli/ontology#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "schema": "http://schema.org/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "cprmv": "https://regels.overheid.nl/def/cprmv#",
+    "id": "@id",
+    "type": "@type",
+    "title": {
+      "@id": "dct:title",
+      "@language": "fr"
+    },
+    "description": {
+      "@id": "dct:description",
+      "@language": "fr"
+    },
+    "org": "http://www.w3.org/ns/org#"
+  },
+  "@graph": [
+    {
+      "id": "https://github.com/openfisca/openfisca-france#service-pass-culture",
+      "type": "cpsv:PublicService",
+      "dct:identifier": "openfisca-france.pass_culture",
+      "title": "Pass Culture — calcul du montant",
+      "description": "Calcule le montant mensuel du Pass Culture crédité sur le compte d'un jeune, selon son âge. Variable OpenFisca-France, utilisée en production par des simulateurs officiels comme mesdroitssociaux.gouv.fr.",
+      "dct:valid": "2019-02-01/",
+      "cv:hasCompetentAuthority": {
+        "id": "https://github.com/openfisca/openfisca-france#organisation"
+      },
+      "cv:hasLegalResource": [
+        {
+          "id": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000043518870",
+          "type": "eli:LegalResource",
+          "title": "Texte de référence du Pass Culture (JORFTEXT000043518870)"
+        },
+        {
+          "id": "https://www.service-public.fr/particuliers/vosdroits/F34959",
+          "title": "Fiche service-public.fr — Pass Culture",
+          "type": "eli:LegalResource"
+        }
+      ],
+      "cv:hasChannel": {
+        "id": "https://github.com/openfisca/openfisca-france#channel-pass-culture"
+      },
+      "dct:source": [
+        {
+          "id": "https://github.com/openfisca/openfisca-france/blob/9b822b70c7c4c5197113799b54833b5753d13466/openfisca_france/model/prestations/pass_culture.py"
+        },
+        {
+          "id": "https://github.com/openfisca/openfisca-france/blob/9b822b70c7c4c5197113799b54833b5753d13466/openfisca_france/parameters/prestations_sociales/education/pass_culture/montants.yaml"
+        },
+        {
+          "id": "https://github.com/openfisca/openfisca-france/blob/9b822b70c7c4c5197113799b54833b5753d13466/openfisca_france/parameters/prestations_sociales/education/pass_culture/age_maximum.yaml"
+        },
+        {
+          "id": "https://github.com/openfisca/openfisca-france#source-code"
+        }
+      ],
+      "cv:hasInput": [
+        {
+          "type": "cprmv:Parameter",
+          "dct:identifier": "date_naissance",
+          "cprmv:definition": "Date de naissance de l'individu. OpenFisca en dérive automatiquement la variable 'age' (en années, au premier jour du mois) — on peut alternativement fournir 'age' directement si la date exacte est inconnue.",
+          "cprmv:type": "xsd:date",
+          "schema:valueRequired": true,
+          "title": "Date de naissance"
+        },
+        {
+          "type": "cprmv:Parameter",
+          "dct:identifier": "period",
+          "cprmv:definition": "Mois pour lequel le montant est calculé (definition_period = MONTH). La formule lit en réalité l'âge au mois suivant la période demandée (period.offset(1, 'month')).",
+          "cprmv:type": "xsd:gYearMonth",
+          "schema:valueRequired": true,
+          "title": "Période de calcul"
+        }
+      ],
+      "cpsv:produces": {
+        "type": [
+          "cv:Output",
+          "cprmv:Rule"
+        ],
+        "dct:identifier": "pass_culture",
+        "cprmv:definition": "Montant mensuel crédité, en euros, déterminé par un barème par âge (15 à 18 ans) lu dans les paramètres de législation à la date de calcul — ce n'est pas un input utilisateur mais une donnée réglementaire versionnée dans le temps (ex. 150€ à 18 ans depuis le 2025-03-01, contre 300€ auparavant).",
+        "cprmv:type": "xsd:decimal",
+        "title": "Montant du Pass Culture"
+      },
+      "dct:subject": [
+        "pass-culture",
+        "jeunesse",
+        "education",
+        "openfisca"
+      ]
+    },
+    {
+      "id": "https://github.com/openfisca/openfisca-france#organisation",
+      "type": [
+        "cv:PublicOrganisation",
+        "org:Organization"
+      ],
+      "skos:prefLabel": {
+        "@value": "Ministère de la Culture",
+        "@language": "fr"
+      },
+      "dct:spatial": {
+        "id": "http://publications.europa.eu/resource/authority/atu/FRA"
+      }
+    },
+    {
+      "id": "https://github.com/openfisca/openfisca-france#channel-pass-culture",
+      "type": "cv:Channel",
+      "dct:identifier": "openfisca-france-channel-web-api",
+      "dct:type": {
+        "@type": "skos:Concept",
+        "skos:prefLabel": {
+          "@value": "En ligne (API OpenFisca)",
+          "@language": "fr"
+        }
+      },
+      "dct:description": {
+        "@value": "Endpoint POST /calculate de l'API Web OpenFisca-France, avec la variable 'pass_culture' demandée dans le payload. ATTENTION : la documentation OpenFisca elle-même donne deux informations différentes sur l'instance publique — une page la décrit comme réservée au prototypage ('no SLA', à ne pas utiliser en production), une autre indique que Mes Aides (mesdroitssociaux.gouv.fr) s'appuie sur fr.openfisca.org/api/v21 en le présentant comme stable. Pour un vrai usage en production, il est recommandé d'héberger sa propre instance.",
+        "@language": "fr"
+      },
+      "foaf:page": {
+        "id": "https://fr.openfisca.org/legislation/swagger"
+      },
+      "cv:ownedBy": {
+        "id": "https://github.com/openfisca/openfisca-france#organisation"
+      }
+    },
+    {
+      "id": "https://github.com/openfisca/openfisca-france#source-code",
+      "type": "schema:SoftwareSourceCode",
+      "schema:name": "openfisca-france",
+      "schema:description": "Modélisation du système socio-fiscal français pour le moteur OpenFisca. La variable 'pass_culture' calcule le montant du Pass Culture selon l'âge, avec un barème versionné dans le temps.",
+      "schema:codeRepository": "https://github.com/openfisca/openfisca-france/tree/9b822b70c7c4c5197113799b54833b5753d13466",
+      "schema:programmingLanguage": "Python",
+      "schema:runtimePlatform": "Python >= 3.9 (pip, conda-forge ou uv)",
+      "schema:softwareRequirements": [
+        "openfisca-core"
+      ],
+      "schema:subjectOf": {
+        "@type": "schema:HowTo",
+        "schema:name": "Calculer le Pass Culture avec OpenFisca-France",
+        "schema:step": [
+          {
+            "@type": "schema:HowToStep",
+            "schema:name": "Installer le package",
+            "schema:text": "pip install openfisca-france"
+          },
+          {
+            "@type": "schema:HowToStep",
+            "schema:name": "Calculer en Python",
+            "schema:text": "from openfisca_france import FranceTaxBenefitSystem\nfrom openfisca_core.simulation_builder import SimulationBuilder\ntbs = FranceTaxBenefitSystem()\nsb = SimulationBuilder()\nsimulation = sb.build_from_entities(tbs, {\n  'persons': {'jeune': {'date_naissance': {'ETERNITY': '2007-06-01'}}},\n  'menages': {'menage': {'personne_de_reference': ['jeune']}}\n})\nprint(simulation.calculate('pass_culture', '2025-06'))"
+          },
+          {
+            "@type": "schema:HowToStep",
+            "schema:name": "Ou via l'API Web (si une instance est déployée)",
+            "schema:text": "curl https://<votre-instance>/calculate -X POST --data @situation.json --header 'content-type: application/json'  # avec 'pass_culture' dans les variables demandées"
+          },
+          {
+            "@type": "schema:HowToStep",
+            "schema:name": "Lancer les tests de la législation",
+            "schema:text": "openfisca test --country-package openfisca_france tests/ -k pass_culture"
+          }
+        ]
+      }
+    },
+    {
+      "id": "http://publications.europa.eu/resource/authority/atu/FRA",
+      "type": "dct:Location",
+      "skos:prefLabel": {
+        "@value": "France",
+        "@language": "fr"
+      }
+    }
+  ]
+}
