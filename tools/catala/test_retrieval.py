@@ -1,21 +1,21 @@
 import json
-def trace_explorer(trace : dict) -> dict : 
+def trace_explorer(trace : dict, output: dict) -> dict : 
     """ 
     Une fonction qui explore l'arbre de la trace 
     et extrait les valeurs et les noms des inputs avec le tag "only_input"
+
+    Hypothèse : Un seul Scope Call par niveau de trace 
     """
     # parcourt les élements de la trace - à chaque niveau. 
     ele = trace["element"]
     
     if ele["input"] == "only_input" :
-        pos = trace["pos"] 
-        input = pos["value"]
+        value = trace["value"] 
+        output[f"name_{ele["dec1_pos"]["start"]["line"]}_{ele["dec1_pos"]["start"]["character"]}"] = value
     
 
-
-
     # Si input - recupere et continue l'exploration
-
+    trace_explorer(trace["trace"], output)
     # si jamais l'objet trace - si jamais on voit trace n+1 - explorer de trace n+1, sinon sort
 
 
