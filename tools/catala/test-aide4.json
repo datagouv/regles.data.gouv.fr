@@ -1,0 +1,1914 @@
+[
+    {
+        "element": {
+            "kind": "scope_call",
+            "name": "TestCalculPointsAideScolarite4",
+            "decl_pos": {
+                "file": "tests/aide_scolarite/tests_aide_scolarite.catala_fr",
+                "start": {
+                    "line": 239,
+                    "character": 33
+                },
+                "end": {
+                    "line": 239,
+                    "character": 63
+                },
+                "law_headings": [
+                    "Cas N°4 : logement separe, l'adresse des parents est moins avantageuse"
+                ]
+            }
+        },
+        "pos": {
+            "file": "tests/aide_scolarite/tests_aide_scolarite.catala_fr",
+            "start": {
+                "line": 239,
+                "character": 33
+            },
+            "end": {
+                "line": 239,
+                "character": 63
+            },
+            "law_headings": [
+                "Cas N°4 : logement separe, l'adresse des parents est moins avantageuse"
+            ]
+        },
+        "value": {
+            "calcul": {
+                "critères_applicables": [
+                    {
+                        "C2_domiciliation_séparée": "2"
+                    },
+                    {
+                        "C3_éloignement_étudiant": "2"
+                    }
+                ],
+                "nb_points": "4"
+            }
+        },
+        "trace": [
+            {
+                "element": {
+                    "kind": "scope_var",
+                    "name": "calcul",
+                    "decl_pos": {
+                        "file": "tests/aide_scolarite/tests_aide_scolarite.catala_fr",
+                        "start": {
+                            "line": 240,
+                            "character": 12
+                        },
+                        "end": {
+                            "line": 240,
+                            "character": 18
+                        },
+                        "law_headings": [
+                            "Cas N°4 : logement separe, l'adresse des parents est moins avantageuse"
+                        ]
+                    },
+                    "input": "no_input",
+                    "output": true
+                },
+                "pos": {
+                    "file": "tests/aide_scolarite/tests_aide_scolarite.catala_fr",
+                    "start": {
+                        "line": 240,
+                        "character": 12
+                    },
+                    "end": {
+                        "line": 240,
+                        "character": 18
+                    },
+                    "law_headings": [
+                        "Cas N°4 : logement separe, l'adresse des parents est moins avantageuse"
+                    ]
+                },
+                "value": {
+                    "critères_applicables": [
+                        {
+                            "C2_domiciliation_séparée": "2"
+                        },
+                        {
+                            "C3_éloignement_étudiant": "2"
+                        }
+                    ],
+                    "nb_points": "4"
+                },
+                "trace": [
+                    {
+                        "element": {
+                            "kind": "exception",
+                            "cons_pos": {
+                                "file": "tests/aide_scolarite/tests_aide_scolarite.catala_fr",
+                                "start": {
+                                    "line": 244,
+                                    "character": 5
+                                },
+                                "end": {
+                                    "line": 256,
+                                    "character": 6
+                                },
+                                "law_headings": [
+                                    "Cas N°4 : logement separe, l'adresse des parents est moins avantageuse"
+                                ]
+                            }
+                        },
+                        "pos": {
+                            "file": "tests/aide_scolarite/tests_aide_scolarite.catala_fr",
+                            "start": {
+                                "line": 243,
+                                "character": 14
+                            },
+                            "end": {
+                                "line": 243,
+                                "character": 20
+                            },
+                            "law_headings": [
+                                "Cas N°4 : logement separe, l'adresse des parents est moins avantageuse"
+                            ]
+                        },
+                        "value": true
+                    },
+                    {
+                        "element": {
+                            "kind": "scope_call",
+                            "name": "CalculPointsAideScolarite",
+                            "decl_pos": {
+                                "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                "start": {
+                                    "line": 189,
+                                    "character": 33
+                                },
+                                "end": {
+                                    "line": 189,
+                                    "character": 58
+                                },
+                                "law_headings": [
+                                    "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                    "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                    "AIDE À LA SCOLARITÉ"
+                                ]
+                            }
+                        },
+                        "pos": {
+                            "file": "tests/aide_scolarite/tests_aide_scolarite.catala_fr",
+                            "start": {
+                                "line": 244,
+                                "character": 5
+                            },
+                            "end": {
+                                "line": 256,
+                                "character": 6
+                            },
+                            "law_headings": [
+                                "Cas N°4 : logement separe, l'adresse des parents est moins avantageuse"
+                            ]
+                        },
+                        "value": {
+                            "critères_applicables": [
+                                {
+                                    "C2_domiciliation_séparée": "2"
+                                },
+                                {
+                                    "C3_éloignement_étudiant": "2"
+                                }
+                            ],
+                            "nb_points": "4"
+                        },
+                        "trace": [
+                            {
+                                "element": {
+                                    "kind": "scope_var",
+                                    "name": "trajet_depuis_domicile_agent",
+                                    "decl_pos": {
+                                        "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                        "start": {
+                                            "line": 190,
+                                            "character": 10
+                                        },
+                                        "end": {
+                                            "line": 190,
+                                            "character": 38
+                                        },
+                                        "law_headings": [
+                                            "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                            "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                            "AIDE À LA SCOLARITÉ"
+                                        ]
+                                    },
+                                    "input": "only_input",
+                                    "output": false
+                                },
+                                "pos": {
+                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                    "start": {
+                                        "line": 189,
+                                        "character": 33
+                                    },
+                                    "end": {
+                                        "line": 189,
+                                        "character": 58
+                                    },
+                                    "law_headings": [
+                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                        "AIDE À LA SCOLARITÉ"
+                                    ]
+                                },
+                                "value": {
+                                    "distance_km": "60",
+                                    "durée_minutes": "50"
+                                }
+                            },
+                            {
+                                "element": {
+                                    "kind": "scope_var",
+                                    "name": "trajet_depuis_domicile_étudiant",
+                                    "decl_pos": {
+                                        "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                        "start": {
+                                            "line": 191,
+                                            "character": 10
+                                        },
+                                        "end": {
+                                            "line": 191,
+                                            "character": 41
+                                        },
+                                        "law_headings": [
+                                            "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                            "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                            "AIDE À LA SCOLARITÉ"
+                                        ]
+                                    },
+                                    "input": "only_input",
+                                    "output": false
+                                },
+                                "pos": {
+                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                    "start": {
+                                        "line": 189,
+                                        "character": 33
+                                    },
+                                    "end": {
+                                        "line": 189,
+                                        "character": 58
+                                    },
+                                    "law_headings": [
+                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                        "AIDE À LA SCOLARITÉ"
+                                    ]
+                                },
+                                "value": {
+                                    "Présent": {
+                                        "distance_km": "32",
+                                        "durée_minutes": "20"
+                                    }
+                                }
+                            },
+                            {
+                                "element": {
+                                    "kind": "scope_var",
+                                    "name": "montant_matériel_spécifique",
+                                    "decl_pos": {
+                                        "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                        "start": {
+                                            "line": 192,
+                                            "character": 10
+                                        },
+                                        "end": {
+                                            "line": 192,
+                                            "character": 37
+                                        },
+                                        "law_headings": [
+                                            "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                            "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                            "AIDE À LA SCOLARITÉ"
+                                        ]
+                                    },
+                                    "input": "only_input",
+                                    "output": false
+                                },
+                                "pos": {
+                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                    "start": {
+                                        "line": 189,
+                                        "character": 33
+                                    },
+                                    "end": {
+                                        "line": 189,
+                                        "character": 58
+                                    },
+                                    "law_headings": [
+                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                        "AIDE À LA SCOLARITÉ"
+                                    ]
+                                },
+                                "value": "0.00"
+                            },
+                            {
+                                "element": {
+                                    "kind": "scope_var",
+                                    "name": "valeur_point",
+                                    "decl_pos": {
+                                        "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                        "start": {
+                                            "line": 193,
+                                            "character": 10
+                                        },
+                                        "end": {
+                                            "line": 193,
+                                            "character": 22
+                                        },
+                                        "law_headings": [
+                                            "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                            "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                            "AIDE À LA SCOLARITÉ"
+                                        ]
+                                    },
+                                    "input": "only_input",
+                                    "output": false
+                                },
+                                "pos": {
+                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                    "start": {
+                                        "line": 189,
+                                        "character": 33
+                                    },
+                                    "end": {
+                                        "line": 189,
+                                        "character": 58
+                                    },
+                                    "law_headings": [
+                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                        "AIDE À LA SCOLARITÉ"
+                                    ]
+                                },
+                                "value": "10.00"
+                            },
+                            {
+                                "element": {
+                                    "kind": "scope_var",
+                                    "name": "étudiant_en_filière_post_bac",
+                                    "decl_pos": {
+                                        "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                        "start": {
+                                            "line": 194,
+                                            "character": 10
+                                        },
+                                        "end": {
+                                            "line": 194,
+                                            "character": 38
+                                        },
+                                        "law_headings": [
+                                            "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                            "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                            "AIDE À LA SCOLARITÉ"
+                                        ]
+                                    },
+                                    "input": "only_input",
+                                    "output": false
+                                },
+                                "pos": {
+                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                    "start": {
+                                        "line": 189,
+                                        "character": 33
+                                    },
+                                    "end": {
+                                        "line": 189,
+                                        "character": 58
+                                    },
+                                    "law_headings": [
+                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                        "AIDE À LA SCOLARITÉ"
+                                    ]
+                                },
+                                "value": false
+                            },
+                            {
+                                "element": {
+                                    "kind": "scope_var",
+                                    "name": "points_domiciliation_séparée",
+                                    "decl_pos": {
+                                        "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                        "start": {
+                                            "line": 195,
+                                            "character": 11
+                                        },
+                                        "end": {
+                                            "line": 195,
+                                            "character": 39
+                                        },
+                                        "law_headings": [
+                                            "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                            "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                            "AIDE À LA SCOLARITÉ"
+                                        ]
+                                    },
+                                    "input": "no_input",
+                                    "output": false
+                                },
+                                "pos": {
+                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                    "start": {
+                                        "line": 195,
+                                        "character": 11
+                                    },
+                                    "end": {
+                                        "line": 195,
+                                        "character": 39
+                                    },
+                                    "law_headings": [
+                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                        "AIDE À LA SCOLARITÉ"
+                                    ]
+                                },
+                                "value": {
+                                    "Présent": [
+                                        "2",
+                                        {
+                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                            "start": {
+                                                "line": 195,
+                                                "character": 11
+                                            },
+                                            "end": {
+                                                "line": 195,
+                                                "character": 39
+                                            },
+                                            "law_headings": [
+                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                "AIDE À LA SCOLARITÉ"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "element": {
+                                    "kind": "scope_var",
+                                    "name": "critères_applicables#base",
+                                    "decl_pos": {
+                                        "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                        "start": {
+                                            "line": 197,
+                                            "character": 10
+                                        },
+                                        "end": {
+                                            "line": 197,
+                                            "character": 14
+                                        },
+                                        "law_headings": [
+                                            "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                            "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                            "AIDE À LA SCOLARITÉ"
+                                        ]
+                                    },
+                                    "input": "no_input",
+                                    "output": false
+                                },
+                                "pos": {
+                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                    "start": {
+                                        "line": 196,
+                                        "character": 12
+                                    },
+                                    "end": {
+                                        "line": 196,
+                                        "character": 32
+                                    },
+                                    "law_headings": [
+                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                        "AIDE À LA SCOLARITÉ"
+                                    ]
+                                },
+                                "value": {
+                                    "Présent": [
+                                        [],
+                                        {
+                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                            "start": {
+                                                "line": 196,
+                                                "character": 12
+                                            },
+                                            "end": {
+                                                "line": 196,
+                                                "character": 32
+                                            },
+                                            "law_headings": [
+                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                "AIDE À LA SCOLARITÉ"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "element": {
+                                    "kind": "scope_var",
+                                    "name": "critères_applicables#domiciliation_séparée",
+                                    "decl_pos": {
+                                        "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                        "start": {
+                                            "line": 198,
+                                            "character": 10
+                                        },
+                                        "end": {
+                                            "line": 198,
+                                            "character": 31
+                                        },
+                                        "law_headings": [
+                                            "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                            "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                            "AIDE À LA SCOLARITÉ"
+                                        ]
+                                    },
+                                    "input": "no_input",
+                                    "output": false
+                                },
+                                "pos": {
+                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                    "start": {
+                                        "line": 196,
+                                        "character": 12
+                                    },
+                                    "end": {
+                                        "line": 196,
+                                        "character": 32
+                                    },
+                                    "law_headings": [
+                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                        "AIDE À LA SCOLARITÉ"
+                                    ]
+                                },
+                                "value": {
+                                    "Présent": [
+                                        [
+                                            {
+                                                "C2_domiciliation_séparée": "2"
+                                            }
+                                        ],
+                                        {
+                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                            "start": {
+                                                "line": 196,
+                                                "character": 12
+                                            },
+                                            "end": {
+                                                "line": 196,
+                                                "character": 32
+                                            },
+                                            "law_headings": [
+                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                "AIDE À LA SCOLARITÉ"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "trace": [
+                                    {
+                                        "element": {
+                                            "kind": "branch_condition"
+                                        },
+                                        "pos": {
+                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                            "start": {
+                                                "line": 231,
+                                                "character": 8
+                                            },
+                                            "end": {
+                                                "line": 231,
+                                                "character": 58
+                                            },
+                                            "law_headings": [
+                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                "AIDE À LA SCOLARITÉ"
+                                            ]
+                                        },
+                                        "value": true,
+                                        "trace": [
+                                            {
+                                                "element": {
+                                                    "kind": "branch_condition"
+                                                },
+                                                "pos": {
+                                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                    "start": {
+                                                        "line": 231,
+                                                        "character": 8
+                                                    },
+                                                    "end": {
+                                                        "line": 231,
+                                                        "character": 39
+                                                    },
+                                                    "law_headings": [
+                                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                        "AIDE À LA SCOLARITÉ"
+                                                    ]
+                                                },
+                                                "value": {
+                                                    "Présent": {
+                                                        "distance_km": "32",
+                                                        "durée_minutes": "20"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "element": {
+                                                    "kind": "match_branching",
+                                                    "constructor": "Present"
+                                                },
+                                                "pos": {
+                                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                    "start": {
+                                                        "line": 231,
+                                                        "character": 8
+                                                    },
+                                                    "end": {
+                                                        "line": 231,
+                                                        "character": 58
+                                                    },
+                                                    "law_headings": [
+                                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                        "AIDE À LA SCOLARITÉ"
+                                                    ]
+                                                },
+                                                "value": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "element": {
+                                            "kind": "if_branching"
+                                        },
+                                        "pos": {
+                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                            "start": {
+                                                "line": 232,
+                                                "character": 11
+                                            },
+                                            "end": {
+                                                "line": 232,
+                                                "character": 100
+                                            },
+                                            "law_headings": [
+                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                "AIDE À LA SCOLARITÉ"
+                                            ]
+                                        },
+                                        "value": [
+                                            {
+                                                "C2_domiciliation_séparée": "2"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "element": {
+                                    "kind": "scope_var",
+                                    "name": "critères_applicables#éloignement",
+                                    "decl_pos": {
+                                        "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                        "start": {
+                                            "line": 199,
+                                            "character": 10
+                                        },
+                                        "end": {
+                                            "line": 199,
+                                            "character": 21
+                                        },
+                                        "law_headings": [
+                                            "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                            "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                            "AIDE À LA SCOLARITÉ"
+                                        ]
+                                    },
+                                    "input": "no_input",
+                                    "output": false
+                                },
+                                "pos": {
+                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                    "start": {
+                                        "line": 196,
+                                        "character": 12
+                                    },
+                                    "end": {
+                                        "line": 196,
+                                        "character": 32
+                                    },
+                                    "law_headings": [
+                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                        "AIDE À LA SCOLARITÉ"
+                                    ]
+                                },
+                                "value": {
+                                    "Présent": [
+                                        [
+                                            {
+                                                "C2_domiciliation_séparée": "2"
+                                            },
+                                            {
+                                                "C3_éloignement_étudiant": "2"
+                                            }
+                                        ],
+                                        {
+                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                            "start": {
+                                                "line": 196,
+                                                "character": 12
+                                            },
+                                            "end": {
+                                                "line": 196,
+                                                "character": 32
+                                            },
+                                            "law_headings": [
+                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                "AIDE À LA SCOLARITÉ"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "trace": [
+                                    {
+                                        "element": {
+                                            "kind": "local_var",
+                                            "name": "points_domicile_agent"
+                                        },
+                                        "pos": {
+                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                            "start": {
+                                                "line": 255,
+                                                "character": 10
+                                            },
+                                            "end": {
+                                                "line": 255,
+                                                "character": 31
+                                            },
+                                            "law_headings": [
+                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                "AIDE À LA SCOLARITÉ"
+                                            ]
+                                        },
+                                        "value": "2",
+                                        "trace": [
+                                            {
+                                                "element": {
+                                                    "kind": "scope_call",
+                                                    "name": "CalculPointsTrajet",
+                                                    "decl_pos": {
+                                                        "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                        "start": {
+                                                            "line": 265,
+                                                            "character": 33
+                                                        },
+                                                        "end": {
+                                                            "line": 265,
+                                                            "character": 51
+                                                        },
+                                                        "law_headings": [
+                                                            "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                            "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                            "AIDE À LA SCOLARITÉ"
+                                                        ]
+                                                    }
+                                                },
+                                                "pos": {
+                                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                    "start": {
+                                                        "line": 255,
+                                                        "character": 39
+                                                    },
+                                                    "end": {
+                                                        "line": 255,
+                                                        "character": 134
+                                                    },
+                                                    "law_headings": [
+                                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                        "AIDE À LA SCOLARITÉ"
+                                                    ]
+                                                },
+                                                "value": {
+                                                    "nb_points": "2"
+                                                },
+                                                "trace": [
+                                                    {
+                                                        "element": {
+                                                            "kind": "scope_var",
+                                                            "name": "trajet",
+                                                            "decl_pos": {
+                                                                "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                                "start": {
+                                                                    "line": 266,
+                                                                    "character": 10
+                                                                },
+                                                                "end": {
+                                                                    "line": 266,
+                                                                    "character": 16
+                                                                },
+                                                                "law_headings": [
+                                                                    "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                                    "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                                    "AIDE À LA SCOLARITÉ"
+                                                                ]
+                                                            },
+                                                            "input": "only_input",
+                                                            "output": false
+                                                        },
+                                                        "pos": {
+                                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                            "start": {
+                                                                "line": 265,
+                                                                "character": 33
+                                                            },
+                                                            "end": {
+                                                                "line": 265,
+                                                                "character": 51
+                                                            },
+                                                            "law_headings": [
+                                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                                "AIDE À LA SCOLARITÉ"
+                                                            ]
+                                                        },
+                                                        "value": {
+                                                            "Présent": {
+                                                                "distance_km": "60",
+                                                                "durée_minutes": "50"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "element": {
+                                                            "kind": "scope_var",
+                                                            "name": "nb_points",
+                                                            "decl_pos": {
+                                                                "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                                "start": {
+                                                                    "line": 267,
+                                                                    "character": 12
+                                                                },
+                                                                "end": {
+                                                                    "line": 267,
+                                                                    "character": 21
+                                                                },
+                                                                "law_headings": [
+                                                                    "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                                    "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                                    "AIDE À LA SCOLARITÉ"
+                                                                ]
+                                                            },
+                                                            "input": "no_input",
+                                                            "output": true
+                                                        },
+                                                        "pos": {
+                                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                            "start": {
+                                                                "line": 267,
+                                                                "character": 12
+                                                            },
+                                                            "end": {
+                                                                "line": 267,
+                                                                "character": 21
+                                                            },
+                                                            "law_headings": [
+                                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                                "AIDE À LA SCOLARITÉ"
+                                                            ]
+                                                        },
+                                                        "value": "2",
+                                                        "trace": [
+                                                            {
+                                                                "element": {
+                                                                    "kind": "branch_condition"
+                                                                },
+                                                                "pos": {
+                                                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                                    "start": {
+                                                                        "line": 273,
+                                                                        "character": 11
+                                                                    },
+                                                                    "end": {
+                                                                        "line": 273,
+                                                                        "character": 17
+                                                                    },
+                                                                    "law_headings": [
+                                                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                                        "AIDE À LA SCOLARITÉ"
+                                                                    ]
+                                                                },
+                                                                "value": {
+                                                                    "Présent": {
+                                                                        "distance_km": "60",
+                                                                        "durée_minutes": "50"
+                                                                    }
+                                                                }
+                                                            },
+                                                            {
+                                                                "element": {
+                                                                    "kind": "match_branching",
+                                                                    "constructor": "Present"
+                                                                },
+                                                                "pos": {
+                                                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                                    "start": {
+                                                                        "line": 276,
+                                                                        "character": 7
+                                                                    },
+                                                                    "end": {
+                                                                        "line": 280,
+                                                                        "character": 20
+                                                                    },
+                                                                    "law_headings": [
+                                                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                                        "AIDE À LA SCOLARITÉ"
+                                                                    ]
+                                                                },
+                                                                "value": "2",
+                                                                "trace": [
+                                                                    {
+                                                                        "element": {
+                                                                            "kind": "branch_condition"
+                                                                        },
+                                                                        "pos": {
+                                                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                                            "start": {
+                                                                                "line": 276,
+                                                                                "character": 10
+                                                                            },
+                                                                            "end": {
+                                                                                "line": 276,
+                                                                                "character": 42
+                                                                            },
+                                                                            "law_headings": [
+                                                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                                                "AIDE À LA SCOLARITÉ"
+                                                                            ]
+                                                                        },
+                                                                        "value": false
+                                                                    },
+                                                                    {
+                                                                        "element": {
+                                                                            "kind": "if_branching"
+                                                                        },
+                                                                        "pos": {
+                                                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                                            "start": {
+                                                                                "line": 278,
+                                                                                "character": 15
+                                                                            },
+                                                                            "end": {
+                                                                                "line": 280,
+                                                                                "character": 20
+                                                                            },
+                                                                            "law_headings": [
+                                                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                                                "AIDE À LA SCOLARITÉ"
+                                                                            ]
+                                                                        },
+                                                                        "value": "2",
+                                                                        "trace": [
+                                                                            {
+                                                                                "element": {
+                                                                                    "kind": "branch_condition"
+                                                                                },
+                                                                                "pos": {
+                                                                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                                                    "start": {
+                                                                                        "line": 278,
+                                                                                        "character": 18
+                                                                                    },
+                                                                                    "end": {
+                                                                                        "line": 278,
+                                                                                        "character": 86
+                                                                                    },
+                                                                                    "law_headings": [
+                                                                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                                                        "AIDE À LA SCOLARITÉ"
+                                                                                    ]
+                                                                                },
+                                                                                "value": true
+                                                                            },
+                                                                            {
+                                                                                "element": {
+                                                                                    "kind": "if_branching"
+                                                                                },
+                                                                                "pos": {
+                                                                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                                                    "start": {
+                                                                                        "line": 279,
+                                                                                        "character": 17
+                                                                                    },
+                                                                                    "end": {
+                                                                                        "line": 279,
+                                                                                        "character": 20
+                                                                                    },
+                                                                                    "law_headings": [
+                                                                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                                                        "AIDE À LA SCOLARITÉ"
+                                                                                    ]
+                                                                                },
+                                                                                "value": "2"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "element": {
+                                            "kind": "local_var",
+                                            "name": "points_domicile_étudiant"
+                                        },
+                                        "pos": {
+                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                            "start": {
+                                                "line": 256,
+                                                "character": 10
+                                            },
+                                            "end": {
+                                                "line": 256,
+                                                "character": 34
+                                            },
+                                            "law_headings": [
+                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                "AIDE À LA SCOLARITÉ"
+                                            ]
+                                        },
+                                        "value": "2",
+                                        "trace": [
+                                            {
+                                                "element": {
+                                                    "kind": "scope_call",
+                                                    "name": "CalculPointsTrajet",
+                                                    "decl_pos": {
+                                                        "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                        "start": {
+                                                            "line": 265,
+                                                            "character": 33
+                                                        },
+                                                        "end": {
+                                                            "line": 265,
+                                                            "character": 51
+                                                        },
+                                                        "law_headings": [
+                                                            "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                            "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                            "AIDE À LA SCOLARITÉ"
+                                                        ]
+                                                    }
+                                                },
+                                                "pos": {
+                                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                    "start": {
+                                                        "line": 256,
+                                                        "character": 42
+                                                    },
+                                                    "end": {
+                                                        "line": 256,
+                                                        "character": 124
+                                                    },
+                                                    "law_headings": [
+                                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                        "AIDE À LA SCOLARITÉ"
+                                                    ]
+                                                },
+                                                "value": {
+                                                    "nb_points": "2"
+                                                },
+                                                "trace": [
+                                                    {
+                                                        "element": {
+                                                            "kind": "scope_var",
+                                                            "name": "trajet",
+                                                            "decl_pos": {
+                                                                "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                                "start": {
+                                                                    "line": 266,
+                                                                    "character": 10
+                                                                },
+                                                                "end": {
+                                                                    "line": 266,
+                                                                    "character": 16
+                                                                },
+                                                                "law_headings": [
+                                                                    "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                                    "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                                    "AIDE À LA SCOLARITÉ"
+                                                                ]
+                                                            },
+                                                            "input": "only_input",
+                                                            "output": false
+                                                        },
+                                                        "pos": {
+                                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                            "start": {
+                                                                "line": 265,
+                                                                "character": 33
+                                                            },
+                                                            "end": {
+                                                                "line": 265,
+                                                                "character": 51
+                                                            },
+                                                            "law_headings": [
+                                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                                "AIDE À LA SCOLARITÉ"
+                                                            ]
+                                                        },
+                                                        "value": {
+                                                            "Présent": {
+                                                                "distance_km": "32",
+                                                                "durée_minutes": "20"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "element": {
+                                                            "kind": "scope_var",
+                                                            "name": "nb_points",
+                                                            "decl_pos": {
+                                                                "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                                "start": {
+                                                                    "line": 267,
+                                                                    "character": 12
+                                                                },
+                                                                "end": {
+                                                                    "line": 267,
+                                                                    "character": 21
+                                                                },
+                                                                "law_headings": [
+                                                                    "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                                    "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                                    "AIDE À LA SCOLARITÉ"
+                                                                ]
+                                                            },
+                                                            "input": "no_input",
+                                                            "output": true
+                                                        },
+                                                        "pos": {
+                                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                            "start": {
+                                                                "line": 267,
+                                                                "character": 12
+                                                            },
+                                                            "end": {
+                                                                "line": 267,
+                                                                "character": 21
+                                                            },
+                                                            "law_headings": [
+                                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                                "AIDE À LA SCOLARITÉ"
+                                                            ]
+                                                        },
+                                                        "value": "2",
+                                                        "trace": [
+                                                            {
+                                                                "element": {
+                                                                    "kind": "branch_condition"
+                                                                },
+                                                                "pos": {
+                                                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                                    "start": {
+                                                                        "line": 273,
+                                                                        "character": 11
+                                                                    },
+                                                                    "end": {
+                                                                        "line": 273,
+                                                                        "character": 17
+                                                                    },
+                                                                    "law_headings": [
+                                                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                                        "AIDE À LA SCOLARITÉ"
+                                                                    ]
+                                                                },
+                                                                "value": {
+                                                                    "Présent": {
+                                                                        "distance_km": "32",
+                                                                        "durée_minutes": "20"
+                                                                    }
+                                                                }
+                                                            },
+                                                            {
+                                                                "element": {
+                                                                    "kind": "match_branching",
+                                                                    "constructor": "Present"
+                                                                },
+                                                                "pos": {
+                                                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                                    "start": {
+                                                                        "line": 276,
+                                                                        "character": 7
+                                                                    },
+                                                                    "end": {
+                                                                        "line": 280,
+                                                                        "character": 20
+                                                                    },
+                                                                    "law_headings": [
+                                                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                                        "AIDE À LA SCOLARITÉ"
+                                                                    ]
+                                                                },
+                                                                "value": "2",
+                                                                "trace": [
+                                                                    {
+                                                                        "element": {
+                                                                            "kind": "branch_condition"
+                                                                        },
+                                                                        "pos": {
+                                                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                                            "start": {
+                                                                                "line": 276,
+                                                                                "character": 10
+                                                                            },
+                                                                            "end": {
+                                                                                "line": 276,
+                                                                                "character": 42
+                                                                            },
+                                                                            "law_headings": [
+                                                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                                                "AIDE À LA SCOLARITÉ"
+                                                                            ]
+                                                                        },
+                                                                        "value": false
+                                                                    },
+                                                                    {
+                                                                        "element": {
+                                                                            "kind": "if_branching"
+                                                                        },
+                                                                        "pos": {
+                                                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                                            "start": {
+                                                                                "line": 278,
+                                                                                "character": 15
+                                                                            },
+                                                                            "end": {
+                                                                                "line": 280,
+                                                                                "character": 20
+                                                                            },
+                                                                            "law_headings": [
+                                                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                                                "AIDE À LA SCOLARITÉ"
+                                                                            ]
+                                                                        },
+                                                                        "value": "2",
+                                                                        "trace": [
+                                                                            {
+                                                                                "element": {
+                                                                                    "kind": "branch_condition"
+                                                                                },
+                                                                                "pos": {
+                                                                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                                                    "start": {
+                                                                                        "line": 278,
+                                                                                        "character": 18
+                                                                                    },
+                                                                                    "end": {
+                                                                                        "line": 278,
+                                                                                        "character": 86
+                                                                                    },
+                                                                                    "law_headings": [
+                                                                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                                                        "AIDE À LA SCOLARITÉ"
+                                                                                    ]
+                                                                                },
+                                                                                "value": true
+                                                                            },
+                                                                            {
+                                                                                "element": {
+                                                                                    "kind": "if_branching"
+                                                                                },
+                                                                                "pos": {
+                                                                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                                                    "start": {
+                                                                                        "line": 279,
+                                                                                        "character": 17
+                                                                                    },
+                                                                                    "end": {
+                                                                                        "line": 279,
+                                                                                        "character": 20
+                                                                                    },
+                                                                                    "law_headings": [
+                                                                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                                                        "AIDE À LA SCOLARITÉ"
+                                                                                    ]
+                                                                                },
+                                                                                "value": "2"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "element": {
+                                            "kind": "branch_condition"
+                                        },
+                                        "pos": {
+                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                            "start": {
+                                                "line": 257,
+                                                "character": 8
+                                            },
+                                            "end": {
+                                                "line": 257,
+                                                "character": 124
+                                            },
+                                            "law_headings": [
+                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                "AIDE À LA SCOLARITÉ"
+                                            ]
+                                        },
+                                        "value": true
+                                    },
+                                    {
+                                        "element": {
+                                            "kind": "if_branching"
+                                        },
+                                        "pos": {
+                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                            "start": {
+                                                "line": 258,
+                                                "character": 13
+                                            },
+                                            "end": {
+                                                "line": 258,
+                                                "character": 95
+                                            },
+                                            "law_headings": [
+                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                "AIDE À LA SCOLARITÉ"
+                                            ]
+                                        },
+                                        "value": [
+                                            {
+                                                "C2_domiciliation_séparée": "2"
+                                            },
+                                            {
+                                                "C3_éloignement_étudiant": "2"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "element": {
+                                    "kind": "scope_var",
+                                    "name": "critères_applicables#matériel_spécifique",
+                                    "decl_pos": {
+                                        "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                        "start": {
+                                            "line": 200,
+                                            "character": 10
+                                        },
+                                        "end": {
+                                            "line": 200,
+                                            "character": 29
+                                        },
+                                        "law_headings": [
+                                            "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                            "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                            "AIDE À LA SCOLARITÉ"
+                                        ]
+                                    },
+                                    "input": "no_input",
+                                    "output": false
+                                },
+                                "pos": {
+                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                    "start": {
+                                        "line": 196,
+                                        "character": 12
+                                    },
+                                    "end": {
+                                        "line": 196,
+                                        "character": 32
+                                    },
+                                    "law_headings": [
+                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                        "AIDE À LA SCOLARITÉ"
+                                    ]
+                                },
+                                "value": {
+                                    "Présent": [
+                                        [
+                                            {
+                                                "C2_domiciliation_séparée": "2"
+                                            },
+                                            {
+                                                "C3_éloignement_étudiant": "2"
+                                            }
+                                        ],
+                                        {
+                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                            "start": {
+                                                "line": 196,
+                                                "character": 12
+                                            },
+                                            "end": {
+                                                "line": 196,
+                                                "character": 32
+                                            },
+                                            "law_headings": [
+                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                "AIDE À LA SCOLARITÉ"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "trace": [
+                                    {
+                                        "element": {
+                                            "kind": "local_var",
+                                            "name": "montant_eligible"
+                                        },
+                                        "pos": {
+                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                            "start": {
+                                                "line": 308,
+                                                "character": 10
+                                            },
+                                            "end": {
+                                                "line": 308,
+                                                "character": 26
+                                            },
+                                            "law_headings": [
+                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                "AIDE À LA SCOLARITÉ"
+                                            ]
+                                        },
+                                        "value": "0.00"
+                                    },
+                                    {
+                                        "element": {
+                                            "kind": "local_var",
+                                            "name": "points"
+                                        },
+                                        "pos": {
+                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                            "start": {
+                                                "line": 309,
+                                                "character": 10
+                                            },
+                                            "end": {
+                                                "line": 309,
+                                                "character": 16
+                                            },
+                                            "law_headings": [
+                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                "AIDE À LA SCOLARITÉ"
+                                            ]
+                                        },
+                                        "value": "0"
+                                    },
+                                    {
+                                        "element": {
+                                            "kind": "branch_condition"
+                                        },
+                                        "pos": {
+                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                            "start": {
+                                                "line": 310,
+                                                "character": 8
+                                            },
+                                            "end": {
+                                                "line": 310,
+                                                "character": 20
+                                            },
+                                            "law_headings": [
+                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                "AIDE À LA SCOLARITÉ"
+                                            ]
+                                        },
+                                        "value": false
+                                    },
+                                    {
+                                        "element": {
+                                            "kind": "if_branching"
+                                        },
+                                        "pos": {
+                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                            "start": {
+                                                "line": 312,
+                                                "character": 11
+                                            },
+                                            "end": {
+                                                "line": 312,
+                                                "character": 31
+                                            },
+                                            "law_headings": [
+                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                "AIDE À LA SCOLARITÉ"
+                                            ]
+                                        },
+                                        "value": [
+                                            {
+                                                "C2_domiciliation_séparée": "2"
+                                            },
+                                            {
+                                                "C3_éloignement_étudiant": "2"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "element": {
+                                    "kind": "scope_var",
+                                    "name": "critères_applicables#études_supérieures",
+                                    "decl_pos": {
+                                        "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                        "start": {
+                                            "line": 201,
+                                            "character": 10
+                                        },
+                                        "end": {
+                                            "line": 201,
+                                            "character": 28
+                                        },
+                                        "law_headings": [
+                                            "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                            "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                            "AIDE À LA SCOLARITÉ"
+                                        ]
+                                    },
+                                    "input": "no_input",
+                                    "output": true
+                                },
+                                "pos": {
+                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                    "start": {
+                                        "line": 196,
+                                        "character": 12
+                                    },
+                                    "end": {
+                                        "line": 196,
+                                        "character": 32
+                                    },
+                                    "law_headings": [
+                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                        "AIDE À LA SCOLARITÉ"
+                                    ]
+                                },
+                                "value": [
+                                    {
+                                        "C2_domiciliation_séparée": "2"
+                                    },
+                                    {
+                                        "C3_éloignement_étudiant": "2"
+                                    }
+                                ],
+                                "trace": [
+                                    {
+                                        "element": {
+                                            "kind": "branch_condition"
+                                        },
+                                        "pos": {
+                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                            "start": {
+                                                "line": 324,
+                                                "character": 8
+                                            },
+                                            "end": {
+                                                "line": 327,
+                                                "character": 101
+                                            },
+                                            "law_headings": [
+                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                "AIDE À LA SCOLARITÉ"
+                                            ]
+                                        },
+                                        "value": false
+                                    },
+                                    {
+                                        "element": {
+                                            "kind": "if_branching"
+                                        },
+                                        "pos": {
+                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                            "start": {
+                                                "line": 329,
+                                                "character": 11
+                                            },
+                                            "end": {
+                                                "line": 329,
+                                                "character": 31
+                                            },
+                                            "law_headings": [
+                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                "AIDE À LA SCOLARITÉ"
+                                            ]
+                                        },
+                                        "value": [
+                                            {
+                                                "C2_domiciliation_séparée": "2"
+                                            },
+                                            {
+                                                "C3_éloignement_étudiant": "2"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "element": {
+                                    "kind": "scope_var",
+                                    "name": "nb_points",
+                                    "decl_pos": {
+                                        "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                        "start": {
+                                            "line": 202,
+                                            "character": 12
+                                        },
+                                        "end": {
+                                            "line": 202,
+                                            "character": 21
+                                        },
+                                        "law_headings": [
+                                            "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                            "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                            "AIDE À LA SCOLARITÉ"
+                                        ]
+                                    },
+                                    "input": "no_input",
+                                    "output": true
+                                },
+                                "pos": {
+                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                    "start": {
+                                        "line": 202,
+                                        "character": 12
+                                    },
+                                    "end": {
+                                        "line": 202,
+                                        "character": 21
+                                    },
+                                    "law_headings": [
+                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                        "AIDE À LA SCOLARITÉ"
+                                    ]
+                                },
+                                "value": "4",
+                                "trace": [
+                                    {
+                                        "element": {
+                                            "kind": "local_var",
+                                            "name": "points"
+                                        },
+                                        "pos": {
+                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                            "start": {
+                                                "line": 209,
+                                                "character": 10
+                                            },
+                                            "end": {
+                                                "line": 209,
+                                                "character": 16
+                                            },
+                                            "law_headings": [
+                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                "AIDE À LA SCOLARITÉ"
+                                            ]
+                                        },
+                                        "value": [
+                                            "2",
+                                            "2"
+                                        ],
+                                        "trace": [
+                                            {
+                                                "element": {
+                                                    "kind": "branch_condition"
+                                                },
+                                                "pos": {
+                                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                    "start": {
+                                                        "line": 211,
+                                                        "character": 15
+                                                    },
+                                                    "end": {
+                                                        "line": 211,
+                                                        "character": 16
+                                                    },
+                                                    "law_headings": [
+                                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                        "AIDE À LA SCOLARITÉ"
+                                                    ]
+                                                },
+                                                "value": {
+                                                    "C2_domiciliation_séparée": "2"
+                                                }
+                                            },
+                                            {
+                                                "element": {
+                                                    "kind": "match_branching",
+                                                    "constructor": "C2_domiciliation_séparée"
+                                                },
+                                                "pos": {
+                                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                    "start": {
+                                                        "line": 212,
+                                                        "character": 55
+                                                    },
+                                                    "end": {
+                                                        "line": 212,
+                                                        "character": 63
+                                                    },
+                                                    "law_headings": [
+                                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                        "AIDE À LA SCOLARITÉ"
+                                                    ]
+                                                },
+                                                "value": "2"
+                                            },
+                                            {
+                                                "element": {
+                                                    "kind": "branch_condition"
+                                                },
+                                                "pos": {
+                                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                    "start": {
+                                                        "line": 211,
+                                                        "character": 15
+                                                    },
+                                                    "end": {
+                                                        "line": 211,
+                                                        "character": 16
+                                                    },
+                                                    "law_headings": [
+                                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                        "AIDE À LA SCOLARITÉ"
+                                                    ]
+                                                },
+                                                "value": {
+                                                    "C3_éloignement_étudiant": "2"
+                                                }
+                                            },
+                                            {
+                                                "element": {
+                                                    "kind": "match_branching",
+                                                    "constructor": "C3_éloignement_étudiant"
+                                                },
+                                                "pos": {
+                                                    "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                    "start": {
+                                                        "line": 214,
+                                                        "character": 54
+                                                    },
+                                                    "end": {
+                                                        "line": 214,
+                                                        "character": 62
+                                                    },
+                                                    "law_headings": [
+                                                        "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                        "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                        "AIDE À LA SCOLARITÉ"
+                                                    ]
+                                                },
+                                                "value": "2"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "element": {
+                                            "kind": "function_call",
+                                            "name": "somme",
+                                            "decl_pos": {
+                                                "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                                "start": {
+                                                    "line": 218,
+                                                    "character": 13
+                                                },
+                                                "end": {
+                                                    "line": 218,
+                                                    "character": 18
+                                                },
+                                                "law_headings": [
+                                                    "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                    "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                    "AIDE À LA SCOLARITÉ"
+                                                ]
+                                            }
+                                        },
+                                        "pos": {
+                                            "file": "src/aide_scolarite/aide_scolarite.catala_fr",
+                                            "start": {
+                                                "line": 218,
+                                                "character": 5
+                                            },
+                                            "end": {
+                                                "line": 218,
+                                                "character": 28
+                                            },
+                                            "law_headings": [
+                                                "II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)",
+                                                "Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :",
+                                                "AIDE À LA SCOLARITÉ"
+                                            ]
+                                        },
+                                        "value": "4"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "element": {
+                    "kind": "assertion"
+                },
+                "pos": {
+                    "file": "tests/aide_scolarite/tests_aide_scolarite.catala_fr",
+                    "start": {
+                        "line": 257,
+                        "character": 3
+                    },
+                    "end": {
+                        "line": 257,
+                        "character": 120
+                    },
+                    "law_headings": [
+                        "Cas N°4 : logement separe, l'adresse des parents est moins avantageuse"
+                    ]
+                }
+            },
+            {
+                "element": {
+                    "kind": "assertion"
+                },
+                "pos": {
+                    "file": "tests/aide_scolarite/tests_aide_scolarite.catala_fr",
+                    "start": {
+                        "line": 258,
+                        "character": 3
+                    },
+                    "end": {
+                        "line": 258,
+                        "character": 37
+                    },
+                    "law_headings": [
+                        "Cas N°4 : logement separe, l'adresse des parents est moins avantageuse"
+                    ]
+                }
+            }
+        ]
+    }
+]
