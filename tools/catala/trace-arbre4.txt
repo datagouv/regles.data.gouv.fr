@@ -1,0 +1,570 @@
+→ Entering scope TestCalculPointsAideScolarite4
+─➤ tests/aide_scolarite/tests_aide_scolarite.catala_fr:239.33-63:
+    │
+239 │ déclaration champ d'application TestCalculPointsAideScolarite4:
+    │                                 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+Cas N°4 : logement separe, l'adresse des parents est moins avantageuse
+  ≔ Scope variable definition calcul:
+    CalculPointsAideScolarite {
+      -- critères_applicables: [
+        C2_domiciliation_séparée contenu 2,0;
+        C3_éloignement_étudiant contenu 2,0;
+      ]
+      -- nb_points: 4,0
+    }
+  ─➤ tests/aide_scolarite/tests_aide_scolarite.catala_fr:240.12-18:
+      │
+  240 │   résultat calcul contenu Aide_scolarite.CalculPointsAideScolarite
+      │            ‾‾‾‾‾‾
+  Cas N°4 : logement separe, l'adresse des parents est moins avantageuse
+    ⊕ Definition fulfilled
+    ─➤ tests/aide_scolarite/tests_aide_scolarite.catala_fr:243.14-20:
+        │
+    243 │   définition calcul égal à
+        │              ‾‾‾‾‾‾
+    Cas N°4 : logement separe, l'adresse des parents est moins avantageuse
+    ⊸ Consequence:
+    ─➤ tests/aide_scolarite/tests_aide_scolarite.catala_fr:244.5-256.6:
+        │
+    244 │     résultat de Aide_scolarite.CalculPointsAideScolarite avec {
+        │     ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+    245 │       -- valeur_point: 10€
+        │       ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+    246 │       -- trajet_depuis_domicile_agent: Trajet {
+        │       ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+    247 │         -- distance_km: 60 # trajet agent 2 points mais retire le C2
+        │         ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+    248 │         -- durée_minutes: 50
+        │         ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+    249 │       }
+        │       ‾
+    250 │       -- trajet_depuis_domicile_étudiant: Présent contenu Trajet {
+        │       ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+    251 │         -- distance_km: 32 # trajet etudiant 2 points
+        │         ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+    252 │         -- durée_minutes: 20
+        │         ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+    253 │       }
+        │       ‾
+    254 │       -- montant_matériel_spécifique : 0€
+        │       ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+    255 │       -- étudiant_en_filière_post_bac: faux
+        │       ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+    256 │     }
+        │     ‾
+    Cas N°4 : logement separe, l'adresse des parents est moins avantageuse
+    → Entering scope CalculPointsAideScolarite
+    
+      ≔ Scope input variable definition trajet_depuis_domicile_agent: Trajet {
+                                                                      -- distance_km: 60
+                                                                      -- durée_minutes: 50
+                                                                    }
+      ─➤ src/aide_scolarite/aide_scolarite.catala_fr:190.10-38:
+          │
+      190 │   entrée trajet_depuis_domicile_agent contenu Trajet
+          │          ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+      AIDE À LA SCOLARITÉ
+      └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+       └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+      ≔ Scope input variable definition trajet_depuis_domicile_étudiant: Présent contenu Trajet {
+                                                                        -- distance_km: 32
+                                                                        -- durée_minutes: 20
+                                                                      }
+      ─➤ src/aide_scolarite/aide_scolarite.catala_fr:191.10-41:
+          │
+      191 │   entrée trajet_depuis_domicile_étudiant contenu optionnel de Trajet
+          │          ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+      AIDE À LA SCOLARITÉ
+      └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+       └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+      ≔ Scope input variable definition montant_matériel_spécifique: 0,00 €
+      ─➤ src/aide_scolarite/aide_scolarite.catala_fr:192.10-37:
+          │
+      192 │   entrée montant_matériel_spécifique contenu argent
+          │          ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+      AIDE À LA SCOLARITÉ
+      └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+       └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+      ≔ Scope input variable definition valeur_point: 10,00 €
+      ─➤ src/aide_scolarite/aide_scolarite.catala_fr:193.10-22:
+          │
+      193 │   entrée valeur_point contenu argent
+          │          ‾‾‾‾‾‾‾‾‾‾‾‾
+      AIDE À LA SCOLARITÉ
+      └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+       └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+      ≔ Scope input variable definition étudiant_en_filière_post_bac: faux
+      ─➤ src/aide_scolarite/aide_scolarite.catala_fr:194.10-38:
+          │
+      194 │   entrée étudiant_en_filière_post_bac contenu booléen
+          │          ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+      AIDE À LA SCOLARITÉ
+      └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+       └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+      ≔ Scope variable definition points_domiciliation_séparée: Présent contenu (2,0, src/aide_scolarite/aide_scolarite.catala_fr:195.11-195-39)
+      ─➤ src/aide_scolarite/aide_scolarite.catala_fr:195.11-39:
+          │
+      195 │   interne points_domiciliation_séparée contenu décimal
+          │           ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+      AIDE À LA SCOLARITÉ
+      └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+       └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+      ≔ Scope variable definition critères_applicables#base: Présent contenu ([], src/aide_scolarite/aide_scolarite.catala_fr:196.12-196-32)
+      ─➤ src/aide_scolarite/aide_scolarite.catala_fr:197.10-14:
+          │
+      197 │     état base
+          │          ‾‾‾‾
+      AIDE À LA SCOLARITÉ
+      └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+       └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+      ≔ Scope variable definition critères_applicables#domiciliation_séparée:
+        Présent contenu ([
+             C2_domiciliation_séparée contenu 2,0;
+           ], src/aide_scolarite/aide_scolarite.catala_fr:196.12-196-32)
+      ─➤ src/aide_scolarite/aide_scolarite.catala_fr:198.10-31:
+          │
+      198 │     état domiciliation_séparée
+          │          ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+      AIDE À LA SCOLARITÉ
+      └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+       └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+        ⊡ Condition evaluated to vrai
+        ─➤ src/aide_scolarite/aide_scolarite.catala_fr:231.8-58:
+            │
+        231 │     si trajet_depuis_domicile_étudiant sous forme Présent
+            │        ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+        AIDE À LA SCOLARITÉ
+        └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+         └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+          ⊡ Condition evaluated to Présent contenu Trajet {
+                                         -- distance_km: 32
+                                         -- durée_minutes: 20
+                                       }
+          ─➤ src/aide_scolarite/aide_scolarite.catala_fr:231.8-39:
+              │
+          231 │     si trajet_depuis_domicile_étudiant sous forme Présent
+              │        ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+          AIDE À LA SCOLARITÉ
+          └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+           └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+          ⊸ Branch taken: case Present
+          ─➤ src/aide_scolarite/aide_scolarite.catala_fr:231.8-58:
+              │
+          231 │     si trajet_depuis_domicile_étudiant sous forme Présent
+              │        ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+          AIDE À LA SCOLARITÉ
+          └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+           └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+        ⊸ Branch taken
+        ─➤ src/aide_scolarite/aide_scolarite.catala_fr:232.11-100:
+            │
+        232 │     alors critères_applicables ++ [ C2_domiciliation_séparée contenu points_domiciliation_séparée ]
+            │           ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+        AIDE À LA SCOLARITÉ
+        └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+         └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+      ≔ Scope variable definition critères_applicables#éloignement:
+        Présent contenu ([
+             C2_domiciliation_séparée contenu 2,0;
+             C3_éloignement_étudiant contenu 2,0;
+           ], src/aide_scolarite/aide_scolarite.catala_fr:196.12-196-32)
+      ─➤ src/aide_scolarite/aide_scolarite.catala_fr:199.10-21:
+          │
+      199 │     état éloignement
+          │          ‾‾‾‾‾‾‾‾‾‾‾
+      AIDE À LA SCOLARITÉ
+      └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+       └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+        ≔ Local variable points_domicile_agent definition: 2,0
+        ─➤ src/aide_scolarite/aide_scolarite.catala_fr:255.10-31:
+            │
+        255 │     soit points_domicile_agent égal à résultat de CalculPointsTrajet avec { -- trajet: Présent contenu trajet_depuis_domicile_agent }.nb_points dans
+            │          ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+        AIDE À LA SCOLARITÉ
+        └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+         └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+          → Entering scope CalculPointsTrajet
+          ─➤ src/aide_scolarite/aide_scolarite.catala_fr:255.39-134:
+              │
+          255 │     soit points_domicile_agent égal à résultat de CalculPointsTrajet avec { -- trajet: Présent contenu trajet_depuis_domicile_agent }.nb_points dans
+              │                                       ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+          AIDE À LA SCOLARITÉ
+          └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+           └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+            ≔ Scope input variable definition trajet: Présent contenu Trajet {
+                                                            -- distance_km: 60
+                                                            -- durée_minutes: 50
+                                                          }
+            ─➤ src/aide_scolarite/aide_scolarite.catala_fr:266.10-16:
+                │
+            266 │   entrée trajet contenu optionnel de Trajet
+                │          ‾‾‾‾‾‾
+            AIDE À LA SCOLARITÉ
+            └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+             └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+            ≔ Scope variable definition nb_points: 2,0
+            ─➤ src/aide_scolarite/aide_scolarite.catala_fr:267.12-21:
+                │
+            267 │   résultat nb_points contenu décimal
+                │            ‾‾‾‾‾‾‾‾‾
+            AIDE À LA SCOLARITÉ
+            └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+             └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+              ⊡ Condition evaluated to Présent contenu Trajet {
+                                             -- distance_km: 60
+                                             -- durée_minutes: 50
+                                           }
+              ─➤ src/aide_scolarite/aide_scolarite.catala_fr:273.11-17:
+                  │
+              273 │     selon trajet sous forme
+                  │           ‾‾‾‾‾‾
+              AIDE À LA SCOLARITÉ
+              └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+               └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+              ⊸ Branch taken: case Present
+              ─➤ src/aide_scolarite/aide_scolarite.catala_fr:276.7-280.20:
+                  │
+              276 │       si trajet_présent.distance_km > 100
+                  │       ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+              277 │         alors 4,0
+                  │         ‾‾‾‾‾‾‾‾‾
+              278 │         sinon si trajet_présent.distance_km > 30 ou trajet_présent.durée_minutes > 30
+                  │         ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+              279 │           alors 2,0
+                  │           ‾‾‾‾‾‾‾‾‾
+              280 │           sinon 0,0
+                  │           ‾‾‾‾‾‾‾‾‾
+              AIDE À LA SCOLARITÉ
+              └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+               └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+                ⊡ Condition evaluated to faux
+                ─➤ src/aide_scolarite/aide_scolarite.catala_fr:276.10-42:
+                    │
+                276 │       si trajet_présent.distance_km > 100
+                    │          ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+                AIDE À LA SCOLARITÉ
+                └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+                 └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+                ⊸ Branch taken
+                ─➤ src/aide_scolarite/aide_scolarite.catala_fr:278.15-280.20:
+                    │
+                278 │         sinon si trajet_présent.distance_km > 30 ou trajet_présent.durée_minutes > 30
+                    │               ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+                279 │           alors 2,0
+                    │           ‾‾‾‾‾‾‾‾‾
+                280 │           sinon 0,0
+                    │           ‾‾‾‾‾‾‾‾‾
+                AIDE À LA SCOLARITÉ
+                └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+                 └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+                  ⊡ Condition evaluated to vrai
+                  ─➤ src/aide_scolarite/aide_scolarite.catala_fr:278.18-86:
+                      │
+                  278 │         sinon si trajet_présent.distance_km > 30 ou trajet_présent.durée_minutes > 30
+                      │                  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+                  AIDE À LA SCOLARITÉ
+                  └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+                   └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+                  ⊸ Branch taken
+                  ─➤ src/aide_scolarite/aide_scolarite.catala_fr:279.17-20:
+                      │
+                  279 │           alors 2,0
+                      │                 ‾‾‾
+                  AIDE À LA SCOLARITÉ
+                  └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+                   └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+          ← Exiting Scope CalculPointsTrajet: CalculPointsTrajet {
+                                                  -- nb_points: 2,0
+                                                }
+        ≔ Local variable points_domicile_étudiant definition: 2,0
+        ─➤ src/aide_scolarite/aide_scolarite.catala_fr:256.10-34:
+            │
+        256 │     soit points_domicile_étudiant égal à résultat de CalculPointsTrajet avec { -- trajet: trajet_depuis_domicile_étudiant }.nb_points dans 
+            │          ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+        AIDE À LA SCOLARITÉ
+        └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+         └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+          → Entering scope CalculPointsTrajet
+          ─➤ src/aide_scolarite/aide_scolarite.catala_fr:256.42-124:
+              │
+          256 │     soit points_domicile_étudiant égal à résultat de CalculPointsTrajet avec { -- trajet: trajet_depuis_domicile_étudiant }.nb_points dans 
+              │                                          ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+          AIDE À LA SCOLARITÉ
+          └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+           └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+            ≔ Scope input variable definition trajet: Présent contenu Trajet {
+                                                            -- distance_km: 32
+                                                            -- durée_minutes: 20
+                                                          }
+            ─➤ src/aide_scolarite/aide_scolarite.catala_fr:266.10-16:
+                │
+            266 │   entrée trajet contenu optionnel de Trajet
+                │          ‾‾‾‾‾‾
+            AIDE À LA SCOLARITÉ
+            └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+             └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+            ≔ Scope variable definition nb_points: 2,0
+            ─➤ src/aide_scolarite/aide_scolarite.catala_fr:267.12-21:
+                │
+            267 │   résultat nb_points contenu décimal
+                │            ‾‾‾‾‾‾‾‾‾
+            AIDE À LA SCOLARITÉ
+            └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+             └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+              ⊡ Condition evaluated to Présent contenu Trajet {
+                                             -- distance_km: 32
+                                             -- durée_minutes: 20
+                                           }
+              ─➤ src/aide_scolarite/aide_scolarite.catala_fr:273.11-17:
+                  │
+              273 │     selon trajet sous forme
+                  │           ‾‾‾‾‾‾
+              AIDE À LA SCOLARITÉ
+              └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+               └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+              ⊸ Branch taken: case Present
+              ─➤ src/aide_scolarite/aide_scolarite.catala_fr:276.7-280.20:
+                  │
+              276 │       si trajet_présent.distance_km > 100
+                  │       ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+              277 │         alors 4,0
+                  │         ‾‾‾‾‾‾‾‾‾
+              278 │         sinon si trajet_présent.distance_km > 30 ou trajet_présent.durée_minutes > 30
+                  │         ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+              279 │           alors 2,0
+                  │           ‾‾‾‾‾‾‾‾‾
+              280 │           sinon 0,0
+                  │           ‾‾‾‾‾‾‾‾‾
+              AIDE À LA SCOLARITÉ
+              └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+               └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+                ⊡ Condition evaluated to faux
+                ─➤ src/aide_scolarite/aide_scolarite.catala_fr:276.10-42:
+                    │
+                276 │       si trajet_présent.distance_km > 100
+                    │          ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+                AIDE À LA SCOLARITÉ
+                └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+                 └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+                ⊸ Branch taken
+                ─➤ src/aide_scolarite/aide_scolarite.catala_fr:278.15-280.20:
+                    │
+                278 │         sinon si trajet_présent.distance_km > 30 ou trajet_présent.durée_minutes > 30
+                    │               ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+                279 │           alors 2,0
+                    │           ‾‾‾‾‾‾‾‾‾
+                280 │           sinon 0,0
+                    │           ‾‾‾‾‾‾‾‾‾
+                AIDE À LA SCOLARITÉ
+                └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+                 └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+                  ⊡ Condition evaluated to vrai
+                  ─➤ src/aide_scolarite/aide_scolarite.catala_fr:278.18-86:
+                      │
+                  278 │         sinon si trajet_présent.distance_km > 30 ou trajet_présent.durée_minutes > 30
+                      │                  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+                  AIDE À LA SCOLARITÉ
+                  └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+                   └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+                  ⊸ Branch taken
+                  ─➤ src/aide_scolarite/aide_scolarite.catala_fr:279.17-20:
+                      │
+                  279 │           alors 2,0
+                      │                 ‾‾‾
+                  AIDE À LA SCOLARITÉ
+                  └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+                   └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+          ← Exiting Scope CalculPointsTrajet: CalculPointsTrajet {
+                                                  -- nb_points: 2,0
+                                                }
+        ⊡ Condition evaluated to vrai
+        ─➤ src/aide_scolarite/aide_scolarite.catala_fr:257.8-124:
+            │
+        257 │     si points_domicile_étudiant > 0,0 et (points_domicile_étudiant >= points_domicile_agent - points_domiciliation_séparée)
+            │        ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+        AIDE À LA SCOLARITÉ
+        └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+         └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+        ⊸ Branch taken
+        ─➤ src/aide_scolarite/aide_scolarite.catala_fr:258.13-95:
+            │
+        258 │       alors critères_applicables ++ [C3_éloignement_étudiant contenu points_domicile_étudiant]
+            │             ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+        AIDE À LA SCOLARITÉ
+        └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+         └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+      ≔ Scope variable definition critères_applicables#matériel_spécifique:
+        Présent contenu ([
+             C2_domiciliation_séparée contenu 2,0;
+             C3_éloignement_étudiant contenu 2,0;
+           ], src/aide_scolarite/aide_scolarite.catala_fr:196.12-196-32)
+      ─➤ src/aide_scolarite/aide_scolarite.catala_fr:200.10-29:
+          │
+      200 │     état matériel_spécifique
+          │          ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+      AIDE À LA SCOLARITÉ
+      └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+       └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+        ≔ Local variable montant_eligible definition: 0,00 €
+        ─➤ src/aide_scolarite/aide_scolarite.catala_fr:308.10-26:
+            │
+        308 │     soit montant_eligible égal à minimum de [2,0*valeur_point; montant_matériel_spécifique] dans
+            │          ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+        AIDE À LA SCOLARITÉ
+        └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+         └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+        ≔ Local variable points definition: 0,0
+        ─➤ src/aide_scolarite/aide_scolarite.catala_fr:309.10-16:
+            │
+        309 │     soit points égal à montant_eligible/valeur_point dans
+            │          ‾‾‾‾‾‾
+        AIDE À LA SCOLARITÉ
+        └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+         └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+        ⊡ Condition evaluated to faux
+        ─➤ src/aide_scolarite/aide_scolarite.catala_fr:310.8-20:
+            │
+        310 │     si points > 0,0 
+            │        ‾‾‾‾‾‾‾‾‾‾‾‾
+        AIDE À LA SCOLARITÉ
+        └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+         └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+        ⊸ Branch taken
+        ─➤ src/aide_scolarite/aide_scolarite.catala_fr:312.11-31:
+            │
+        312 │     sinon critères_applicables 
+            │           ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+        AIDE À LA SCOLARITÉ
+        └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+         └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+      ≔ Scope variable definition critères_applicables#études_supérieures: [
+                                                                      C2_domiciliation_séparée contenu 2,0;
+                                                                      C3_éloignement_étudiant contenu 2,0;
+                                                                    ]
+      ─➤ src/aide_scolarite/aide_scolarite.catala_fr:201.10-28:
+          │
+      201 │     état études_supérieures
+          │          ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+      AIDE À LA SCOLARITÉ
+      └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+       └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+        ⊡ Condition evaluated to faux
+        ─➤ src/aide_scolarite/aide_scolarite.catala_fr:324.8-327.101:
+            │
+        324 │     si étudiant_en_filière_post_bac 
+            │        ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+        325 │       et 
+            │       ‾‾‾
+        326 │       ( existe critère parmi critères_applicables tel que critère sous forme C2_domiciliation_séparée 
+            │       ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+        327 │       ou existe critère parmi critères_applicables tel que critère sous forme C3_éloignement_agent )
+            │       ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+        AIDE À LA SCOLARITÉ
+        └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+         └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+        ⊸ Branch taken
+        ─➤ src/aide_scolarite/aide_scolarite.catala_fr:329.11-31:
+            │
+        329 │     sinon critères_applicables 
+            │           ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+        AIDE À LA SCOLARITÉ
+        └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+         └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+      ≔ Scope variable definition nb_points: 4,0
+      ─➤ src/aide_scolarite/aide_scolarite.catala_fr:202.12-21:
+          │
+      202 │   résultat nb_points contenu décimal
+          │            ‾‾‾‾‾‾‾‾‾
+      AIDE À LA SCOLARITÉ
+      └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+       └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+        ≔ Local variable points definition: [
+                                                2,0;
+                                                2,0;
+                                              ]
+        ─➤ src/aide_scolarite/aide_scolarite.catala_fr:209.10-16:
+            │
+        209 │     soit points égal à 
+            │          ‾‾‾‾‾‾
+        AIDE À LA SCOLARITÉ
+        └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+         └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+          ⊡ Condition evaluated to C2_domiciliation_séparée contenu 2,0
+          ─➤ src/aide_scolarite/aide_scolarite.catala_fr:211.15-16:
+              │
+          211 │         selon c sous forme 
+              │               ‾
+          AIDE À LA SCOLARITÉ
+          └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+           └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+          ⊸ Branch taken: case C2_domiciliation_séparée
+          ─➤ src/aide_scolarite/aide_scolarite.catala_fr:212.55-63:
+              │
+          212 │         -- C2_domiciliation_séparée contenu c_points: c_points
+              │                                                       ‾‾‾‾‾‾‾‾
+          AIDE À LA SCOLARITÉ
+          └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+           └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+          ⊡ Condition evaluated to C3_éloignement_étudiant contenu 2,0
+          ─➤ src/aide_scolarite/aide_scolarite.catala_fr:211.15-16:
+              │
+          211 │         selon c sous forme 
+              │               ‾
+          AIDE À LA SCOLARITÉ
+          └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+           └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+          ⊸ Branch taken: case C3_éloignement_étudiant
+          ─➤ src/aide_scolarite/aide_scolarite.catala_fr:214.54-62:
+              │
+          214 │         -- C3_éloignement_étudiant contenu c_points: c_points 
+              │                                                      ‾‾‾‾‾‾‾‾
+          AIDE À LA SCOLARITÉ
+          └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+           └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+        → Applying function somme
+        ─➤ src/aide_scolarite/aide_scolarite.catala_fr:218.13-18:
+            │
+        218 │     Décimal.somme de points
+            │             ‾‾‾‾‾
+        AIDE À LA SCOLARITÉ
+        └┬ Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+         └─ II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+        ← Function somme applied: 4,0
+    ← Exiting Scope CalculPointsAideScolarite:
+      CalculPointsAideScolarite {
+        -- critères_applicables: [
+          C2_domiciliation_séparée contenu 2,0;
+          C3_éloignement_étudiant contenu 2,0;
+        ]
+        -- nb_points: 4,0
+      }
+  ⊹ Assertion
+  ─➤ tests/aide_scolarite/tests_aide_scolarite.catala_fr:257.3-120:
+      │
+  257 │   assertion (calcul.critères_applicables = [C2_domiciliation_séparée contenu 2,0; C3_éloignement_étudiant contenu 2,0])
+      │   ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+  Cas N°4 : logement separe, l'adresse des parents est moins avantageuse
+  ⊹ Assertion
+  ─➤ tests/aide_scolarite/tests_aide_scolarite.catala_fr:258.3-37:
+      │
+  258 │   assertion (calcul.nb_points = 4,0)
+      │   ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+  Cas N°4 : logement separe, l'adresse des parents est moins avantageuse
+← Exiting Scope TestCalculPointsAideScolarite4:
+  TestCalculPointsAideScolarite4 {
+    -- calcul: CalculPointsAideScolarite {
+      -- critères_applicables: [
+        C2_domiciliation_séparée contenu 2,0;
+        C3_éloignement_étudiant contenu 2,0;
+      ]
+      -- nb_points: 4,0
+    }
+  }
+┌─[RESULT]─ TestCalculPointsAideScolarite4 ─
+│ calcul = CalculPointsAideScolarite {
+│            -- critères_applicables: [
+│              C2_domiciliation_séparée contenu 2,0;
+│              C3_éloignement_étudiant contenu 2,0;
+│            ]
+│            -- nb_points: 4,0
+│          }

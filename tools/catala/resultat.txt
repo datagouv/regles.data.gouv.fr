@@ -1,0 +1,7 @@
+[{'path': ['TestCalculPointsAideScolarite4', 'calcul', 'CalculPointsAideScolarite', 'trajet_depuis_domicile_agent'], 'value': {'distance_km': '60', 'durée_minutes': '50'}}, 
+{'path': ['TestCalculPointsAideScolarite4', 'calcul', 'CalculPointsAideScolarite', 'trajet_depuis_domicile_étudiant'], 'value': {'Présent': {'distance_km': '32', 'durée_minutes': '20'}}}, 
+{'path': ['TestCalculPointsAideScolarite4', 'calcul', 'CalculPointsAideScolarite', 'montant_matériel_spécifique'], 'value': '0.00'}, 
+{'path': ['TestCalculPointsAideScolarite4', 'calcul', 'CalculPointsAideScolarite', 'valeur_point'], 'value': '10.00'}, 
+{'path': ['TestCalculPointsAideScolarite4', 'calcul', 'CalculPointsAideScolarite', 'étudiant_en_filière_post_bac'], 'value': False}, 
+{'path': ['TestCalculPointsAideScolarite4', 'calcul', 'CalculPointsAideScolarite', 'critères_applicables#éloignement', 'points_domicile_agent', 'CalculPointsTrajet', 'trajet'], 'value': {'Présent': {'distance_km': '60', 'durée_minutes': '50'}}}, 
+{'path': ['TestCalculPointsAideScolarite4', 'calcul', 'CalculPointsAideScolarite', 'critères_applicables#éloignement', 'points_domicile_étudiant', 'CalculPointsTrajet', 'trajet'], 'value': {'Présent': {'distance_km': '32', 'durée_minutes': '20'}}}]
