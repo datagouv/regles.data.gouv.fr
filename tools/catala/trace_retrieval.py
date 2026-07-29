@@ -19,7 +19,7 @@ def trace_explorer(trace : dict, resultat: dict = {}, path = None) -> dict :
         }
         path = []
         resultat["label"] = fetch_label(trace)
-    breakpoint()
+    #breakpoint()
     predicate = lambda el: el.get("input") == "only_input"
     # parcourt les élements de la trace - à chaque niveau.
     # check si c'est un dictionnaire ou pas et si ça contient element - sinon pas de value
@@ -40,11 +40,23 @@ def trace_explorer(trace : dict, resultat: dict = {}, path = None) -> dict :
             }) # rajout dico qui contient le path, la valeur, et la position 
         for child in trace.get("trace", []) : 
             #car il existe une trace au sein de chaque niveau -- > on peut naviguer avec ! 
-            if 'trace' in child:
-                resultat['inputs'].extend(trace_explorer(child['trace'], resultat, current_path)
-                )
+            if 'element' in child:
+                trace_explorer([child], resultat, current_path) #ok 
+                #resultat['inputs'].extend(trace_explorer(child['trace'], resultat, current_path))
     return resultat
-    
+
+def parse_resultat_input(resultat : dict, parsed : dict ) -> dict : 
+    """
+    Fonction qui permet de parser l'entrée 'input' du dictionnaire résultat pour le remettre au bon format
+    """
+    inputs = resultat.get("inputs")
+    # pour chaque élement dans cette liste
+    for inp in inputs : 
+        path = inp.get("path")
+        key = path[-1]
+        parsed[key] = inp["value"]
+    return parsed
+
 
 def main():
     file_path = "test-aide4.json"
@@ -54,7 +66,7 @@ def main():
     # matcher sur le predicat (apparemment la meilleure façon de faire ? )
     matches = []
     matches.extend(trace_explorer(trace, path = None))
-    breakpoint()
+    #breakpoint()
     print(matches)
 
 
