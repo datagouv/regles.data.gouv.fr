@@ -9,4 +9,4 @@ def test_trace_explorer():
     with open(file_path, "r") as file:
         data = json.load(file)
     # s.q. sort le test complet. On veut que la fonction renvoie le label en entier 
-    assert(label == trace_explorer(data, lambda el: el.get("input") == "only_input")["label"])
+    assert(trace_explorer(data)["label"] == "Cas N°4 : logement separe, l'adresse des parents est moins avantageuse")
