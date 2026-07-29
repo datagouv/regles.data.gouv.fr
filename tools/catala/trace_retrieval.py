@@ -10,6 +10,7 @@ def trace_explorer(trace : dict, predicate, path = None) -> dict :
     #eviter le fait que ça reinitialise tout le temps - car c'est une fonction recursive !
     if path == None :
         path = []
+        # recup label ici ? 
     
     # parcourt les élements de la trace - à chaque niveau.
     # check si c'est un dictionnaire ou pas et si ça contient element - sinon pas de value
@@ -17,7 +18,8 @@ def trace_explorer(trace : dict, predicate, path = None) -> dict :
         ele = trace["element"]
         name = ele.get("name") or ele.get("kind") # donner le nom du element
         # nom du élément constitue le chemin - pour rémonter dans l'arbre / mieux comprendre 
-        current_path = path + [name]
+        current_path = path + [name] 
+        # TODO recupe le kind pour savoir si c'est une var ou une fonction
         if predicate(ele):
             #pos = trace.get("pos", {})
             # je voulais recup la position - mais je ne sais pas si c'est utile ?
