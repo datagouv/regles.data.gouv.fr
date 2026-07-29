@@ -10,15 +10,19 @@ def test_trace_explorer():
         data = json.load(file)
     # s.q. sort le test complet. On veut que la fonction renvoie le label en entier 
     assert(trace_explorer(data)["label"] == "Cas N°4 : logement separe, l'adresse des parents est moins avantageuse")
-    input_data={ valeur_point: 10.00,
-      trajet_depuis_domicile_agent: Trajet {
-        distance_km: 60, # trajet agent 2 points mais retire le C2
-        durée_minutes: 50
-      },
-      trajet_depuis_domicile_étudiant: Présent contenu Trajet {
-        distance_km: 32,# trajet etudiant 2 points
-        durée_minutes: 20
-      },
-      montant_matériel_spécifique : 0€
-      étudiant_en_filière_post_bac: faux
+    input_data={ 
+        "valeur_point": 10.00,
+        "trajet_depuis_domicile_agent": {
+            "distance_km": 60,
+            "durée_minutes": 50
+            },
+        "trajet_depuis_domicile_étudiant": {
+            "distance_km": 32,
+            "durée_minutes": 20
+        },
+        "montant_matériel_spécifique" : 0.0,
+        "étudiant_en_filière_post_bac": False
     }
+    tmp = trace_explorer(data)["inputs"]
+    breakpoint()
+    assert(tmp == input_data)
