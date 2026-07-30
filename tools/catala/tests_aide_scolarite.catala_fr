@@ -1,0 +1,480 @@
+> Usage de Aide_scolarite
+> Usage de Famille
+> Usage de Personne
+> Usage de Trajet
+
+# Cas N°1 :
+- Un agent en couple
+- Nombre d'enfant(s) = 3 ;
+- Nombre personnes vivant au foyer = 2+ 2 = 4 (l'agent, son conjoint et ses 3 enfants)
+- Revenu Fiscal de Référence (RFR) du foyer = 32 600 €
+- Etudiant ayant sa propre declaration fiscale, revenu 10 000 €
+- QF = 42 600 / (12 x 5) = 710
+
+```catala
+#[test]
+déclaration champ d'application TestQuotientFamilialAideScolarite1:
+  résultat calcul contenu Aide_scolarite.CalculQuotientFamilialAideScolarite
+
+champ d'application TestQuotientFamilialAideScolarite1:
+  définition calcul égal à
+    résultat de Aide_scolarite.CalculQuotientFamilialAideScolarite avec {
+      -- foyer_fiscal_agent: Famille {
+        -- personne_ou_enfant_porteur_handicap: faux
+        -- garde_alternée: faux
+        -- parent_isolé: faux
+        -- outre_mer: faux
+        -- membres_du_foyer: [
+          Personne {
+            -- revenu_fiscal_reference: 12 000 €
+            -- nombre_enfants: 0
+          } ;
+          Personne {
+            -- revenu_fiscal_reference: 20 600 €
+            -- nombre_enfants: 2
+          } ]
+      }
+      -- étudiants_fiscalement_indépendants: [Personne {
+        -- revenu_fiscal_reference: 10 000 €
+        -- nombre_enfants: 0
+      }]
+    }
+  assertion (calcul.quotient_familial = 710 €)
+```
+
+# Cas N°2 :
+- Un agent en couple
+- Nombre d'enfant(s) = 1 ;
+- Nombre personnes vivant au foyer = 2 + 1 = 3 (l'agent, son conjoint et son enfant)
+- Revenu Fiscal de Référence (RFR) du foyer = 90 000 €
+- QF = 90 000 / (12 x 3) = 2500
+- Aide scolarite = 0 (QF > 1900)
+
+```catala
+#[test]
+déclaration champ d'application TestAideScolarite1:
+  résultat calcul contenu Aide_scolarite.CalculAideScolarite
+
+champ d'application TestAideScolarite1:
+  définition calcul égal à
+    résultat de Aide_scolarite.CalculAideScolarite avec {
+      -- quotient_familial: 2500€
+      -- nb_points: 12,0
+    }
+  assertion (calcul.aide_scolarite = 0 €)
+```
+
+
+
+# Tests du calcul intermediaire des points pour un trajet
+
+
+## Cas N°1 : le trajet fait plus de 30km
+```catala
+#[test]
+déclaration champ d'application TestCalculPointsTrajet1:
+  résultat calcul contenu Aide_scolarite.CalculPointsTrajet
+
+champ d'application TestCalculPointsTrajet1:
+  définition calcul égal à
+    résultat de Aide_scolarite.CalculPointsTrajet avec {
+      -- trajet: Présent contenu Trajet {
+        -- distance_km: 60
+        -- durée_minutes: 20
+      }
+    }
+  assertion (calcul.nb_points = 2,0)
+```
+
+## Cas N°2 : le trajet fait plus de 100km
+
+```catala
+#[test]
+déclaration champ d'application TestCalculPointsTrajet2:
+  résultat calcul contenu Aide_scolarite.CalculPointsTrajet
+
+champ d'application TestCalculPointsTrajet2:
+  définition calcul égal à
+    résultat de Aide_scolarite.CalculPointsTrajet avec {
+      -- trajet: Présent contenu Trajet {
+        -- distance_km: 101
+        -- durée_minutes: 20
+      }
+    }
+  assertion (calcul.nb_points = 4,0)
+```
+
+## Cas N°3 : le trajet fait moins de 30 min et 30km
+
+```catala
+#[test]
+déclaration champ d'application TestCalculPointsTrajet3:
+  résultat calcul contenu Aide_scolarite.CalculPointsTrajet
+
+champ d'application TestCalculPointsTrajet3:
+  définition calcul égal à
+    résultat de Aide_scolarite.CalculPointsTrajet avec {
+      -- trajet: Présent contenu Trajet {
+        -- distance_km: 20
+        -- durée_minutes: 20
+      }
+    }
+  assertion (calcul.nb_points = 0,0)
+```
+
+## Cas N°3 : le trajet fait plus de 30 min
+
+```catala
+#[test]
+déclaration champ d'application TestCalculPointsTrajet4:
+  résultat calcul contenu Aide_scolarite.CalculPointsTrajet
+
+champ d'application TestCalculPointsTrajet4:
+  définition calcul égal à
+    résultat de Aide_scolarite.CalculPointsTrajet avec {
+      -- trajet: Présent contenu Trajet {
+        -- distance_km: 20
+        -- durée_minutes: 40
+      }
+    }
+  assertion (calcul.nb_points = 2,0)
+```
+
+## Test Calcul point Aide Scolarite : 
+
+### Trajets : 
+# Cas N°1 : logement separe mais proche de l'ecole
+```catala
+#[test]
+déclaration champ d'application TestCalculPointsAideScolarite1:
+  résultat calcul contenu Aide_scolarite.CalculPointsAideScolarite
+
+champ d'application TestCalculPointsAideScolarite1:
+  définition calcul égal à
+    résultat de Aide_scolarite.CalculPointsAideScolarite avec {
+      -- valeur_point: 10€
+      -- trajet_depuis_domicile_agent: Trajet {
+        -- distance_km: 10
+        --durée_minutes: 20
+      }
+      -- trajet_depuis_domicile_étudiant: Présent contenu Trajet {
+        --distance_km: 10
+        -- durée_minutes: 20
+      }
+      -- montant_matériel_spécifique : 0€
+      -- étudiant_en_filière_post_bac: faux
+    }
+  assertion (calcul.critères_applicables = [C2_domiciliation_séparée contenu 2,0])
+  assertion (calcul.nb_points = 2,0)
+```
+
+# Cas N°2 : sans logement separe 
+```catala
+#[test]
+déclaration champ d'application TestCalculPointsAideScolarite2:
+  résultat calcul contenu Aide_scolarite.CalculPointsAideScolarite
+
+champ d'application TestCalculPointsAideScolarite2:
+  définition calcul égal à
+    résultat de Aide_scolarite.CalculPointsAideScolarite avec {
+      -- valeur_point: 10€
+      -- trajet_depuis_domicile_agent: Trajet {
+        -- distance_km: 10
+        --durée_minutes: 20
+      }
+      -- trajet_depuis_domicile_étudiant: Absent
+      -- montant_matériel_spécifique : 0€
+      -- étudiant_en_filière_post_bac: faux
+    }
+  assertion (calcul.critères_applicables = [])
+  assertion (calcul.nb_points = 0,0)
+```
+
+# Cas Intermediaire: Retrait du critere C2 
+```catala
+#[test]
+déclaration champ d'application TestCalculRetraitCritere:
+  résultat calcul contenu Aide_scolarite.RetraitCritèreC2
+
+champ d'application TestCalculRetraitCritere:
+  définition calcul égal à
+    résultat de Aide_scolarite.RetraitCritèreC2 avec {
+      -- critères: [
+        C2_domiciliation_séparée contenu 2,0
+      ]
+    }
+  assertion (calcul.critères_sans_c2 = [])
+```
+
+
+# Cas N°3 : logement separe mais l'adresse des parents est plus avantageuse
+```catala
+#[test]
+déclaration champ d'application TestCalculPointsAideScolarite3:
+  résultat calcul contenu Aide_scolarite.CalculPointsAideScolarite
+
+champ d'application TestCalculPointsAideScolarite3:
+  définition calcul égal à
+    résultat de Aide_scolarite.CalculPointsAideScolarite avec {
+      -- valeur_point: 10€
+      -- trajet_depuis_domicile_agent: Trajet {
+        -- distance_km: 101
+        --durée_minutes: 50
+      }
+      -- trajet_depuis_domicile_étudiant: Présent contenu Trajet {
+        --distance_km: 10
+        -- durée_minutes: 20
+      }
+      -- montant_matériel_spécifique : 0€
+      -- étudiant_en_filière_post_bac: faux
+    }
+  assertion (calcul.critères_applicables = [C3_éloignement_agent contenu 4,0])
+  assertion (calcul.nb_points = 4,0)
+```
+
+
+# Cas N°4 : logement separe, l'adresse des parents est moins avantageuse
+```catala
+#[test]
+déclaration champ d'application TestCalculPointsAideScolarite4:
+  résultat calcul contenu Aide_scolarite.CalculPointsAideScolarite
+
+champ d'application TestCalculPointsAideScolarite4:
+  définition calcul égal à
+    résultat de Aide_scolarite.CalculPointsAideScolarite avec {
+      -- valeur_point: 10€
+      -- trajet_depuis_domicile_agent: Trajet {
+        -- distance_km: 60 # trajet agent 2 points mais retire le C2
+        -- durée_minutes: 50
+      }
+      -- trajet_depuis_domicile_étudiant: Présent contenu Trajet {
+        -- distance_km: 32 # trajet etudiant 2 points
+        -- durée_minutes: 20
+      }
+      -- montant_matériel_spécifique : 0€
+      -- étudiant_en_filière_post_bac: faux
+    }
+  assertion (calcul.critères_applicables = [C2_domiciliation_séparée contenu 2,0; C3_éloignement_étudiant contenu 2,0])
+  assertion (calcul.nb_points = 4,0)
+```
+
+# Cas N°5 : logement separe, l'adresse des parents est aussi avantageuse (4 points)
+```catala
+#[test]
+déclaration champ d'application TestCalculPointsAideScolarite5:
+  résultat calcul contenu Aide_scolarite.CalculPointsAideScolarite
+
+champ d'application TestCalculPointsAideScolarite5:
+  définition calcul égal à
+    résultat de Aide_scolarite.CalculPointsAideScolarite avec {
+      -- valeur_point: 10€
+      -- trajet_depuis_domicile_agent: Trajet {
+        -- distance_km: 102
+        -- durée_minutes: 50
+      }
+      -- trajet_depuis_domicile_étudiant: Présent contenu Trajet {
+        -- distance_km: 32
+        -- durée_minutes: 20
+      }
+      -- montant_matériel_spécifique : 0€
+      -- étudiant_en_filière_post_bac: faux
+    }
+  assertion (calcul.critères_applicables = [C2_domiciliation_séparée contenu 2,0; C3_éloignement_étudiant contenu 2,0])
+  assertion (calcul.nb_points = 4,0)
+```
+
+# Cas N°6 : logement separe, l'adresse des parents est aussi avantageuse (2 points)
+```catala
+#[test]
+déclaration champ d'application TestCalculPointsAideScolarite6:
+  résultat calcul contenu Aide_scolarite.CalculPointsAideScolarite
+
+champ d'application TestCalculPointsAideScolarite6:
+  définition calcul égal à
+    résultat de Aide_scolarite.CalculPointsAideScolarite avec {
+      -- valeur_point: 10€
+      -- trajet_depuis_domicile_agent: Trajet {
+        -- distance_km: 50
+        -- durée_minutes: 20
+      }
+      -- trajet_depuis_domicile_étudiant: Présent contenu Trajet {
+        -- distance_km: 5
+        -- durée_minutes: 20
+      }
+      -- montant_matériel_spécifique : 0€
+      -- étudiant_en_filière_post_bac: faux
+    }
+  assertion (calcul.critères_applicables = [C2_domiciliation_séparée contenu 2,0])
+  assertion (calcul.nb_points = 2,0)
+```
+
+### matériel spécifique 
+
+# Cas N°1 : pas de matériel specifique
+```catala
+#[test]
+déclaration champ d'application TestCalculPointsAideScolarite7:
+  résultat calcul contenu Aide_scolarite.CalculPointsAideScolarite
+
+champ d'application TestCalculPointsAideScolarite7:
+  définition calcul égal à
+    résultat de Aide_scolarite.CalculPointsAideScolarite avec {
+      -- valeur_point: 10€
+      -- trajet_depuis_domicile_agent: Trajet {
+        -- distance_km: 10
+        -- durée_minutes: 20
+      }
+      -- trajet_depuis_domicile_étudiant: Absent
+      -- montant_matériel_spécifique : 0€
+      -- étudiant_en_filière_post_bac: faux
+    }
+  assertion (calcul.critères_applicables = [])
+  assertion (calcul.nb_points = 0,0)
+```
+
+# Cas N°2 : matériel spécifique supérieur au maximun eligible
+
+```catala
+#[test]
+déclaration champ d'application TestCalculPointsAideScolarite8:
+  résultat calcul contenu Aide_scolarite.CalculPointsAideScolarite
+
+champ d'application TestCalculPointsAideScolarite8:
+  définition calcul égal à
+    résultat de Aide_scolarite.CalculPointsAideScolarite avec {
+      -- valeur_point: 10€
+      -- trajet_depuis_domicile_agent: Trajet {
+        -- distance_km: 10
+        -- durée_minutes: 20
+      }
+      -- trajet_depuis_domicile_étudiant: Absent
+      -- montant_matériel_spécifique : 70€
+      -- étudiant_en_filière_post_bac: faux
+    }
+  assertion (calcul.critères_applicables = [C4_matériel contenu 2,0])
+  assertion (calcul.nb_points = 2,0)
+```
+
+
+# Cas N°3 : matériel spécifique inférieur au maximum eligible
+
+```catala
+#[test]
+déclaration champ d'application TestCalculPointsAideScolarite9:
+  résultat calcul contenu Aide_scolarite.CalculPointsAideScolarite
+
+champ d'application TestCalculPointsAideScolarite9:
+  définition calcul égal à
+    résultat de Aide_scolarite.CalculPointsAideScolarite avec {
+      -- valeur_point: 10€
+      -- trajet_depuis_domicile_agent: Trajet {
+        -- distance_km: 10
+        -- durée_minutes: 20
+      }
+      -- trajet_depuis_domicile_étudiant: Absent
+      -- montant_matériel_spécifique : 12€
+      -- étudiant_en_filière_post_bac: faux
+    }
+  assertion (calcul.critères_applicables = [C4_matériel contenu 1,2])
+  assertion (calcul.nb_points = 1,2)
+```
+
+### etudes supérieures
+
+# Cas N°1 : en etudes supérieure, au domicile parental un peu eloigne
+
+```catala
+#[test]
+déclaration champ d'application TestCalculPointsAideScolarite10:
+  résultat calcul contenu Aide_scolarite.CalculPointsAideScolarite
+
+champ d'application TestCalculPointsAideScolarite10:
+  définition calcul égal à
+    résultat de Aide_scolarite.CalculPointsAideScolarite avec {
+      -- valeur_point: 10€
+      -- trajet_depuis_domicile_agent: Trajet {
+        -- distance_km: 10
+        -- durée_minutes: 35 # trajet superieur a 30 min
+      }
+      -- trajet_depuis_domicile_étudiant: Absent
+      -- montant_matériel_spécifique : 0€
+      -- étudiant_en_filière_post_bac: vrai
+    }
+  assertion (calcul.critères_applicables = [C3_éloignement_agent contenu 2,0 ; C5_études_supérieures contenu 1,0])
+  assertion (calcul.nb_points = 3,0)
+```
+
+# Cas N°2 : en etudes supérieure mais au domicile des parents non eloigne
+
+```catala
+#[test]
+déclaration champ d'application TestCalculPointsAideScolarite11:
+  résultat calcul contenu Aide_scolarite.CalculPointsAideScolarite
+
+champ d'application TestCalculPointsAideScolarite11:
+  définition calcul égal à
+    résultat de Aide_scolarite.CalculPointsAideScolarite avec {
+      -- valeur_point: 10€
+      -- trajet_depuis_domicile_agent: Trajet {
+        -- distance_km: 10
+        -- durée_minutes: 20 # trajet court
+      }
+      -- trajet_depuis_domicile_étudiant: Absent
+      -- montant_matériel_spécifique : 0€
+      -- étudiant_en_filière_post_bac: vrai
+    }
+  assertion (calcul.critères_applicables = [])
+  assertion (calcul.nb_points = 0,0)
+```
+
+# Cas N°2 : en etudes supérieure avec un loyer
+
+```catala
+#[test]
+déclaration champ d'application TestCalculPointsAideScolarite12:
+  résultat calcul contenu Aide_scolarite.CalculPointsAideScolarite
+
+champ d'application TestCalculPointsAideScolarite12:
+  définition calcul égal à
+    résultat de Aide_scolarite.CalculPointsAideScolarite avec {
+      -- valeur_point: 10€
+      -- trajet_depuis_domicile_agent: Trajet {
+        -- distance_km: 10
+        -- durée_minutes: 20 # trajet court
+      }
+      -- trajet_depuis_domicile_étudiant: Présent contenu Trajet {
+        -- distance_km: 10
+        -- durée_minutes: 20 # trajet court
+      }
+      -- montant_matériel_spécifique : 0€
+      -- étudiant_en_filière_post_bac: vrai
+    }
+  assertion (calcul.critères_applicables = [C2_domiciliation_séparée contenu 2,0 ; C5_études_supérieures contenu 1,0])
+  assertion (calcul.nb_points = 3,0)
+```
+
+# Cas N°3 : pas en etudes supérieure mais avec un loyer
+
+```catala
+#[test]
+déclaration champ d'application TestCalculPointsAideScolarite13:
+  résultat calcul contenu Aide_scolarite.CalculPointsAideScolarite
+
+champ d'application TestCalculPointsAideScolarite13:
+  définition calcul égal à
+    résultat de Aide_scolarite.CalculPointsAideScolarite avec {
+      -- valeur_point: 10€
+      -- trajet_depuis_domicile_agent: Trajet {
+        -- distance_km: 10
+        -- durée_minutes: 20 # trajet court
+      }
+      -- trajet_depuis_domicile_étudiant: Présent contenu Trajet {
+        -- distance_km: 10
+        -- durée_minutes: 20 # trajet court
+      }
+      -- montant_matériel_spécifique : 0€
+      -- étudiant_en_filière_post_bac: faux
+    }
+  assertion (calcul.critères_applicables = [C2_domiciliation_séparée contenu 2,0])
+  assertion (calcul.nb_points = 2,0)
+```

@@ -1,4 +1,5 @@
 import json
+import re
 
 def fetch_label(data: dict):
     return data.get("element").get("decl_pos").get("law_headings")[0]
@@ -55,19 +56,56 @@ def parse_resultat_input(resultat : dict, parsed : dict ) -> dict :
         path = inp.get("path")
         key = path[-1]
         parsed[key] = inp["value"]
+    # en faire un set pour que ce soit compatible avec l'output qu'on veut
     return parsed
 
+def extract_catala_test_inputs(content: str, test_name: str) -> list[str]:
+    """
+    Extracts all inputs (lines starting with '--') for a specific Catala test.
+    
+    Args:
+        content (str): The full text of the .catala_fr file or snippet.
+        test_name (str): The exact name of the test/function.
+        
+    Returns:
+        list[str]: A list of input strings found within that test block.
+    """
+    # 1. Match the test declaration block until the next test declaration or end of file
+    pattern = rf"(?:déclaration )?champ d'application {re.escape(test_name)}:[\s\S]*?(?=(?:déclaration )?champ d'application\s|#[\n\r]|\Z)"
+    
+    match = re.search(pattern, content)
+    breakpoint()
+    if not match:
+        breakpoint()
+        return []
+        
+    # 2. Remove the declaration line itself to focus only on the inputs/block
+    block = "\n".join(match.group(0).split('\n')[1:])
+    
+    # 3. Extract all lines starting with '--' (ignoring leading whitespace)
+    inputs = re.findall(r'^\s*--\s*(.+)$', block, re.MULTILINE)
+    
+    return [inp.strip() for inp in inputs if inp.strip()]
 
 def main():
     file_path = "test-aide4.json"
     with open(file_path, "r") as file:
         trace = json.load(file)[0]
-
+    
+    file_path = "tests_aide_scolarite.catala_fr"
+    with open(file_path, "r") as file_cat:
+        text = file_cat.read()
+        print(text)
+    inputs = extract_catala_test_inputs(text, "TestCalculPointsAideScolarite4") 
+    print(inputs)
     # matcher sur le predicat (apparemment la meilleure façon de faire ? )
-    matches = []
-    matches.extend(trace_explorer(trace, path = None))
+    #matches = []
+    #matches.extend(trace_explorer(trace, path = None))
     #breakpoint()
-    print(matches)
+    #print(matches)
+main()
+
+
 
 
 """
