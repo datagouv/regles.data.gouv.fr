@@ -28,8 +28,10 @@ def test_trace_explorer():
     tmp = trace_explorer(data)
 
     tmp_parse = parse_resultat_input(tmp, {})
+    print(tmp_parse)
    
   
     #breakpoint()
     assert(tmp_parse == input_data)
 # OK besoin de changer les types - ils sont tous en STR au moment de récupération des données vs float / bool dans le dictionnaire inputs 
+# Est-ce que si les infos ne sont pas dans le même ordre dans le dico ça peut quand même le faire pour assert ? 
