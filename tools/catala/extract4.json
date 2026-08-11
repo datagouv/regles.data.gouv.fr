@@ -1,0 +1,206 @@
+{
+  "inputs": [
+    {
+      "path": [
+        "TestCalculPointsAideScolarite4",
+        "calcul",
+        "CalculPointsAideScolarite",
+        "trajet_depuis_domicile_agent"
+      ],
+      "value": {
+        "distance_km": "60",
+        "durée_minutes": "50"
+      }
+    },
+    {
+      "path": [
+        "TestCalculPointsAideScolarite4",
+        "calcul",
+        "CalculPointsAideScolarite",
+        "trajet_depuis_domicile_étudiant"
+      ],
+      "value": {
+        "Présent": {
+          "distance_km": "32",
+          "durée_minutes": "20"
+        }
+      }
+    },
+    {
+      "path": [
+        "TestCalculPointsAideScolarite4",
+        "calcul",
+        "CalculPointsAideScolarite",
+        "montant_matériel_spécifique"
+      ],
+      "value": "0.00"
+    },
+    {
+      "path": [
+        "TestCalculPointsAideScolarite4",
+        "calcul",
+        "CalculPointsAideScolarite",
+        "valeur_point"
+      ],
+      "value": "10.00"
+    },
+    {
+      "path": [
+        "TestCalculPointsAideScolarite4",
+        "calcul",
+        "CalculPointsAideScolarite",
+        "étudiant_en_filière_post_bac"
+      ],
+      "value": false
+    },
+    {
+      "path": [
+        "TestCalculPointsAideScolarite4",
+        "calcul",
+        "CalculPointsAideScolarite",
+        "critères_applicables#éloignement",
+        "points_domicile_agent",
+        "CalculPointsTrajet",
+        "trajet"
+      ],
+      "value": {
+        "Présent": {
+          "distance_km": "60",
+          "durée_minutes": "50"
+        }
+      }
+    },
+    {
+      "path": [
+        "TestCalculPointsAideScolarite4",
+        "calcul",
+        "CalculPointsAideScolarite",
+        "critères_applicables#éloignement",
+        "points_domicile_étudiant",
+        "CalculPointsTrajet",
+        "trajet"
+      ],
+      "value": {
+        "Présent": {
+          "distance_km": "32",
+          "durée_minutes": "20"
+        }
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "path": [
+        "TestCalculPointsAideScolarite4",
+        "calcul"
+      ],
+      "value": {
+        "critères_applicables": [
+          {
+            "C2_domiciliation_séparée": "2"
+          },
+          {
+            "C3_éloignement_étudiant": "2"
+          }
+        ],
+        "nb_points": "4"
+      }
+    },
+    {
+      "path": [
+        "TestCalculPointsAideScolarite4",
+        "calcul",
+        "CalculPointsAideScolarite",
+        "critères_applicables#éloignement",
+        "points_domicile_agent",
+        "CalculPointsTrajet",
+        "nb_points"
+      ],
+      "value": "2"
+    },
+    {
+      "path": [
+        "TestCalculPointsAideScolarite4",
+        "calcul",
+        "CalculPointsAideScolarite",
+        "critères_applicables#éloignement",
+        "points_domicile_étudiant",
+        "CalculPointsTrajet",
+        "nb_points"
+      ],
+      "value": "2"
+    },
+    {
+      "path": [
+        "TestCalculPointsAideScolarite4",
+        "calcul",
+        "CalculPointsAideScolarite",
+        "critères_applicables#études_supérieures"
+      ],
+      "value": [
+        {
+          "C2_domiciliation_séparée": "2"
+        },
+        {
+          "C3_éloignement_étudiant": "2"
+        }
+      ]
+    },
+    {
+      "path": [
+        "TestCalculPointsAideScolarite4",
+        "calcul",
+        "CalculPointsAideScolarite",
+        "nb_points"
+      ],
+      "value": "4"
+    }
+  ],
+  "scope_calls": [
+    {
+      "path": [
+        "TestCalculPointsAideScolarite4"
+      ],
+      "scope_call": "TestCalculPointsAideScolarite4",
+      "scope_var": null,
+      "level": 0
+    },
+    {
+      "path": [
+        "TestCalculPointsAideScolarite4",
+        "calcul",
+        "CalculPointsAideScolarite"
+      ],
+      "scope_call": "CalculPointsAideScolarite",
+      "scope_var": "calcul",
+      "level": 1
+    },
+    {
+      "path": [
+        "TestCalculPointsAideScolarite4",
+        "calcul",
+        "CalculPointsAideScolarite",
+        "critères_applicables#éloignement",
+        "points_domicile_agent",
+        "CalculPointsTrajet"
+      ],
+      "scope_call": "CalculPointsTrajet",
+      "scope_var": "critères_applicables#éloignement",
+      "level": 2
+    },
+    {
+      "path": [
+        "TestCalculPointsAideScolarite4",
+        "calcul",
+        "CalculPointsAideScolarite",
+        "critères_applicables#éloignement",
+        "points_domicile_étudiant",
+        "CalculPointsTrajet"
+      ],
+      "scope_call": "CalculPointsTrajet",
+      "scope_var": "critères_applicables#éloignement",
+      "level": 2
+    }
+  ],
+  "label": "Cas N°4 : logement separe, l'adresse des parents est moins avantageuse"
+}
