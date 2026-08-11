@@ -26,6 +26,7 @@ def test_trace_explorer():
         "étudiant_en_filière_post_bac": False
     }
     tmp = trace_explorer(data)
+    print(tmp)
 
     tmp_parse = parse_resultat_input(tmp, {})
     print(tmp_parse)

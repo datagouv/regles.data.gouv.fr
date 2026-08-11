@@ -1,7 +1,14 @@
+"""
+Ce fichier a pour objectif de parser les fichiers en .catala_fr pour 
+récupérer les inputs d'une fonction donnée, au format souhaité. 
+Cela permettra à terme d'intégrer ces informations au cas-test automatiquement 
+Approche : par regex. 
+"""
+
 import re
 
 
-# --- Tokenizer (regex) ---------------------------------------------------
+# --- Tokenizer (regex) 
 TOKEN_RE = re.compile(r'''
     (?P<COMMENT>\#[^\n]*)                                  |
     (?P<NUM>\d+(?:[ ]\d{3})*(?:,\d+)?)                      |
@@ -75,7 +82,7 @@ def extract_input_block(catala_text, test_name):
     return catala_text[start:end]
 
 
-# --- Parseur recursif sur la liste de tokens -----------------------------
+# --- Parseur recursif sur la liste de tokens 
 def _parse_number(tokens, i):
     tok = tokens[i]
     raw = tok.value.replace(' ', '')
@@ -168,7 +175,7 @@ def _parse_object(tokens, i):
     return obj, i + 1  # on saute le '}'
 
 
-# --- Fonction principale --------------------------------------------------
+# --- Fonction principale 
 def extract_inputs(filepath, test_name):
     """
     Lit un fichier .catala_fr et renvoie un dictionnaire
@@ -189,7 +196,7 @@ if __name__ == '__main__':
     import pprint
 
     filepath = sys.argv[1] if len(sys.argv) > 1 else 'tests_aide_scolarite.catala_fr'
-    test_name = sys.argv[2] if len(sys.argv) > 2 else 'TestCalculPointsAideScolarite5'
+    test_name = sys.argv[2] if len(sys.argv) > 2 else 'TestCalculPointsAideScolarite4'
 
     result = extract_inputs(filepath, test_name)
     pprint.pprint(result)
