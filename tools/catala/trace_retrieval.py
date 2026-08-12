@@ -1,5 +1,6 @@
 import json
 import re
+import os
 
 def fetch_label(data: dict):
     return data.get("element").get("decl_pos").get("law_headings")[0]
@@ -133,6 +134,8 @@ def to_rule_test(resultat: dict, rule_id: str) -> dict:
                 if isinstance(item, dict):
                     for name, value in item.items():
                         expected_criteria.append({"name": name, "value": value})
+        else:
+            expected = out["value"]  # <-- fonctionne pour "nb_points", "aide_scolarite", etc.
  
     label = resultat.get("label")
     case_match = re.search(r"Cas N°(\d+)", label)
@@ -140,7 +143,7 @@ def to_rule_test(resultat: dict, rule_id: str) -> dict:
  
     return {
         "id": f"{rule_id}-cas-{case_id}",
-        "ruleId": rule_id,
+        "ruleId": "prestagri",
         "label": label,
         "scenario": label,
         "inputs": inputs,
@@ -149,8 +152,8 @@ def to_rule_test(resultat: dict, rule_id: str) -> dict:
         "expectedCriteria": expected_criteria,
         "source": "administration",
         "status": "valide",
-        "validatedBy": "Trace Catala (interpréteur, calcul réel)",
-        "engineVersion": "catala (non renseigné)",
+        "validatedBy": "TO BE VALIDATED",
+        "engineVersion": "catala 1.2.1",
         "nativeFormat": "catala-assert",
         "nativeRef": f"aide_scolarite.catala_fr#{main_call['scope_call']}",
         "tags": [],
@@ -206,16 +209,23 @@ def write_rule_tests_ts(rule_tests: list, filepath: str, const_name: str = "rule
  
 
 def main():
-    file_path = "test-aide4.json"
-    with open(file_path, "r") as file:
-        trace = json.load(file)
     
+    folder = "trace_files"
+    rule_tests = []
+    for filename in sorted(os.listdir(folder)):
+        if not filename.endswith(".json"):
+            continue
+        with open(os.path.join(folder, filename)) as file:
+            trace = json.load(file)
+        resultat = trace_explorer(trace)
+        rule_tests.append(to_rule_test(resultat, "aide-scolarite"))
+        if filename =="test-aide-full.json" : 
+            print(resultat)
  
-    resultat = trace_explorer(trace)
-    rule_test = to_rule_test(resultat, "aide-scolarite")
-    write_rule_tests_ts([rule_test], "tests-catala.ts")
-    print("Écrit dans tests-catala.ts")
+    write_rule_tests_ts(rule_tests, "tests-catala.ts")
+    print(f"{len(rule_tests)} cas-tests écrits dans tests-catala.ts")
  
+
  
 if __name__ == "__main__":
     main()
