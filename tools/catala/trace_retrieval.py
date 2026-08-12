@@ -219,8 +219,7 @@ def main():
             trace = json.load(file)
         resultat = trace_explorer(trace)
         rule_tests.append(to_rule_test(resultat, "aide-scolarite"))
-        if filename =="test-aide-full.json" : 
-            print(resultat)
+      
  
     write_rule_tests_ts(rule_tests, "tests-catala.ts")
     print(f"{len(rule_tests)} cas-tests écrits dans tests-catala.ts")
