@@ -110,11 +110,25 @@ def to_rule_test(resultat: dict, rule_id: str) -> dict:
     ses inputs et outputs directs (path juste sous le sien) alimentent
     "inputs" / "expected" / "expectedCriteria". Les appels intermediaires
     (level >= 2) ne sont pas repris ici (réservés à la partie fonction générale).
+ 
+    L'unité ("points" ou "EUR") et le type dans l'id ("pt", "qf", "o") sont
+    déduits du nom du scope_call racine (level == 0, le champ d'application
+    de test qui englobe tout, ex: TestCalculPointsAideScolarite4).
     """
     main_call = next((c for c in resultat.get("scope_calls", []) if c.get("level") == 1), None)
     if main_call is None:
         raise ValueError("Aucun scope_call de niveau 1 trouvé dans le résultat.")
     main_path = main_call["path"]
+ 
+    racine = next((c for c in resultat.get("scope_calls", []) if c.get("level") == 0), None)
+    nom_racine = racine["scope_call"] if racine else ""
+ 
+    if "Points" in nom_racine:
+        unit, type_cas = "points", "pt"
+    elif "QuotientFamilial" in nom_racine:
+        unit, type_cas = "EUR", "qf"
+    else:
+        unit, type_cas = "EUR", "o"
  
     inputs = {}
     for inp in resultat.get("inputs", []):
@@ -127,38 +141,36 @@ def to_rule_test(resultat: dict, rule_id: str) -> dict:
         if out["path"][:-1] != main_path:
             continue
         key = out["path"][-1]
-        if key == "nb_points":
-            expected = out["value"]
-        elif key == "critères_applicables#études_supérieures":
+        if key.startswith("critères_applicables"):
             for item in out["value"]:
                 if isinstance(item, dict):
                     for name, value in item.items():
                         expected_criteria.append({"name": name, "value": value})
         else:
-            expected = out["value"]  # <-- fonctionne pour "nb_points", "aide_scolarite", etc.
+            expected = out["value"]  # dernier output non-critère rencontré (nb_points, quotient_familial, aide_scolarite, ...)
  
     label = resultat.get("label")
     case_match = re.search(r"Cas N°(\d+)", label)
     case_id = case_match.group(1) if case_match else _slugify(label)
  
     return {
-        "id": f"{rule_id}-cas-{case_id}",
+        "id": f"{rule_id}-{type_cas}-cas-{case_id}",
         "ruleId": "prestagri",
         "label": label,
         "scenario": label,
         "inputs": inputs,
         "expected": expected,
-        "expectedUnit": "points",
+        "expectedUnit": unit,
         "expectedCriteria": expected_criteria,
         "source": "administration",
         "status": "valide",
-        "validatedBy": "TO BE VALIDATED",
-        "engineVersion": "catala 1.2.1",
+        "validatedBy": "Trace Catala (interpréteur, calcul réel)",
+        "engineVersion": "catala (non renseigné)",
         "nativeFormat": "catala-assert",
         "nativeRef": f"aide_scolarite.catala_fr#{main_call['scope_call']}",
         "tags": [],
     }
-
+ 
 def _is_valid_ts_key(key: str) -> bool:
     return re.match(r"^[A-Za-z_$][A-Za-z0-9_$]*$", key) is not None
  
