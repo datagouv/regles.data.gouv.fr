@@ -1,0 +1,1673 @@
+[
+  {
+    "id": "prestagri-o-cas-2",
+    "ruleId": "prestagri",
+    "inputs": [
+      {
+        "path": [
+          "TestAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "quotient_familial"
+        ],
+        "value": "2500.00"
+      },
+      {
+        "path": [
+          "TestAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "nb_points"
+        ],
+        "value": "12"
+      }
+    ],
+    "outputs": [
+      {
+        "path": [
+          "TestAideScolarite1",
+          "calcul"
+        ],
+        "value": {
+          "aide_scolarite": "0.00"
+        }
+      },
+      {
+        "path": [
+          "TestAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "aide_scolarite"
+        ],
+        "value": "0.00"
+      }
+    ],
+    "scope_calls": [
+      {
+        "path": [
+          "TestAideScolarite1"
+        ],
+        "scope_call": "TestAideScolarite1",
+        "scope_var": null,
+        "level": 0
+      },
+      {
+        "path": [
+          "TestAideScolarite1",
+          "calcul",
+          "CalculAideScolarite"
+        ],
+        "scope_call": "CalculAideScolarite",
+        "scope_var": "calcul",
+        "level": 1
+      }
+    ],
+    "label": "Cas N°2 :"
+  },
+  {
+    "id": "prestagri-pt-cas-1",
+    "ruleId": "prestagri",
+    "inputs": [
+      {
+        "path": [
+          "TestCalculPointsAideScolarite1",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "trajet_depuis_domicile_agent"
+        ],
+        "value": {
+          "distance_km": "10",
+          "durée_minutes": "20"
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite1",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "trajet_depuis_domicile_étudiant"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "10",
+            "durée_minutes": "20"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite1",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "montant_matériel_spécifique"
+        ],
+        "value": "0.00"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite1",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "valeur_point"
+        ],
+        "value": "10.00"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite1",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "étudiant_en_filière_post_bac"
+        ],
+        "value": false
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite1",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet",
+          "trajet"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "10",
+            "durée_minutes": "20"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite1",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet",
+          "trajet"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "10",
+            "durée_minutes": "20"
+          }
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "path": [
+          "TestCalculPointsAideScolarite1",
+          "calcul"
+        ],
+        "value": {
+          "critères_applicables": [
+            {
+              "C2_domiciliation_séparée": "2"
+            }
+          ],
+          "nb_points": "2"
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite1",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet",
+          "nb_points"
+        ],
+        "value": "0"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite1",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet",
+          "nb_points"
+        ],
+        "value": "0"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite1",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#études_supérieures"
+        ],
+        "value": [
+          {
+            "C2_domiciliation_séparée": "2"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite1",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "nb_points"
+        ],
+        "value": "2"
+      }
+    ],
+    "scope_calls": [
+      {
+        "path": [
+          "TestCalculPointsAideScolarite1"
+        ],
+        "scope_call": "TestCalculPointsAideScolarite1",
+        "scope_var": null,
+        "level": 0
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite1",
+          "calcul",
+          "CalculPointsAideScolarite"
+        ],
+        "scope_call": "CalculPointsAideScolarite",
+        "scope_var": "calcul",
+        "level": 1
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite1",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet"
+        ],
+        "scope_call": "CalculPointsTrajet",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 2
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite1",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet"
+        ],
+        "scope_call": "CalculPointsTrajet",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 2
+      }
+    ],
+    "label": "Cas N°1 : logement separe mais proche de l'ecole"
+  },
+  {
+    "id": "prestagri-pt-cas-2",
+    "ruleId": "prestagri",
+    "inputs": [
+      {
+        "path": [
+          "TestCalculPointsAideScolarite2",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "trajet_depuis_domicile_agent"
+        ],
+        "value": {
+          "distance_km": "10",
+          "durée_minutes": "20"
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite2",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "trajet_depuis_domicile_étudiant"
+        ],
+        "value": "Absent"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite2",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "montant_matériel_spécifique"
+        ],
+        "value": "0.00"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite2",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "valeur_point"
+        ],
+        "value": "10.00"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite2",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "étudiant_en_filière_post_bac"
+        ],
+        "value": false
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite2",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet",
+          "trajet"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "10",
+            "durée_minutes": "20"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite2",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet",
+          "trajet"
+        ],
+        "value": "Absent"
+      }
+    ],
+    "outputs": [
+      {
+        "path": [
+          "TestCalculPointsAideScolarite2",
+          "calcul"
+        ],
+        "value": {
+          "critères_applicables": [],
+          "nb_points": "0"
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite2",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet",
+          "nb_points"
+        ],
+        "value": "0"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite2",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet",
+          "nb_points"
+        ],
+        "value": "0"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite2",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#études_supérieures"
+        ],
+        "value": []
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite2",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "nb_points"
+        ],
+        "value": "0"
+      }
+    ],
+    "scope_calls": [
+      {
+        "path": [
+          "TestCalculPointsAideScolarite2"
+        ],
+        "scope_call": "TestCalculPointsAideScolarite2",
+        "scope_var": null,
+        "level": 0
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite2",
+          "calcul",
+          "CalculPointsAideScolarite"
+        ],
+        "scope_call": "CalculPointsAideScolarite",
+        "scope_var": "calcul",
+        "level": 1
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite2",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet"
+        ],
+        "scope_call": "CalculPointsTrajet",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 2
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite2",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet"
+        ],
+        "scope_call": "CalculPointsTrajet",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 2
+      }
+    ],
+    "label": "Cas N°2 : sans logement separe"
+  },
+  {
+    "id": "prestagri-pt-cas-3",
+    "ruleId": "prestagri",
+    "inputs": [
+      {
+        "path": [
+          "TestCalculPointsAideScolarite3",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "trajet_depuis_domicile_agent"
+        ],
+        "value": {
+          "distance_km": "101",
+          "durée_minutes": "50"
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite3",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "trajet_depuis_domicile_étudiant"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "10",
+            "durée_minutes": "20"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite3",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "montant_matériel_spécifique"
+        ],
+        "value": "0.00"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite3",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "valeur_point"
+        ],
+        "value": "10.00"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite3",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "étudiant_en_filière_post_bac"
+        ],
+        "value": false
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite3",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet",
+          "trajet"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "101",
+            "durée_minutes": "50"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite3",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet",
+          "trajet"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "10",
+            "durée_minutes": "20"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite3",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "if_branching",
+          "if_branching",
+          "RetraitCritèreC2",
+          "critères"
+        ],
+        "value": [
+          {
+            "C2_domiciliation_séparée": "2"
+          }
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "path": [
+          "TestCalculPointsAideScolarite3",
+          "calcul"
+        ],
+        "value": {
+          "critères_applicables": [
+            {
+              "C3_éloignement_agent": "4"
+            }
+          ],
+          "nb_points": "4"
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite3",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet",
+          "nb_points"
+        ],
+        "value": "4"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite3",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet",
+          "nb_points"
+        ],
+        "value": "0"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite3",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "if_branching",
+          "if_branching",
+          "RetraitCritèreC2",
+          "critères_sans_c2"
+        ],
+        "value": []
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite3",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#études_supérieures"
+        ],
+        "value": [
+          {
+            "C3_éloignement_agent": "4"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite3",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "nb_points"
+        ],
+        "value": "4"
+      }
+    ],
+    "scope_calls": [
+      {
+        "path": [
+          "TestCalculPointsAideScolarite3"
+        ],
+        "scope_call": "TestCalculPointsAideScolarite3",
+        "scope_var": null,
+        "level": 0
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite3",
+          "calcul",
+          "CalculPointsAideScolarite"
+        ],
+        "scope_call": "CalculPointsAideScolarite",
+        "scope_var": "calcul",
+        "level": 1
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite3",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet"
+        ],
+        "scope_call": "CalculPointsTrajet",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 2
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite3",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet"
+        ],
+        "scope_call": "CalculPointsTrajet",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 2
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite3",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "if_branching",
+          "if_branching",
+          "RetraitCritèreC2"
+        ],
+        "scope_call": "RetraitCritèreC2",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 2
+      }
+    ],
+    "label": "Cas N°3 : logement separe mais l'adresse des parents est plus avantageuse"
+  },
+  {
+    "id": "prestagri-pt-cas-4",
+    "ruleId": "prestagri",
+    "inputs": [
+      {
+        "path": [
+          "TestCalculPointsAideScolarite4",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "trajet_depuis_domicile_agent"
+        ],
+        "value": {
+          "distance_km": "60",
+          "durée_minutes": "50"
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite4",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "trajet_depuis_domicile_étudiant"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "32",
+            "durée_minutes": "20"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite4",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "montant_matériel_spécifique"
+        ],
+        "value": "0.00"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite4",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "valeur_point"
+        ],
+        "value": "10.00"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite4",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "étudiant_en_filière_post_bac"
+        ],
+        "value": false
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite4",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet",
+          "trajet"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "60",
+            "durée_minutes": "50"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite4",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet",
+          "trajet"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "32",
+            "durée_minutes": "20"
+          }
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "path": [
+          "TestCalculPointsAideScolarite4",
+          "calcul"
+        ],
+        "value": {
+          "critères_applicables": [
+            {
+              "C2_domiciliation_séparée": "2"
+            },
+            {
+              "C3_éloignement_étudiant": "2"
+            }
+          ],
+          "nb_points": "4"
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite4",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet",
+          "nb_points"
+        ],
+        "value": "2"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite4",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet",
+          "nb_points"
+        ],
+        "value": "2"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite4",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#études_supérieures"
+        ],
+        "value": [
+          {
+            "C2_domiciliation_séparée": "2"
+          },
+          {
+            "C3_éloignement_étudiant": "2"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite4",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "nb_points"
+        ],
+        "value": "4"
+      }
+    ],
+    "scope_calls": [
+      {
+        "path": [
+          "TestCalculPointsAideScolarite4"
+        ],
+        "scope_call": "TestCalculPointsAideScolarite4",
+        "scope_var": null,
+        "level": 0
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite4",
+          "calcul",
+          "CalculPointsAideScolarite"
+        ],
+        "scope_call": "CalculPointsAideScolarite",
+        "scope_var": "calcul",
+        "level": 1
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite4",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet"
+        ],
+        "scope_call": "CalculPointsTrajet",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 2
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite4",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet"
+        ],
+        "scope_call": "CalculPointsTrajet",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 2
+      }
+    ],
+    "label": "Cas N°4 : logement separe, l'adresse des parents est moins avantageuse"
+  },
+  {
+    "id": "prestagri-pt-cas-5",
+    "ruleId": "prestagri",
+    "inputs": [
+      {
+        "path": [
+          "TestCalculPointsAideScolarite5",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "trajet_depuis_domicile_agent"
+        ],
+        "value": {
+          "distance_km": "102",
+          "durée_minutes": "50"
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite5",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "trajet_depuis_domicile_étudiant"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "32",
+            "durée_minutes": "20"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite5",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "montant_matériel_spécifique"
+        ],
+        "value": "0.00"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite5",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "valeur_point"
+        ],
+        "value": "10.00"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite5",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "étudiant_en_filière_post_bac"
+        ],
+        "value": false
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite5",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet",
+          "trajet"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "102",
+            "durée_minutes": "50"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite5",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet",
+          "trajet"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "32",
+            "durée_minutes": "20"
+          }
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "path": [
+          "TestCalculPointsAideScolarite5",
+          "calcul"
+        ],
+        "value": {
+          "critères_applicables": [
+            {
+              "C2_domiciliation_séparée": "2"
+            },
+            {
+              "C3_éloignement_étudiant": "2"
+            }
+          ],
+          "nb_points": "4"
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite5",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet",
+          "nb_points"
+        ],
+        "value": "4"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite5",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet",
+          "nb_points"
+        ],
+        "value": "2"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite5",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#études_supérieures"
+        ],
+        "value": [
+          {
+            "C2_domiciliation_séparée": "2"
+          },
+          {
+            "C3_éloignement_étudiant": "2"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite5",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "nb_points"
+        ],
+        "value": "4"
+      }
+    ],
+    "scope_calls": [
+      {
+        "path": [
+          "TestCalculPointsAideScolarite5"
+        ],
+        "scope_call": "TestCalculPointsAideScolarite5",
+        "scope_var": null,
+        "level": 0
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite5",
+          "calcul",
+          "CalculPointsAideScolarite"
+        ],
+        "scope_call": "CalculPointsAideScolarite",
+        "scope_var": "calcul",
+        "level": 1
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite5",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet"
+        ],
+        "scope_call": "CalculPointsTrajet",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 2
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite5",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet"
+        ],
+        "scope_call": "CalculPointsTrajet",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 2
+      }
+    ],
+    "label": "Cas N°5 : logement separe, l'adresse des parents est aussi avantageuse (4 points)"
+  },
+  {
+    "id": "prestagri-pt-cas-6",
+    "ruleId": "prestagri",
+    "inputs": [
+      {
+        "path": [
+          "TestCalculPointsAideScolarite6",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "trajet_depuis_domicile_agent"
+        ],
+        "value": {
+          "distance_km": "50",
+          "durée_minutes": "20"
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite6",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "trajet_depuis_domicile_étudiant"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "5",
+            "durée_minutes": "20"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite6",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "montant_matériel_spécifique"
+        ],
+        "value": "0.00"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite6",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "valeur_point"
+        ],
+        "value": "10.00"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite6",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "étudiant_en_filière_post_bac"
+        ],
+        "value": false
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite6",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet",
+          "trajet"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "50",
+            "durée_minutes": "20"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite6",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet",
+          "trajet"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "5",
+            "durée_minutes": "20"
+          }
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "path": [
+          "TestCalculPointsAideScolarite6",
+          "calcul"
+        ],
+        "value": {
+          "critères_applicables": [
+            {
+              "C2_domiciliation_séparée": "2"
+            }
+          ],
+          "nb_points": "2"
+        }
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite6",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet",
+          "nb_points"
+        ],
+        "value": "2"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite6",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet",
+          "nb_points"
+        ],
+        "value": "0"
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite6",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#études_supérieures"
+        ],
+        "value": [
+          {
+            "C2_domiciliation_séparée": "2"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite6",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "nb_points"
+        ],
+        "value": "2"
+      }
+    ],
+    "scope_calls": [
+      {
+        "path": [
+          "TestCalculPointsAideScolarite6"
+        ],
+        "scope_call": "TestCalculPointsAideScolarite6",
+        "scope_var": null,
+        "level": 0
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite6",
+          "calcul",
+          "CalculPointsAideScolarite"
+        ],
+        "scope_call": "CalculPointsAideScolarite",
+        "scope_var": "calcul",
+        "level": 1
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite6",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet"
+        ],
+        "scope_call": "CalculPointsTrajet",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 2
+      },
+      {
+        "path": [
+          "TestCalculPointsAideScolarite6",
+          "calcul",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet"
+        ],
+        "scope_call": "CalculPointsTrajet",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 2
+      }
+    ],
+    "label": "Cas N°6 : logement separe, l'adresse des parents est aussi avantageuse (2 points)"
+  },
+  {
+    "id": "prestagri-qf-cas-1",
+    "ruleId": "prestagri",
+    "inputs": [
+      {
+        "path": [
+          "TestQuotientFamilial1",
+          "calcul",
+          "CalculQuotientFamilial",
+          "famille"
+        ],
+        "value": {
+          "personne_ou_enfant_porteur_handicap": false,
+          "garde_alternée": false,
+          "parent_isolé": false,
+          "outre_mer": false,
+          "membres_du_foyer": [
+            {
+              "revenu_fiscal_reference": "12000.00",
+              "nombre_enfants": "0"
+            },
+            {
+              "revenu_fiscal_reference": "20600.00",
+              "nombre_enfants": "3"
+            }
+          ]
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "path": [
+          "TestQuotientFamilial1",
+          "calcul"
+        ],
+        "value": {
+          "revenu_fiscal_reference": "32600.00",
+          "nombre_unités": "5",
+          "quotient_familial": "543.33"
+        }
+      },
+      {
+        "path": [
+          "TestQuotientFamilial1",
+          "calcul",
+          "CalculQuotientFamilial",
+          "revenu_fiscal_reference"
+        ],
+        "value": "32600.00"
+      },
+      {
+        "path": [
+          "TestQuotientFamilial1",
+          "calcul",
+          "CalculQuotientFamilial",
+          "nombre_unités"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestQuotientFamilial1",
+          "calcul",
+          "CalculQuotientFamilial",
+          "quotient_familial"
+        ],
+        "value": "543.33"
+      }
+    ],
+    "scope_calls": [
+      {
+        "path": [
+          "TestQuotientFamilial1"
+        ],
+        "scope_call": "TestQuotientFamilial1",
+        "scope_var": null,
+        "level": 0
+      },
+      {
+        "path": [
+          "TestQuotientFamilial1",
+          "calcul",
+          "CalculQuotientFamilial"
+        ],
+        "scope_call": "CalculQuotientFamilial",
+        "scope_var": "calcul",
+        "level": 1
+      }
+    ],
+    "label": "Cas N°1 :"
+  },
+  {
+    "id": "prestagri-qf-cas-2",
+    "ruleId": "prestagri",
+    "inputs": [
+      {
+        "path": [
+          "TestQuotientFamilial2",
+          "calcul",
+          "CalculQuotientFamilial",
+          "famille"
+        ],
+        "value": {
+          "personne_ou_enfant_porteur_handicap": false,
+          "garde_alternée": false,
+          "parent_isolé": true,
+          "outre_mer": false,
+          "membres_du_foyer": [
+            {
+              "revenu_fiscal_reference": "32600.00",
+              "nombre_enfants": "3"
+            }
+          ]
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "path": [
+          "TestQuotientFamilial2",
+          "calcul"
+        ],
+        "value": {
+          "revenu_fiscal_reference": "32600.00",
+          "nombre_unités": "5",
+          "quotient_familial": "543.33"
+        }
+      },
+      {
+        "path": [
+          "TestQuotientFamilial2",
+          "calcul",
+          "CalculQuotientFamilial",
+          "revenu_fiscal_reference"
+        ],
+        "value": "32600.00"
+      },
+      {
+        "path": [
+          "TestQuotientFamilial2",
+          "calcul",
+          "CalculQuotientFamilial",
+          "nombre_unités"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestQuotientFamilial2",
+          "calcul",
+          "CalculQuotientFamilial",
+          "quotient_familial"
+        ],
+        "value": "543.33"
+      }
+    ],
+    "scope_calls": [
+      {
+        "path": [
+          "TestQuotientFamilial2"
+        ],
+        "scope_call": "TestQuotientFamilial2",
+        "scope_var": null,
+        "level": 0
+      },
+      {
+        "path": [
+          "TestQuotientFamilial2",
+          "calcul",
+          "CalculQuotientFamilial"
+        ],
+        "scope_call": "CalculQuotientFamilial",
+        "scope_var": "calcul",
+        "level": 1
+      }
+    ],
+    "label": "Cas N°2 :"
+  },
+  {
+    "id": "prestagri-qf-cas-3",
+    "ruleId": "prestagri",
+    "inputs": [
+      {
+        "path": [
+          "TestQuotientFamilial3",
+          "calcul",
+          "CalculQuotientFamilial",
+          "famille"
+        ],
+        "value": {
+          "personne_ou_enfant_porteur_handicap": false,
+          "garde_alternée": true,
+          "parent_isolé": false,
+          "outre_mer": false,
+          "membres_du_foyer": [
+            {
+              "revenu_fiscal_reference": "32600.00",
+              "nombre_enfants": "3"
+            }
+          ]
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "path": [
+          "TestQuotientFamilial3",
+          "calcul"
+        ],
+        "value": {
+          "revenu_fiscal_reference": "32600.00",
+          "nombre_unités": "9/2",
+          "quotient_familial": "603.70"
+        }
+      },
+      {
+        "path": [
+          "TestQuotientFamilial3",
+          "calcul",
+          "CalculQuotientFamilial",
+          "revenu_fiscal_reference"
+        ],
+        "value": "32600.00"
+      },
+      {
+        "path": [
+          "TestQuotientFamilial3",
+          "calcul",
+          "CalculQuotientFamilial",
+          "nombre_unités"
+        ],
+        "value": "9/2"
+      },
+      {
+        "path": [
+          "TestQuotientFamilial3",
+          "calcul",
+          "CalculQuotientFamilial",
+          "quotient_familial"
+        ],
+        "value": "603.70"
+      }
+    ],
+    "scope_calls": [
+      {
+        "path": [
+          "TestQuotientFamilial3"
+        ],
+        "scope_call": "TestQuotientFamilial3",
+        "scope_var": null,
+        "level": 0
+      },
+      {
+        "path": [
+          "TestQuotientFamilial3",
+          "calcul",
+          "CalculQuotientFamilial"
+        ],
+        "scope_call": "CalculQuotientFamilial",
+        "scope_var": "calcul",
+        "level": 1
+      }
+    ],
+    "label": "Cas N°3 :"
+  },
+  {
+    "id": "prestagri-qf-cas-4",
+    "ruleId": "prestagri",
+    "inputs": [
+      {
+        "path": [
+          "TestQuotientFamilial4",
+          "calcul",
+          "CalculQuotientFamilial",
+          "famille"
+        ],
+        "value": {
+          "personne_ou_enfant_porteur_handicap": false,
+          "garde_alternée": false,
+          "parent_isolé": false,
+          "outre_mer": true,
+          "membres_du_foyer": [
+            {
+              "revenu_fiscal_reference": "12000.00",
+              "nombre_enfants": "3"
+            },
+            {
+              "revenu_fiscal_reference": "20600.00",
+              "nombre_enfants": "0"
+            }
+          ]
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "path": [
+          "TestQuotientFamilial4",
+          "calcul"
+        ],
+        "value": {
+          "revenu_fiscal_reference": "26080.00",
+          "nombre_unités": "5",
+          "quotient_familial": "434.67"
+        }
+      },
+      {
+        "path": [
+          "TestQuotientFamilial4",
+          "calcul",
+          "CalculQuotientFamilial",
+          "revenu_fiscal_reference"
+        ],
+        "value": "26080.00"
+      },
+      {
+        "path": [
+          "TestQuotientFamilial4",
+          "calcul",
+          "CalculQuotientFamilial",
+          "nombre_unités"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestQuotientFamilial4",
+          "calcul",
+          "CalculQuotientFamilial",
+          "quotient_familial"
+        ],
+        "value": "434.67"
+      }
+    ],
+    "scope_calls": [
+      {
+        "path": [
+          "TestQuotientFamilial4"
+        ],
+        "scope_call": "TestQuotientFamilial4",
+        "scope_var": null,
+        "level": 0
+      },
+      {
+        "path": [
+          "TestQuotientFamilial4",
+          "calcul",
+          "CalculQuotientFamilial"
+        ],
+        "scope_call": "CalculQuotientFamilial",
+        "scope_var": "calcul",
+        "level": 1
+      }
+    ],
+    "label": "Cas N°4 :"
+  }
+]

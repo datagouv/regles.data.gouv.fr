@@ -94,7 +94,17 @@ def resultat_to_json(resultat: dict, filepath: str = None) -> str:
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(texte_json)
     return texte_json
+
+def save_resultats(resultats: list, filepath: str = "resultats.json") -> None:
+    """
+    Sauvegarde tous les resultats de trace_explorer dans un seul fichier JSON.
+    Chaque entree est le resultat complet (label, inputs, outputs, scope_calls),
+    avec en plus son "id" et son "ruleId" pour la relier au cas-test correspondant.
+    """
+    with open(filepath, "w", encoding="utf-8") as f:
+        json.dump(resultats, f, indent=2, ensure_ascii=False)
  
+
 def _slugify(text: str) -> str:
     """ Transforme un texte en identifiant simple (minuscules, tirets). """
     text = text.lower()
@@ -221,20 +231,22 @@ def write_rule_tests_ts(rule_tests: list, filepath: str, const_name: str = "rule
  
 
 def main():
-    
     folder = "trace_files"
     rule_tests = []
+    resultats = []
     for filename in sorted(os.listdir(folder)):
         if not filename.endswith(".json"):
             continue
         with open(os.path.join(folder, filename)) as file:
             trace = json.load(file)
         resultat = trace_explorer(trace)
-        rule_tests.append(to_rule_test(resultat, "aide-scolarite"))
-      
+        rule_test = to_rule_test(resultat, "prestagri")
+        resultats.append({"id": rule_test["id"], "ruleId": rule_test["ruleId"], **resultat})
+        rule_tests.append(rule_test)
  
     write_rule_tests_ts(rule_tests, "tests-catala.ts")
-    print(f"{len(rule_tests)} cas-tests écrits dans tests-catala.ts")
+    save_resultats(resultats, "resultats.json")
+    print(f"{len(rule_tests)} cas-tests écrits dans tests-catala.ts et resultats.json")
  
 
  

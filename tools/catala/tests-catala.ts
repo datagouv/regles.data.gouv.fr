@@ -2,7 +2,7 @@ import type { RuleTest } from '~/types'
 
 export const ruleTestsCatala: RuleTest[] = [
   {
-    id: 'aide-scolarite-o-cas-2',
+    id: 'prestagri-o-cas-2',
     ruleId: 'prestagri',
     label: 'Cas N°2 :',
     scenario: 'Cas N°2 :',
@@ -22,7 +22,7 @@ export const ruleTestsCatala: RuleTest[] = [
     tags: [],
   },
   {
-    id: 'aide-scolarite-pt-cas-1',
+    id: 'prestagri-pt-cas-1',
     ruleId: 'prestagri',
     label: 'Cas N°1 : logement separe mais proche de l\'ecole',
     scenario: 'Cas N°1 : logement separe mais proche de l\'ecole',
@@ -58,7 +58,7 @@ export const ruleTestsCatala: RuleTest[] = [
     tags: [],
   },
   {
-    id: 'aide-scolarite-pt-cas-2',
+    id: 'prestagri-pt-cas-2',
     ruleId: 'prestagri',
     label: 'Cas N°2 : sans logement separe',
     scenario: 'Cas N°2 : sans logement separe',
@@ -84,7 +84,7 @@ export const ruleTestsCatala: RuleTest[] = [
     tags: [],
   },
   {
-    id: 'aide-scolarite-pt-cas-3',
+    id: 'prestagri-pt-cas-3',
     ruleId: 'prestagri',
     label: 'Cas N°3 : logement separe mais l\'adresse des parents est plus avantageuse',
     scenario: 'Cas N°3 : logement separe mais l\'adresse des parents est plus avantageuse',
@@ -120,7 +120,7 @@ export const ruleTestsCatala: RuleTest[] = [
     tags: [],
   },
   {
-    id: 'aide-scolarite-pt-cas-4',
+    id: 'prestagri-pt-cas-4',
     ruleId: 'prestagri',
     label: 'Cas N°4 : logement separe, l\'adresse des parents est moins avantageuse',
     scenario: 'Cas N°4 : logement separe, l\'adresse des parents est moins avantageuse',
@@ -160,7 +160,7 @@ export const ruleTestsCatala: RuleTest[] = [
     tags: [],
   },
   {
-    id: 'aide-scolarite-pt-cas-5',
+    id: 'prestagri-pt-cas-5',
     ruleId: 'prestagri',
     label: 'Cas N°5 : logement separe, l\'adresse des parents est aussi avantageuse (4 points)',
     scenario: 'Cas N°5 : logement separe, l\'adresse des parents est aussi avantageuse (4 points)',
@@ -200,7 +200,7 @@ export const ruleTestsCatala: RuleTest[] = [
     tags: [],
   },
   {
-    id: 'aide-scolarite-pt-cas-6',
+    id: 'prestagri-pt-cas-6',
     ruleId: 'prestagri',
     label: 'Cas N°6 : logement separe, l\'adresse des parents est aussi avantageuse (2 points)',
     scenario: 'Cas N°6 : logement separe, l\'adresse des parents est aussi avantageuse (2 points)',
@@ -236,7 +236,7 @@ export const ruleTestsCatala: RuleTest[] = [
     tags: [],
   },
   {
-    id: 'aide-scolarite-qf-cas-1',
+    id: 'prestagri-qf-cas-1',
     ruleId: 'prestagri',
     label: 'Cas N°1 :',
     scenario: 'Cas N°1 :',
@@ -270,7 +270,7 @@ export const ruleTestsCatala: RuleTest[] = [
     tags: [],
   },
   {
-    id: 'aide-scolarite-qf-cas-2',
+    id: 'prestagri-qf-cas-2',
     ruleId: 'prestagri',
     label: 'Cas N°2 :',
     scenario: 'Cas N°2 :',
@@ -300,7 +300,7 @@ export const ruleTestsCatala: RuleTest[] = [
     tags: [],
   },
   {
-    id: 'aide-scolarite-qf-cas-3',
+    id: 'prestagri-qf-cas-3',
     ruleId: 'prestagri',
     label: 'Cas N°3 :',
     scenario: 'Cas N°3 :',
@@ -330,7 +330,7 @@ export const ruleTestsCatala: RuleTest[] = [
     tags: [],
   },
   {
-    id: 'aide-scolarite-qf-cas-4',
+    id: 'prestagri-qf-cas-4',
     ruleId: 'prestagri',
     label: 'Cas N°4 :',
     scenario: 'Cas N°4 :',
