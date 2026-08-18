@@ -79,13 +79,39 @@ def function_overview(resultats : list, scope_call : str) -> dict :
     }
  
 
+def write_html_overview(overview: dict, filepath: str = "vue-fonction.html", template_path: str = "template.html") -> None:
+    """
+    Ecrit une page HTML autonome (CSS + JS inclus, aucune dependance externe)
+    affichant "overview" (le dict renvoye par to_function_overview) sous
+    forme de 3 boîtes : Entrées / Fonctions appelées / Sorties.
+ 
+    Le template HTML vit dans un fichier a part (template.html), avec un
+    marqueur __OVERVIEW_JSON__ a l'endroit ou les donnees doivent s'inserer.
+    """
+    with open(template_path, encoding="utf-8") as f:
+        template = f.read()
+ 
+    overview_json = json.dumps(overview, ensure_ascii=False, indent=2)
+    html = template.replace("__OVERVIEW_JSON__", overview_json)
+ 
+    with open(filepath, "w", encoding="utf-8") as f:
+        f.write(html)
+ 
+
 
 def main():
     with open("resultats.json", encoding="utf-8") as f:
         resultats = json.load(f)
  
     overview = function_overview(resultats, "CalculPointsAideScolarite")
-    print(json.dumps(overview, indent=2, ensure_ascii=False))
+    
+    with open("function-overview.json", "w", encoding="utf-8") as f:
+        json.dump(overview, f, indent=2, ensure_ascii=False)
+ 
+    write_html_overview(overview, "vue-fonction.html")
+ 
+    print("Écrit dans function-overview.json et vue-fonction.html")
+ 
  
  
 if __name__ == "__main__":

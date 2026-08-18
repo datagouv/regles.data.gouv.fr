@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vue fonction</title>
+<style>
+  :root {
+    --border: #e0e0e0;
+    --surface: #f6f6f6;
+    --text: #1e1e1e;
+    --text-secondary: #666;
+    --text-muted: #888;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Arial, sans-serif;
+    background: #fff;
+    color: var(--text);
+    margin: 0;
+    padding: 2rem 1.5rem;
+  }
+  .conteneur { max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  .sous-titre { font-size: 13px; color: var(--text-secondary); margin: 0 0 1.5rem; }
+
+  .grille {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+  }
+  .boite {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    padding: 1rem 1.1rem;
+  }
+  .boite:first-child { border-radius: 12px 0 0 12px; }
+  .boite:last-child { border-radius: 0 12px 12px 0; border-left: none; }
+  .boite:not(:first-child):not(:last-child) { border-left: none; border-right: none; }
+
+  .titre-boite { font-size: 13px; font-weight: 600; margin: 0 0 12px; }
+  .eyebrow {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin: 0 0 6px;
+  }
+  .champ { margin-bottom: 10px; }
+  .champ:last-child { margin-bottom: 0; }
+  .champ-simple { display: flex; justify-content: space-between; align-items: baseline; }
+  code { font-size: 12px; font-family: ui-monospace, Menlo, monospace; }
+  .type { font-size: 11px; color: var(--text-secondary); white-space: nowrap; margin-left: 8px; }
+  .composants {
+    font-size: 11px;
+    color: var(--text-secondary);
+    padding-left: 8px;
+    margin-top: 2px;
+    line-height: 1.6;
+  }
+  .fonction-appelee { font-size: 12px; margin-bottom: 8px; }
+  .fonction-appelee:last-child { margin-bottom: 0; }
+  .separateur { border-top: 0.5px solid var(--border); padding-top: 10px; margin-top: 12px; }
+  .resultat code { font-size: 13px; font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="conteneur">
+    <h1 id="titre-fonction"></h1>
+    <p class="sous-titre" id="sous-titre-fonction"></p>
+    <div class="grille" id="grille"></div>
+  </div>
+
+<script>
+// Donnees issues de function-overview.json (generees par to_function_overview)
+const overview = __OVERVIEW_JSON__;
+
+document.getElementById('titre-fonction').textContent = overview.scope_call;
+document.getElementById('sous-titre-fonction').textContent =
+  `Vue agrégée sur ${overview.nb_cas_analyses} cas de test`;
+
+function champHtml(nom, valeur) {
+  if (typeof valeur === 'string') {
+    return `
+      <div class="champ champ-simple">
+        <code>${nom}</code>
+        <span class="type">${valeur}</span>
+      </div>`;
+  }
+  const composants = Object.entries(valeur)
+    .map(([sousNom, sousType]) => `${sousNom} : ${sousType}`)
+    .join('<br/>');
+  return `
+    <div class="champ">
+      <code>${nom}</code>
+      <div class="composants">${composants}</div>
+    </div>`;
+}
+
+const inputsHtml = Object.entries(overview.inputs).map(([nom, val]) => champHtml(nom, val)).join('');
+
+const fonctionsHtml = overview.appels_intermediaires
+  .map(a => `<div class="fonction-appelee">${a.scope_call}</div>`)
+  .join('');
+
+const entreesOutputs = Object.entries(overview.outputs);
+const composeEntries = entreesOutputs.filter(([, v]) => typeof v !== 'string');
+const simpleEntries = entreesOutputs.filter(([, v]) => typeof v === 'string');
+
+const criteresHtml = composeEntries.map(([, valeur]) =>
+  Object.entries(valeur).map(([nom, type]) => `
+    <div class="champ champ-simple">
+      <code>${nom}</code>
+      <span class="type">${type}</span>
+    </div>`).join('')
+).join('');
+
+const resultatHtml = simpleEntries.map(([nom, type]) => `
+  <div class="champ champ-simple resultat">
+    <code>${nom}</code>
+    <span class="type">${type}</span>
+  </div>`).join('');
+
+document.getElementById('grille').innerHTML = `
+  <div class="boite">
+    <p class="titre-boite">Entrées</p>
+    ${inputsHtml}
+  </div>
+  <div class="boite">
+    <p class="titre-boite">Fonctions appelées</p>
+    ${fonctionsHtml}
+  </div>
+  <div class="boite">
+    <p class="titre-boite">Sorties</p>
+    <p class="eyebrow">Critères applicables</p>
+    ${criteresHtml}
+    <div class="separateur">${resultatHtml}</div>
+  </div>
+`;
+</script>
+</body>
+</html>
