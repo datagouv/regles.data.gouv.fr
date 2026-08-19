@@ -1,5 +1,44 @@
 import json 
 
+def profondeur(valeur) -> int:
+    """
+    Calcule la profondeur d'une valeur : 1 pour une valeur simple (texte,
+    nombre, booleen), et 1 de plus a chaque niveau de dict ou de liste
+ 
+    """
+    if isinstance(valeur, dict):
+        return 1 + max((profondeur(v) for v in valeur.values()), default=1)
+    if isinstance(valeur, list):
+        return 1 + max((profondeur(v) for v in valeur), default=1)
+    return 1
+
+def noms(valeur) -> dict:
+    """
+    Recupere les noms associes a une valeur, selon sa forme :
+    dict -> ses cles ; si une valeur associee est elle-meme un dict/liste, on descend dedans pour recuperer ses noms aussi (recursif)
+    liste -> ses elements simples, ou les noms de ses elements s'ils sont eux-memes des dict/liste
+    """
+    if isinstance(valeur, dict) and len(valeur) == 1:
+        contenu = next(iter(valeur.values()))
+        return noms(contenu) if isinstance(contenu, (dict, list)) else {}
+
+    resultat = {}
+    if isinstance(valeur, dict):
+        for cle, sous_valeur in valeur.items():
+            resultat[cle] = noms(sous_valeur) if isinstance(sous_valeur, (dict, list)) else type_de(sous_valeur)
+    elif isinstance(valeur, list):
+        for item in valeur:
+            if isinstance(item, dict):
+                for cle, sous_valeur in item.items():
+                    resultat[cle] = noms(sous_valeur) if isinstance(sous_valeur, (dict, list)) else type_de(sous_valeur)
+            elif isinstance(item, list):
+                resultat.update(noms(item))
+            else:
+                resultat[item] = type_de(item)
+    return resultat
+ 
+
+
 def type_de(valeur) -> str:
     """ Deduit un type lisible pour une valeur simple (pas un objet/liste). """
     return "booléen" if isinstance(valeur, bool) else "texte/nombre"
@@ -33,43 +72,35 @@ def function_overview(resultats : list, scope_call : str) -> dict :
             if inp["path"][:-1] == main_path:
                 nom = inp["path"][-1]
                 valeur = inp["value"]
-                # on deplie l'optionnel a la Catala ({"Présent": {...}})
-                if isinstance(valeur, dict) and "Présent" in valeur:
-                    valeur = valeur["Présent"]
-                if isinstance(valeur, dict):
-                    inputs.setdefault(nom, {})
-                    for sous_nom, sous_valeur in valeur.items():
-                        inputs[nom][sous_nom] = type_de(sous_valeur)
-                elif valeur != "Absent":
-                    inputs[nom] = type_de(valeur)
+                if profondeur(valeur) == 1:
+                    inputs.setdefault(nom, type_de(valeur))
+                else:
+                    if not isinstance(inputs.get(nom), dict):
+                        inputs[nom] = {}
+                    inputs[nom].update(noms(valeur))
  
         for out in resultat.get("outputs", []):
             if out["path"][:-1] == main_path:
                 nom = out["path"][-1]
                 valeur = out["value"]
-                if isinstance(valeur, list):
-                    outputs.setdefault(nom, {})
-                    for item in valeur:
-                        if isinstance(item, dict):
-                            for sous_nom, sous_valeur in item.items():
-                                outputs[nom][sous_nom] = type_de(sous_valeur)
+                if profondeur(valeur) == 1:
+                    outputs.setdefault(nom, type_de(valeur))
                 else:
-                    outputs[nom] = type_de(valeur)
-# recup les fonctions intermediaires - surtout leurs variables 
+                    if not isinstance(outputs.get(nom), dict):
+                        outputs[nom] = {}
+                    outputs[nom].update(noms(valeur))
+ 
+        # recup les fonctions intermediaires - surtout leurs variables
         for c in resultat.get("scope_calls", []):
             if c.get("level", 0) >= 2:
                 entry = intermediaires.setdefault(c["scope_call"], {"vars": set(), "count": 0})
                 entry["vars"].add(c["scope_var"])
                 entry["count"] += 1
-
+ 
     appels_intermediaires = [
         {"scope_call": nom, "depend_de": sorted(info["vars"]), "occurrences": info["count"]}
-        for nom, info in intermediaires.items()]
-    for dico in (inputs, outputs):
-        for entree in dico.values():
-            if "valeurs" in entree:
-                entree["valeurs"] = sorted(entree["valeurs"], key=str)
-
+        for nom, info in intermediaires.items()
+    ]
     return {
         "scope_call": scope_call,
         "nb_cas_analyses": cas_retenus,
