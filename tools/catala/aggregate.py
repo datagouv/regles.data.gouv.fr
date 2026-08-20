@@ -134,7 +134,7 @@ def main():
     with open("resultats.json", encoding="utf-8") as f:
         resultats = json.load(f)
  
-    overview = function_overview(resultats, "CalculPointsAideScolarite")
+    overview = function_overview(resultats, "CalculAideScolarite")
     
     with open("function-overview.json", "w", encoding="utf-8") as f:
         json.dump(overview, f, indent=2, ensure_ascii=False)

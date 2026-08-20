@@ -22,6 +22,42 @@ export const ruleTestsCatala: RuleTest[] = [
     tags: [],
   },
   {
+    id: 'prestagri-o-cas-1',
+    ruleId: 'prestagri',
+    label: 'Cas N°1 : logement separe mais proche de l\'ecole',
+    scenario: 'Cas N°1 : logement separe mais proche de l\'ecole',
+    inputs: {
+      quotient_familial: '850.00',
+      trajet_depuis_domicile_agent: {
+        distance_km: '10',
+        'durée_minutes': '20',
+      },
+      'trajet_depuis_domicile_étudiant': {
+        'Présent': {
+          distance_km: '10',
+          'durée_minutes': '20',
+        },
+      },
+      'montant_matériel_spécifique': '0.00',
+      'étudiant_en_filière_post_bac': false,
+    },
+    expected: '150.00',
+    expectedUnit: 'EUR',
+    expectedCriteria: [
+      {
+        name: 'C2_domiciliation_séparée',
+        value: '2',
+      },
+    ],
+    source: 'administration',
+    status: 'valide',
+    validatedBy: 'Trace Catala (interpréteur, calcul réel)',
+    engineVersion: 'catala (non renseigné)',
+    nativeFormat: 'catala-assert',
+    nativeRef: 'aide_scolarite.catala_fr#CalculAideScolarite',
+    tags: [],
+  },
+  {
     id: 'prestagri-pt-cas-1',
     ruleId: 'prestagri',
     label: 'Cas N°1 : logement separe mais proche de l\'ecole',

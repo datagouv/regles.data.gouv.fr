@@ -73,9 +73,11 @@
 <script>
 // Donnees issues de function-overview.json (generees par to_function_overview)
 const overview = {
-  "scope_call": "CalculPointsAideScolarite",
-  "nb_cas_analyses": 13,
+  "scope_call": "CalculAideScolarite",
+  "nb_cas_analyses": 2,
   "inputs": {
+    "quotient_familial": "texte/nombre",
+    "nb_points": "texte/nombre",
     "trajet_depuis_domicile_agent": {
       "distance_km": "texte/nombre",
       "durée_minutes": "texte/nombre"
@@ -85,29 +87,26 @@ const overview = {
       "durée_minutes": "texte/nombre"
     },
     "montant_matériel_spécifique": "texte/nombre",
-    "valeur_point": "texte/nombre",
     "étudiant_en_filière_post_bac": "booléen"
   },
   "outputs": {
-    "critères_applicables#études_supérieures": {
-      "C2_domiciliation_séparée": "texte/nombre",
-      "C3_éloignement_agent": "texte/nombre",
-      "C5_études_supérieures": "texte/nombre",
-      "C3_éloignement_étudiant": "texte/nombre",
-      "C4_matériel": "texte/nombre"
+    "aide_scolarite": "texte/nombre",
+    "valeur_point": "texte/nombre",
+    "critères_applicables": {
+      "C2_domiciliation_séparée": "texte/nombre"
     },
     "nb_points": "texte/nombre"
   },
   "appels_intermediaires": [
     {
-      "scope_call": "CalculPointsTrajet",
+      "scope_call": "CalculPointsAideScolarite",
       "depend_de": [
-        "critères_applicables#éloignement"
+        "calcul_points"
       ],
-      "occurrences": 26
+      "occurrences": 1
     },
     {
-      "scope_call": "RetraitCritèreC2",
+      "scope_call": "CalculPointsTrajet",
       "depend_de": [
         "critères_applicables#éloignement"
       ],
