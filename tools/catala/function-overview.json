@@ -1,9 +1,7 @@
 {
-  "scope_call": "CalculAideScolarite",
-  "nb_cas_analyses": 2,
+  "scope_call": "CalculPointsAideScolarite",
+  "nb_cas_analyses": 13,
   "inputs": {
-    "quotient_familial": "texte/nombre",
-    "nb_points": "texte/nombre",
     "trajet_depuis_domicile_agent": {
       "distance_km": "texte/nombre",
       "durée_minutes": "texte/nombre"
@@ -13,26 +11,29 @@
       "durée_minutes": "texte/nombre"
     },
     "montant_matériel_spécifique": "texte/nombre",
+    "valeur_point": "texte/nombre",
     "étudiant_en_filière_post_bac": "booléen"
   },
   "outputs": {
-    "aide_scolarite": "texte/nombre",
-    "valeur_point": "texte/nombre",
-    "critères_applicables": {
-      "C2_domiciliation_séparée": "texte/nombre"
+    "critères_applicables#études_supérieures": {
+      "C2_domiciliation_séparée": "texte/nombre",
+      "C3_éloignement_agent": "texte/nombre",
+      "C5_études_supérieures": "texte/nombre",
+      "C3_éloignement_étudiant": "texte/nombre",
+      "C4_matériel": "texte/nombre"
     },
     "nb_points": "texte/nombre"
   },
   "appels_intermediaires": [
     {
-      "scope_call": "CalculPointsAideScolarite",
+      "scope_call": "CalculPointsTrajet",
       "depend_de": [
-        "calcul_points"
+        "critères_applicables#éloignement"
       ],
-      "occurrences": 1
+      "occurrences": 26
     },
     {
-      "scope_call": "CalculPointsTrajet",
+      "scope_call": "RetraitCritèreC2",
       "depend_de": [
         "critères_applicables#éloignement"
       ],

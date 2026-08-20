@@ -231,7 +231,7 @@ def write_rule_tests_ts(rule_tests: list, filepath: str, const_name: str = "rule
  
 
 def main():
-    folder = "trace_files"
+    folder = "trace_apl"
     rule_tests = []
     resultats = []
     for filename in sorted(os.listdir(folder)):
@@ -244,9 +244,9 @@ def main():
         resultats.append({"id": rule_test["id"], "ruleId": rule_test["ruleId"], **resultat})
         rule_tests.append(rule_test)
  
-    write_rule_tests_ts(rule_tests, "tests-catala.ts")
-    save_resultats(resultats, "resultats.json")
-    print(f"{len(rule_tests)} cas-tests écrits dans tests-catala.ts et resultats.json")
+    write_rule_tests_ts(rule_tests, "tests-catala-apl.ts")
+    save_resultats(resultats, "resultats-apl.json")
+    print(f"{len(rule_tests)} cas-tests écrits dans tests-catala-apl.ts et resultats-apl.json")
  
 
  

@@ -3050,6 +3050,2688 @@
     "label": "Cas N°3 : matériel spécifique inférieur au maximum eligible"
   },
   {
+    "id": "prestagri-o-cas-1",
+    "ruleId": "prestagri",
+    "inputs": [
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "foyer_fiscal_agent"
+        ],
+        "value": {
+          "beneficiaire_porteur_handicap": false,
+          "garde_alternée": false,
+          "parent_isolé": false,
+          "outre_mer": false,
+          "membres_du_foyer": [
+            {
+              "revenu_fiscal_reference": "12000.00",
+              "nombre_personnes": "1"
+            },
+            {
+              "revenu_fiscal_reference": "20600.00",
+              "nombre_personnes": "3"
+            }
+          ]
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "étudiants_fiscalement_indépendants"
+        ],
+        "value": [
+          {
+            "revenu_fiscal_reference": "10000.00",
+            "nombre_personnes": "1"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "trajet_depuis_domicile_agent"
+        ],
+        "value": {
+          "distance_km": "10",
+          "durée_minutes": "20"
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "trajet_depuis_domicile_étudiant"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "10",
+            "durée_minutes": "20"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "montant_matériel_spécifique"
+        ],
+        "value": "0.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "étudiant_en_filière_post_bac"
+        ],
+        "value": false
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "foyer_fiscal_agent"
+        ],
+        "value": {
+          "beneficiaire_porteur_handicap": false,
+          "garde_alternée": false,
+          "parent_isolé": false,
+          "outre_mer": false,
+          "membres_du_foyer": [
+            {
+              "revenu_fiscal_reference": "12000.00",
+              "nombre_personnes": "1"
+            },
+            {
+              "revenu_fiscal_reference": "20600.00",
+              "nombre_personnes": "3"
+            }
+          ]
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "étudiants_fiscalement_indépendants"
+        ],
+        "value": [
+          {
+            "revenu_fiscal_reference": "10000.00",
+            "nombre_personnes": "1"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "menage"
+        ],
+        "value": {
+          "beneficiaire_porteur_handicap": false,
+          "garde_alternée": false,
+          "parent_isolé": false,
+          "outre_mer": false,
+          "membres_du_foyer": [
+            {
+              "revenu_fiscal_reference": "12000.00",
+              "nombre_personnes": "1"
+            },
+            {
+              "revenu_fiscal_reference": "20600.00",
+              "nombre_personnes": "3"
+            },
+            {
+              "revenu_fiscal_reference": "10000.00",
+              "nombre_personnes": "1"
+            }
+          ]
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "trajet_depuis_domicile_agent"
+        ],
+        "value": {
+          "distance_km": "10",
+          "durée_minutes": "20"
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "trajet_depuis_domicile_étudiant"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "10",
+            "durée_minutes": "20"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "montant_matériel_spécifique"
+        ],
+        "value": "0.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "valeur_point"
+        ],
+        "value": "100.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "étudiant_en_filière_post_bac"
+        ],
+        "value": false
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet",
+          "trajet"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "10",
+            "durée_minutes": "20"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet",
+          "trajet"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "10",
+            "durée_minutes": "20"
+          }
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul"
+        ],
+        "value": {
+          "revenu_fiscal_reference": "42600.00",
+          "nombre_personnes_vivants_au_foyer": "5",
+          "nombre_unités": "5",
+          "critères_applicables_quotient_familial": [],
+          "quotient_familial": "710.00",
+          "valeur_point": "100.00",
+          "critères_applicables": [
+            {
+              "C2_domiciliation_séparée": "2"
+            }
+          ],
+          "nb_points": "2",
+          "aide_scolarite": "200.00"
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "nombre_personnes_vivants_au_foyer"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "revenu_fiscal_reference"
+        ],
+        "value": "42600.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "critères_applicables#garde_alternée"
+        ],
+        "value": []
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "nombre_unités"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "quotient_familial"
+        ],
+        "value": "710.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "revenu_fiscal_reference"
+        ],
+        "value": "42600.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "critères_applicables"
+        ],
+        "value": []
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "nombre_personnes_vivants_au_foyer"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "nombre_unités"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "quotient_familial"
+        ],
+        "value": "710.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "revenu_fiscal_reference"
+        ],
+        "value": "42600.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "nombre_personnes_vivants_au_foyer"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "nombre_unités"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "critères_applicables_quotient_familial"
+        ],
+        "value": []
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "quotient_familial"
+        ],
+        "value": "710.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "valeur_point"
+        ],
+        "value": "100.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet",
+          "nb_points"
+        ],
+        "value": "0"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet",
+          "nb_points"
+        ],
+        "value": "0"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#études_supérieures"
+        ],
+        "value": [
+          {
+            "C2_domiciliation_séparée": "2"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "nb_points"
+        ],
+        "value": "2"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "critères_applicables"
+        ],
+        "value": [
+          {
+            "C2_domiciliation_séparée": "2"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "nb_points"
+        ],
+        "value": "2"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "aide_scolarite"
+        ],
+        "value": "200.00"
+      }
+    ],
+    "scope_calls": [
+      {
+        "path": [
+          "TestCalculAideScolarite1"
+        ],
+        "scope_call": "TestCalculAideScolarite1",
+        "scope_var": null,
+        "level": 0
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite"
+        ],
+        "scope_call": "CalculAideScolarite",
+        "scope_var": "calcul",
+        "level": 1
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite"
+        ],
+        "scope_call": "CalculQuotientFamilialAideScolarite",
+        "scope_var": "calcul_quotient_familial_aide_scolarite",
+        "level": 2
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial"
+        ],
+        "scope_call": "CalculQuotientFamilial",
+        "scope_var": "calcul_quotient_familial",
+        "level": 3
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite"
+        ],
+        "scope_call": "CalculPointsAideScolarite",
+        "scope_var": "calcul_points",
+        "level": 2
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet"
+        ],
+        "scope_call": "CalculPointsTrajet",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 3
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite1",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet"
+        ],
+        "scope_call": "CalculPointsTrajet",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 3
+      }
+    ],
+    "label": "Cas N°1 : logement separe mais proche de l'ecole"
+  },
+  {
+    "id": "prestagri-o-cas-2",
+    "ruleId": "prestagri",
+    "inputs": [
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "foyer_fiscal_agent"
+        ],
+        "value": {
+          "beneficiaire_porteur_handicap": false,
+          "garde_alternée": false,
+          "parent_isolé": false,
+          "outre_mer": false,
+          "membres_du_foyer": [
+            {
+              "revenu_fiscal_reference": "25000.00",
+              "nombre_personnes": "1"
+            },
+            {
+              "revenu_fiscal_reference": "20600.00",
+              "nombre_personnes": "3"
+            }
+          ]
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "étudiants_fiscalement_indépendants"
+        ],
+        "value": [
+          {
+            "revenu_fiscal_reference": "10000.00",
+            "nombre_personnes": "1"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "trajet_depuis_domicile_agent"
+        ],
+        "value": {
+          "distance_km": "101",
+          "durée_minutes": "50"
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "trajet_depuis_domicile_étudiant"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "10",
+            "durée_minutes": "20"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "montant_matériel_spécifique"
+        ],
+        "value": "0.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "étudiant_en_filière_post_bac"
+        ],
+        "value": false
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "foyer_fiscal_agent"
+        ],
+        "value": {
+          "beneficiaire_porteur_handicap": false,
+          "garde_alternée": false,
+          "parent_isolé": false,
+          "outre_mer": false,
+          "membres_du_foyer": [
+            {
+              "revenu_fiscal_reference": "25000.00",
+              "nombre_personnes": "1"
+            },
+            {
+              "revenu_fiscal_reference": "20600.00",
+              "nombre_personnes": "3"
+            }
+          ]
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "étudiants_fiscalement_indépendants"
+        ],
+        "value": [
+          {
+            "revenu_fiscal_reference": "10000.00",
+            "nombre_personnes": "1"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "menage"
+        ],
+        "value": {
+          "beneficiaire_porteur_handicap": false,
+          "garde_alternée": false,
+          "parent_isolé": false,
+          "outre_mer": false,
+          "membres_du_foyer": [
+            {
+              "revenu_fiscal_reference": "25000.00",
+              "nombre_personnes": "1"
+            },
+            {
+              "revenu_fiscal_reference": "20600.00",
+              "nombre_personnes": "3"
+            },
+            {
+              "revenu_fiscal_reference": "10000.00",
+              "nombre_personnes": "1"
+            }
+          ]
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "trajet_depuis_domicile_agent"
+        ],
+        "value": {
+          "distance_km": "101",
+          "durée_minutes": "50"
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "trajet_depuis_domicile_étudiant"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "10",
+            "durée_minutes": "20"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "montant_matériel_spécifique"
+        ],
+        "value": "0.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "valeur_point"
+        ],
+        "value": "75.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "étudiant_en_filière_post_bac"
+        ],
+        "value": false
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet",
+          "trajet"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "101",
+            "durée_minutes": "50"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet",
+          "trajet"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "10",
+            "durée_minutes": "20"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "if_branching",
+          "if_branching",
+          "RetraitCritèreC2",
+          "critères"
+        ],
+        "value": [
+          {
+            "C2_domiciliation_séparée": "2"
+          }
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul"
+        ],
+        "value": {
+          "revenu_fiscal_reference": "55600.00",
+          "nombre_personnes_vivants_au_foyer": "5",
+          "nombre_unités": "5",
+          "critères_applicables_quotient_familial": [],
+          "quotient_familial": "926.67",
+          "valeur_point": "75.00",
+          "critères_applicables": [
+            {
+              "C3_éloignement_agent": "4"
+            }
+          ],
+          "nb_points": "4",
+          "aide_scolarite": "300.00"
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "nombre_personnes_vivants_au_foyer"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "revenu_fiscal_reference"
+        ],
+        "value": "55600.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "critères_applicables#garde_alternée"
+        ],
+        "value": []
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "nombre_unités"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "quotient_familial"
+        ],
+        "value": "926.67"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "revenu_fiscal_reference"
+        ],
+        "value": "55600.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "critères_applicables"
+        ],
+        "value": []
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "nombre_personnes_vivants_au_foyer"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "nombre_unités"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "quotient_familial"
+        ],
+        "value": "926.67"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "revenu_fiscal_reference"
+        ],
+        "value": "55600.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "nombre_personnes_vivants_au_foyer"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "nombre_unités"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "critères_applicables_quotient_familial"
+        ],
+        "value": []
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "quotient_familial"
+        ],
+        "value": "926.67"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "valeur_point"
+        ],
+        "value": "75.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet",
+          "nb_points"
+        ],
+        "value": "4"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet",
+          "nb_points"
+        ],
+        "value": "0"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "if_branching",
+          "if_branching",
+          "RetraitCritèreC2",
+          "critères_sans_c2"
+        ],
+        "value": []
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#études_supérieures"
+        ],
+        "value": [
+          {
+            "C3_éloignement_agent": "4"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "nb_points"
+        ],
+        "value": "4"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "critères_applicables"
+        ],
+        "value": [
+          {
+            "C3_éloignement_agent": "4"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "nb_points"
+        ],
+        "value": "4"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "aide_scolarite"
+        ],
+        "value": "300.00"
+      }
+    ],
+    "scope_calls": [
+      {
+        "path": [
+          "TestCalculAideScolarite2"
+        ],
+        "scope_call": "TestCalculAideScolarite2",
+        "scope_var": null,
+        "level": 0
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite"
+        ],
+        "scope_call": "CalculAideScolarite",
+        "scope_var": "calcul",
+        "level": 1
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite"
+        ],
+        "scope_call": "CalculQuotientFamilialAideScolarite",
+        "scope_var": "calcul_quotient_familial_aide_scolarite",
+        "level": 2
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial"
+        ],
+        "scope_call": "CalculQuotientFamilial",
+        "scope_var": "calcul_quotient_familial",
+        "level": 3
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite"
+        ],
+        "scope_call": "CalculPointsAideScolarite",
+        "scope_var": "calcul_points",
+        "level": 2
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet"
+        ],
+        "scope_call": "CalculPointsTrajet",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 3
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet"
+        ],
+        "scope_call": "CalculPointsTrajet",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 3
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite2",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "if_branching",
+          "if_branching",
+          "RetraitCritèreC2"
+        ],
+        "scope_call": "RetraitCritèreC2",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 3
+      }
+    ],
+    "label": "Cas N°2 : logement separe mais l'adresse des parents est plus avantageuse"
+  },
+  {
+    "id": "prestagri-o-cas-3",
+    "ruleId": "prestagri",
+    "inputs": [
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "foyer_fiscal_agent"
+        ],
+        "value": {
+          "beneficiaire_porteur_handicap": false,
+          "garde_alternée": false,
+          "parent_isolé": false,
+          "outre_mer": false,
+          "membres_du_foyer": [
+            {
+              "revenu_fiscal_reference": "12000.00",
+              "nombre_personnes": "1"
+            },
+            {
+              "revenu_fiscal_reference": "50000.00",
+              "nombre_personnes": "3"
+            }
+          ]
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "étudiants_fiscalement_indépendants"
+        ],
+        "value": [
+          {
+            "revenu_fiscal_reference": "10000.00",
+            "nombre_personnes": "1"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "trajet_depuis_domicile_agent"
+        ],
+        "value": {
+          "distance_km": "100",
+          "durée_minutes": "20"
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "trajet_depuis_domicile_étudiant"
+        ],
+        "value": "Absent"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "montant_matériel_spécifique"
+        ],
+        "value": "1000.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "étudiant_en_filière_post_bac"
+        ],
+        "value": true
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "foyer_fiscal_agent"
+        ],
+        "value": {
+          "beneficiaire_porteur_handicap": false,
+          "garde_alternée": false,
+          "parent_isolé": false,
+          "outre_mer": false,
+          "membres_du_foyer": [
+            {
+              "revenu_fiscal_reference": "12000.00",
+              "nombre_personnes": "1"
+            },
+            {
+              "revenu_fiscal_reference": "50000.00",
+              "nombre_personnes": "3"
+            }
+          ]
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "étudiants_fiscalement_indépendants"
+        ],
+        "value": [
+          {
+            "revenu_fiscal_reference": "10000.00",
+            "nombre_personnes": "1"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "menage"
+        ],
+        "value": {
+          "beneficiaire_porteur_handicap": false,
+          "garde_alternée": false,
+          "parent_isolé": false,
+          "outre_mer": false,
+          "membres_du_foyer": [
+            {
+              "revenu_fiscal_reference": "12000.00",
+              "nombre_personnes": "1"
+            },
+            {
+              "revenu_fiscal_reference": "50000.00",
+              "nombre_personnes": "3"
+            },
+            {
+              "revenu_fiscal_reference": "10000.00",
+              "nombre_personnes": "1"
+            }
+          ]
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "trajet_depuis_domicile_agent"
+        ],
+        "value": {
+          "distance_km": "100",
+          "durée_minutes": "20"
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "trajet_depuis_domicile_étudiant"
+        ],
+        "value": "Absent"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "montant_matériel_spécifique"
+        ],
+        "value": "1000.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "valeur_point"
+        ],
+        "value": "0.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "étudiant_en_filière_post_bac"
+        ],
+        "value": true
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet",
+          "trajet"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "100",
+            "durée_minutes": "20"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet",
+          "trajet"
+        ],
+        "value": "Absent"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "if_branching",
+          "if_branching",
+          "RetraitCritèreC2",
+          "critères"
+        ],
+        "value": []
+      }
+    ],
+    "outputs": [
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul"
+        ],
+        "value": {
+          "revenu_fiscal_reference": "72000.00",
+          "nombre_personnes_vivants_au_foyer": "5",
+          "nombre_unités": "5",
+          "critères_applicables_quotient_familial": [],
+          "quotient_familial": "1200.00",
+          "valeur_point": "0.00",
+          "critères_applicables": [
+            {
+              "C3_éloignement_agent": "2"
+            },
+            {
+              "C5_études_supérieures": "1"
+            }
+          ],
+          "nb_points": "3",
+          "aide_scolarite": "0.00"
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "nombre_personnes_vivants_au_foyer"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "revenu_fiscal_reference"
+        ],
+        "value": "72000.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "critères_applicables#garde_alternée"
+        ],
+        "value": []
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "nombre_unités"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "quotient_familial"
+        ],
+        "value": "1200.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "revenu_fiscal_reference"
+        ],
+        "value": "72000.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "critères_applicables"
+        ],
+        "value": []
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "nombre_personnes_vivants_au_foyer"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "nombre_unités"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "quotient_familial"
+        ],
+        "value": "1200.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "revenu_fiscal_reference"
+        ],
+        "value": "72000.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "nombre_personnes_vivants_au_foyer"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "nombre_unités"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "critères_applicables_quotient_familial"
+        ],
+        "value": []
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "quotient_familial"
+        ],
+        "value": "1200.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "valeur_point"
+        ],
+        "value": "0.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet",
+          "nb_points"
+        ],
+        "value": "2"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet",
+          "nb_points"
+        ],
+        "value": "0"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "if_branching",
+          "if_branching",
+          "RetraitCritèreC2",
+          "critères_sans_c2"
+        ],
+        "value": []
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#études_supérieures"
+        ],
+        "value": [
+          {
+            "C3_éloignement_agent": "2"
+          },
+          {
+            "C5_études_supérieures": "1"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "nb_points"
+        ],
+        "value": "3"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "critères_applicables"
+        ],
+        "value": [
+          {
+            "C3_éloignement_agent": "2"
+          },
+          {
+            "C5_études_supérieures": "1"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "nb_points"
+        ],
+        "value": "3"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "aide_scolarite"
+        ],
+        "value": "0.00"
+      }
+    ],
+    "scope_calls": [
+      {
+        "path": [
+          "TestCalculAideScolarite3"
+        ],
+        "scope_call": "TestCalculAideScolarite3",
+        "scope_var": null,
+        "level": 0
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite"
+        ],
+        "scope_call": "CalculAideScolarite",
+        "scope_var": "calcul",
+        "level": 1
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite"
+        ],
+        "scope_call": "CalculQuotientFamilialAideScolarite",
+        "scope_var": "calcul_quotient_familial_aide_scolarite",
+        "level": 2
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial"
+        ],
+        "scope_call": "CalculQuotientFamilial",
+        "scope_var": "calcul_quotient_familial",
+        "level": 3
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite"
+        ],
+        "scope_call": "CalculPointsAideScolarite",
+        "scope_var": "calcul_points",
+        "level": 2
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet"
+        ],
+        "scope_call": "CalculPointsTrajet",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 3
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet"
+        ],
+        "scope_call": "CalculPointsTrajet",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 3
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite3",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "if_branching",
+          "if_branching",
+          "RetraitCritèreC2"
+        ],
+        "scope_call": "RetraitCritèreC2",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 3
+      }
+    ],
+    "label": "Cas N°3 : Revenus trop élevés"
+  },
+  {
+    "id": "prestagri-o-cas-4",
+    "ruleId": "prestagri",
+    "inputs": [
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "foyer_fiscal_agent"
+        ],
+        "value": {
+          "beneficiaire_porteur_handicap": true,
+          "garde_alternée": false,
+          "parent_isolé": false,
+          "outre_mer": false,
+          "membres_du_foyer": [
+            {
+              "revenu_fiscal_reference": "12000.00",
+              "nombre_personnes": "1"
+            },
+            {
+              "revenu_fiscal_reference": "20600.00",
+              "nombre_personnes": "3"
+            }
+          ]
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "étudiants_fiscalement_indépendants"
+        ],
+        "value": [
+          {
+            "revenu_fiscal_reference": "10000.00",
+            "nombre_personnes": "1"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "trajet_depuis_domicile_agent"
+        ],
+        "value": {
+          "distance_km": "100",
+          "durée_minutes": "20"
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "trajet_depuis_domicile_étudiant"
+        ],
+        "value": "Absent"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "montant_matériel_spécifique"
+        ],
+        "value": "1000.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "étudiant_en_filière_post_bac"
+        ],
+        "value": false
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "foyer_fiscal_agent"
+        ],
+        "value": {
+          "beneficiaire_porteur_handicap": true,
+          "garde_alternée": false,
+          "parent_isolé": false,
+          "outre_mer": false,
+          "membres_du_foyer": [
+            {
+              "revenu_fiscal_reference": "12000.00",
+              "nombre_personnes": "1"
+            },
+            {
+              "revenu_fiscal_reference": "20600.00",
+              "nombre_personnes": "3"
+            }
+          ]
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "étudiants_fiscalement_indépendants"
+        ],
+        "value": [
+          {
+            "revenu_fiscal_reference": "10000.00",
+            "nombre_personnes": "1"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "menage"
+        ],
+        "value": {
+          "beneficiaire_porteur_handicap": true,
+          "garde_alternée": false,
+          "parent_isolé": false,
+          "outre_mer": false,
+          "membres_du_foyer": [
+            {
+              "revenu_fiscal_reference": "12000.00",
+              "nombre_personnes": "1"
+            },
+            {
+              "revenu_fiscal_reference": "20600.00",
+              "nombre_personnes": "3"
+            },
+            {
+              "revenu_fiscal_reference": "10000.00",
+              "nombre_personnes": "1"
+            }
+          ]
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "trajet_depuis_domicile_agent"
+        ],
+        "value": {
+          "distance_km": "100",
+          "durée_minutes": "20"
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "trajet_depuis_domicile_étudiant"
+        ],
+        "value": "Absent"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "montant_matériel_spécifique"
+        ],
+        "value": "1000.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "valeur_point"
+        ],
+        "value": "100.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "étudiant_en_filière_post_bac"
+        ],
+        "value": false
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet",
+          "trajet"
+        ],
+        "value": {
+          "Présent": {
+            "distance_km": "100",
+            "durée_minutes": "20"
+          }
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet",
+          "trajet"
+        ],
+        "value": "Absent"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "if_branching",
+          "if_branching",
+          "RetraitCritèreC2",
+          "critères"
+        ],
+        "value": []
+      }
+    ],
+    "outputs": [
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul"
+        ],
+        "value": {
+          "revenu_fiscal_reference": "42600.00",
+          "nombre_personnes_vivants_au_foyer": "5",
+          "nombre_unités": "11/2",
+          "critères_applicables_quotient_familial": [
+            {
+              "Handicap": "1/2"
+            }
+          ],
+          "quotient_familial": "645.45",
+          "valeur_point": "100.00",
+          "critères_applicables": [
+            {
+              "C3_éloignement_agent": "2"
+            },
+            {
+              "C4_matériel": "2"
+            }
+          ],
+          "nb_points": "4",
+          "aide_scolarite": "400.00"
+        }
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "nombre_personnes_vivants_au_foyer"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "revenu_fiscal_reference"
+        ],
+        "value": "42600.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "critères_applicables#garde_alternée"
+        ],
+        "value": [
+          {
+            "Handicap": "1/2"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "nombre_unités"
+        ],
+        "value": "11/2"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial",
+          "quotient_familial"
+        ],
+        "value": "645.45"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "revenu_fiscal_reference"
+        ],
+        "value": "42600.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "critères_applicables"
+        ],
+        "value": [
+          {
+            "Handicap": "1/2"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "nombre_personnes_vivants_au_foyer"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "nombre_unités"
+        ],
+        "value": "11/2"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "quotient_familial"
+        ],
+        "value": "645.45"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "revenu_fiscal_reference"
+        ],
+        "value": "42600.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "nombre_personnes_vivants_au_foyer"
+        ],
+        "value": "5"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "nombre_unités"
+        ],
+        "value": "11/2"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "critères_applicables_quotient_familial"
+        ],
+        "value": [
+          {
+            "Handicap": "1/2"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "quotient_familial"
+        ],
+        "value": "645.45"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "valeur_point"
+        ],
+        "value": "100.00"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet",
+          "nb_points"
+        ],
+        "value": "2"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet",
+          "nb_points"
+        ],
+        "value": "0"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "if_branching",
+          "if_branching",
+          "RetraitCritèreC2",
+          "critères_sans_c2"
+        ],
+        "value": []
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#études_supérieures"
+        ],
+        "value": [
+          {
+            "C3_éloignement_agent": "2"
+          },
+          {
+            "C4_matériel": "2"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "nb_points"
+        ],
+        "value": "4"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "critères_applicables"
+        ],
+        "value": [
+          {
+            "C3_éloignement_agent": "2"
+          },
+          {
+            "C4_matériel": "2"
+          }
+        ]
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "nb_points"
+        ],
+        "value": "4"
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "aide_scolarite"
+        ],
+        "value": "400.00"
+      }
+    ],
+    "scope_calls": [
+      {
+        "path": [
+          "TestCalculAideScolarite4"
+        ],
+        "scope_call": "TestCalculAideScolarite4",
+        "scope_var": null,
+        "level": 0
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite"
+        ],
+        "scope_call": "CalculAideScolarite",
+        "scope_var": "calcul",
+        "level": 1
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite"
+        ],
+        "scope_call": "CalculQuotientFamilialAideScolarite",
+        "scope_var": "calcul_quotient_familial_aide_scolarite",
+        "level": 2
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_quotient_familial_aide_scolarite",
+          "CalculQuotientFamilialAideScolarite",
+          "calcul_quotient_familial",
+          "CalculQuotientFamilial"
+        ],
+        "scope_call": "CalculQuotientFamilial",
+        "scope_var": "calcul_quotient_familial",
+        "level": 3
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite"
+        ],
+        "scope_call": "CalculPointsAideScolarite",
+        "scope_var": "calcul_points",
+        "level": 2
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_agent",
+          "CalculPointsTrajet"
+        ],
+        "scope_call": "CalculPointsTrajet",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 3
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "points_domicile_étudiant",
+          "CalculPointsTrajet"
+        ],
+        "scope_call": "CalculPointsTrajet",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 3
+      },
+      {
+        "path": [
+          "TestCalculAideScolarite4",
+          "calcul",
+          "CalculAideScolarite",
+          "calcul_points",
+          "CalculPointsAideScolarite",
+          "critères_applicables#éloignement",
+          "if_branching",
+          "if_branching",
+          "RetraitCritèreC2"
+        ],
+        "scope_call": "RetraitCritèreC2",
+        "scope_var": "critères_applicables#éloignement",
+        "level": 3
+      }
+    ],
+    "label": "Cas N°4 : Test python"
+  },
+  {
     "id": "prestagri-qf-cas-1",
     "ruleId": "prestagri",
     "inputs": [

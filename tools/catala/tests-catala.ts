@@ -497,6 +497,236 @@ export const ruleTestsCatala: RuleTest[] = [
     tags: [],
   },
   {
+    id: 'prestagri-o-cas-1',
+    ruleId: 'prestagri',
+    label: 'Cas N°1 : logement separe mais proche de l\'ecole',
+    scenario: 'Cas N°1 : logement separe mais proche de l\'ecole',
+    inputs: {
+      foyer_fiscal_agent: {
+        beneficiaire_porteur_handicap: false,
+        'garde_alternée': false,
+        'parent_isolé': false,
+        outre_mer: false,
+        membres_du_foyer: [
+          {
+            revenu_fiscal_reference: '12000.00',
+            nombre_personnes: '1',
+          },
+          {
+            revenu_fiscal_reference: '20600.00',
+            nombre_personnes: '3',
+          },
+        ],
+      },
+      'étudiants_fiscalement_indépendants': [
+        {
+          revenu_fiscal_reference: '10000.00',
+          nombre_personnes: '1',
+        },
+      ],
+      trajet_depuis_domicile_agent: {
+        distance_km: '10',
+        'durée_minutes': '20',
+      },
+      'trajet_depuis_domicile_étudiant': {
+        'Présent': {
+          distance_km: '10',
+          'durée_minutes': '20',
+        },
+      },
+      'montant_matériel_spécifique': '0.00',
+      'étudiant_en_filière_post_bac': false,
+    },
+    expected: '200.00',
+    expectedUnit: 'EUR',
+    expectedCriteria: [
+      {
+        name: 'C2_domiciliation_séparée',
+        value: '2',
+      },
+    ],
+    source: 'administration',
+    status: 'valide',
+    validatedBy: 'Trace Catala (interpréteur, calcul réel)',
+    engineVersion: 'catala (non renseigné)',
+    nativeFormat: 'catala-assert',
+    nativeRef: 'aide_scolarite.catala_fr#CalculAideScolarite',
+    tags: [],
+  },
+  {
+    id: 'prestagri-o-cas-2',
+    ruleId: 'prestagri',
+    label: 'Cas N°2 : logement separe mais l\'adresse des parents est plus avantageuse',
+    scenario: 'Cas N°2 : logement separe mais l\'adresse des parents est plus avantageuse',
+    inputs: {
+      foyer_fiscal_agent: {
+        beneficiaire_porteur_handicap: false,
+        'garde_alternée': false,
+        'parent_isolé': false,
+        outre_mer: false,
+        membres_du_foyer: [
+          {
+            revenu_fiscal_reference: '25000.00',
+            nombre_personnes: '1',
+          },
+          {
+            revenu_fiscal_reference: '20600.00',
+            nombre_personnes: '3',
+          },
+        ],
+      },
+      'étudiants_fiscalement_indépendants': [
+        {
+          revenu_fiscal_reference: '10000.00',
+          nombre_personnes: '1',
+        },
+      ],
+      trajet_depuis_domicile_agent: {
+        distance_km: '101',
+        'durée_minutes': '50',
+      },
+      'trajet_depuis_domicile_étudiant': {
+        'Présent': {
+          distance_km: '10',
+          'durée_minutes': '20',
+        },
+      },
+      'montant_matériel_spécifique': '0.00',
+      'étudiant_en_filière_post_bac': false,
+    },
+    expected: '300.00',
+    expectedUnit: 'EUR',
+    expectedCriteria: [
+      {
+        name: 'C3_éloignement_agent',
+        value: '4',
+      },
+    ],
+    source: 'administration',
+    status: 'valide',
+    validatedBy: 'Trace Catala (interpréteur, calcul réel)',
+    engineVersion: 'catala (non renseigné)',
+    nativeFormat: 'catala-assert',
+    nativeRef: 'aide_scolarite.catala_fr#CalculAideScolarite',
+    tags: [],
+  },
+  {
+    id: 'prestagri-o-cas-3',
+    ruleId: 'prestagri',
+    label: 'Cas N°3 : Revenus trop élevés',
+    scenario: 'Cas N°3 : Revenus trop élevés',
+    inputs: {
+      foyer_fiscal_agent: {
+        beneficiaire_porteur_handicap: false,
+        'garde_alternée': false,
+        'parent_isolé': false,
+        outre_mer: false,
+        membres_du_foyer: [
+          {
+            revenu_fiscal_reference: '12000.00',
+            nombre_personnes: '1',
+          },
+          {
+            revenu_fiscal_reference: '50000.00',
+            nombre_personnes: '3',
+          },
+        ],
+      },
+      'étudiants_fiscalement_indépendants': [
+        {
+          revenu_fiscal_reference: '10000.00',
+          nombre_personnes: '1',
+        },
+      ],
+      trajet_depuis_domicile_agent: {
+        distance_km: '100',
+        'durée_minutes': '20',
+      },
+      'trajet_depuis_domicile_étudiant': 'Absent',
+      'montant_matériel_spécifique': '1000.00',
+      'étudiant_en_filière_post_bac': true,
+    },
+    expected: '0.00',
+    expectedUnit: 'EUR',
+    expectedCriteria: [
+      {
+        name: 'C3_éloignement_agent',
+        value: '2',
+      },
+      {
+        name: 'C5_études_supérieures',
+        value: '1',
+      },
+    ],
+    source: 'administration',
+    status: 'valide',
+    validatedBy: 'Trace Catala (interpréteur, calcul réel)',
+    engineVersion: 'catala (non renseigné)',
+    nativeFormat: 'catala-assert',
+    nativeRef: 'aide_scolarite.catala_fr#CalculAideScolarite',
+    tags: [],
+  },
+  {
+    id: 'prestagri-o-cas-4',
+    ruleId: 'prestagri',
+    label: 'Cas N°4 : Test python',
+    scenario: 'Cas N°4 : Test python',
+    inputs: {
+      foyer_fiscal_agent: {
+        beneficiaire_porteur_handicap: true,
+        'garde_alternée': false,
+        'parent_isolé': false,
+        outre_mer: false,
+        membres_du_foyer: [
+          {
+            revenu_fiscal_reference: '12000.00',
+            nombre_personnes: '1',
+          },
+          {
+            revenu_fiscal_reference: '20600.00',
+            nombre_personnes: '3',
+          },
+        ],
+      },
+      'étudiants_fiscalement_indépendants': [
+        {
+          revenu_fiscal_reference: '10000.00',
+          nombre_personnes: '1',
+        },
+      ],
+      trajet_depuis_domicile_agent: {
+        distance_km: '100',
+        'durée_minutes': '20',
+      },
+      'trajet_depuis_domicile_étudiant': 'Absent',
+      'montant_matériel_spécifique': '1000.00',
+      'étudiant_en_filière_post_bac': false,
+    },
+    expected: '400.00',
+    expectedUnit: 'EUR',
+    expectedCriteria: [
+      {
+        name: 'Handicap',
+        value: '1/2',
+      },
+      {
+        name: 'C3_éloignement_agent',
+        value: '2',
+      },
+      {
+        name: 'C4_matériel',
+        value: '2',
+      },
+    ],
+    source: 'administration',
+    status: 'valide',
+    validatedBy: 'Trace Catala (interpréteur, calcul réel)',
+    engineVersion: 'catala (non renseigné)',
+    nativeFormat: 'catala-assert',
+    nativeRef: 'aide_scolarite.catala_fr#CalculAideScolarite',
+    tags: [],
+  },
+  {
     id: 'prestagri-qf-cas-1',
     ruleId: 'prestagri',
     label: 'Cas N°1 :',
