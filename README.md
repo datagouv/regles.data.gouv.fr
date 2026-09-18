@@ -3,5 +3,6 @@
 
 Ce dépôt est en cours de construction active.
 
+- [Architecture cible](docs/architecture.md)
 - [Contribuer](CONTRIBUTING.md)
 
