@@ -1,0 +1,10 @@
+min_version = "2026.8.14"
+
+[tools]
+hk = "1"
+
+[settings]
+lockfile = true
+
+[hooks]
+postinstall = "hk install --mise"
