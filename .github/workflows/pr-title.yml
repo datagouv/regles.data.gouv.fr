@@ -7,12 +7,15 @@ on:
 permissions:
   contents: read
 
+env:
+  MISE_ENV: ci
+
 jobs:
   pr-title:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: jdx/mise-action@v2
+      - uses: jdx/mise-action@c37c93293d6b742fc901e1406b8f764f6fb19dac # v2
       # The squash merge takes the PR title as commit message.
       - env:
           TITLE: ${{ github.event.pull_request.title }}
