@@ -1,0 +1,10 @@
+[tools]
+"github:cococonscious/koji" = "3"
+
+[hooks]
+postinstall = "hk install --mise"
+
+[tasks.commit]
+description = "Write a conventional commit through prompts"
+raw = true
+run = "koji"
