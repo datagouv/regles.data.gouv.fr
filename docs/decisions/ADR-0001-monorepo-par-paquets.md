@@ -1,5 +1,5 @@
 ---
-status: proposed
+status: accepted
 date: 2026-09-21
 decision-makers: équipe du registre
 consulted: équipe data.gouv.fr
