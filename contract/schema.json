@@ -1,0 +1,84 @@
+{
+  "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+  "title": "Services (Règles)",
+  "description": "Schéma d'une table unique pour les règles (services publics) et leurs métadonnées de base.",
+  "version": "1.0.0",
+  "primaryKey": ["id"],
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "format": "uri",
+      "description": "URI canonique de la règle (ex: https://regles.data.gouv.fr/regles/cnaf/prime-activite).",
+      "constraints": { "required": true }
+    },
+    {
+      "name": "identifier",
+      "type": "string",
+      "description": "Identifiant unique de la règle (ex: solidarite.prime-activite.openfisca-france).",
+      "constraints": { "required": true, "unique": true }
+    },
+    {
+      "name": "version",
+      "type": "string",
+      "description": "Version semver de la règle (ex: 169.15.0).",
+      "constraints": { "required": true }
+    },
+    {
+      "name": "title",
+      "type": "object",
+      "description": "Titre multilingue. Exemple: {\"fr\": \"Prime d'activité\", \"en\": \"Activity Bonus\"}.",
+      "constraints": { "required": true }
+    },
+    {
+      "name": "description",
+      "type": "object",
+      "description": "Description multilingue de la règle.",
+      "constraints": { "required": true }
+    },
+    {
+      "name": "valid_from",
+      "type": "date",
+      "description": "Date de début de validité (dct:valid)."
+    },
+    {
+      "name": "valid_to",
+      "type": "date",
+      "description": "Date de fin de validité (dct:valid)."
+    },
+    {
+      "name": "subjects",
+      "type": "array",
+      "description": "Tags thématiques (ex: ['prime-activite', 'minima-sociaux']).",
+      "items": { "type": "string" }
+    },
+    {
+      "name": "source_repository",
+      "type": "string",
+      "format": "uri",
+      "description": "URL du dépôt source (dct:source, ex: https://github.com/openfisca/openfisca-france)."
+    },
+    {
+      "name": "source_commit",
+      "typ": "string",
+      "description": "SHA du commit épinglé (schema:SoftwareSourceCode)."
+    },
+    {
+      "name": "created_at",
+      "type": "date",
+      "description": "Date de création de la fiche."
+    },
+    {
+      "name": "updated_at",
+      "type": "date",
+      "description": "Date de dernière mise à jour."
+    },
+    {
+      "name": "competent_authority",
+      "type": "string",
+      "format": "uri",
+      "description": "URI de l'organisation compétente (cv:hasCompetentAuthority).",
+      "constraints": { "required": true }
+    }
+  ]
+}
