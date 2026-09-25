@@ -1,0 +1,20 @@
+name: Validate Table Schema
+
+on:
+  push:
+    paths:
+      - 'contract/schema.json'
+  pull_request:
+    paths:
+      - 'contract/schema.json'
+
+jobs:
+  validate-schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-python@v5.2.0
+        with:
+          python-version: '3.11'
+      - run: pip install frictionless
+      - run: frictionless validate --type schema contract/schema.json
