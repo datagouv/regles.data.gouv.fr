@@ -2,7 +2,7 @@
   "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
   "title": "Services (Règles)",
   "description": "Schéma d'une table unique pour les règles (services publics) et leurs métadonnées de base.",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "primaryKey": ["id"],
   "fields": [
     {
@@ -60,7 +60,7 @@
     },
     {
       "name": "source_commit",
-      "typ": "string",
+      "type": "string",
       "description": "SHA du commit épinglé (schema:SoftwareSourceCode)."
     },
     {
