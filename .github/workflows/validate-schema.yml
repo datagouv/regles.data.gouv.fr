@@ -8,6 +8,9 @@ on:
     paths:
       - 'contract/schema.json'
 
+permissions:
+  contents: read
+
 jobs:
   validate-schema:
     runs-on: ubuntu-latest
