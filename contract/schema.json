@@ -60,7 +60,7 @@
     },
     {
       "name": "source_commit",
-      "typ": "string",
+      "type": "string",
       "description": "SHA du commit épinglé (schema:SoftwareSourceCode)."
     },
     {
