@@ -1,5 +1,12 @@
 [tools]
 uv = "latest"
+frictionless = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["python"]
+
+[tasks.validate]
+run = "frictionless validate ${@}"
+
+[tasks.validate_schema]
+run = "frictionless validate --type schema schema.json"
