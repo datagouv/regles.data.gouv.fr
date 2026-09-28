@@ -14,17 +14,20 @@ Les différents gestionnaires d'algorithmes publics sont en charge de rajouter l
 Le format des données liée à un algorithme sont stockés dans un fichier `.json` respectant le standard [Table Schema](https://datapackage.org/standard/table-schema/).
 Le format de données s'inspire tant que possible des ontologies [CPRMV](https://standaarden.open-regels.nl/standards/cprmv/0.4.0/) et [CPSV-AP](https://semiceu.github.io/CPSV-AP/releases/3.2.0/).
 Les objets extérieurs devront tant que possible être référencés grâce à des catalogues externes (annuaire entreprise, legifrance..) et les données ne seront pas gérées par ce schéma.
-L'outil de validation est [validata](www.validata.fr).
+L'outil de validation est frictionless (package core de validata).
 
 
 ### Conséquences
 
 - Positive, parce que le standard Table Schema est déjà utilisé dans le pôle data
 - Positive, parce que des outils de validation sont déjà utilisés dans le pôle data
-- Positive, parce que l'action de déplacer le côté web semantic dans un plugin d'export permet de s'affranchir de la lourdeur associées a ce format
+- Positive, parce que l'action de déplacer le côté web semantic dans un plugin d'export permet de s'affranchir de la lourdeur associées a ce format.
+- Négative, parce que frictionless est surtout taillé pour valider des tableaux csv
 
 
 ## Options considérées
 
 - Avoir une approche directe Web Semantic et manipuler directement des fichiers `.jsonld`. Cette option implique de manipuler des objets plus complexes et moins connus pour un besoin d'inter-opérabilité encore lointain. De plus, la validation SHACL demande de respecter une ontologie précise, ce qui n'est pas notre cas.
 - Créer une base de données avec plusieurs tables. Nous souhaitons une approche plus simple pour démarrer, avec notemment la possibilité de gérer le back grâce aux fichiers d'un repo tel que github. 
+- [check-jsonschema](https://github.com/python-jsonschema/check-jsonschema), pourrait remplacer frictionless mais moins utilisé dans la communauté
+- validata, surcouche de frictionless. Pour le moment les ajouts (traduction, custom checks) ne sont pas nécessaires
