@@ -22,7 +22,7 @@ jobs:
         run: mise trust --all
 
       - name: Install tools for contract
-        run: mise -C contract install
+        run: pip install frictionless
 
       - name: Validate added/modified JSON files
         run: |
