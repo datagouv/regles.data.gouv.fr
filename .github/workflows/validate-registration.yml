@@ -1,0 +1,47 @@
+name: Validate JSON
+
+on:
+  pull_request:
+    paths:
+      - "data/**/*.json"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: jdx/mise-action@v2
+
+      - name: Trust mise configs
+        run: mise trust --all
+
+      - name: Install tools for contract
+        run: pip install frictionless
+
+      - name: Validate added/modified JSON files
+        run: |
+          files=$(git diff --name-only --diff-filter=AM \
+            "origin/${{ github.base_ref }}...HEAD" -- 'data/**/*.json')
+
+          if [ -z "$files" ]; then
+            echo "Aucun fichier JSON à valider."
+            exit 0
+          fi
+
+          status=0
+          while IFS= read -r f; do
+            echo "::group::Validation de $f"
+            if ! mise -C contract validate "$GITHUB_WORKSPACE/$f"; then
+              echo "::error file=$f::Validation échouée"
+              status=1
+            fi
+            echo "::endgroup::"
+          done <<< "$files"
+
+          exit $status
