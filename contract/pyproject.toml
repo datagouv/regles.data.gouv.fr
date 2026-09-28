@@ -8,7 +8,7 @@ authors = [
 ]
 requires-python = ">=3.13"
 dependencies = [
-    "frictionless>=5.19.0",
+    "frictionless[json]>=5.19.0",
 ]
 
 [project.scripts]
