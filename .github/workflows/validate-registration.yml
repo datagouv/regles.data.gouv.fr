@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - "data/**/*.json"
+      - "contract/schema.json"
 
 permissions:
   contents: read
@@ -24,10 +25,15 @@ jobs:
       - name: Install tools for contract
         run: pip install frictionless
 
-      - name: Validate added/modified JSON files
+      - name: Validate JSON files
         run: |
-          files=$(git diff --name-only --diff-filter=AM \
-            "origin/${{ github.base_ref }}...HEAD" -- 'data/**/*.json')
+          base="origin/${{ github.base_ref }}"
+          if git diff --quiet "$base...HEAD" -- contract/schema.json; then
+            files=$(git diff --name-only --diff-filter=AM \
+              "$base...HEAD" -- 'data/**/*.json')
+          else
+            files=$(git ls-files 'data/**/*.json')
+          fi
 
           if [ -z "$files" ]; then
             echo "Aucun fichier JSON à valider."
