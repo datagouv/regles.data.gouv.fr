@@ -3,3 +3,9 @@ uv = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["python"]
+
+[tasks.validate]
+run = "uv run frictionless validate --trusted ${@} --type table --format json --schema schema.json"
+
+[tasks.validate_schema]
+run = "uv run frictionless validate --type schema schema.json"
