@@ -17,7 +17,6 @@ export type ReadRecordsResult
     | { valid: false, gaps: RecordGap[] }
 
 const ajv = new Ajv({ allErrors: true })
-// Under nodenext, TypeScript types this CommonJS import as its exports object, whose default property is the plugin.
 ajvFormats.default(ajv)
 const validateRecords = ajv.compile<RegistryRecord[]>({ type: 'array', items: recordSchema })
 

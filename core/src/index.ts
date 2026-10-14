@@ -1,2 +1,4 @@
 export { readRecords } from './record.ts'
 export type { ReadRecordsResult, RecordGap, RegistryRecord } from './record.ts'
+export { buildRegistry } from './registry.ts'
+export type { BuildRegistryResult, RecordFile, Registry, RegistryGap } from './registry.ts'

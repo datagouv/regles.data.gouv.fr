@@ -14,7 +14,7 @@ alias = "core:generate"
 description = "Generate the record JSON Schema and types from the contract schema"
 depends = ["install"]
 sources = ["../contract/schema.json", "scripts/generate.ts"]
-outputs = ["src/generated/record.schema.json", "src/generated/record.ts"]
+outputs = ["src/generated/record.schema.json", "src/generated/record.ts", "src/generated/unique-fields.ts"]
 run = "node scripts/generate.ts"
 
 [tasks.lint]
