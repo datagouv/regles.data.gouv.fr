@@ -1,0 +1,9 @@
+{
+  "name": "regles",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@antfu/eslint-config": "^9.5.1",
+    "eslint": "^10.12.0"
+  }
+}

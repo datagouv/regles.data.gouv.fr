@@ -1,33 +1,16 @@
-[tools]
-node = "24"
-pnpm = "12"
-
-[tasks.install]
-alias = "core:install"
-description = "Install the dependencies of core"
-sources = ["package.json", "pnpm-lock.yaml"]
-outputs = ["node_modules/.modules.yaml"]
-run = "pnpm install --frozen-lockfile"
-
 [tasks.generate]
 alias = "core:generate"
 description = "Generate the record JSON Schema and types from the contract schema"
-depends = ["install"]
+depends = ["//:install"]
 sources = ["../contract/schema.json", "scripts/generate.ts"]
 outputs = ["src/generated/record.schema.json", "src/generated/record.ts", "src/generated/unique-fields.ts"]
 run = "node scripts/generate.ts"
 
 [tasks.lint]
 alias = "core:lint"
-description = "Lint and type-check core"
+description = "Type-check core"
 depends = ["generate"]
-run = ["pnpm exec eslint .", "pnpm exec tsc --noEmit"]
-
-[tasks."lint:fix"]
-alias = "core:lint:fix"
-description = "Lint core with autofix"
-depends = ["install"]
-run = "pnpm exec eslint . --fix"
+run = "pnpm exec tsc --noEmit"
 
 [tasks.test]
 alias = "core:test"
