@@ -1,0 +1,29 @@
+[tasks.prepare]
+alias = "web:prepare"
+description = "Generate the Nuxt types of the site"
+depends = ["//:install", "//core:generate"]
+run = "pnpm exec nuxt prepare"
+
+[tasks.dev]
+alias = "web:dev"
+description = "Serve the site in development"
+depends = ["prepare"]
+run = "pnpm exec nuxt dev"
+
+[tasks.build]
+alias = "web:build"
+description = "Generate the static site into .output/public"
+depends = ["prepare"]
+run = "pnpm exec nuxt generate"
+
+[tasks.lint]
+alias = "web:lint"
+description = "Type-check the site"
+depends = ["prepare"]
+run = "pnpm exec nuxt typecheck"
+
+[tasks.test]
+alias = "web:test"
+description = "Test the presenters of the site"
+depends = ["prepare"]
+run = "pnpm exec vitest run"

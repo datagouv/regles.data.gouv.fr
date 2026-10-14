@@ -5,3 +5,6 @@ dist
 .env
 .DS_Store
 core/src/generated/
+web/.nuxt/
+web/.output/
+web/.data/
