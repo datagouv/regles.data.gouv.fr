@@ -4,8 +4,37 @@ uv = "latest"
 [settings]
 idiomatic_version_file_enable_tools = ["python"]
 
-[tasks.validate]
-run = "uv run frictionless validate --trusted ${@} --type table --format json --schema schema.json"
+[tasks."validate:registration"]
+alias = "contract:validate:registration"
+description = "Validate records against the schema, every record of data/ when no file is given"
+usage = 'arg "[files]" var=#true help="Record files to validate"'
+dir = "{{cwd}}"
+# GitHub reads an annotation only at the start of a line
+output = "interleave"
+run = '''
+#!/usr/bin/env bash
+files=()
+if [ -n "${usage_files:-}" ]; then
+  eval "files=($usage_files)"
+else
+  while IFS= read -r f; do files+=("$f"); done < <(find "$MISE_MONOREPO_ROOT/data" -name '*.json' | sort)
+fi
+status=0
+for f in "${files[@]}"; do
+  if ! uv run --project "{{config_root}}" frictionless validate --trusted "$f" --type table --format json --schema "{{config_root}}/schema.json"; then
+    status=1
+    [ -n "${GITHUB_ACTIONS:-}" ] && echo "::error file=${f#"$MISE_MONOREPO_ROOT/"}::La fiche ne respecte pas le schéma, voir le rapport de frictionless dans le journal"
+  fi
+done
+exit $status
+'''
 
-[tasks.validate_schema]
+[tasks."validate:schema"]
+alias = "contract:validate:schema"
+description = "Validate the schema against the Table Schema specification"
 run = "uv run frictionless validate --type schema schema.json"
+
+[tasks.lint]
+alias = "contract:lint"
+description = "Validate the schema and every record of data/"
+depends = ["validate:*"]

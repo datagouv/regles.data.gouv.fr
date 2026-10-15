@@ -1,7 +1,24 @@
 min_version = "2026.8.14"
+monorepo_root = true
+
+[monorepo]
+config_roots = ["contract"]
 
 [tools]
 hk = "1"
 
 [settings]
 lockfile = true
+
+[tasks.lint]
+description = "Lint every package"
+depends = ["//...:lint"]
+
+[tasks.test]
+description = "Run the tests of every package"
+wait_for = ["lint"]
+depends = ["//...:test"]
+
+[tasks.check]
+description = "Everything the CI checks: lint and tests"
+depends = ["lint", "test"]
