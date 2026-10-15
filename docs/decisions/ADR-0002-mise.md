@@ -15,7 +15,7 @@ Comment installer les outils et déclarer les tâches du dépôt en un seul endr
 
 ## Décision
 
-[mise](https://mise.jdx.dev/) est l'outil unique qui installe les outils du dépôt, fige leurs versions et lance les tâches, pour les deux langages, sur le poste de développement comme en CI.
+[mise](https://mise.jdx.dev/) est l'outil unique qui installe les outils du dépôt dans les versions fixées par les fichiers `mise.lock`, et lance les tâches, pour les deux langages, sur le poste de développement comme en CI.
 
 Chaque paquet déclare ses propres tâches, et la racine les agrège pour la CI.
 

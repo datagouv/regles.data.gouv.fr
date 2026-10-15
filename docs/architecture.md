@@ -1,15 +1,16 @@
 # Architecture cible
 
-Le registre de règles référence les règles de calcul utilisées dans les administrations. Chaque règle constitue une entrée, sous forme d'un fichier `metadata.jsonld` qui sert à la décrire, à l'expliquer et à l'exécuter.
+Le registre de règles référence les règles de calcul utilisées dans les administrations. Chaque règle y est enregistrée sous la forme d'une fiche, un objet JSON conforme au schéma de `contract` ([contract/ADR-0001](../contract/decisions/ADR-0001-data-validator.md)). La fiche décrit la règle, l'explique et contient les informations nécessaires pour l'exécuter.
 
-Le dépôt est un monorepo, constitués de plusieurs paquets qui séparent proprement les sujets de domaine, d'applicatif et d'infrastructure, ainsi qu'un répertoire `data/` pour les fiches enregistrées.
+Le dépôt est un monorepo, constitué de plusieurs paquets qui séparent proprement les sujets de domaine, d'applicatif et d'infrastructure, ainsi que d'un répertoire `data/` qui contient les fiches enregistrées, classées par organisme.
 
-Les différentes couches que nous envisageons d'intégrer à date sont les suivantes :
-- `packages/contract` : Schéma de la fiche, fiches d'exemple, outillage de validation, arborescence de `data/` (Python, uv).
-- `packages/core` : Types tirés du schéma, modèles de vue du site (TypeScript).
-- `packages/engines/*` : Un adaptateur par moteur de calcul, qui traduit les entrées et les cas de test d'une fiche en artefact compatible pour le moteur, et la réponse en résultat du registre.
-- `packages/pipeline` : L'outillage de moissonnage, validation et agrégation des fiches dans `data/`.
-- `data/` : les fiches enregistrées, classées par organisme.
-- `apps/web` : le site regles.data.gouv.fr, propulsé par Nuxt, utilisatn le DSFR.
+Les paquets que nous envisageons d'intégrer à date sont les suivants, dans l'ordre des dépendances : chacun dépend uniquement des paquets qui le précèdent ([ADR-0001](decisions/ADR-0001-monorepo-par-paquets.md)).
+- `contract/` : Schéma de la fiche, fiches d'exemple, outillage de validation, arborescence de `data/` (Python, uv).
+- `core/` : Types et schéma de validation des fiches générés à partir du schéma de `contract`, modèles de vue du site (TypeScript).
+- `engines/<moteur>/` : Un adaptateur par moteur de calcul, qui traduit les entrées et les cas de test d'une fiche en artefact compatible pour le moteur, et la réponse en résultat du registre.
+- `pipeline/` : L'outillage de moissonnage, validation et agrégation des fiches dans `data/`.
+- `web/` : Le site regles.data.gouv.fr, construit avec Nuxt et le DSFR.
 
-[mise](https://mise.jdx.dev/) installe les outils et lance les tâches, avec un `mise.toml` par paquet. La CI exécute `mise run check` sur chaque PR.
+Dans un paquet TypeScript, on déclare un seul point d'entrée dans le champ `exports` du `package.json`, et on importe le paquet depuis les autres par ce point d'entrée.
+
+[mise](https://mise.jdx.dev/) installe les outils et lance les tâches, avec un `mise.toml` par paquet ; le fonctionnement est décrit dans [docs/mise.md](mise.md).
