@@ -1,12 +1,13 @@
 import type { RegistryRecord } from '@datagouv/regles-core'
+import { recordPath } from './routes'
 
 export interface RecordSummary {
-  identifier: string
   title: string
   description: string
+  to: string
 }
 
-export interface RecordDetail extends RecordSummary {
+export interface RecordDetail extends Omit<RecordSummary, 'to'> {
   authority: string
   version: string
   validity: string | null
@@ -19,15 +20,16 @@ const DATE_FORMAT = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long', timeZo
 
 export function toRecordSummary(record: RegistryRecord): RecordSummary {
   return {
-    identifier: record.identifier,
     title: frenchText(record.title),
     description: frenchText(record.description),
+    to: recordPath(record.identifier),
   }
 }
 
 export function toRecordDetail(record: RegistryRecord): RecordDetail {
   return {
-    ...toRecordSummary(record),
+    title: frenchText(record.title),
+    description: frenchText(record.description),
     authority: record.competent_authority,
     version: record.version,
     validity: describeValidity(record.valid_from, record.valid_to),

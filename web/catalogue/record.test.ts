@@ -9,11 +9,11 @@ assert(example.valid)
 const exampleRecord: RegistryRecord = example.records[0]!
 
 describe('toRecordSummary', () => {
-  it('shows the French title and description', () => {
+  it('shows the French title and description, and links to the record', () => {
     expect(toRecordSummary(exampleRecord)).toEqual({
-      identifier: 'prestagri-aide-scolarite',
       title: 'Calcul de l\'aide à la scolarité',
       description: expect.stringMatching(/^Calcule le montant de l'aide à la scolarité/),
+      to: '/regles/prestagri-aide-scolarite',
     })
   })
 
@@ -24,6 +24,13 @@ describe('toRecordSummary', () => {
 })
 
 describe('toRecordDetail', () => {
+  it('shows the French title and description', () => {
+    expect(toRecordDetail(exampleRecord)).toMatchObject({
+      title: 'Calcul de l\'aide à la scolarité',
+      description: expect.stringMatching(/^Calcule le montant de l'aide à la scolarité/),
+    })
+  })
+
   it.each([
     ['2026-01-01', '2026-12-31', 'Du 1er janvier 2026 au 31 décembre 2026'],
     ['2026-01-01', null, 'Depuis le 1er janvier 2026'],

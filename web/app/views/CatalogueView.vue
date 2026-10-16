@@ -11,9 +11,9 @@ useHead({ title: 'Catalogue des règles' })
   <div>
     <h1>Catalogue des règles</h1>
     <ul>
-      <li v-for="summary in summaries" :key="summary.identifier">
+      <li v-for="summary in summaries" :key="summary.to">
         <h2>
-          <NuxtLink :to="`/regles/${summary.identifier}`">
+          <NuxtLink :to="summary.to">
             {{ summary.title }}
           </NuxtLink>
         </h2>
