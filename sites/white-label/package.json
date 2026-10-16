@@ -1,0 +1,15 @@
+{
+  "name": "@datagouv/regles-site-white-label",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@datagouv/regles-web": "workspace:*",
+    "nuxt": "^4.6.1",
+    "vue": "^3.5.44",
+    "vue-router": "^5.4.0"
+  },
+  "devDependencies": {
+    "typescript": "~6.0.3",
+    "vue-tsc": "^3.3.13"
+  }
+}

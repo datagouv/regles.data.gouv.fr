@@ -2,7 +2,7 @@ min_version = "2026.8.14"
 monorepo_root = true
 
 [monorepo]
-config_roots = ["contract", "core", "web"]
+config_roots = ["contract", "core", "web", "sites/*"]
 
 [tools]
 hk = "1"
@@ -14,7 +14,7 @@ lockfile = true
 
 [tasks.install]
 description = "Install the JavaScript dependencies of every package"
-sources = ["package.json", "pnpm-lock.yaml", "*/package.json"]
+sources = ["package.json", "pnpm-lock.yaml", "*/package.json", "sites/*/package.json"]
 outputs = ["node_modules/.modules.yaml"]
 run = "pnpm install --frozen-lockfile"
 
@@ -40,3 +40,23 @@ depends = ["//...:test"]
 [tasks.check]
 description = "Everything the CI checks: lint and tests"
 depends = ["lint", "test"]
+
+[task_templates."nuxt:prepare"]
+description = "Generate the Nuxt types"
+depends = ["//:install", "//core:generate"]
+run = "pnpm exec nuxt prepare"
+
+[task_templates."nuxt:dev"]
+description = "Serve the site in development"
+depends = ["prepare"]
+run = "pnpm exec nuxt dev"
+
+[task_templates."nuxt:build"]
+description = "Generate the static site into .output/public"
+depends = ["prepare"]
+run = "pnpm exec nuxt generate"
+
+[task_templates."nuxt:lint"]
+description = "Type-check the site"
+depends = ["prepare"]
+run = "pnpm exec nuxt typecheck"

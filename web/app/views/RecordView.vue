@@ -10,9 +10,7 @@ useHead({ title: detail.value.title })
 
 <template>
   <article v-if="detail">
-    <NuxtLink to="/">
-      Catalogue des règles
-    </NuxtLink>
+    <UiBreadcrumb v-bind="detail.breadcrumb" />
     <h1>{{ detail.title }}</h1>
     <p>{{ detail.description }}</p>
     <dl>

@@ -1,5 +1,6 @@
 packages:
   - core
   - web
+  - sites/*
 allowBuilds:
   esbuild: true

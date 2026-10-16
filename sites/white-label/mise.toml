@@ -1,0 +1,15 @@
+[tasks.prepare]
+alias = "site-white-label:prepare"
+extends = "nuxt:prepare"
+
+[tasks.dev]
+alias = "site-white-label:dev"
+extends = "nuxt:dev"
+
+[tasks.build]
+alias = "site-white-label:build"
+extends = "nuxt:build"
+
+[tasks.lint]
+alias = "site-white-label:lint"
+extends = "nuxt:lint"

@@ -2,18 +2,18 @@ import type { RegistryRecord } from '@datagouv/regles-core'
 import { readRecords } from '@datagouv/regles-core'
 import { assert, describe, expect, it } from 'vitest'
 import exampleFile from '../../data/ministereAgriculture/prestagri/aideScolarite.json' with { type: 'json' }
-import { toRecordDetail, toRecordSummary } from './record.ts'
+import { toCataloguePage, toRecordDetail, toRecordSummary } from './record.ts'
 
 const example = readRecords(exampleFile)
 assert(example.valid)
 const exampleRecord: RegistryRecord = example.records[0]!
 
 describe('toRecordSummary', () => {
-  it('shows the French title and description', () => {
+  it('shows the French title and description, and links to the record', () => {
     expect(toRecordSummary(exampleRecord)).toEqual({
-      identifier: 'prestagri-aide-scolarite',
       title: 'Calcul de l\'aide à la scolarité',
       description: expect.stringMatching(/^Calcule le montant de l'aide à la scolarité/),
+      to: '/regles/prestagri-aide-scolarite',
     })
   })
 
@@ -23,7 +23,30 @@ describe('toRecordSummary', () => {
   })
 })
 
+describe('toCataloguePage', () => {
+  it('titles the catalogue and shows a card per record', () => {
+    expect(toCataloguePage([exampleRecord])).toEqual({
+      title: 'Catalogue des règles',
+      cards: [toRecordSummary(exampleRecord)],
+    })
+  })
+})
+
 describe('toRecordDetail', () => {
+  it('shows the French title and description', () => {
+    expect(toRecordDetail(exampleRecord)).toMatchObject({
+      title: 'Calcul de l\'aide à la scolarité',
+      description: expect.stringMatching(/^Calcule le montant de l'aide à la scolarité/),
+    })
+  })
+
+  it('leads back to the catalogue in the breadcrumb', () => {
+    expect(toRecordDetail(exampleRecord).breadcrumb).toEqual({
+      links: [{ label: 'Catalogue des règles', to: '/' }],
+      current: 'Calcul de l\'aide à la scolarité',
+    })
+  })
+
   it.each([
     ['2026-01-01', '2026-12-31', 'Du 1er janvier 2026 au 31 décembre 2026'],
     ['2026-01-01', null, 'Depuis le 1er janvier 2026'],
