@@ -9,7 +9,7 @@ Les paquets que nous envisageons d'intégrer à date sont les suivants, dans l'o
 - `core/` : Types et schéma de validation des fiches générés à partir du schéma de `contract`, constitution du registre à partir du contenu des fichiers de fiches (TypeScript).
 - `engines/<moteur>/` : Un adaptateur par moteur de calcul, qui traduit les entrées et les cas de test d'une fiche en artefact compatible pour le moteur, et la réponse en résultat du registre.
 - `pipeline/` : L'outillage de moissonnage, validation et agrégation des fiches dans `data/`.
-- `web/` : Le site regles.data.gouv.fr, construit avec Nuxt et le DSFR.
+- `web/` : Le site regles.data.gouv.fr, généré en pages statiques avec Nuxt et le DSFR. Les presenters de `web/catalogue/`, écrits hors du framework, préparent le modèle de vue de chaque page à partir des fiches, et les pages affichent ce modèle de vue.
 
 Dans un paquet TypeScript, on déclare un seul point d'entrée dans le champ `exports` du `package.json`, et on importe le paquet depuis les autres par ce point d'entrée.
 

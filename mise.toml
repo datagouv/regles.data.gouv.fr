@@ -2,17 +2,35 @@ min_version = "2026.8.14"
 monorepo_root = true
 
 [monorepo]
-config_roots = ["contract", "core"]
+config_roots = ["contract", "core", "web"]
 
 [tools]
 hk = "1"
+node = "24"
+pnpm = "12"
 
 [settings]
 lockfile = true
 
+[tasks.install]
+description = "Install the JavaScript dependencies of every package"
+sources = ["package.json", "pnpm-lock.yaml", "*/package.json"]
+outputs = ["node_modules/.modules.yaml"]
+run = "pnpm install --frozen-lockfile"
+
 [tasks.lint]
 description = "Lint every package"
-depends = ["//...:lint"]
+depends = ["//...:lint", "lint:code"]
+
+[tasks."lint:code"]
+description = "Lint the TypeScript and Vue code"
+depends = ["install"]
+run = "pnpm exec eslint ."
+
+[tasks."lint:fix"]
+description = "Lint the TypeScript and Vue code with autofix"
+depends = ["install"]
+run = "pnpm exec eslint . --fix"
 
 [tasks.test]
 description = "Run the tests of every package"

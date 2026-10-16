@@ -1,6 +1,10 @@
 node_modules/
 .venv/
 __pycache__/
-dist/
+dist
 .env
 .DS_Store
+core/src/generated/
+web/.nuxt/
+web/.output/
+web/.data/
