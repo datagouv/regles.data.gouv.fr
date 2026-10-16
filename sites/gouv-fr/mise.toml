@@ -1,0 +1,15 @@
+[tasks.prepare]
+alias = "site-gouv-fr:prepare"
+extends = "nuxt:prepare"
+
+[tasks.dev]
+alias = "site-gouv-fr:dev"
+extends = "nuxt:dev"
+
+[tasks.build]
+alias = "site-gouv-fr:build"
+extends = "nuxt:build"
+
+[tasks.lint]
+alias = "site-gouv-fr:lint"
+extends = "nuxt:lint"
