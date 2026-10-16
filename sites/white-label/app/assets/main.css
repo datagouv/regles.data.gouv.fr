@@ -1,0 +1,42 @@
+:root {
+  --color-background: #fff;
+  --color-text: #1e1e1e;
+  --color-text-muted: #5c5c5c;
+  --color-link: #1f4e8c;
+  --color-border: #d6d6d6;
+  --font-size-small: 0.875rem;
+  --font-size-large: 1.25rem;
+  --font-size-title: 2rem;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --width-page: 72rem;
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+a {
+  color: var(--color-link);
+}
+
+h1 {
+  margin: 0 0 var(--space-3);
+  font-size: var(--font-size-title);
+  line-height: 1.25;
+}
+
+dt {
+  font-weight: 600;
+}
+
+dd {
+  margin: 0 0 var(--space-2);
+}
