@@ -1,5 +1,5 @@
 {
-  "name": "@regles/core",
+  "name": "@datagouv/regles-core",
   "type": "module",
   "private": true,
   "exports": "./src/index.ts",
