@@ -1,6 +1,7 @@
 [tasks.prepare]
 alias = "site-gouv-fr:prepare"
 extends = "nuxt:prepare"
+depends = ["//web:prepare"]
 
 [tasks.dev]
 alias = "site-gouv-fr:dev"
