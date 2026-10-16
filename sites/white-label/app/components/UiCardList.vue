@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { UiCardListProps } from '../../shared/types/ui'
+import type { UiCardListProps } from '#layers/web/shared/types/ui'
 
 defineProps<UiCardListProps>()
 </script>

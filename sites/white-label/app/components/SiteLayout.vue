@@ -1,15 +1,11 @@
 <script setup lang="ts">
-useHead({
-  titleTemplate: title => title
-    ? `${title} - regles.data.gouv.fr`
-    : 'regles.data.gouv.fr',
-})
+const { siteName } = useAppConfig()
 </script>
 
 <template>
   <header>
     <NuxtLink to="/">
-      regles.data.gouv.fr
+      {{ siteName }}
     </NuxtLink>
   </header>
   <main>

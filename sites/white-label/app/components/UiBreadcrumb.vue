@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { UiBreadcrumbProps } from '../../shared/types/ui'
+import type { UiBreadcrumbProps } from '#layers/web/shared/types/ui'
 
 defineProps<UiBreadcrumbProps>()
 </script>

@@ -8,6 +8,7 @@ const views: Record<RouteName, string> = {
 }
 
 export default defineNuxtConfig({
+  $meta: { name: 'web' },
   compatibilityDate: '2026-10-01',
   app: {
     head: {
@@ -15,8 +16,10 @@ export default defineNuxtConfig({
     },
   },
   typescript: {
+    // vue-tsc accepts an unknown component by default, so a site missing a UI component would pass
+    tsConfig: { vueCompilerOptions: { checkUnknownComponents: true } },
     // the shared project declares no Vue auto-import, so nuxt typecheck rejects a Vue global in the catalogue
-    sharedTsConfig: { include: ['../catalogue/**/*'] },
+    sharedTsConfig: { include: [fileURLToPath(new URL('catalogue/**/*', import.meta.url))] },
   },
   // enable vue-router without scanning app/pages: catalogue/routes.ts declares the routes
   pages: { enabled: true, pattern: [] },
@@ -28,6 +31,6 @@ export default defineNuxtConfig({
     },
   },
   nitro: {
-    serverAssets: [{ baseName: 'records', dir: '../../data' }],
+    serverAssets: [{ baseName: 'records', dir: fileURLToPath(new URL('../data', import.meta.url)) }],
   },
 })
