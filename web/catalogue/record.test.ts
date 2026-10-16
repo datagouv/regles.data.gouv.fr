@@ -2,7 +2,7 @@ import type { RegistryRecord } from '@datagouv/regles-core'
 import { readRecords } from '@datagouv/regles-core'
 import { assert, describe, expect, it } from 'vitest'
 import exampleFile from '../../data/ministereAgriculture/prestagri/aideScolarite.json' with { type: 'json' }
-import { toRecordDetail, toRecordSummary } from './record.ts'
+import { toCataloguePage, toRecordDetail, toRecordSummary } from './record.ts'
 
 const example = readRecords(exampleFile)
 assert(example.valid)
@@ -23,11 +23,27 @@ describe('toRecordSummary', () => {
   })
 })
 
+describe('toCataloguePage', () => {
+  it('titles the catalogue and shows a card per record', () => {
+    expect(toCataloguePage([exampleRecord])).toEqual({
+      title: 'Catalogue des règles',
+      cards: [toRecordSummary(exampleRecord)],
+    })
+  })
+})
+
 describe('toRecordDetail', () => {
   it('shows the French title and description', () => {
     expect(toRecordDetail(exampleRecord)).toMatchObject({
       title: 'Calcul de l\'aide à la scolarité',
       description: expect.stringMatching(/^Calcule le montant de l'aide à la scolarité/),
+    })
+  })
+
+  it('leads back to the catalogue in the breadcrumb', () => {
+    expect(toRecordDetail(exampleRecord).breadcrumb).toEqual({
+      links: [{ label: 'Catalogue des règles', to: '/' }],
+      current: 'Calcul de l\'aide à la scolarité',
     })
   })
 

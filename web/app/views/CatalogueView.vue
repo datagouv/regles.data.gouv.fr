@@ -1,24 +1,15 @@
 <script setup lang="ts">
-const { data: summaries, error } = await useFetch('/api/records')
-if (error.value) {
+const { data: catalogue, error } = await useFetch('/api/records')
+if (error.value || !catalogue.value) {
   throw createError({ ...error.value, fatal: true })
 }
 
-useHead({ title: 'Catalogue des règles' })
+useHead({ title: catalogue.value.title })
 </script>
 
 <template>
-  <div>
-    <h1>Catalogue des règles</h1>
-    <ul>
-      <li v-for="summary in summaries" :key="summary.to">
-        <h2>
-          <NuxtLink :to="summary.to">
-            {{ summary.title }}
-          </NuxtLink>
-        </h2>
-        <p>{{ summary.description }}</p>
-      </li>
-    </ul>
+  <div v-if="catalogue">
+    <h1>{{ catalogue.title }}</h1>
+    <UiCardList :cards="catalogue.cards" />
   </div>
 </template>

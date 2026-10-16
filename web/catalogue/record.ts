@@ -1,5 +1,5 @@
 import type { RegistryRecord } from '@datagouv/regles-core'
-import { recordPath } from './routes'
+import { recordPath, routes } from './routes'
 
 export interface RecordSummary {
   title: string
@@ -7,7 +7,13 @@ export interface RecordSummary {
   to: string
 }
 
+export interface CataloguePage {
+  title: string
+  cards: RecordSummary[]
+}
+
 export interface RecordDetail extends Omit<RecordSummary, 'to'> {
+  breadcrumb: { links: { label: string, to: string }[], current: string }
   authority: string
   version: string
   validity: string | null
@@ -15,6 +21,8 @@ export interface RecordDetail extends Omit<RecordSummary, 'to'> {
   subjects: string[]
   updatedOn: string | null
 }
+
+const CATALOGUE_TITLE = 'Catalogue des règles'
 
 const DATE_FORMAT = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long', timeZone: 'UTC' })
 
@@ -26,10 +34,19 @@ export function toRecordSummary(record: RegistryRecord): RecordSummary {
   }
 }
 
-export function toRecordDetail(record: RegistryRecord): RecordDetail {
+export function toCataloguePage(records: RegistryRecord[]): CataloguePage {
   return {
-    title: frenchText(record.title),
+    title: CATALOGUE_TITLE,
+    cards: records.map(toRecordSummary),
+  }
+}
+
+export function toRecordDetail(record: RegistryRecord): RecordDetail {
+  const title = frenchText(record.title)
+  return {
+    title,
     description: frenchText(record.description),
+    breadcrumb: { links: [{ label: CATALOGUE_TITLE, to: routes.catalogue }], current: title },
     authority: record.competent_authority,
     version: record.version,
     validity: describeValidity(record.valid_from, record.valid_to),
