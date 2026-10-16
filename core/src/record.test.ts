@@ -1,9 +1,6 @@
-import { readFileSync } from 'node:fs'
 import { assert, describe, expect, it } from 'vitest'
+import { exampleRecord } from './example-record.ts'
 import { readRecords } from './record.ts'
-
-const EXAMPLE_FILE = new URL('../../data/ministereAgriculture/prestagri/aideScolarite.json', import.meta.url)
-const [exampleRecord] = JSON.parse(readFileSync(EXAMPLE_FILE, 'utf8'))
 
 describe('readRecords', () => {
   it('reads the records of a valid file', () => {

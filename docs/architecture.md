@@ -6,7 +6,7 @@ Le dépôt est un monorepo, constitué de plusieurs paquets qui séparent propre
 
 Les paquets que nous envisageons d'intégrer à date sont les suivants, dans l'ordre des dépendances : chacun dépend uniquement des paquets qui le précèdent ([ADR-0001](decisions/ADR-0001-monorepo-par-paquets.md)).
 - `contract/` : Schéma de la fiche, fiches d'exemple, outillage de validation, arborescence de `data/` (Python, uv).
-- `core/` : Types et schéma de validation des fiches générés à partir du schéma de `contract`, modèles de vue du site (TypeScript).
+- `core/` : Types et schéma de validation des fiches générés à partir du schéma de `contract`, constitution du registre à partir du contenu des fichiers de fiches (TypeScript).
 - `engines/<moteur>/` : Un adaptateur par moteur de calcul, qui traduit les entrées et les cas de test d'une fiche en artefact compatible pour le moteur, et la réponse en résultat du registre.
 - `pipeline/` : L'outillage de moissonnage, validation et agrégation des fiches dans `data/`.
 - `web/` : Le site regles.data.gouv.fr, construit avec Nuxt et le DSFR.
