@@ -1,3 +1,4 @@
+export { SCHEMA_VERSION } from './generated/schema-version.ts'
 export { readRecords } from './record.ts'
 export type { ReadRecordsResult, RecordGap, RegistryRecord } from './record.ts'
 export { buildRegistry } from './registry.ts'
