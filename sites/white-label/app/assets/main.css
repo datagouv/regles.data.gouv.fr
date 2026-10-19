@@ -1,5 +1,6 @@
 :root {
   --color-background: #fff;
+  --color-background-alt: #f3f5f8;
   --color-text: #1e1e1e;
   --color-text-muted: #5c5c5c;
   --color-link: #1f4e8c;
@@ -39,4 +40,10 @@ dt {
 
 dd {
   margin: 0 0 var(--space-2);
+}
+
+.container {
+  max-width: var(--width-page);
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-2);
 }

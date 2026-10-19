@@ -12,10 +12,12 @@ useHead({ title })
 
 <template>
   <SiteLayout>
-    <h1>{{ title }}</h1>
-    <p>Erreur {{ error.status }}</p>
-    <NuxtLink to="/">
-      Page d'accueil
-    </NuxtLink>
+    <UiPageHeader :title="title" />
+    <UiPageBody>
+      <p>Erreur {{ error.status }}</p>
+      <NuxtLink to="/">
+        Page d'accueil
+      </NuxtLink>
+    </UiPageBody>
   </SiteLayout>
 </template>
