@@ -8,3 +8,4 @@ core/src/generated/
 .nuxt/
 .output/
 .data/
+test-results/

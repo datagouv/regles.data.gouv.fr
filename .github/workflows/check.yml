@@ -20,3 +20,14 @@ jobs:
         with:
           install_args: --monorepo
       - run: mise run check
+
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: jdx/mise-action@c37c93293d6b742fc901e1406b8f764f6fb19dac # v2
+        with:
+          install_args: --monorepo
+      # the runner lacks the system libraries of Chromium
+      - run: mise run install:playwright -- --with-deps
+      - run: mise run test:e2e
