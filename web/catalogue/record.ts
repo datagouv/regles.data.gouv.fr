@@ -22,7 +22,7 @@ export interface RecordDetail extends Omit<RecordSummary, 'to'> {
   updatedOn: string | null
 }
 
-const CATALOGUE_TITLE = 'Catalogue des règles'
+export const CATALOGUE_TITLE = 'Catalogue des règles'
 
 const DATE_FORMAT = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long', timeZone: 'UTC' })
 
