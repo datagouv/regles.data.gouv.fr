@@ -1,6 +1,6 @@
 ---
 status: accepted
-date: 2026-10-16
+date: 2026-10-21
 decision-makers: équipe du registre
 ---
 # Séparer les pages du site de leur identité visuelle et de leur routage
@@ -19,7 +19,7 @@ On découpe le code en un layer Nuxt, `web/`, et un site Nuxt par identité visu
 
 Le layer contient les pages, les routes serveur et les presenters. Chaque site étend le layer et lui donne son identité visuelle : il fournit les composants d'interface que les pages assemblent. `sites/gouv-fr` les écrit avec le DSFR, et `sites/white-label` avec ses propres styles.
 
-`web/catalogue/routes.ts` déclare les routes du site, et les presenters de `web/catalogue/` produisent le modèle de vue de chaque page, liens compris. Le layer active vue-router sans le routage par fichiers de Nuxt, et crée les routes à partir de cette déclaration.
+`web/routes.ts` déclare les routes du site, et les presenters de `web/catalogue/` produisent le modèle de vue de chaque page, liens compris. Le layer active vue-router sans le routage par fichiers de Nuxt, et crée les routes à partir de cette déclaration.
 
 ### Conséquences
 
@@ -28,7 +28,7 @@ Le layer contient les pages, les routes serveur et les presenters. Chaque site �
 - Positive, parce que les presenters fabriquent chaque lien à partir de la déclaration des routes, et que leurs tests couvrent les liens.
 - Négative, parce qu'on écrit chaque composant d'interface une fois par site.
 - Négative, parce qu'on construit et qu'on déploie un site par identité.
-- Négative, parce que chaque nouvelle page demande une entrée dans `web/catalogue/routes.ts`, une vue dans `web/app/views/` et son association à la route dans `views` de `web/nuxt.config.ts`, en dehors de la convention `pages/` de Nuxt.
+- Négative, parce que chaque nouvelle page demande une entrée dans `web/routes.ts` et une vue dans `web/app/views/`, en dehors de la convention `pages/` de Nuxt.
 
 ## Options considérées
 

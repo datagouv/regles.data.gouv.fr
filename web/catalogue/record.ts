@@ -1,5 +1,5 @@
 import type { RegistryRecord } from '@datagouv/regles-core'
-import { recordPath, routes } from './routes'
+import { recordPath, routes } from '../routes'
 
 export interface RecordSummary {
   title: string
