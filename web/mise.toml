@@ -4,6 +4,6 @@ extends = "nuxt:prepare"
 
 [tasks.test]
 alias = "web:test"
-description = "Test the presenters of the site"
+description = "Test the presenters and modules of the layer"
 depends = ["prepare"]
 run = "pnpm exec vitest run"

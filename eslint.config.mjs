@@ -5,6 +5,8 @@ const designSystemImports = {
   message: 'The DSFR is reserved for the sites of the French State: only sites/gouv-fr imports it.',
 }
 
+const frameworkImports = '^(vue|nuxt|#|~|h3|node:)'
+
 const noStyle = 'The shared layer holds no style: compose the UI components whose props are declared in web/shared/types/ui.ts.'
 
 export default antfu(
@@ -35,8 +37,19 @@ export default antfu(
     rules: {
       'no-restricted-imports': ['error', {
         patterns: [{
-          regex: '^(vue|nuxt|#|~|h3|node:)',
+          regex: frameworkImports,
           message: 'The catalogue holds pure presenters from a record to a view model, kept out of the framework: it imports @datagouv/regles-core and its own files.',
+        }, designSystemImports],
+      }],
+    },
+  },
+  {
+    files: ['**/routes.ts'],
+    rules: {
+      'no-restricted-imports': ['error', {
+        patterns: [{
+          regex: frameworkImports,
+          message: 'A routes.ts file declares the routes of its layer out of the framework: the presenters and modules/view-routes.ts import it.',
         }, designSystemImports],
       }],
     },
