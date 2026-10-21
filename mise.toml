@@ -37,9 +37,13 @@ description = "Run the tests of every package"
 wait_for = ["lint"]
 depends = ["//...:test"]
 
+[tasks.build]
+description = "Generate every site"
+depends = ["//...:build"]
+
 [tasks.check]
-description = "Everything the CI checks: lint and tests"
-depends = ["lint", "test"]
+description = "Everything the CI checks: lint, tests and the generation of every site"
+depends = ["lint", "test", "build"]
 
 [task_templates."nuxt:prepare"]
 description = "Generate the Nuxt types"
@@ -54,6 +58,8 @@ run = "pnpm exec nuxt dev"
 [task_templates."nuxt:build"]
 description = "Generate the static site into .output/public"
 depends = ["prepare"]
+# nuxt generate rewrites .nuxt, which nuxt typecheck reads
+wait_for = ["//...:lint"]
 run = "pnpm exec nuxt generate"
 
 [task_templates."nuxt:lint"]
