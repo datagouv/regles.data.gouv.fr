@@ -1,0 +1,21 @@
+[
+  {
+    "id": "https://regles.data.gouv.fr/regles/ministere-agriculture/prestagri-quotient-familial",
+    "identifier": "prestagri-quotient-familial",
+    "version": "0.1.0",
+    "title": {
+      "fr": "Calcul du quotient familial (QF)"
+    },
+    "description": {
+      "fr": "Calcule le quotient familial d'un agent selon la note de service MASA (revenu fiscal de référence rapporté au nombre d'unités du foyer, avec majorations parent isolé / handicap / garde alternée / abattement outre-mer)."
+    },
+    "valid_from": null,
+    "valid_to": null,
+    "subjects": null,
+    "source_repository": "https://github.com/betagouv/prestagri",
+    "source_commit": "478b3cc2ab28299c73b94fdd192b0559ae5873b8",
+    "created_at": null,
+    "updated_at": null,
+    "competent_authority": "https://github.com/betagouv/prestagri#organisation"
+  }
+]

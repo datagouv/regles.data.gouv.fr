@@ -1,0 +1,26 @@
+[
+  {
+    "id": "https://regles.data.gouv.fr/regles/ministere-interieur/civique-droit-vote",
+    "identifier": "civique-droit-vote",
+    "version": "1.0.0",
+    "title": {
+      "fr": "Droit de vote en France"
+    },
+    "description": {
+      "fr": "Vérification algorithmique de l'éligibilité au droit de vote en France (élections nationales et municipales), codifiée en Python à partir du Code électoral et de la Constitution."
+    },
+    "valid_from": "2024-01-01",
+    "valid_to": null,
+    "subjects": [
+      "election",
+      "civique",
+      "droit-vote",
+      "code-electoral"
+    ],
+    "source_repository": "https://github.com/qloridant/regalgo-civique-droit-vote",
+    "source_commit": "13d9f80ca21d47f55aef9710e6288e94ea10ccc6",
+    "created_at": null,
+    "updated_at": null,
+    "competent_authority": "https://github.com/qloridant/regalgo-civique-droit-vote#organisation"
+  }
+]
