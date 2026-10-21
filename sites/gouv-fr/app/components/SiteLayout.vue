@@ -19,7 +19,6 @@ const skipLinks = [
   />
   <main
     id="content"
-    class="fr-container fr-py-6w"
     tabindex="-1"
   >
     <slot />

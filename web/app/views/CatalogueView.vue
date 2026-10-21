@@ -8,8 +8,10 @@ useHead({ title: catalogue.value.title })
 </script>
 
 <template>
-  <div v-if="catalogue">
-    <h1>{{ catalogue.title }}</h1>
-    <UiCardList :cards="catalogue.cards" />
-  </div>
+  <template v-if="catalogue">
+    <UiPageHeader :title="catalogue.title" />
+    <UiPageBody>
+      <UiCardList :cards="catalogue.cards" />
+    </UiPageBody>
+  </template>
 </template>

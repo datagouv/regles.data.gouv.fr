@@ -19,7 +19,6 @@ const { siteName } = useAppConfig()
   </header>
   <main
     id="content"
-    class="site-main"
     tabindex="-1"
   >
     <slot />
@@ -51,11 +50,5 @@ const { siteName } = useAppConfig()
   font-size: var(--font-size-large);
   font-weight: 700;
   text-decoration: none;
-}
-
-.site-main {
-  max-width: var(--width-page);
-  margin: 0 auto;
-  padding: var(--space-4) var(--space-2);
 }
 </style>

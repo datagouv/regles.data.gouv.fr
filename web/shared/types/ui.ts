@@ -17,3 +17,9 @@ export interface UiBreadcrumbProps {
   links: UiLink[]
   current: string
 }
+
+export interface UiPageHeaderProps {
+  title: string
+  lead?: string
+  breadcrumb?: UiBreadcrumbProps
+}
