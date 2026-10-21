@@ -1,0 +1,26 @@
+[
+  {
+    "id": "https://regles.data.gouv.fr/regles/ministere-culture/openfisca-france-pass-culture",
+    "identifier": "openfisca-france-pass-culture",
+    "version": "175.1.4",
+    "title": {
+      "fr": "Calcul du montant du Pass Culture"
+    },
+    "description": {
+      "fr": "Calcule le montant mensuel du Pass Culture crédité sur le compte d'un jeune, selon son âge. Variable OpenFisca-France, utilisée en production par des simulateurs officiels comme mesdroitssociaux.gouv.fr."
+    },
+    "valid_from": "2019-02-01",
+    "valid_to": null,
+    "subjects": [
+      "pass-culture",
+      "jeunesse",
+      "education",
+      "openfisca"
+    ],
+    "source_repository": "https://github.com/openfisca/openfisca-france",
+    "source_commit": "9b822b70c7c4c5197113799b54833b5753d13466",
+    "created_at": null,
+    "updated_at": null,
+    "competent_authority": "https://github.com/openfisca/openfisca-france#organisation"
+  }
+]
