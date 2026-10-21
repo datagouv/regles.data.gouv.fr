@@ -32,5 +32,7 @@ export default defineNuxtConfig({
   },
   nitro: {
     serverAssets: [{ baseName: 'records', dir: fileURLToPath(new URL('../data', import.meta.url)) }],
+    // no page links to the registry file, so the crawler does not find it
+    prerender: { routes: ['/registry.json'] },
   },
 })
