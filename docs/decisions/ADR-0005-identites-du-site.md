@@ -17,7 +17,7 @@ Comment présenter le même catalogue dans plusieurs identités visuelles, en r�
 
 On découpe le code en un layer Nuxt, `web/`, et un site Nuxt par identité visuelle, dans `sites/`.
 
-Le layer contient les pages, les routes serveur et les presenters. Chaque site étend le layer et lui donne son identité visuelle : il fournit les composants d'interface que les pages assemblent. `sites/gouv-fr` les écrit avec le DSFR, et `sites/white-label` avec ses propres styles.
+Le layer contient les pages, les routes serveur et les presenters. Chaque site étend le layer et lui donne son identité visuelle : il fournit les composants d'interface que les pages assemblent. `sites/gouv-fr` les écrit avec le DSFR, et `sites/white-label` avec ses propres styles. Un site peut aussi ajouter des pages qui lui sont propres, selon l'[ADR-0006](ADR-0006-pages-propres-a-une-identite.md).
 
 `web/routes.ts` déclare les routes du site, et les presenters de `web/catalogue/` produisent le modèle de vue de chaque page, liens compris. Le layer active vue-router sans le routage par fichiers de Nuxt, et crée les routes à partir de cette déclaration.
 
