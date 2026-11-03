@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { routeTitles } from '~~/routes'
+import { routeTitles } from '#layers/gouv-fr/routes'
 import { CATALOGUE_TITLE } from '#layers/web/catalogue/record'
 import { routes } from '#layers/web/routes'
 

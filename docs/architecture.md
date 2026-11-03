@@ -25,6 +25,6 @@ overrides:
   '@datagouv/regles-core': https://github.com/datagouv/regles.data.gouv.fr/releases/download/v0.0.1/datagouv-regles-core-0.0.1.tgz
 ```
 
-Son `nuxt.config.ts` étend `@datagouv/regles-site-gouv-fr` et désigne le dossier de ses fiches par l'option `records.dir`, lue par `web/modules/records.ts`. Il déclare ses pages dans son `routes.ts`, comme un site du dépôt.
+Son `nuxt.config.ts` étend `@datagouv/regles-site-gouv-fr` et désigne le dossier de ses fiches par l'option `records.dir`, lue par `web/modules/records.ts`. Il déclare ses pages dans son `routes.ts`, comme un site du dépôt, et ajoute leurs liens à la navigation du site DSFR dans la liste `navigation` de son `app.config.ts`, avant ceux du site.
 
 [mise](https://mise.jdx.dev/) installe les outils et lance les tâches, avec un `mise.toml` par paquet ; le fonctionnement est décrit dans [docs/mise.md](mise.md).
