@@ -1,8 +1,23 @@
 {
   "name": "@datagouv/regles-web",
   "type": "module",
+  "version": "0.0.1",
   "private": true,
   "main": "./nuxt.config.ts",
+  "files": [
+    "!**/*.test.ts",
+    "!modules/fixtures",
+    "app",
+    "catalogue",
+    "modules",
+    "nuxt.config.ts",
+    "routes.ts",
+    "server",
+    "shared"
+  ],
+  "peerDependencies": {
+    "typescript": "~6.0.3"
+  },
   "dependencies": {
     "@datagouv/regles-core": "workspace:*",
     "nuxt": "^4.6.1",

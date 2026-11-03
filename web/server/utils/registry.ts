@@ -5,8 +5,8 @@ export async function loadRegistry(): Promise<Registry> {
   const storage = useStorage('assets:records')
   const keys = (await storage.getKeys()).filter(key => key.endsWith('.json'))
   const files = await Promise.all(keys.map(async key => ({
-    // unstorage separates the levels of a key with colons
-    path: `data/${key.replaceAll(':', '/')}`,
+    // unstorage separates the levels of a key with colons; the path is relative to the record folder
+    path: key.replaceAll(':', '/'),
     content: await storage.getItem(key),
   })))
 

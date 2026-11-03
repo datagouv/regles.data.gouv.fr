@@ -14,3 +14,8 @@ extends = "nuxt:build"
 [tasks.lint]
 alias = "site-gouv-fr:lint"
 extends = "nuxt:lint"
+
+[tasks.pack]
+alias = "site-gouv-fr:pack"
+description = "Pack the site into the dist/ folder of the repository root"
+run = 'pnpm pack --pack-destination "$MISE_MONOREPO_ROOT/dist"'
