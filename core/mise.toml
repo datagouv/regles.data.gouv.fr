@@ -17,3 +17,15 @@ alias = "core:test"
 description = "Test core"
 depends = ["generate"]
 run = "pnpm exec vitest run"
+
+[tasks.build]
+alias = "core:build"
+description = "Compile core into dist/lib, the code of the archive"
+depends = ["generate"]
+run = ["rm -rf dist", "pnpm exec tsc -p tsconfig.build.json"]
+
+[tasks.pack]
+alias = "core:pack"
+description = "Pack the compiled core into dist/, as the archive to attach to a release"
+depends = ["build"]
+run = "pnpm pack --pack-destination dist"

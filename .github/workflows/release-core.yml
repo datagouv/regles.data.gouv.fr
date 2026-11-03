@@ -1,0 +1,27 @@
+name: Release core
+
+on:
+  push:
+    tags: ['core-v*']
+
+permissions:
+  contents: write
+
+env:
+  MISE_ENV: ci
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: jdx/mise-action@c37c93293d6b742fc901e1406b8f764f6fb19dac # v2
+        with:
+          install_args: --monorepo
+      - name: Check that the tag matches the version of core
+        run: test "$GITHUB_REF_NAME" = "core-v$(jq -r .version core/package.json)"
+      - run: mise run core:test
+      - run: mise run core:pack
+      - run: gh release create "$GITHUB_REF_NAME" core/dist/*.tgz --title "$GITHUB_REF_NAME" --notes ""
+        env:
+          GH_TOKEN: ${{ github.token }}

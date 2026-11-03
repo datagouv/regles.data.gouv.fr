@@ -14,4 +14,6 @@ Les paquets que nous envisageons d'intégrer à date sont les suivants, dans l'o
 
 Dans un paquet TypeScript, on déclare un seul point d'entrée dans le champ `exports` du `package.json`, et on importe le paquet depuis les autres par ce point d'entrée.
 
+Un projet extérieur au dépôt installe `core` depuis l'archive attachée à une release, par exemple `pnpm add https://github.com/datagouv/regles.data.gouv.fr/releases/download/core-v0.0.1/datagouv-regles-core-0.0.1.tgz`. L'archive contient `core` compilé en JavaScript, ses déclarations de types et les fichiers générés à partir du schéma de `contract`. Pour publier une version, on met à jour `version` dans `core/package.json`, puis on pousse l'étiquette `core-v<version>` : le workflow `release-core.yml` lance `mise run core:pack` et crée la release avec l'archive.
+
 [mise](https://mise.jdx.dev/) installe les outils et lance les tâches, avec un `mise.toml` par paquet ; le fonctionnement est décrit dans [docs/mise.md](mise.md).
