@@ -26,6 +26,6 @@ run = ["rm -rf dist", "pnpm exec tsc -p tsconfig.build.json"]
 
 [tasks.pack]
 alias = "core:pack"
-description = "Pack the compiled core into dist/, as the archive to attach to a release"
+description = "Pack the compiled core into the dist/ folder of the repository root"
 depends = ["build"]
-run = "pnpm pack --pack-destination dist"
+run = 'pnpm pack --pack-destination "$MISE_MONOREPO_ROOT/dist"'

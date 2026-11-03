@@ -38,11 +38,15 @@ wait_for = ["lint"]
 depends = ["//...:test"]
 
 [tasks.build]
-description = "Generate every site"
+description = "Build every package: compile core and generate every site"
 depends = ["//...:build"]
 
+[tasks.pack]
+description = "Pack every published package into dist/, as the archives of a release"
+depends = ["//...:pack"]
+
 [tasks.check]
-description = "Everything the CI checks: lint, tests and the generation of every site"
+description = "Everything the CI checks: lint, tests and the build of every package"
 depends = ["lint", "test", "build"]
 
 [task_templates."nuxt:prepare"]
