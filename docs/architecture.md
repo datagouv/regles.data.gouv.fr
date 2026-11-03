@@ -16,7 +16,7 @@ Dans un paquet TypeScript, on déclare un seul point d'entrée dans le champ `ex
 
 Un projet extérieur au dépôt installe un paquet depuis son archive, attachée à une release, par exemple `pnpm add https://github.com/datagouv/regles.data.gouv.fr/releases/download/v0.0.1/datagouv-regles-core-0.0.1.tgz`. L'archive de `core` contient `core` compilé en JavaScript, ses déclarations de types et les fichiers générés à partir du schéma de `contract`. Une release contient l'archive de chaque paquet publié ([docs/mise.md](mise.md)), tous à la même version. Pour publier une version, on met à jour `version` dans le `package.json` de chaque paquet publié, puis on pousse l'étiquette `v<version>` : le workflow `release.yml` lance les tests et `mise run pack`, et crée la release avec les archives de `dist/`.
 
-Un projet Nuxt extérieur au dépôt étend le site de l'État pour y ajouter ses propres pages. Il installe l'archive de `@datagouv/regles-site-gouv-fr` et fait pointer `@datagouv/regles-web` et `@datagouv/regles-core` vers leurs archives de la même release, car le site désigne ses dépendances par leur version, que pnpm chercherait sur le registre npm :
+Un projet Nuxt extérieur au dépôt étend le site DSFR pour y ajouter ses propres pages. Il installe l'archive de `@datagouv/regles-site-gouv-fr` et fait pointer `@datagouv/regles-web` et `@datagouv/regles-core` vers leurs archives de la même release, car le site désigne ses dépendances par leur version, que pnpm chercherait sur le registre npm :
 
 ```yaml
 # pnpm-workspace.yaml
