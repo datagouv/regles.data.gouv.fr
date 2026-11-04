@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { recordApiPath } from '#layers/web/routes'
+
 const route = useRoute()
-const { data: detail, error } = await useFetch(`/api/records/${route.params.identifier}`)
+const { data: detail, error } = await useFetch(recordApiPath(String(route.params.identifier)))
 if (error.value || !detail.value) {
   throw createError({ ...error.value, fatal: true })
 }
