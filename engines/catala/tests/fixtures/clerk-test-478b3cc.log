@@ -1,0 +1,170 @@
+[1/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/ocaml/catala_runtime.mli
+[2/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/ocaml/catala_runtime.cmi
+[3/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/ocaml/dates_calc.cmi
+[4/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/ocaml/dates_calc.mli
+[5/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/date_internal.catala_en
+[6/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/decimal_internal.catala_en
+[7/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/duration_en.catala_en
+[8/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/ocaml/date_internal.ml
+[9/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/ocaml/date_internal.mli
+[10/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/decimal_en.catala_en
+[11/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/decimal_fr.catala_fr
+[12/169] <catala> ocaml ⇒ _build/libcatala/ocaml/Decimal_en.ml
+[13/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/ocaml/decimal_internal.ml
+[14/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/ocaml/decimal_internal.mli
+[15/169] <ocaml> ⇒ _build/libcatala/ocaml/Date_internal.cmi _build/libcatala/ocaml/Date_internal.cmo
+[16/169] <catala> ocaml ⇒ _build/libcatala/ocaml/Decimal_fr.ml
+[17/169] <ocaml> ⇒ _build/libcatala/ocaml/Decimal_internal.cmi _build/libcatala/ocaml/Decimal_internal.cmo
+[18/169] <ocaml> ⇒ _build/libcatala/ocaml/Decimal_internal.cmx _build/libcatala/ocaml/Decimal_internal.o
+[19/169] <ocaml> ⇒ _build/libcatala/ocaml/Date_internal.cmx _build/libcatala/ocaml/Date_internal.o
+[20/169] <catala> ocaml ⇒ _build/libcatala/ocaml/Duration_en.ml
+[21/169] <ocaml> ⇒ _build/libcatala/ocaml/Date_internal.cmxs
+[22/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/duration_fr.catala_fr
+[23/169] <ocaml> ⇒ _build/libcatala/ocaml/Decimal_internal.cmxs
+[24/169] <ocaml> ⇒ _build/libcatala/ocaml/Duration_en.cmi _build/libcatala/ocaml/Duration_en.cmo
+[25/169] <catala> ocaml ⇒ _build/libcatala/ocaml/Duration_fr.ml
+[26/169] <ocaml> ⇒ _build/libcatala/ocaml/Decimal_fr.cmi _build/libcatala/ocaml/Decimal_fr.cmo
+[27/169] <ocaml> ⇒ _build/libcatala/ocaml/Decimal_en.cmi _build/libcatala/ocaml/Decimal_en.cmo
+[28/169] <ocaml> ⇒ _build/libcatala/ocaml/Duration_en.cmx _build/libcatala/ocaml/Duration_en.o
+[29/169] <ocaml> ⇒ _build/libcatala/ocaml/Decimal_en.cmx _build/libcatala/ocaml/Decimal_en.o
+[30/169] <ocaml> ⇒ _build/libcatala/ocaml/Decimal_fr.cmx _build/libcatala/ocaml/Decimal_fr.o
+[31/169] <ocaml> ⇒ _build/libcatala/ocaml/Decimal_fr.cmxs
+[32/169] <ocaml> ⇒ _build/libcatala/ocaml/Duration_en.cmxs
+[33/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/integer_en.catala_en
+[34/169] <ocaml> ⇒ _build/libcatala/ocaml/Decimal_en.cmxs
+[35/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/integer_fr.catala_fr
+[36/169] <catala> ocaml ⇒ _build/libcatala/ocaml/Integer_en.ml
+[37/169] <ocaml> ⇒ _build/libcatala/ocaml/Duration_fr.cmi _build/libcatala/ocaml/Duration_fr.cmo
+[38/169] <catala> ocaml ⇒ _build/libcatala/ocaml/Integer_fr.ml
+[39/169] <ocaml> ⇒ _build/libcatala/ocaml/Integer_en.cmi _build/libcatala/ocaml/Integer_en.cmo
+[40/169] <ocaml> ⇒ _build/libcatala/ocaml/Integer_fr.cmi _build/libcatala/ocaml/Integer_fr.cmo
+[41/169] <ocaml> ⇒ _build/libcatala/ocaml/Duration_fr.cmx _build/libcatala/ocaml/Duration_fr.o
+[42/169] <ocaml> ⇒ _build/libcatala/ocaml/Integer_fr.cmx _build/libcatala/ocaml/Integer_fr.o
+[43/169] <ocaml> ⇒ _build/libcatala/ocaml/Integer_en.cmx _build/libcatala/ocaml/Integer_en.o
+[44/169] <ocaml> ⇒ _build/libcatala/ocaml/Duration_fr.cmxs
+[45/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/list_internal.catala_en
+[46/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/list_en.catala_en
+[47/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/date_en.catala_en
+[48/169] <ocaml> ⇒ _build/libcatala/ocaml/Integer_en.cmxs
+[49/169] <ocaml> ⇒ _build/libcatala/ocaml/Integer_fr.cmxs
+[50/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/list_fr.catala_fr
+[51/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/date_fr.catala_fr
+[52/169] <catala> ocaml ⇒ _build/libcatala/ocaml/Date_fr.ml
+[53/169] <catala> ocaml ⇒ _build/libcatala/ocaml/List_en.ml
+[54/169] <catala> ocaml ⇒ _build/libcatala/ocaml/Date_en.ml
+[55/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/ocaml/list_internal.ml
+[56/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/money_internal.catala_en
+[57/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/money_en.catala_en
+[58/169] <catala> ocaml ⇒ _build/libcatala/ocaml/List_fr.ml
+[59/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/ocaml/list_internal.mli
+[60/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/money_fr.catala_fr
+[61/169] <catala> ocaml ⇒ _build/libcatala/ocaml/Money_en.ml
+[62/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/ocaml/money_internal.ml
+[63/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/ocaml/money_internal.mli
+[64/169] <ocaml> ⇒ _build/libcatala/ocaml/Money_internal.cmi _build/libcatala/ocaml/Money_internal.cmo
+[65/169] <ocaml> ⇒ _build/libcatala/ocaml/List_internal.cmi _build/libcatala/ocaml/List_internal.cmo
+[66/169] <catala> ocaml ⇒ _build/libcatala/ocaml/Money_fr.ml
+[67/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/monthyear_en.catala_en
+[68/169] <ocaml> ⇒ _build/libcatala/ocaml/List_internal.cmx _build/libcatala/ocaml/List_internal.o
+[69/169] <ocaml> ⇒ _build/libcatala/ocaml/Money_internal.cmx _build/libcatala/ocaml/Money_internal.o
+[70/169] <catala> ocaml ⇒ _build/libcatala/ocaml/MonthYear_en.ml
+[71/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/monthyear_fr.catala_fr
+[72/169] <ocaml> ⇒ _build/libcatala/ocaml/List_internal.cmxs
+[73/169] <ocaml> ⇒ _build/libcatala/ocaml/Money_internal.cmxs
+[74/169] <catala> ocaml ⇒ _build/libcatala/ocaml/MonthYear_fr.ml
+[75/169] <ocaml> ⇒ _build/libcatala/ocaml/List_en.cmi _build/libcatala/ocaml/List_en.cmo
+[76/169] <ocaml> ⇒ _build/libcatala/ocaml/List_fr.cmi _build/libcatala/ocaml/List_fr.cmo
+[77/169] <ocaml> ⇒ _build/libcatala/ocaml/Money_en.cmi _build/libcatala/ocaml/Money_en.cmo
+[78/169] <ocaml> ⇒ _build/libcatala/ocaml/List_en.cmx _build/libcatala/ocaml/List_en.o
+[79/169] <ocaml> ⇒ _build/libcatala/ocaml/List_fr.cmx _build/libcatala/ocaml/List_fr.o
+[80/169] <ocaml> ⇒ _build/libcatala/ocaml/Money_en.cmx _build/libcatala/ocaml/Money_en.o
+[81/169] <ocaml> ⇒ _build/libcatala/ocaml/List_en.cmxs
+[82/169] <ocaml> ⇒ _build/libcatala/ocaml/List_fr.cmxs
+[83/169] <ocaml> ⇒ _build/libcatala/ocaml/Money_en.cmxs
+[84/169] <ocaml> ⇒ _build/libcatala/ocaml/Money_fr.cmi _build/libcatala/ocaml/Money_fr.cmo
+[85/169] <ocaml> ⇒ _build/libcatala/ocaml/Date_en.cmi _build/libcatala/ocaml/Date_en.cmo
+[86/169] <ocaml> ⇒ _build/libcatala/ocaml/Date_fr.cmi _build/libcatala/ocaml/Date_fr.cmo
+[87/169] <ocaml> ⇒ _build/libcatala/ocaml/Money_fr.cmx _build/libcatala/ocaml/Money_fr.o
+[88/169] <ocaml> ⇒ _build/libcatala/ocaml/Date_fr.cmx _build/libcatala/ocaml/Date_fr.o
+[89/169] <ocaml> ⇒ _build/libcatala/ocaml/Money_fr.cmxs
+[90/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/period_internal.catala_en
+[91/169] <ocaml> ⇒ _build/libcatala/ocaml/Date_en.cmx _build/libcatala/ocaml/Date_en.o
+[92/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/period_en.catala_en
+[93/169] <ocaml> ⇒ _build/libcatala/ocaml/Date_fr.cmxs
+[94/169] <ocaml> ⇒ _build/libcatala/ocaml/Date_en.cmxs
+[95/169] <catala> ocaml ⇒ _build/libcatala/ocaml/Period_en.ml
+[96/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/period_fr.catala_fr
+[97/169] <ocaml> ⇒ _build/libcatala/ocaml/MonthYear_fr.cmi _build/libcatala/ocaml/MonthYear_fr.cmo
+[98/169] <ocaml> ⇒ _build/libcatala/ocaml/MonthYear_en.cmi _build/libcatala/ocaml/MonthYear_en.cmo
+[99/169] <ocaml> ⇒ _build/libcatala/ocaml/MonthYear_en.cmx _build/libcatala/ocaml/MonthYear_en.o
+[100/169] <ocaml> ⇒ _build/libcatala/ocaml/MonthYear_fr.cmx _build/libcatala/ocaml/MonthYear_fr.o
+[101/169] <catala> ocaml ⇒ _build/libcatala/ocaml/Period_fr.ml
+[102/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/ocaml/period_internal.ml
+[103/169] <ocaml> ⇒ _build/libcatala/ocaml/MonthYear_en.cmxs
+[104/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/ocaml/period_internal.mli
+[105/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/stdlib_en.catala_en
+[106/169] <ocaml> ⇒ _build/libcatala/ocaml/MonthYear_fr.cmxs
+[107/169] <copy> /home/opam/.opam/4.14/lib/catala/runtime/stdlib_fr.catala_fr
+[108/169] <ocaml> ⇒ _build/libcatala/ocaml/Period_internal.cmi _build/libcatala/ocaml/Period_internal.cmo
+[109/169] <catala> ocaml ⇒ _build/libcatala/ocaml/Stdlib_fr.ml
+[110/169] <test> src/aide_scolarite
+[111/169] <copy> src/commun/structures/personne.catala_fr
+[112/169] <copy> src/commun/structures/famille.catala_fr
+[113/169] <catala> ocaml ⇒ _build/libcatala/ocaml/Stdlib_en.ml
+[114/169] <ocaml> ⇒ _build/libcatala/ocaml/Period_internal.cmx _build/libcatala/ocaml/Period_internal.o
+[115/169] <catala> ocaml ⇒ _build/src/commun/structures/ocaml/Famille.ml
+[116/169] <copy> src/commun/structures/trajet.catala_fr
+[117/169] <catala> ocaml ⇒ _build/src/commun/structures/ocaml/Personne.ml
+[118/169] <test> src/commun/structures
+[119/169] <copy> src/commun/quotient_familial.catala_fr
+[120/169] <copy> src/aide_scolarite/aide_scolarite.catala_fr
+[121/169] <copy> exec/executable_aide_scolarite.catala_fr
+[122/169] <ocaml> ⇒ _build/libcatala/ocaml/Period_internal.cmxs
+[123/169] <catala> ocaml ⇒ _build/src/commun/structures/ocaml/Trajet.ml
+[124/169] <ocaml> ⇒ _build/libcatala/ocaml/Period_fr.cmi _build/libcatala/ocaml/Period_fr.cmo
+[125/169] <ocaml> ⇒ _build/libcatala/ocaml/Period_en.cmi _build/libcatala/ocaml/Period_en.cmo
+[126/169] <ocaml> ⇒ _build/libcatala/ocaml/Period_fr.cmx _build/libcatala/ocaml/Period_fr.o
+[127/169] <catala> ocaml ⇒ _build/src/aide_scolarite/ocaml/Aide_scolarite.ml
+[128/169] <ocaml> ⇒ _build/libcatala/ocaml/Period_fr.cmxs
+[129/169] <ocaml> ⇒ _build/libcatala/ocaml/Period_en.cmx _build/libcatala/ocaml/Period_en.o
+[130/169] <ocaml> ⇒ _build/libcatala/ocaml/Stdlib_fr.cmi _build/libcatala/ocaml/Stdlib_fr.cmo
+[131/169] <ocaml> ⇒ _build/libcatala/ocaml/Period_en.cmxs
+[132/169] <ocaml> ⇒ _build/libcatala/ocaml/Stdlib_en.cmi _build/libcatala/ocaml/Stdlib_en.cmo
+[133/169] <catala> ocaml ⇒ _build/src/commun/ocaml/Quotient_familial.ml
+[134/169] <ocaml> ⇒ _build/libcatala/ocaml/Stdlib_fr.cmx _build/libcatala/ocaml/Stdlib_fr.o
+[135/169] <test> src/commun
+[136/169] <ocaml> ⇒ _build/libcatala/ocaml/Stdlib_en.cmx _build/libcatala/ocaml/Stdlib_en.o
+[137/169] <test> src
+[138/169] <copy> tests/aide_scolarite/tests_aide_scolarite.catala_fr
+[139/169] <copy> tests/commun/tests_quotient_familial.catala_fr
+[140/169] <copy> tests/experimentation_doc/arbre.catala_fr
+[141/169] <copy> tests/experimentation_doc/tree.catala_en
+[142/169] <ocaml> ⇒ _build/libcatala/ocaml/Stdlib_fr.cmxs
+[143/169] <ocaml> ⇒ _build/libcatala/ocaml/Stdlib_en.cmxs
+[144/169] <ocaml> ⇒ _build/src/commun/structures/ocaml/Personne.cmi _build/src/commun/structures/ocaml/Personne.cmo
+[145/169] <ocaml> ⇒ _build/src/commun/structures/ocaml/Trajet.cmi _build/src/commun/structures/ocaml/Trajet.cmo
+[146/169] <ocaml> ⇒ _build/src/commun/structures/ocaml/Trajet.cmx _build/src/commun/structures/ocaml/Trajet.o
+[147/169] <ocaml> ⇒ _build/src/commun/structures/ocaml/Personne.cmx _build/src/commun/structures/ocaml/Personne.o
+[148/169] <ocaml> ⇒ _build/src/commun/structures/ocaml/Trajet.cmxs
+[149/169] <catala> tests ⇐ _build/tests/experimentation_doc/arbre.catala_fr
+[150/169] <ocaml> ⇒ _build/src/commun/structures/ocaml/Personne.cmxs
+[151/169] <ocaml> ⇒ _build/src/commun/structures/ocaml/Famille.cmi _build/src/commun/structures/ocaml/Famille.cmo
+[152/169] <catala> tests ⇐ _build/tests/experimentation_doc/tree.catala_en
+[153/169] <test> tests/experimentation_doc
+[154/169] <ocaml> ⇒ _build/src/commun/structures/ocaml/Famille.cmx _build/src/commun/structures/ocaml/Famille.o
+[155/169] <ocaml> ⇒ _build/src/commun/structures/ocaml/Famille.cmxs
+[156/169] <ocaml> ⇒ _build/src/commun/ocaml/Quotient_familial.cmi _build/src/commun/ocaml/Quotient_familial.cmo
+[157/169] <ocaml> ⇒ _build/src/commun/ocaml/Quotient_familial.cmx _build/src/commun/ocaml/Quotient_familial.o
+[158/169] <ocaml> ⇒ _build/src/commun/ocaml/Quotient_familial.cmxs
+[159/169] <catala> tests ⇐ _build/tests/commun/tests_quotient_familial.catala_fr
+[160/169] <ocaml> ⇒ _build/src/aide_scolarite/ocaml/Aide_scolarite.cmi _build/src/aide_scolarite/ocaml/Aide_scolarite.cmo
+[161/169] <test> tests/commun
+[162/169] <ocaml> ⇒ _build/src/aide_scolarite/ocaml/Aide_scolarite.cmx _build/src/aide_scolarite/ocaml/Aide_scolarite.o
+[163/169] <ocaml> ⇒ _build/src/aide_scolarite/ocaml/Aide_scolarite.cmxs
+[164/169] <catala> tests ⇐ _build/exec/executable_aide_scolarite.catala_fr
+[165/169] <test> exec
+[166/169] <catala> tests ⇐ _build/tests/aide_scolarite/tests_aide_scolarite.catala_fr
+[167/169] <test> tests/aide_scolarite
+[168/169] <test> tests
+[169/169] <test> .
+{"test-results":[{"file":"/home/opam/prestagri/catala/exec/executable_aide_scolarite.catala_fr","tests":{"scopes":[{"scope_name":"TestCalculPointsAideScolarite4","success":true,"errors":[],"time":0.044000000000000206}],"inline-tests":[]}},{"file":"/home/opam/prestagri/catala/tests/aide_scolarite/tests_aide_scolarite.catala_fr","tests":{"scopes":[{"scope_name":"TestQuotientFamilialAideScolarite1","success":true,"errors":[],"time":0.046000000000000034},{"scope_name":"TestAideScolarite1","success":true,"errors":[],"time":0.004000000000000097},{"scope_name":"TestCalculPointsTrajet1","success":true,"errors":[],"time":0.005999999999999929},{"scope_name":"TestCalculPointsTrajet2","success":true,"errors":[],"time":0.0039999999999996635},{"scope_name":"TestCalculPointsTrajet3","success":true,"errors":[],"time":0.0020000000000002655},{"scope_name":"TestCalculPointsTrajet4","success":true,"errors":[],"time":0.004000000000000097},{"scope_name":"TestCalculPointsAideScolarite1","success":true,"errors":[],"time":0.0039999999999996635},{"scope_name":"TestCalculPointsAideScolarite2","success":true,"errors":[],"time":0.0020000000000002655},{"scope_name":"TestCalculRetraitCritere","success":true,"errors":[],"time":0.004000000000000097},{"scope_name":"TestCalculPointsAideScolarite3","success":true,"errors":[],"time":0.005999999999999929},{"scope_name":"TestCalculPointsAideScolarite4","success":true,"errors":[],"time":0.0039999999999996635},{"scope_name":"TestCalculPointsAideScolarite5","success":true,"errors":[],"time":0.0020000000000002655},{"scope_name":"TestCalculPointsAideScolarite6","success":true,"errors":[],"time":0.004000000000000097},{"scope_name":"TestCalculPointsAideScolarite7","success":true,"errors":[],"time":0.0019999999999998318},{"scope_name":"TestCalculPointsAideScolarite8","success":true,"errors":[],"time":0.004000000000000097},{"scope_name":"TestCalculPointsAideScolarite9","success":true,"errors":[],"time":0.005999999999999929},{"scope_name":"TestCalculPointsAideScolarite10","success":true,"errors":[],"time":0.004000000000000097},{"scope_name":"TestCalculPointsAideScolarite11","success":true,"errors":[],"time":0.004000000000000097},{"scope_name":"TestCalculPointsAideScolarite12","success":true,"errors":[],"time":0.0019999999999998318},{"scope_name":"TestCalculPointsAideScolarite13","success":true,"errors":[],"time":0.004000000000000097}],"inline-tests":[]}},{"file":"/home/opam/prestagri/catala/tests/commun/tests_quotient_familial.catala_fr","tests":{"scopes":[{"scope_name":"TestQuotientFamilial1","success":true,"errors":[],"time":0.14400000000000002},{"scope_name":"TestQuotientFamilial2","success":true,"errors":[],"time":0.0019999999999998318},{"scope_name":"TestQuotientFamilial3","success":true,"errors":[],"time":0.004000000000000097},{"scope_name":"TestQuotientFamilial4","success":false,"errors":[{"location":{"file":"/home/opam/prestagri/catala/tests/commun/tests_quotient_familial.catala_fr","range":{"start":{"line":135,"character":3},"end":{"line":135,"character":50}}},"message":"Assertion failed: 434,67 € ≠ 434,66 €"}],"time":0.03000000000000008}],"inline-tests":[]}},{"file":"/home/opam/prestagri/catala/tests/experimentation_doc/arbre.catala_fr","tests":{"scopes":[{"scope_name":"MangerTest1","success":true,"errors":[],"time":0.039999999999999675}],"inline-tests":[]}},{"file":"/home/opam/prestagri/catala/tests/experimentation_doc/tree.catala_en","tests":{"scopes":[{"scope_name":"EatTest1","success":true,"errors":[],"time":0.049}],"inline-tests":[]}}],"coverage":{"scopes":[],"locations":[]}}

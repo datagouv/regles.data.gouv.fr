@@ -1,0 +1,26 @@
+[tools]
+uv = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["python"]
+
+[tasks.test]
+alias = "engine-catala:test"
+description = "Test the reading of the clerk test report"
+run = "uv run pytest"
+
+[tasks.image]
+alias = "engine-catala:image"
+description = "Build the Docker image that runs clerk test"
+run = "docker build --tag engine-catala ."
+
+[tasks.verify]
+alias = "engine-catala:verify"
+description = "Run the native Catala tests of every repository cited by the records of data/, at the cited commit"
+usage = '''
+flag "--output <file>" required=#true help="JSON file to write the findings to"
+flag "--summary <file>" help="Markdown file to append a summary of the findings to"
+'''
+depends = ["image"]
+dir = "{{cwd}}"
+run = 'uv run --project "{{config_root}}" engine-catala "$MISE_MONOREPO_ROOT/data" --output "$usage_output" ${usage_summary:+--summary "$usage_summary"}'
