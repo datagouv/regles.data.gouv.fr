@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
+import { routes } from '#layers/web/routes'
 
 const props = defineProps<{ error: NuxtError }>()
 
@@ -15,7 +16,7 @@ useHead({ title })
     <UiPageHeader :title="title" />
     <UiPageBody>
       <p>Erreur {{ error.status }}</p>
-      <NuxtLink to="/">
+      <NuxtLink :to="routes.catalogue">
         Page d'accueil
       </NuxtLink>
     </UiPageBody>
