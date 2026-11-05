@@ -1,19 +1,16 @@
 import type { RegistryRecord } from '@datagouv/regles-core'
+import type { UiBreadcrumbProps, UiCard } from '../shared/types/ui'
 import { recordPath, routes } from '../routes'
-
-export interface RecordSummary {
-  title: string
-  description: string
-  to: string
-}
 
 export interface CataloguePage {
   title: string
-  cards: RecordSummary[]
+  cards: UiCard[]
 }
 
-export interface RecordDetail extends Omit<RecordSummary, 'to'> {
-  breadcrumb: { links: { label: string, to: string }[], current: string }
+export interface RecordDetail {
+  title: string
+  description: string
+  breadcrumb: UiBreadcrumbProps
   authority: string
   version: string
   validity: string | null
@@ -26,7 +23,7 @@ export const CATALOGUE_TITLE = 'Catalogue des règles'
 
 const DATE_FORMAT = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long', timeZone: 'UTC' })
 
-export function toRecordSummary(record: RegistryRecord): RecordSummary {
+export function toRecordCard(record: RegistryRecord): UiCard {
   return {
     title: frenchText(record.title),
     description: frenchText(record.description),
@@ -37,7 +34,7 @@ export function toRecordSummary(record: RegistryRecord): RecordSummary {
 export function toCataloguePage(records: RegistryRecord[]): CataloguePage {
   return {
     title: CATALOGUE_TITLE,
-    cards: records.map(toRecordSummary),
+    cards: records.map(toRecordCard),
   }
 }
 

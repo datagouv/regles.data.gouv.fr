@@ -1,6 +1,6 @@
 import type { RegistryRecord } from '@datagouv/regles-core'
 import { describe, expect, it } from 'vitest'
-import { toCataloguePage, toRecordDetail, toRecordSummary } from './record.ts'
+import { toCataloguePage, toRecordCard, toRecordDetail } from './record.ts'
 
 const exampleRecord: RegistryRecord = {
   id: 'https://regles.data.gouv.fr/regles/ministere-agriculture/prestagri-aide-scolarite',
@@ -18,9 +18,9 @@ const exampleRecord: RegistryRecord = {
   competent_authority: 'https://github.com/betagouv/prestagri#organisation',
 }
 
-describe('toRecordSummary', () => {
+describe('toRecordCard', () => {
   it('shows the French title and description, and links to the record', () => {
-    expect(toRecordSummary(exampleRecord)).toEqual({
+    expect(toRecordCard(exampleRecord)).toEqual({
       title: 'Calcul de l\'aide à la scolarité',
       description: expect.stringMatching(/^Calcule le montant de l'aide à la scolarité/),
       to: '/regles/prestagri-aide-scolarite',
@@ -29,7 +29,7 @@ describe('toRecordSummary', () => {
 
   it('falls back on the first language when the French text is missing', () => {
     const record = { ...exampleRecord, title: { en: 'School allowance calculation' } }
-    expect(toRecordSummary(record).title).toBe('School allowance calculation')
+    expect(toRecordCard(record).title).toBe('School allowance calculation')
   })
 })
 
@@ -37,7 +37,7 @@ describe('toCataloguePage', () => {
   it('titles the catalogue and shows a card per record', () => {
     expect(toCataloguePage([exampleRecord])).toEqual({
       title: 'Catalogue des règles',
-      cards: [toRecordSummary(exampleRecord)],
+      cards: [toRecordCard(exampleRecord)],
     })
   })
 })
