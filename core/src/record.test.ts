@@ -1,6 +1,8 @@
 import { assert, describe, expect, it } from 'vitest'
-import { exampleRecord } from './example-record.ts'
+import records from '../fixtures/records.json' with { type: 'json' }
 import { readRecords } from './record.ts'
+
+const [exampleRecord] = records
 
 describe('readRecords', () => {
   it('reads the records of a valid file', () => {

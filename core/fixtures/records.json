@@ -1,0 +1,23 @@
+[
+  {
+    "id": "https://regles.data.gouv.fr/regles/ministere-agriculture/prestagri-aide-scolarite",
+    "identifier": "prestagri-aide-scolarite",
+    "version": "0.1.0",
+    "title": {
+      "fr": "Calcul de l'aide à la scolarité",
+      "en": "School allowance calculation"
+    },
+    "description": {
+      "fr": "Calcule le montant de l'aide à la scolarité (fiche F16) à partir du quotient familial du foyer, du barème de points (dont l'éloignement domicile-établissement) et du plafond de 1000€ par enfant et par an.",
+      "en": "Calculates the amount of the school allowance (sheet F16) from the family quotient of the household, the points scale (including the distance between home and school) and the ceiling of 1000€ per child per year."
+    },
+    "valid_from": null,
+    "valid_to": null,
+    "subjects": null,
+    "source_repository": "https://github.com/betagouv/prestagri",
+    "source_commit": "478b3cc2ab28299c73b94fdd192b0559ae5873b8",
+    "created_at": null,
+    "updated_at": null,
+    "competent_authority": "https://github.com/betagouv/prestagri#organisation"
+  }
+]

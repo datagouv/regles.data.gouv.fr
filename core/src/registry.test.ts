@@ -1,12 +1,15 @@
 import { assert, describe, expect, it } from 'vitest'
-import { EXAMPLE_CONTENT, EXAMPLE_PATH, exampleRecord } from './example-record.ts'
+import records from '../fixtures/records.json' with { type: 'json' }
 import { buildRegistry } from './registry.ts'
+
+const EXAMPLE_PATH = 'data/example.json'
+const [exampleRecord] = records
 
 describe('buildRegistry', () => {
   it('lists the records of every file and finds a record by its identifier', () => {
     const otherRecord = { ...exampleRecord, id: 'https://regles.data.gouv.fr/regles/autre', identifier: 'autre' }
     const result = buildRegistry([
-      { path: EXAMPLE_PATH, content: EXAMPLE_CONTENT },
+      { path: EXAMPLE_PATH, content: records },
       { path: 'data/autre.json', content: [otherRecord] },
     ])
     assert(result.valid)
@@ -24,8 +27,8 @@ describe('buildRegistry', () => {
 
   it('reports a record that repeats the id and the identifier of another file', () => {
     expect(buildRegistry([
-      { path: EXAMPLE_PATH, content: EXAMPLE_CONTENT },
-      { path: 'data/copie.json', content: EXAMPLE_CONTENT },
+      { path: EXAMPLE_PATH, content: records },
+      { path: 'data/copie.json', content: records },
     ])).toEqual({
       valid: false,
       gaps: [

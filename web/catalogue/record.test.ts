@@ -1,12 +1,22 @@
 import type { RegistryRecord } from '@datagouv/regles-core'
-import { readRecords } from '@datagouv/regles-core'
-import { assert, describe, expect, it } from 'vitest'
-import exampleFile from '../../data/ministereAgriculture/prestagri/aideScolarite.json' with { type: 'json' }
+import { describe, expect, it } from 'vitest'
 import { toCataloguePage, toRecordDetail, toRecordSummary } from './record.ts'
 
-const example = readRecords(exampleFile)
-assert(example.valid)
-const exampleRecord: RegistryRecord = example.records[0]!
+const exampleRecord: RegistryRecord = {
+  id: 'https://regles.data.gouv.fr/regles/ministere-agriculture/prestagri-aide-scolarite',
+  identifier: 'prestagri-aide-scolarite',
+  version: '0.1.0',
+  title: { fr: 'Calcul de l\'aide à la scolarité', en: 'School allowance calculation' },
+  description: { fr: 'Calcule le montant de l\'aide à la scolarité à partir du quotient familial du foyer.' },
+  valid_from: null,
+  valid_to: null,
+  subjects: null,
+  source_repository: 'https://github.com/betagouv/prestagri',
+  source_commit: '478b3cc2ab28299c73b94fdd192b0559ae5873b8',
+  created_at: null,
+  updated_at: null,
+  competent_authority: 'https://github.com/betagouv/prestagri#organisation',
+}
 
 describe('toRecordSummary', () => {
   it('shows the French title and description, and links to the record', () => {
