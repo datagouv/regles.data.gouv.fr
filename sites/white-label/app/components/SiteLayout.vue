@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { routes } from '#layers/web/routes'
+
 const { siteName } = useAppConfig()
 </script>
 
@@ -12,7 +14,7 @@ const { siteName } = useAppConfig()
   <header class="site-header">
     <NuxtLink
       class="site-name"
-      to="/"
+      :to="routes.catalogue"
     >
       {{ siteName }}
     </NuxtLink>
