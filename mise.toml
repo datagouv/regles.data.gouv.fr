@@ -2,7 +2,7 @@ min_version = "2026.8.14"
 monorepo_root = true
 
 [monorepo]
-config_roots = ["contract", "core", "web", "sites/*"]
+config_roots = ["contract", "core", "engines/*", "web", "sites/*"]
 
 [tools]
 hk = "1"
