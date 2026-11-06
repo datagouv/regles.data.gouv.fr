@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@datagouv/regles-core": "workspace:*",
-    "nuxt": "^4.6.1",
+    "nuxt": "^4.6.3",
     "vue": "^3.5.44",
     "vue-router": "^5.4.0"
   },
