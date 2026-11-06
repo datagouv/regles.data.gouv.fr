@@ -1,5 +1,5 @@
 import pytest
-from cases import PASS_CULTURE, REFUSED, RULES
+from cases import PASS_CULTURE, PRIME_ACTIVITE, REFUSED, RULES
 from jsonschema import Draft202012Validator, ValidationError, validate
 
 from engine_openfisca import infer_call_contract
@@ -36,3 +36,9 @@ def test_the_period_of_a_monthly_rule_is_a_month(period):
 def test_a_rule_that_the_engine_cannot_read_is_refused(rule, reason):
     with pytest.raises(ValueError, match=reason):
         infer_call_contract(rule)
+
+
+def test_an_input_read_over_the_rolling_year_says_so():
+    salary = infer_call_contract(PRIME_ACTIVITE)["input_schema"]["properties"]["salaire_imposable"]
+
+    assert salary["description"] == "Total des douze mois qui précèdent le mois du calcul."

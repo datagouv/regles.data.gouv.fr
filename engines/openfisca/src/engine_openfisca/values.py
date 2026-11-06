@@ -26,3 +26,18 @@ def sample_of(variable: Variable) -> object:
     if variable.value_type is Enum:
         return variable.default_value.name
     return SAMPLES[variable.value_type]
+
+
+def to_json(values: object, variable: Variable) -> object:
+    """The JSON value of the person or group of a one person simulation, a float32 written by its decimal text as the web API of OpenFisca does."""
+    if variable.value_type is Enum:
+        return values.decode()[0].name
+    value = values[0]
+    if variable.value_type is float:
+        return float(str(value))
+    # OpenFisca stores dates as numpy datetime64 and texts as numpy bytes
+    if variable.value_type is datetime.date:
+        return str(value.astype("datetime64[D]"))
+    if variable.value_type is str:
+        return value.decode()
+    return variable.value_type(value)
