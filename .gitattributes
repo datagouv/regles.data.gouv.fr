@@ -1,0 +1,5 @@
+# Collapsed in the diffs of GitHub
+*.lock linguist-generated=true
+engines/catala/tests/fixtures/*.log linguist-generated=true
+engines/catala/tests/fixtures/prestagri/generated/** linguist-generated=true
+engines/catala/tests/fixtures/prestagri/LICENSE linguist-generated=true
