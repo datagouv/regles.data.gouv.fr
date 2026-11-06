@@ -78,6 +78,21 @@ function nodeType(engine: Engine, dottedName: string): string | undefined {
   return engine.context.nodesTypes.get(engine.getRule(dottedName))?.type
 }
 
+/** The value of an input as Publicodes reads it in a situation: `oui` or `non`, a date DD/MM/YYYY, a text between quotes. */
+export function toSituationValue(engine: Engine, dottedName: string, value: unknown): string | number {
+  if (typeof value === 'boolean') {
+    return value
+      ? 'oui'
+      : 'non'
+  }
+  if (typeof value === 'number') {
+    return value
+  }
+  return nodeType(engine, dottedName) === 'date'
+    ? String(value).split('-').reverse().join('/')
+    : `'${String(value)}'`
+}
+
 /** The value of an output in JSON: a date in ISO 8601, null for a rule that does not apply. */
 export function toJson(value: unknown, schema: JsonSchema): unknown {
   if (typeof value === 'string' && schema.format === 'date') {

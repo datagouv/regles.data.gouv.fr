@@ -1,7 +1,7 @@
 import ajvFormats from 'ajv-formats'
 import { Ajv2020 } from 'ajv/dist/2020.js'
 import { describe, expect, it } from 'vitest'
-import { inferCallContract } from '../src/index.ts'
+import { execute, inferCallContract } from '../src/index.ts'
 import { CIR_AMOUNT, CIR_ELIGIBILITY, TYPES, TYPES_MODEL } from './cases.ts'
 
 const ajv = new Ajv2020()
@@ -14,6 +14,10 @@ describe.each([CIR_AMOUNT, CIR_ELIGIBILITY, TYPES])('the contract of $outputs', 
     expect(ajv.validateSchema(contract.inputSchema)).toBe(true)
     expect(ajv.validateSchema(contract.outputSchema)).toBe(true)
     expect(ajv.validate(contract.inputSchema, contract.sampleInput), JSON.stringify(ajv.errors)).toBe(true)
+  })
+
+  it('computes its sample input', () => {
+    expect(() => execute(rule, contract.sampleInput)).not.toThrow()
   })
 })
 
