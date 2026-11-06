@@ -1,3 +1,4 @@
+import importlib
 import typing
 from dataclasses import dataclass
 from types import ModuleType
@@ -5,7 +6,7 @@ from typing import Any, Literal
 
 from engine_catala.errors import UnsupportedType
 
-RUNTIME_CLASSES = ("Money", "Integer", "Decimal", "Bool", "Date", "Option", "Array", "CatalaStruct", "CatalaEnum", "CatalaError")
+RUNTIME_CLASSES = ("Value", "Money", "Integer", "Decimal", "Bool", "Date", "Option", "Array", "CatalaStruct", "CatalaEnum", "CatalaError")
 
 
 @dataclass(frozen=True)
@@ -83,10 +84,17 @@ def to_catala(value: Any, value_type: Any, runtime: Runtime) -> Any:
     if value_type is runtime.get("Bool"):
         return value_type(bool(value))
     if value_type is runtime.get("Date"):
-        year, month, day = str(value).split("-")
-        return value_type((int(year), int(month), int(day)))
+        return _catala_date(str(value), value_type, runtime)
 
     raise UnsupportedType(f"no conversion from JSON to the Catala type {getattr(value_type, '__name__', value_type)}")
+
+
+def _catala_date(text: str, date_type: type, runtime: Runtime) -> Any:
+    # In the runtime of Catala 1.2, the constructor of Date calls Date(year=...), which resolves to the runtime class
+    # itself and fails: the date is built from the Date of the sibling `dates` module and wrapped as a Value.
+    year, month, day = (int(part) for part in text.split("-"))
+    dates = importlib.import_module(".dates", date_type.__module__.rpartition(".")[0])
+    return runtime.get("Value").__new__(date_type, value=dates.Date(year=year, month=month, day=day))
 
 
 def from_catala(value: Any, runtime: Runtime) -> Any:
@@ -119,14 +127,14 @@ def _nullable(schema: dict) -> dict:
     return {**schema, "type": [*types, "null"] if "null" not in types else types}
 
 
-def schema_of(value_type: Any, runtime: Runtime, direction: Literal["input", "output"], warnings: list[str], seen: frozenset = frozenset()) -> dict:
+def schema_of(value_type: Any, runtime: Runtime, direction: Literal["input", "output"], warnings: list[str]) -> dict:
     """The JSON Schema of a Catala type, as an input or as an output."""
     container = _container(value_type, runtime)
     (item_type, *_) = typing.get_args(value_type) or (None,)
     if container == "Option":
-        return _nullable(schema_of(item_type, runtime, direction, warnings, seen))
+        return _nullable(schema_of(item_type, runtime, direction, warnings))
     if container == "Array":
-        return {"type": "array", "items": schema_of(item_type, runtime, direction, warnings, seen)}
+        return {"type": "array", "items": schema_of(item_type, runtime, direction, warnings)}
 
     if runtime.is_subclass(value_type, "CatalaEnum"):
         if direction == "input":
@@ -135,11 +143,9 @@ def schema_of(value_type: Any, runtime: Runtime, direction: Literal["input", "ou
         return {"type": "object", "required": ["code", "payload"], "properties": {"code": {"type": "string"}, "payload": {}}}
 
     if runtime.is_subclass(value_type, "CatalaStruct"):
-        if value_type in seen:
-            return {"type": "object"}
         key = input_key if direction == "input" else str
         properties = {
-            key(field): schema_of(field_type, runtime, direction, warnings, seen | {value_type})
+            key(field): schema_of(field_type, runtime, direction, warnings)
             for field, field_type in struct_fields(value_type).items()
         }
         return {"type": "object", "required": list(properties), "properties": properties, "additionalProperties": False}
@@ -157,18 +163,16 @@ def schema_of(value_type: Any, runtime: Runtime, direction: Literal["input", "ou
     return {}
 
 
-def sample_of(value_type: Any, runtime: Runtime, seen: frozenset = frozenset()) -> Any:
+def sample_of(value_type: Any, runtime: Runtime) -> Any:
     """A sample input value of a Catala type, shaped like its input schema."""
     container = _container(value_type, runtime)
     (item_type, *_) = typing.get_args(value_type) or (None,)
     if container == "Option":
-        return sample_of(item_type, runtime, seen)
+        return sample_of(item_type, runtime)
     if container == "Array":
-        return [sample_of(item_type, runtime, seen)]
+        return [sample_of(item_type, runtime)]
     if runtime.is_subclass(value_type, "CatalaStruct"):
-        if value_type in seen:
-            return {}
-        return {input_key(field): sample_of(field_type, runtime, seen | {value_type}) for field, field_type in struct_fields(value_type).items()}
+        return {input_key(field): sample_of(field_type, runtime) for field, field_type in struct_fields(value_type).items()}
     if value_type is runtime.get("Money") or value_type is runtime.get("Decimal"):
         return 0
     if value_type is runtime.get("Integer"):

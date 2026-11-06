@@ -8,7 +8,7 @@ def infer_call_contract(target: str) -> dict:
     runtime = runtime_of(scope.module)
     warnings: list[str] = []
     input_schema = schema_of(scope.input_type, runtime, "input", warnings)
-    output_schema = {"type": "object"} if scope.output_type is None else schema_of(scope.output_type, runtime, "output", warnings)
+    output_schema = schema_of(scope.output_type, runtime, "output", warnings)
     return {
         "input_schema": input_schema,
         "output_schema": output_schema,

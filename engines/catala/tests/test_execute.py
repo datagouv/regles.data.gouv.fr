@@ -11,12 +11,6 @@ def test_a_scope_gives_the_recorded_output(target, inputs, expected):
     assert execute(target, inputs) == expected
 
 
-def test_the_family_quotient_of_prestagri_is_computed():
-    inputs, _ = EXECUTABLE[QUOTIENT_FAMILIAL]
-
-    assert execute(QUOTIENT_FAMILIAL, inputs)["quotient_familial"] == 666.67
-
-
 def test_a_computation_that_the_scope_refuses_raises_a_scope_error():
     inputs, _ = EXECUTABLE[QUOTIENT_FAMILIAL]
     household = {**inputs["menage"], "parent_isole": False, "membres_du_foyer": []}
