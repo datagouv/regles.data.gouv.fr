@@ -1,0 +1,19 @@
+[project]
+name = "engine-openfisca"
+version = "0.1.0"
+description = "Infer the call contract of an OpenFisca rule and execute it for one person"
+requires-python = ">=3.13"
+dependencies = ["openfisca-core>=44.1,<45"]
+
+[dependency-groups]
+dev = [
+    "jsonschema>=4.26",
+    "openfisca-country-template>=8.2",
+    "openfisca-france==175.1.4",
+    # openfisca-core 44 requires pytest below 9
+    "pytest>=8.3,<9",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
