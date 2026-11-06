@@ -1,0 +1,7 @@
+> Module Trajet
+
+```catala-metadata
+déclaration structure Trajet:
+  donnée distance_km contenu entier
+  donnée durée_minutes contenu entier
+```

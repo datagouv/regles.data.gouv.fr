@@ -1,0 +1,113 @@
+> Module Quotient_familial
+> Usage de Menage
+> Usage de Foyer_fiscal
+
+## Méthode de calcul du QUOTIENT FAMILIAL (QF)
+
+Note de  service p.8
+
+Applicable à tous les agents et pour toutes les prestations, HORS prestations interministérielles des agents MASA affectés en DDI
+QF = Revenu fiscal de référence / (12 x nombre de personnes vivant au foyer (a))
+
+```catala-metadata
+déclaration énumération Critères:
+  -- Parent_isolé contenu décimal
+  -- Handicap contenu décimal
+  -- Garde_alternée contenu décimal
+
+déclaration champ d'application CalculQuotientFamilial: # Can be used
+  entrée menage contenu Menage
+  interne revenu_total contenu argent
+  résultat nombre_personnes_vivants_au_foyer contenu décimal
+  résultat revenu_fiscal_reference contenu argent
+  résultat critères_applicables contenu liste de Critères
+    état base
+    état parent_isolé
+    état handicap
+    état garde_alternée
+  résultat nombre_unités contenu décimal
+  résultat quotient_familial contenu argent
+```
+```catala
+champ d'application CalculQuotientFamilial:
+  définition nombre_personnes_vivants_au_foyer égal à décimal de Entier.somme de transforme chaque personne parmi menage.membres_du_foyer en personne.nombre_personnes
+  définition critères_applicables état base égal à []
+  définition nombre_unités égal à
+    soit points égal à
+      transforme chaque c parmi critères_applicables en
+        selon c sous forme
+        -- Parent_isolé contenu c_points: c_points
+        -- Handicap contenu c_points: c_points
+        -- Garde_alternée contenu c_points: c_points
+    dans
+    Décimal.somme de points + nombre_personnes_vivants_au_foyer
+  définition revenu_total égal à Argent.somme de transforme chaque personne parmi menage.membres_du_foyer en personne.revenu_fiscal_reference
+  étiquette revenu_fiscal_reference_défaut définition revenu_fiscal_reference égal à revenu_total
+  définition quotient_familial égal à argent de (décimal de revenu_fiscal_reference / (décimal de 12 * nombre_unités))
+```
+
+(a) = cas particuliers à adapter selon le foyer :
+- Pour les parents isolés et les familles monoparentales, il convient d’ajouter 1 unité supplémentaire au nombre de
+personnes vivant au foyer. Il est possible d'être considéré comme "parent isolé" pour un enfant en garde partagée. Pour cela,
+il faut que l'agent supporte seul la charge de l'enfant pendant les périodes où l'enfant réside au domicile de l'agent ET que
+l'agent ne soit pas en couple (famille recomposée) : remariage, PACS, concubinage… Cette situation peut être aussi vérifiée
+sur la déclaration de revenus avec la case « T » (parent isolé). En effet, l'impôt sur les revenus de l'année du divorce,
+séparation ou rupture d'un PACS est calculé d'après la situation familiale de l'agent au 31 décembre de cette année
+d'imposition (ex : situation au 31/12/2024 pour l'imposition des revenus perçus en 2024 à déclarer en 2025).
+
+```catala
+# TODO Question s'il y a plusieurs adultes dans le foyer, est ce un parent isole ?
+champ d'application CalculQuotientFamilial:
+  définition critères_applicables état parent_isolé égal à
+  si menage.parent_isolé
+  alors critères_applicables ++ [ Parent_isolé contenu 1,0 ]
+  sinon critères_applicables
+```
+
+- L’agent demandeur, l’enfant ou la personne à charge porteur de handicap, titulaire d’une carte d’invalidité et/ou
+bénéficiant d’une prestation sociale liée au handicap, (en complément de ce qui est déjà attribué par l’administration
+fiscale) bénéficie (sur présentation de justificatif-s) d’une demi-unité supplémentaire (soit +0,5).
+
+```catala
+# TODO Applicable pour la famille quelque soit la demande meme si elle n'est pas liee au porteur de handicap lui meme n'est ce pas ?
+champ d'application CalculQuotientFamilial:
+  définition critères_applicables état handicap égal à
+  si menage.beneficiaire_porteur_handicap
+  alors critères_applicables ++ [ Handicap contenu 0,5 ]
+  sinon critères_applicables
+```
+
+- En cas de garde alternée, chaque parent qui a à charge fiscalement son ou ses enfants peut bénéficier de la prestation, dès
+lors qu’il est un agent MASA. Il bénéficie (sur présentation de justificatif-s) en outre d’une demi-unité supplémentaire (soit +0,5)
+par foyer.
+
+```catala
+champ d'application CalculQuotientFamilial:
+définition critères_applicables état garde_alternée égal à
+  si menage.garde_alternée
+  alors critères_applicables ++ [ Garde_alternée contenu 0,5 ]
+  sinon critères_applicables
+```
+
+- Cas des agents affectés en outre-mer : afin de prendre en compte la spécificité ultramarine, il convient de calculer
+le quotient familial mensuel en tenant compte d’une indemnité de vie chère en appliquant un abattement de 20 % sur
+le revenu fiscal de référence.
+
+```catala
+champ d'application CalculQuotientFamilial:
+  étiquette revenu_fiscal_reference_outre_mer exception revenu_fiscal_reference_défaut
+  définition revenu_fiscal_reference
+  sous condition menage.outre_mer
+  conséquence égal à revenu_total * 80 %
+```
+
+- Condition complémentaire pour la prestation ministérielle "Aide à la Scolarité" : si le jeune adulte (l'enfant étudiant ou
+apprenti) a un avis d’imposition distinct de ses parents, son revenu fiscal de référence est ajouté à celui du foyer fiscal pour
+le calcul du QF. Le jeune adulte doit être compté dans le nombre des «personnes vivant au foyer» pour ce QF (même si
+l'enfant est provisoirement éloigné de sa famille à cause de ses études).
+
+```catala
+# TO DO : Comptabilise t'on aussi les eventuels revenu des autres adelphes etudiants ? ou juste ceux de l'enfant concerne ?
+# TO DO : Plusieurs enfants concernes, deux demandes ?
+# Implemente dans src/aide_scolarite/aide_scolarite.catala_fr
+```

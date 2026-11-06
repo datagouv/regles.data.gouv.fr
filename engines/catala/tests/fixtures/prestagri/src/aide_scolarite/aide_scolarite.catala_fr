@@ -1,0 +1,379 @@
+> Module Aide_scolarite
+
+> Usage de Quotient_familial
+> Usage de Menage
+> Usage de Foyer_fiscal
+> Usage de Trajet
+
+# cf page 32
+
+
+# AIDE À LA SCOLARITÉ
+
+## Objet :
+
+Prestation destinée à aider les agents MASA éligibles à faire face aux frais engagés pour les études de leurs enfants
+(enseignement secondaire et supérieur). La prestation concerne :
+- les études supérieures (quelque soit la filière),
+- les filières techniques, professionnelles, sports études, arts plastiques, musicologie de l'enseignement secondaire,
+- les enfants ou étudiants en internat.
+
+Pour l'enfant en internat dans l'enseignement secondaire, il doit être inscrit dans une formation orientée vers l'une des filières
+techniques ou professionnelles. C'est-à-dire les formations obtenues avec "la voie professionnelle" de l'enseignement secondaire dont
+les lycées professionnels proposant des formations niveau CAP ou BAC Pro. Les frais d'internat des filières "classiques" de
+l'enseignement secondaire sont exclus (par exemples les frais d'internat des collégiens et lycéens de l'enseignement général et
+technologique.)
+
+L'élève ou l'étudiant, hors apprentissage ou alternance, ne doit pas être rémunéré dans le cadre de ses études. Si le jeune
+adulte a un avis d’imposition distinct de ses parents, son revenu fiscal de référence est ajouté à celui du foyer fiscal pour le
+calcul du QF. Si l'enfant étudiant ou apprenti (hors contrat de professionnalisation) est exonéré d'impôts (plafond d’exonération
+en 2025 pour une personne seule est à 17 436 €), son salaire ou ses indemnités (total exprimé sur 12 mois moins 10 % de
+« déduction forfaitaire ») sont à ajouter au foyer fiscal.
+
+L'enfant doit être inscrit dans un établissement d'enseignement (secondaire ou supérieur) public ou privé sous contrat
+avec l'Etat ou dans un établissement privé donnant accès à un diplôme d'état, et implanté sur le territoire français.
+Sont éligibles à l'aide, les dépenses suivantes (sur justificatifs) :
+
+- les frais de logement de l'enfant (y compris l'internat des étudiants inscrits dans des établissements d'enseignement
+supérieurs) ou les frais d'internat des enfants inscrits en enseignement secondaire poursuivant une filière technique ou
+professionnelle : joindre la copie du contrat de location ou la facture d'internat) ;
+- les frais d'équipement scolaire obligatoires (équipement en lien avec la formation suivie par l'enfant, HORS manuels scolaires,
+ordinateurs ou tablette : joindre la copie de la liste ou du courrier de l'établissement qui demande ces équipements + les factures d'achat.
+
+## Montant de l'aide :
+Le montant de l'aide est plafonné à 1 000,00 € (mille euros) par enfant et par année scolaire / universitaire.
+Son montant est calculé sur la base d'un nombre de points attribués en fonction d'un barème. La valeur de chaque
+point (50 €, 75 € ou 100 €) varie selon le QF obtenu par l'agent demandeur (Cf. : barème en annexe F16a ainsi que les
+explications pour le calcul des points à la fin de cette Fiche F16).
+
+
+- QF < 780 : valeur du point = 100€
+- QF < 930 : valeur du point = 75€
+- QF < 1090 :  valeur du point = 50€
+- QF >= 1090 :  valeur du point = 0€
+
+```catala-metadata
+déclaration champ d'application CalculAideScolarite:
+  entrée foyer_fiscal_agent contenu Menage
+  entrée étudiants_fiscalement_indépendants contenu liste de Foyer_fiscal
+  entrée trajet_depuis_domicile_agent contenu Trajet
+  entrée trajet_depuis_domicile_étudiant contenu optionnel de Trajet
+  entrée montant_matériel_spécifique contenu argent
+  entrée étudiant_en_filière_post_bac contenu booléen
+  calcul_quotient_familial_aide_scolarite champ d'application CalculQuotientFamilialAideScolarite
+  calcul_points champ d'application CalculPointsAideScolarite
+  résultat revenu_fiscal_reference contenu argent
+  résultat nombre_personnes_vivants_au_foyer contenu décimal
+  résultat nombre_unités contenu décimal
+  résultat critères_applicables_quotient_familial contenu liste de Quotient_familial.Critères
+  résultat quotient_familial contenu argent
+  résultat valeur_point contenu argent
+  résultat critères_applicables contenu liste de Critères
+  résultat nb_points contenu décimal
+  résultat aide_scolarite contenu argent
+```
+
+```catala
+champ d'application CalculAideScolarite:
+  définition calcul_quotient_familial_aide_scolarite.foyer_fiscal_agent égal à foyer_fiscal_agent
+  définition calcul_quotient_familial_aide_scolarite.étudiants_fiscalement_indépendants égal à étudiants_fiscalement_indépendants
+  définition revenu_fiscal_reference égal à calcul_quotient_familial_aide_scolarite.revenu_fiscal_reference
+  définition nombre_personnes_vivants_au_foyer égal à calcul_quotient_familial_aide_scolarite.nombre_personnes_vivants_au_foyer
+  définition nombre_unités égal à calcul_quotient_familial_aide_scolarite.nombre_unités
+  définition quotient_familial égal à calcul_quotient_familial_aide_scolarite.quotient_familial
+  définition critères_applicables_quotient_familial égal à calcul_quotient_familial_aide_scolarite.critères_applicables
+  définition valeur_point égal à
+    si quotient_familial < 780 €
+      alors  100 €
+    sinon si quotient_familial < 930 €
+      alors 75 €
+    sinon si quotient_familial < 1090 €
+      alors 50 €
+    sinon 0 €
+  définition calcul_points.valeur_point égal à valeur_point
+  définition calcul_points.trajet_depuis_domicile_agent égal à trajet_depuis_domicile_agent
+  définition calcul_points.trajet_depuis_domicile_étudiant égal à trajet_depuis_domicile_étudiant
+  définition calcul_points.montant_matériel_spécifique égal à montant_matériel_spécifique
+  définition calcul_points.étudiant_en_filière_post_bac égal à étudiant_en_filière_post_bac
+  définition critères_applicables égal à calcul_points.critères_applicables
+  définition nb_points égal à calcul_points.nb_points
+
+```
+
+## Conditions d'attribution :
+
+- Enfants fiscalement à charge l'année N, ou, si l'enfant a fait sa propre déclaration de revenus, il peut néanmoins
+ouvrir droit à la prestation et être considéré comme « personne vivant au foyer » pour le calcul du QF à condition que
+les revenus qu'il a déclarés soient intégrés au RFR des parents pour le calcul du QF.
+- Une seule subvention par enfant et par année scolaire / universitaire
+- L’aide n’est pas cumulable avec une aide financière versée pour le même objet par l’employeur du conjoint, sauf si le
+cumul est inférieur au montant calculé, auquel cas, le différentiel seul est servi.
+Le bénéfice de cette aide est soumis à conditions de ressources.
+A compter du 1er septembre 2025, les ressources à prendre en compte seront celles perçues en 2024 (avis
+d'imposition reçu en 2025).
+Si les ressources et/ou la composition de la famille du demandeur ont changé au moment de la demande, les
+modifications pourront être prises en compte au regard des justificatifs fournis ( joindre dans ce cas une copie du dernier
+bulletin de salaire du demandeur et/ou du conjoint. Si conjoint-e sans activité, joindre notification Pôle Emploi, notification
+d’admission à la retraite, accompagnés d'une attestation sur l’honneur expliquant l'évolution des ressources et/ou de la composition
+de la famille au moment du dépôt de l'allocation Aide à la Scolarité).
+
+## Bénéficiaires (outre ceux énumérés aux dispositions générales) :
+Agents du ministère chargé de l'agriculture sont bénéficiaires de l’aide sous réserve :
+- d’être rémunérés sur le budget de l'État ;
+- pour les agents contractuels (de droit public, visés par le Décret n° 86-83 du 17 janvier 1986, relatif aux dispositions générales
+applicables aux agents contractuels de l’État), il faut un contrat d’au moins 6 mois ou d'être présent depuis 6 mois (contrats
+consécutifs) et une activité au moins égale à 50% d’un temps plein.
+
+### Autres bénéficiaires :
+- Agents MASA admis à la retraite dont les enfants à charge poursuivent des études (secondaires ou supérieures) ;
+- Tuteurs d'orphelins et ayants droit d'un agent MASA ;
+- Agents MASA, tuteurs d'orphelins.
+
+## Dispositions particulières :
+L’aide est accordée dans la limite d’une demande par année scolaire (dès l'enseignement secondaire) ou année
+universitaire et par enfant. Elle est attribuée en un seul versement.
+Le dépôt de la demande doit intervenir dans un délai de trois mois à compter de la rentrée scolaire, universitaire ou de
+la date de rentrée effective pour l'établissement où est inscrit l'étudiant.
+L’aide est acquise sur présentation des pièces justificatives et ne peut excéder le montant de la dépense restant à
+charge de l'agent, une fois les aides (notamment aide financière versée pour le même objet par l’employeur du
+conjoint) et allocations (hors bourses d'études) éventuelles déduites.
+La détermination du montant de l’aide doit résulter de la méthode de calcul présentée en Annexe F16 a.
+
+## Mode de calcul du montant de la prestation (Cf. Annexes F16a et F16b à remplir et à joindre au dossier) :
+Le calcul du montant de la prestation se fait en deux étapes. Il s'agit dans un premier temps de déterminer la valeur du point
+en fonction du quotient familial du demandeur et, dans un deuxième temps, de déterminer le nombre de points attribués en
+fonction de l'application des critères tels que définis ci-après :
+
+### I – Détermination du Quotient Familial (QF)
+Le mode de calcul du QF est déterminé par la formule : QF = Revenu fiscal de référence / (12 x nombre de personnes
+vivant au foyer) [+0,5 ou + 1 selon les règles générales définies à la page 5 de la présente note] avec quelques
+particularités par rapport aux autres prestations ministérielles :
+
+```catala-metadata
+déclaration champ d'application CalculQuotientFamilialAideScolarite:
+  entrée foyer_fiscal_agent contenu Menage
+  entrée étudiants_fiscalement_indépendants contenu liste de Foyer_fiscal
+  interne menage contenu Menage
+  calcul_quotient_familial champ d'application Quotient_familial.CalculQuotientFamilial
+  résultat revenu_fiscal_reference contenu argent
+  résultat critères_applicables contenu liste de Quotient_familial.Critères
+  résultat nombre_personnes_vivants_au_foyer contenu décimal
+  résultat nombre_unités contenu décimal
+  résultat quotient_familial contenu argent
+```
+
+```catala
+champ d'application CalculQuotientFamilialAideScolarite:
+  étiquette menage_défaut définition menage égal à foyer_fiscal_agent
+  définition calcul_quotient_familial.menage égal à menage
+  définition revenu_fiscal_reference égal à calcul_quotient_familial.revenu_fiscal_reference
+  définition nombre_unités égal à calcul_quotient_familial.nombre_unités
+  définition critères_applicables égal à calcul_quotient_familial.critères_applicables
+  définition nombre_personnes_vivants_au_foyer égal à calcul_quotient_familial.nombre_personnes_vivants_au_foyer
+  définition quotient_familial égal à calcul_quotient_familial.quotient_familial
+```
+
+- Les élèves ou étudiants à charge fiscalement bénéficiant d'un logement séparé sont considérés comme
+«personne vivant au foyer» ;
+```catala
+## TODO On definit comme vivant au foyer toute les personnes a charge fiscalement, c'est ca ? ou un autre adelphe n'est pas inclus ?
+## Donc on tient compte des enfants de l'etudiant le cas echeant ?
+```
+- Les étudiants ayant effectué leur propre déclaration fiscale, qu'ils vivent réellement au foyer ou non, peuvent être
+considérés comme «personnes vivant au foyer» pour le calcul du QF à condition que les revenus qu'ils ont
+déclarés soient intégrés au RFR pour le calcul du QF et que ces revenus ne soient pas une rémunération liée à
+leurs études ;
+
+```catala
+champ d'application CalculQuotientFamilialAideScolarite:
+  étiquette ajout_étudiants_fiscalement_indépendants exception menage_défaut
+  définition menage
+  sous condition nombre de étudiants_fiscalement_indépendants > 0
+  conséquence égal à foyer_fiscal_agent
+  mais en remplaçant { -- membres_du_foyer: foyer_fiscal_agent.membres_du_foyer ++ étudiants_fiscalement_indépendants }
+```
+- Les indemnités perçues par les apprentis doivent être intégrées dans le revenu fiscal de référence pour le
+calcul du QF, que l'apprenti ait fait ou non sa propre déclaration fiscale.
+
+```catala
+
+## Est ce qu'ils sont inclus dans la declaration fiscale initiale ?
+
+```
+Le calcul du QF ainsi fait détermine ensuite la valeur du point à utiliser pour le calcul du montant de la prestation selon
+la formule suivante : montant de l'aide = nombre de points X valeur du point.
+
+```catala
+champ d'application CalculAideScolarite:
+  étiquette aide_scolarite_défaut définition aide_scolarite égal à nb_points * valeur_point
+```
+
+Tout agent ayant un QF supérieur ou égal à 1 090,00 € est inéligible à cette aide et ne peut déposer de dossier
+
+```catala
+champ d'application CalculAideScolarite:
+  étiquette non_eligible_aide_scolarite exception aide_scolarite_défaut
+  définition aide_scolarite
+  sous condition quotient_familial > 1090 €
+  conséquence égal à 0 €
+```
+
+### II - Mode de calcul des points (des justificatifs sont requis pour valider chaque point obtenu dans chaque critère)
+Pour être éligible un dossier doit obtenir des points dans l'un au moins des critères (C2 ou C3, C4, C5, C6) étant entendu que
+les critères de localisation, d'acquisition de matériel et d'études supérieures peuvent se cumuler.
+
+
+```catala-metadata
+déclaration énumération Critères:
+  -- C2_domiciliation_séparée contenu décimal
+  -- C3_éloignement_agent contenu décimal
+  -- C3_éloignement_étudiant contenu décimal
+  -- C4_matériel contenu décimal
+  -- C5_études_supérieures contenu décimal
+
+déclaration champ d'application CalculPointsAideScolarite:
+  entrée trajet_depuis_domicile_agent contenu Trajet
+  entrée trajet_depuis_domicile_étudiant contenu optionnel de Trajet
+  entrée montant_matériel_spécifique contenu argent
+  entrée valeur_point contenu argent
+  entrée étudiant_en_filière_post_bac contenu booléen
+  interne points_domiciliation_séparée contenu décimal
+  résultat critères_applicables contenu liste de Critères
+    état base
+    état domiciliation_séparée
+    état éloignement
+    état matériel_spécifique
+    état études_supérieures
+  résultat nb_points contenu décimal
+```
+
+```catala
+champ d'application CalculPointsAideScolarite:
+  définition critères_applicables état base égal à []
+  définition nb_points égal à
+    soit points égal à
+      transforme chaque c parmi critères_applicables en
+        selon c sous forme
+        -- C2_domiciliation_séparée contenu c_points: c_points
+        -- C3_éloignement_agent contenu c_points: c_points
+        -- C3_éloignement_étudiant contenu c_points: c_points
+        -- C4_matériel contenu c_points: c_points
+        -- C5_études_supérieures contenu c_points: c_points
+    dans
+    Décimal.somme de points
+
+```
+
+- Un critère de domiciliation séparée (C2) :
+Lorsque l’élève ou l'étudiant réside dans un domicile séparé de ses parents donnant lieu au paiement d’un loyer, quelle
+que soit la nature du logement occupé, qu’il s’agisse d’une chambre en foyer, en internat ou en résidence universitaire,
+d’un logement privé ou social : 2 points.
+```catala
+champ d'application CalculPointsAideScolarite:
+  définition points_domiciliation_séparée égal à 2,0
+  définition critères_applicables état domiciliation_séparée
+  égal à
+    si trajet_depuis_domicile_étudiant sous forme Présent
+    alors critères_applicables ++ [ C2_domiciliation_séparée contenu points_domiciliation_séparée ]
+    sinon critères_applicables
+```
+
+- Un critère d’éloignement (C3) :
+Lorsque la distance entre l’établissement d’enseignement et le domicile familial, ou le logement de l’étudiant en cas de
+domiciliation séparée, est comprise entre 30 et 100 km, quels que soient les modes de transport utilisés et la
+fréquence des déplacements, ou pour un temps de trajet supérieur ou égal à 30 minutes : 2 points.
+Lorsque la distance est supérieure à 100 km : 4 points.
+
+La distance comme le temps de trajet sont forfaitaires et se calculent en utilisant des outils sur les sites Internet :
+viamichelin.fr ou mappy.com. Ne sera retenu que l'itinéraire le plus DIRECT et le plus COURT proposé par le site
+Internet sur la base d'un trajet en voiture simulé avec un départ à 8h00 du matin et pendant les jours ouvrés
+uniquement. (Joindre obligatoirement une copie de la capture d'écran de l'itinéraire calculé).
+
+REMARQUE : L'agent peut choisir le plus avantageux entre le C2 et le C3 qui ne peuvent se cumuler, en cas de
+domiciliation séparée, SAUF si c'est la distance entre le domicile de l'étudiant et l’établissement qui a servi au calcul et
+attribué des points au C3
+
+```catala
+champ d'application CalculPointsAideScolarite:
+  définition critères_applicables état éloignement
+  égal à
+    soit points_domicile_agent égal à résultat de CalculPointsTrajet avec { -- trajet: Présent contenu trajet_depuis_domicile_agent }.nb_points dans
+    soit points_domicile_étudiant égal à résultat de CalculPointsTrajet avec { -- trajet: trajet_depuis_domicile_étudiant }.nb_points dans
+    si points_domicile_étudiant > 0,0 et (points_domicile_étudiant >= points_domicile_agent - points_domiciliation_séparée)
+      alors critères_applicables ++ [C3_éloignement_étudiant contenu points_domicile_étudiant]
+      sinon si points_domicile_agent > 2,0 ou (trajet_depuis_domicile_étudiant sous forme Absent et points_domicile_agent > 0,0)
+        alors résultat de RetraitCritèreC2 avec { -- critères: critères_applicables }.critères_sans_c2 ++ [ C3_éloignement_agent contenu points_domicile_agent]
+        sinon critères_applicables
+```
+
+```catala-metadata
+déclaration champ d'application CalculPointsTrajet:
+  entrée trajet contenu optionnel de Trajet
+  résultat nb_points contenu décimal
+```
+
+```catala
+champ d'application CalculPointsTrajet:
+  définition nb_points égal à
+    selon trajet sous forme
+    -- Absent: 0,0
+    -- Présent contenu trajet_présent:
+      si trajet_présent.distance_km > 100
+        alors 4,0
+        sinon si trajet_présent.distance_km > 30 ou trajet_présent.durée_minutes > 30
+          alors 2,0
+          sinon 0,0
+```
+
+```catala-metadata
+déclaration champ d'application RetraitCritèreC2:
+  entrée critères contenu liste de Critères
+  résultat critères_sans_c2 contenu liste de Critères
+```
+
+```catala
+champ d'application RetraitCritèreC2:
+  définition critères_sans_c2 égal à liste de c parmi critères tel que non  (c sous forme C2_domiciliation_séparée)
+```
+
+- Un critère d’acquisition de matériel spécifique (C4) :
+Lorsque l’élève ou l'étudiant (en filière technique ou professionnelle) est dans l’obligation d’acquérir du matériel
+spécifique ou des équipements techniques au titre de l’enseignement dispensé (hors manuels scolaires,
+ordinateurs et tablettes) et sur justificatifs de l’établissement d’enseignement (joindre la copie de la liste ou du
+courrier de l'établissement qui demande ces équipements, accompagnée de la (des) facture(s) acquittée(s) de ces
+achats) : 2 points.
+Le justificatif de l’achat doit être obligatoirement fourni. La prestation, ou la part de prestation, attribuée sur ce critère
+sera limitée à la dépense réellement engagée dans la limite maximum des deux points précités et le montant dépensé
+pour ce critère doit être au moins égal à la valeur du point à appliquer (valeur obtenue après calcul du QF).
+
+```catala
+champ d'application CalculPointsAideScolarite:
+  définition critères_applicables état matériel_spécifique
+  égal à
+    soit montant_eligible égal à minimum de [2,0*valeur_point; montant_matériel_spécifique] dans
+    soit points égal à
+      si valeur_point > 0 €
+      alors montant_eligible/valeur_point
+      sinon 0,0
+    dans
+    si points > 0,0
+    alors critères_applicables ++ [ C4_matériel contenu points]
+    sinon critères_applicables
+```
+
+- Un critère «études supérieures» (C5) :
+Lorsque la qualité d'étudiant est établie, à savoir, lorsque l'enfant étudie dans toute filière supérieure au baccalauréat
+d'une part et qu'il bénéficie de l'un au moins des deux premiers critères (domiciliation séparée ou éloignement) d'autre
+part : 1 point.
+
+```catala
+champ d'application CalculPointsAideScolarite:
+  définition critères_applicables état études_supérieures
+  égal à
+    si étudiant_en_filière_post_bac
+      et
+      ( existe critère parmi critères_applicables tel que critère sous forme C2_domiciliation_séparée
+      ou existe critère parmi critères_applicables tel que critère sous forme C3_éloignement_agent )
+    alors critères_applicables ++ [ C5_études_supérieures contenu 1,0]
+    sinon critères_applicables
+```

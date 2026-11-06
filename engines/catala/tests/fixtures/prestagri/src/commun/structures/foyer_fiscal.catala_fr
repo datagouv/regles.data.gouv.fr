@@ -1,0 +1,7 @@
+> Module Foyer_fiscal
+
+```catala-metadata
+déclaration structure Foyer_fiscal:
+  donnée revenu_fiscal_reference contenu argent
+  donnée nombre_personnes contenu entier
+```
