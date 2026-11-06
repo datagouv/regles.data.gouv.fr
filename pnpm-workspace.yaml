@@ -2,5 +2,6 @@ packages:
   - core
   - web
   - sites/*
+  - engines/publicodes
 allowBuilds:
   esbuild: true

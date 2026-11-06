@@ -55,6 +55,20 @@ export default antfu(
     },
   },
   {
+    files: ['engines/publicodes/src/**'],
+    rules: {
+      'no-restricted-imports': ['error', {
+        patterns: [{
+          regex: frameworkImports,
+          message: 'The Publicodes engine adapter runs in Node and in the browser, out of any framework.',
+        }, {
+          regex: '^@datagouv/regles-web',
+          message: 'An engine adapter imports nothing from the web layer.',
+        }],
+      }],
+    },
+  },
+  {
     files: ['web/app/**'],
     rules: {
       'no-restricted-imports': ['error', {
