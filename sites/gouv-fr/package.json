@@ -15,15 +15,15 @@
   },
   "dependencies": {
     "@datagouv/regles-web": "workspace:*",
-    "@gouvfr/dsfr": "~1.14.4",
-    "@gouvminint/vue-dsfr": "^8.20.0",
-    "@iconify/vue": "^5.0.0",
+    "@gouvfr/dsfr": "~1.15.4",
+    "@gouvminint/vue-dsfr": "^8.21.0",
+    "@iconify/vue": "^5.0.4",
     "nuxt": "^4.6.3",
     "vue": "^3.5.44",
     "vue-router": "^5.4.0"
   },
   "devDependencies": {
     "typescript": "~6.0.3",
-    "vue-tsc": "^3.3.13"
+    "vue-tsc": "^3.3.14"
   }
 }
