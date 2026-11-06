@@ -1,4 +1,5 @@
 export default defineNuxtConfig({
+  $meta: { name: 'gouv-fr' },
   extends: ['@datagouv/regles-web'],
   css: [
     '@gouvfr/dsfr/dist/core/core.main.min.css',

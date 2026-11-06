@@ -7,7 +7,8 @@
   "files": [
     "app",
     "nuxt.config.ts",
-    "routes.ts"
+    "routes.ts",
+    "shared"
   ],
   "peerDependencies": {
     "typescript": "~6.0.3"

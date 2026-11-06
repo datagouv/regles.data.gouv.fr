@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { DsfrFooter, DsfrHeader, DsfrNavigation, DsfrSkipLinks } from '@gouvminint/vue-dsfr'
-import { routes, routeTitles } from '~~/routes'
+import { routes } from '#layers/web/routes'
 
-const { siteName } = useAppConfig()
+const { siteName, navigation } = useAppConfig()
 const logoText = ['République', 'Française']
-const navItems = [{ text: routeTitles.reference, to: routes.reference }]
 const skipLinks = [
   { id: 'content', text: 'Accéder au contenu' },
   { id: 'footer', text: 'Accéder au pied de page' },
@@ -16,11 +15,11 @@ const skipLinks = [
   <DsfrHeader
     :service-title="siteName"
     service-description="Règles publiques modélisées, ouvertes et réutilisables"
-    home-to="/"
+    :home-to="routes.catalogue"
     :logo-text="logoText"
   >
     <template #mainnav>
-      <DsfrNavigation :nav-items="navItems" />
+      <DsfrNavigation :nav-items="navigation" />
     </template>
   </DsfrHeader>
   <main
@@ -31,6 +30,7 @@ const skipLinks = [
   </main>
   <DsfrFooter
     id="footer"
+    :home-link="routes.catalogue"
     :logo-text="logoText"
     :mandatory-links="[]"
   />

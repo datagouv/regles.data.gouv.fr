@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { routeTitles } from '~~/routes'
-import { CATALOGUE_TITLE } from '#layers/web/catalogue/record'
-import { routes } from '#layers/web/routes'
+import { routeTitles } from '#layers/gouv-fr/routes'
+import { catalogueBreadcrumb } from '#layers/web/catalogue/record'
 
 const title = routeTitles.reference
 
 useHead({ title })
 
-const breadcrumb = { links: [{ label: CATALOGUE_TITLE, to: routes.catalogue }], current: title }
+const breadcrumb = catalogueBreadcrumb(title)
 </script>
 
 <template>
