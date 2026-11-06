@@ -2,7 +2,7 @@ name: Verify
 
 on:
   pull_request:
-    paths: [data/**, engines/**, .github/workflows/verify.yml]
+    paths: [data/**, engines/catala/**, .github/workflows/verify.yml]
   schedule:
     - cron: '0 5 * * 1'
   workflow_dispatch:

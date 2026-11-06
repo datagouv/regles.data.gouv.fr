@@ -1,0 +1,10 @@
+[tools]
+uv = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["python"]
+
+[tasks.test]
+alias = "engine-openfisca:test"
+description = "Test the call contract and the execution of OpenFisca rules"
+run = "uv run pytest"
