@@ -17,7 +17,6 @@ export default defineNuxtConfig({
   // enable vue-router without scanning app/pages: modules/view-routes.ts adds the routes of each layer
   pages: { enabled: true, pattern: [] },
   nitro: {
-    serverAssets: [{ baseName: 'records', dir: fileURLToPath(new URL('../data', import.meta.url)) }],
     // no page links to the registry file, so the crawler does not find it
     prerender: { routes: ['/registry.json'] },
   },

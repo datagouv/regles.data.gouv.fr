@@ -7,3 +7,8 @@ alias = "web:test"
 description = "Test the presenters and modules of the layer"
 depends = ["prepare"]
 run = "pnpm exec vitest run"
+
+[tasks.pack]
+alias = "web:pack"
+description = "Pack the layer into the dist/ folder of the repository root"
+run = 'pnpm pack --pack-destination "$MISE_MONOREPO_ROOT/dist"'
