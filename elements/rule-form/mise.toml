@@ -1,0 +1,18 @@
+[tasks.build]
+alias = "element-rule-form:build"
+description = "Build the custom element from the input form of the DSFR site"
+depends = ["//:install", "//sites/gouv-fr:prepare"]
+wait_for = ["//sites/gouv-fr:build"]
+run = ["rm -rf dist", "pnpm exec vite build"]
+
+[tasks.test]
+alias = "element-rule-form:test"
+description = "Check that the archive of the element declares nothing that npm would install"
+depends = ["//:install"]
+run = "pnpm exec vitest run"
+
+[tasks.pack]
+alias = "element-rule-form:pack"
+description = "Pack the element into the dist/ folder of the repository root"
+depends = ["build"]
+run = 'pnpm pack --pack-destination "$MISE_MONOREPO_ROOT/dist"'

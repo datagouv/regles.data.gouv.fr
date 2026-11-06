@@ -2,7 +2,7 @@ min_version = "2026.8.14"
 monorepo_root = true
 
 [monorepo]
-config_roots = ["contract", "core", "web", "sites/*"]
+config_roots = ["contract", "core", "web", "sites/*", "elements/*"]
 
 [tools]
 hk = "1"
@@ -14,7 +14,7 @@ lockfile = true
 
 [tasks.install]
 description = "Install the JavaScript dependencies of every package"
-sources = ["package.json", "pnpm-lock.yaml", "*/package.json", "sites/*/package.json"]
+sources = ["package.json", "pnpm-lock.yaml", "*/package.json", "sites/*/package.json", "elements/*/package.json"]
 outputs = ["node_modules/.modules.yaml"]
 run = "pnpm install --frozen-lockfile"
 
