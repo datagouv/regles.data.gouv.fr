@@ -16,6 +16,12 @@ it('presents the outputs that the output schema names, in its order, formatted i
   ])
 })
 
+it('presents a rule that does not apply', () => {
+  expect(presentResults({ properties: { amount: { title: 'Montant' } } }, { amount: null })).toEqual([
+    { label: 'Montant', value: 'Non applicable' },
+  ])
+})
+
 it('leaves out a named output that the service did not return', () => {
   expect(presentResults({ properties: { amount: { title: 'Montant' } } }, {})).toEqual([])
 })
