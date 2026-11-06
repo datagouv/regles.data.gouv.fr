@@ -6,7 +6,7 @@ idiomatic_version_file_enable_tools = ["python"]
 
 [tasks.test]
 alias = "engine-catala:test"
-description = "Test the reading of the clerk test report"
+description = "Test the call contract and the execution of Catala scopes, and the verification of the cited repositories"
 run = "uv run pytest"
 
 [tasks.image]
