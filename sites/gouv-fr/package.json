@@ -18,6 +18,9 @@
     "@gouvfr/dsfr": "~1.14.4",
     "@gouvminint/vue-dsfr": "^8.20.0",
     "@iconify/vue": "^5.0.0",
+    "@jsonforms/core": "3.8.0",
+    "@jsonforms/vue": "3.8.0",
+    "@shallowred/jsonforms-vue-dsfr": "https://github.com/ShallowRed/survey-kit/releases/download/jsonforms-vue-dsfr-v0.1.0/shallowred-jsonforms-vue-dsfr-0.1.0.tgz",
     "nuxt": "^4.6.3",
     "vue": "^3.5.44",
     "vue-router": "^5.4.0"

@@ -1,8 +1,8 @@
 import antfu from '@antfu/eslint-config'
 
 const designSystemImports = {
-  regex: '^@gouv(fr|minint)/',
-  message: 'The DSFR is reserved for the sites of the French State: only sites/gouv-fr imports it.',
+  regex: '^(@gouv(fr|minint)/|@shallowred/jsonforms-vue-dsfr)',
+  message: 'The DSFR is reserved for the sites of the French State: only sites/gouv-fr and elements/ import it.',
 }
 
 const frameworkImports = '^(vue|nuxt|#|~|h3|node:)'
@@ -39,6 +39,17 @@ export default antfu(
         patterns: [{
           regex: frameworkImports,
           message: 'The catalogue holds pure presenters from a record to a view model, kept out of the framework: it imports @datagouv/regles-core and its own files.',
+        }, designSystemImports],
+      }],
+    },
+  },
+  {
+    files: ['web/calculation/**'],
+    rules: {
+      'no-restricted-imports': ['error', {
+        patterns: [{
+          regex: frameworkImports,
+          message: 'The calculation calls a calculation service and presents its results out of the framework: it imports its own files.',
         }, designSystemImports],
       }],
     },
