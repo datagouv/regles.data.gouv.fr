@@ -8,6 +8,7 @@
     "!**/*.test.ts",
     "!modules/fixtures",
     "app",
+    "calculation",
     "catalogue",
     "modules",
     "nuxt.config.ts",
