@@ -3,6 +3,12 @@ from engine_openfisca.rule import OpenfiscaRule, read_rule
 from engine_openfisca.values import sample_of, schema_of
 
 
+def input_schema_of(variable, rule: OpenfiscaRule) -> dict:
+    if variable.name in rule.rolling_year_inputs:
+        return {**schema_of(variable), "description": periods.ROLLING_YEAR_DESCRIPTION}
+    return schema_of(variable)
+
+
 def infer_call_contract(rule: OpenfiscaRule) -> dict:
     """Infer the input and output JSON Schemas of a rule, with a sample input."""
     _, outputs, inputs, unit = read_rule(rule)
@@ -11,7 +17,7 @@ def infer_call_contract(rule: OpenfiscaRule) -> dict:
         "type": "object",
         # OpenFisca would compute with the default value of a missing input
         "required": ["period", *rule.inputs],
-        "properties": {"period": period, **{item.name: schema_of(item) for item in inputs}},
+        "properties": {"period": period, **{item.name: input_schema_of(item, rule) for item in inputs}},
         "additionalProperties": False,
     }
     output_schema = {

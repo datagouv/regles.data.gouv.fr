@@ -23,7 +23,7 @@ def execute(rule: OpenfiscaRule, inputs: dict) -> dict:
         situation[entity.plural] = {GROUP: {first_role.plural or first_role.key: [PERSON]}}
     for item in input_variables:
         member = PERSON if item.entity.is_person else GROUP
-        situation[item.entity.plural][member][item.name] = {str(periods.input_period(item, requested)): inputs[item.name]}
+        situation[item.entity.plural][member][item.name] = {str(periods.input_period(item, requested, rule.rolling_year_inputs)): inputs[item.name]}
 
     try:
         simulation = SimulationBuilder().build_from_entities(system, situation)
