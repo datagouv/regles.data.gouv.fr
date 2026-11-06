@@ -1,7 +1,7 @@
 [project]
 name = "engine-catala"
 version = "0.1.0"
-description = "Run the native Catala tests of the repositories cited by the records"
+description = "Infer the call contract of a compiled Catala scope, execute it, and run the native Catala tests of the repositories cited by the records"
 requires-python = ">=3.13"
 dependencies = []
 
@@ -9,7 +9,10 @@ dependencies = []
 engine-catala = "engine_catala:main"
 
 [dependency-groups]
-dev = ["pytest>=9"]
+dev = [
+    "jsonschema>=4.26",
+    "pytest>=9",
+]
 
 [build-system]
 requires = ["uv_build>=0.12.5,<0.13.0"]

@@ -1,7 +1,7 @@
 import typing
 from dataclasses import dataclass
 from types import ModuleType
-from typing import Any
+from typing import Any, Literal
 
 from engine_catala.errors import UnsupportedType
 
@@ -110,3 +110,72 @@ def from_catala(value: Any, runtime: Runtime) -> Any:
     if isinstance(value, (str, int, float, bool, type(None), list, dict)):
         return value
     return str(value)
+
+
+def _nullable(schema: dict) -> dict:
+    if "type" not in schema:
+        return schema
+    types = schema["type"] if isinstance(schema["type"], list) else [schema["type"]]
+    return {**schema, "type": [*types, "null"] if "null" not in types else types}
+
+
+def schema_of(value_type: Any, runtime: Runtime, direction: Literal["input", "output"], warnings: list[str], seen: frozenset = frozenset()) -> dict:
+    """The JSON Schema of a Catala type, as an input or as an output."""
+    container = _container(value_type, runtime)
+    (item_type, *_) = typing.get_args(value_type) or (None,)
+    if container == "Option":
+        return _nullable(schema_of(item_type, runtime, direction, warnings, seen))
+    if container == "Array":
+        return {"type": "array", "items": schema_of(item_type, runtime, direction, warnings, seen)}
+
+    if runtime.is_subclass(value_type, "CatalaEnum"):
+        if direction == "input":
+            warnings.append(f"the input type {value_type.__name__} is an enumeration, which has no conversion from JSON")
+            return {}
+        return {"type": "object", "required": ["code", "payload"], "properties": {"code": {"type": "string"}, "payload": {}}}
+
+    if runtime.is_subclass(value_type, "CatalaStruct"):
+        if value_type in seen:
+            return {"type": "object"}
+        key = input_key if direction == "input" else str
+        properties = {
+            key(field): schema_of(field_type, runtime, direction, warnings, seen | {value_type})
+            for field, field_type in struct_fields(value_type).items()
+        }
+        return {"type": "object", "required": list(properties), "properties": properties, "additionalProperties": False}
+
+    if value_type is runtime.get("Money") or value_type is runtime.get("Decimal"):
+        return {"type": "number"}
+    if value_type is runtime.get("Integer"):
+        return {"type": "integer"}
+    if value_type is runtime.get("Bool"):
+        return {"type": "boolean"}
+    if value_type is runtime.get("Date"):
+        return {"type": "string", "format": "date"}
+
+    warnings.append(f"the type {getattr(value_type, '__name__', value_type)} is not recognized, its schema accepts any value")
+    return {}
+
+
+def sample_of(value_type: Any, runtime: Runtime, seen: frozenset = frozenset()) -> Any:
+    """A sample input value of a Catala type, shaped like its input schema."""
+    container = _container(value_type, runtime)
+    (item_type, *_) = typing.get_args(value_type) or (None,)
+    if container == "Option":
+        return sample_of(item_type, runtime, seen)
+    if container == "Array":
+        return [sample_of(item_type, runtime, seen)]
+    if runtime.is_subclass(value_type, "CatalaStruct"):
+        if value_type in seen:
+            return {}
+        return {input_key(field): sample_of(field_type, runtime, seen | {value_type}) for field, field_type in struct_fields(value_type).items()}
+    if value_type is runtime.get("Money") or value_type is runtime.get("Decimal"):
+        return 0
+    if value_type is runtime.get("Integer"):
+        # scopes often divide by a count, such as the size of a household
+        return 1
+    if value_type is runtime.get("Bool"):
+        return False
+    if value_type is runtime.get("Date"):
+        return "2026-01-01"
+    return None
