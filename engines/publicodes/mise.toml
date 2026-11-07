@@ -1,0 +1,23 @@
+[tasks.lint]
+alias = "engine-publicodes:lint"
+description = "Type-check the Publicodes engine adapter"
+depends = ["//:install"]
+run = "pnpm exec tsc --noEmit"
+
+[tasks.test]
+alias = "engine-publicodes:test"
+description = "Test the call contract and the execution of Publicodes rules"
+depends = ["//:install"]
+run = "pnpm exec vitest run"
+
+[tasks.build]
+alias = "engine-publicodes:build"
+description = "Compile the adapter into dist/lib, the code of the archive"
+depends = ["//:install"]
+run = ["rm -rf dist", "pnpm exec tsc -p tsconfig.build.json"]
+
+[tasks.pack]
+alias = "engine-publicodes:pack"
+description = "Pack the compiled adapter into the dist/ folder of the repository root"
+depends = ["build"]
+run = 'pnpm pack --pack-destination "$MISE_MONOREPO_ROOT/dist"'
