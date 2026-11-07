@@ -17,7 +17,7 @@ export async function fetchCallContract(service: string, rule: string, fetcher: 
   return { inputSchema: body.input_schema, outputSchema: body.output_schema }
 }
 
-// refused: the service refused the inputs; failed: the rule computed no result for them; unavailable: any other answer
+// refused: the calculator refused the inputs; failed: the rule computed no result for them; unavailable: any other answer
 export type CalculationErrorKind = 'refused' | 'failed' | 'unavailable'
 
 export class CalculationError extends Error {
