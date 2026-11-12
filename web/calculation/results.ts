@@ -12,6 +12,10 @@ export function presentResults(outputSchema: JsonSchemaObject | undefined, outpu
 }
 
 function format(value: unknown): string {
+  // an engine returns null for a rule that does not apply
+  if (value === null) {
+    return 'Non applicable'
+  }
   if (typeof value === 'boolean') {
     return value
       ? 'Oui'
