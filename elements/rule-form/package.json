@@ -13,11 +13,11 @@
   "devDependencies": {
     "@datagouv/regles-site-gouv-fr": "workspace:*",
     "@datagouv/regles-web": "workspace:*",
-    "@gouvminint/vue-dsfr": "^8.20.0",
+    "@gouvminint/vue-dsfr": "^8.21.0",
     "@shallowred/jsonforms-vue-dsfr": "https://github.com/ShallowRed/survey-kit/releases/download/jsonforms-vue-dsfr-v0.1.0/shallowred-jsonforms-vue-dsfr-0.1.0.tgz",
     "@vitejs/plugin-vue": "6.0.10",
-    "vite": "8.3.5",
-    "vitest": "^5.0.4",
-    "vue": "^3.5.44"
+    "vite": "8.3.6",
+    "vitest": "^5.1.0",
+    "vue": "^3.5.45"
   }
 }
