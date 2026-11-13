@@ -13,6 +13,13 @@ updates:
     groups:
       npm:
         update-types: [minor, patch]
+    ignore:
+      # The types follow the node version set in mise.toml
+      - dependency-name: '@types/node'
+        update-types: [version-update:semver-major]
+      # vue-tsc 3.3 does not run on typescript 7
+      - dependency-name: typescript
+        update-types: [version-update:semver-major]
   - package-ecosystem: github-actions
     directory: /
     schedule:
