@@ -1,38 +1,37 @@
 import type { ErrorObject } from 'ajv'
 import type { RegistryRecord } from './generated/record.ts'
-import { Ajv } from 'ajv'
 import ajvFormats from 'ajv-formats'
+import { Ajv2020 } from 'ajv/dist/2020.js'
 import recordSchema from './generated/record.schema.json' with { type: 'json' }
 
 export type { RegistryRecord }
 
 export interface RecordGap {
-  recordIndex: number | null
   field: string | null
   message: string
 }
 
-export type ReadRecordsResult
-  = | { valid: true, records: RegistryRecord[] }
+export type ReadRecordResult
+  = | { valid: true, record: RegistryRecord }
     | { valid: false, gaps: RecordGap[] }
 
-const ajv = new Ajv({ allErrors: true })
+const ajv = new Ajv2020({ allErrors: true })
 ajvFormats.default(ajv)
-const validateRecords = ajv.compile<RegistryRecord[]>({ type: 'array', items: recordSchema })
+const validateRecord = ajv.compile<RegistryRecord>(recordSchema)
 
-export function readRecords(content: unknown): ReadRecordsResult {
-  if (validateRecords(content)) {
-    return { valid: true, records: content }
+export function readRecord(content: unknown): ReadRecordResult {
+  if (validateRecord(content)) {
+    return { valid: true, record: content }
   }
-  return { valid: false, gaps: (validateRecords.errors ?? []).map(toRecordGap) }
+  return {
+    valid: false,
+    gaps: (validateRecord.errors ?? []).map(toRecordGap),
+  }
 }
 
 function toRecordGap(error: ErrorObject): RecordGap {
-  const [recordIndex, field] = error.instancePath.split('/').slice(1)
+  const [field] = error.instancePath.split('/').slice(1)
   return {
-    recordIndex: recordIndex === undefined
-      ? null
-      : Number(recordIndex),
     field: field ?? error.params.missingProperty ?? error.params.additionalProperty ?? null,
     message: error.message ?? error.keyword,
   }

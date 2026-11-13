@@ -1,6 +1,6 @@
 import type { RecordGap, RegistryRecord } from './record.ts'
 import { UNIQUE_FIELDS } from './generated/unique-fields.ts'
-import { readRecords } from './record.ts'
+import { readRecord } from './record.ts'
 
 export interface RecordFile {
   path: string
@@ -22,7 +22,6 @@ export type BuildRegistryResult
 
 interface Entry {
   path: string
-  recordIndex: number
   record: RegistryRecord
 }
 
@@ -31,9 +30,9 @@ export function buildRegistry(files: RecordFile[]): BuildRegistryResult {
   const gaps: RegistryGap[] = []
 
   for (const file of files) {
-    const result = readRecords(file.content)
+    const result = readRecord(file.content)
     if (result.valid) {
-      entries.push(...result.records.map((record, recordIndex) => ({ path: file.path, recordIndex, record })))
+      entries.push({ path: file.path, record: result.record })
     }
     else {
       gaps.push(...result.gaps.map(gap => ({ path: file.path, ...gap })))
@@ -67,9 +66,8 @@ function findDuplicates(entries: Entry[], field: keyof RegistryRecord): Registry
     if (first) {
       gaps.push({
         path: entry.path,
-        recordIndex: entry.recordIndex,
         field,
-        message: `has the same ${field} as ${first.path}, record ${first.recordIndex}`,
+        message: `has the same ${field} as ${first.path}`,
       })
     }
     else {

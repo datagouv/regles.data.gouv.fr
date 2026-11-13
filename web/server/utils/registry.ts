@@ -19,9 +19,6 @@ export async function loadRegistry(): Promise<Registry> {
 
 function describeGap(gap: RegistryGap): string {
   const location = [gap.path]
-  if (gap.recordIndex !== null) {
-    location.push(`record ${gap.recordIndex}`)
-  }
   if (gap.field !== null) {
     location.push(gap.field)
   }
