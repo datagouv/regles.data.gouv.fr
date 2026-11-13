@@ -9,3 +9,5 @@ core/src/generated/
 .output/
 .data/
 test-results/
+
+*.local.*
