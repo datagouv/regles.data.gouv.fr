@@ -9,6 +9,10 @@ hk = "1"
 node = "24"
 pnpm = "12"
 
+[env]
+# @nuxt/kit 4.6.4 resolves an unset devServer.host to {}, which crashes nuxt dev
+NUXT_HOST = "localhost"
+
 [settings]
 lockfile = true
 
