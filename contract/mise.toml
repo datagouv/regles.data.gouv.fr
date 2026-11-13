@@ -21,9 +21,9 @@ else
 fi
 status=0
 for f in "${files[@]}"; do
-  if ! uv run --project "{{config_root}}" frictionless validate --trusted "$f" --type table --format json --schema "{{config_root}}/schema.json"; then
+  if ! uv run --project "{{config_root}}" check-jsonschema --schemafile "{{config_root}}/schema.json" "$f"; then
     status=1
-    [ -n "${GITHUB_ACTIONS:-}" ] && echo "::error file=${f#"$MISE_MONOREPO_ROOT/"}::La fiche ne respecte pas le schéma, voir le rapport de frictionless dans le journal"
+    [ -n "${GITHUB_ACTIONS:-}" ] && echo "::error file=${f#"$MISE_MONOREPO_ROOT/"}::La fiche ne respecte pas le schéma, voir le rapport de check-jsonschema dans le journal"
   fi
 done
 exit $status
@@ -31,8 +31,8 @@ exit $status
 
 [tasks."validate:schema"]
 alias = "contract:validate:schema"
-description = "Validate the schema against the Table Schema specification"
-run = "uv run frictionless validate --type schema schema.json"
+description = "Validate the schema against the JSON Schema 2020-12 metaschema"
+run = "uv run check-jsonschema --check-metaschema schema.json"
 
 [tasks.lint]
 alias = "contract:lint"

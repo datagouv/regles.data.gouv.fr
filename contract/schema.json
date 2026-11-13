@@ -1,84 +1,99 @@
 {
-  "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
-  "title": "Services (Règles)",
-  "description": "Schéma d'une table unique pour les règles (services publics) et leurs métadonnées de base.",
-  "version": "0.0.1",
-  "primaryKey": ["id"],
-  "fields": [
-    {
-      "name": "id",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://regles.data.gouv.fr/schemas/record.schema.json",
+  "title": "Service (Règle)",
+  "description": "Schéma d'une fiche de règle (service public) et de ses métadonnées de base. Un fichier de data/ contient exactement un objet décrit par ce schéma.",
+  "version": "0.1.0",
+  "x-unique-fields": ["id", "identifier"],
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
       "type": "string",
       "format": "uri",
-      "description": "URI canonique de la règle (ex: https://regles.data.gouv.fr/regles/cnaf/prime-activite).",
-      "constraints": { "required": true }
+      "description": "URI canonique de la règle (ex: https://regles.data.gouv.fr/regles/cnaf/prime-activite)."
     },
-    {
-      "name": "identifier",
+    "identifier": {
       "type": "string",
-      "description": "Identifiant unique de la règle (ex: solidarite.prime-activite.openfisca-france).",
-      "constraints": { "required": true, "unique": true }
+      "description": "Identifiant unique de la règle (ex: solidarite.prime-activite.openfisca-france)."
     },
-    {
-      "name": "version",
+    "version": {
       "type": "string",
-      "description": "Version semver de la règle (ex: 169.15.0).",
-      "constraints": { "required": true }
+      "description": "Version semver de la règle (ex: 169.15.0)."
     },
-    {
-      "name": "title",
+    "title": {
       "type": "object",
       "description": "Titre multilingue. Exemple: {\"fr\": \"Prime d'activité\", \"en\": \"Activity Bonus\"}.",
-      "constraints": { "required": true }
+      "properties": {
+        "fr": { "type": "string" },
+        "en": { "type": "string" }
+      },
+      "required": ["fr"],
+      "additionalProperties": false
     },
-    {
-      "name": "description",
+    "description": {
       "type": "object",
       "description": "Description multilingue de la règle.",
-      "constraints": { "required": true }
+      "properties": {
+        "fr": { "type": "string" },
+        "en": { "type": "string" }
+      },
+      "required": ["fr"],
+      "additionalProperties": false
     },
-    {
-      "name": "valid_from",
-      "type": "date",
+    "valid_from": {
+      "type": ["string", "null"],
+      "format": "date",
       "description": "Date de début de validité (dct:valid)."
     },
-    {
-      "name": "valid_to",
-      "type": "date",
+    "valid_to": {
+      "type": ["string", "null"],
+      "format": "date",
       "description": "Date de fin de validité (dct:valid)."
     },
-    {
-      "name": "subjects",
-      "type": "array",
-      "description": "Tags thématiques (ex: ['prime-activite', 'minima-sociaux']).",
-      "items": { "type": "string" }
+    "subjects": {
+      "type": ["array", "null"],
+      "items": { "type": "string" },
+      "description": "Tags thématiques (ex: ['prime-activite', 'minima-sociaux'])."
     },
-    {
-      "name": "source_repository",
-      "type": "string",
+    "source_repository": {
+      "type": ["string", "null"],
       "format": "uri",
       "description": "URL du dépôt source (dct:source, ex: https://github.com/openfisca/openfisca-france)."
     },
-    {
-      "name": "source_commit",
-      "type": "string",
+    "source_commit": {
+      "type": ["string", "null"],
       "description": "SHA du commit épinglé (schema:SoftwareSourceCode)."
     },
-    {
-      "name": "created_at",
-      "type": "date",
+    "created_at": {
+      "type": ["string", "null"],
+      "format": "date",
       "description": "Date de création de la fiche."
     },
-    {
-      "name": "updated_at",
-      "type": "date",
+    "updated_at": {
+      "type": ["string", "null"],
+      "format": "date",
       "description": "Date de dernière mise à jour."
     },
-    {
-      "name": "competent_authority",
+    "competent_authority": {
       "type": "string",
       "format": "uri",
-      "description": "URI de l'organisation compétente (cv:hasCompetentAuthority).",
-      "constraints": { "required": true }
+      "description": "URI de l'organisation compétente (cv:hasCompetentAuthority)."
     }
+  },
+  "required": [
+    "id",
+    "identifier",
+    "version",
+    "title",
+    "description",
+    "valid_from",
+    "valid_to",
+    "subjects",
+    "source_repository",
+    "source_commit",
+    "created_at",
+    "updated_at",
+    "competent_authority"
   ]
 }
