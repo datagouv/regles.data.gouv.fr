@@ -26,11 +26,6 @@ describe('toRecordCard', () => {
       to: '/regles/prestagri-aide-scolarite',
     })
   })
-
-  it('falls back on the first language when the French text is missing', () => {
-    const record = { ...exampleRecord, title: { en: 'School allowance calculation' } }
-    expect(toRecordCard(record).title).toBe('School allowance calculation')
-  })
 })
 
 describe('toCataloguePage', () => {

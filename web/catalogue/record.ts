@@ -32,8 +32,8 @@ const DATE_FORMAT = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long', timeZo
 
 export function toRecordCard(record: RegistryRecord): UiCard {
   return {
-    title: frenchText(record.title),
-    description: frenchText(record.description),
+    title: record.title.fr,
+    description: record.description.fr,
     to: recordPath(record.identifier),
   }
 }
@@ -46,10 +46,10 @@ export function toCataloguePage(records: RegistryRecord[]): CataloguePage {
 }
 
 export function toRecordDetail(record: RegistryRecord): RecordDetail {
-  const title = frenchText(record.title)
+  const title = record.title.fr
   return {
     title,
-    description: frenchText(record.description),
+    description: record.description.fr,
     breadcrumb: catalogueBreadcrumb(title),
     authority: externalLink(record.competent_authority),
     version: record.version,
@@ -57,20 +57,13 @@ export function toRecordDetail(record: RegistryRecord): RecordDetail {
     source: record.source_repository === null
       ? null
       : { repository: externalLink(record.source_repository), commit: record.source_commit?.slice(0, 7) ?? null },
-    subjects: (record.subjects ?? []).filter(subject => typeof subject === 'string'),
+    subjects: record.subjects ?? [],
     updatedOn: formatDate(record.updated_at ?? record.created_at),
   }
 }
 
 export function catalogueBreadcrumb(current: string): UiBreadcrumbProps {
   return { links: [{ label: CATALOGUE_TITLE, to: routes.catalogue }], current }
-}
-
-function frenchText(text: { [language: string]: unknown }): string {
-  const value = text.fr ?? Object.values(text)[0]
-  return typeof value === 'string'
-    ? value
-    : ''
 }
 
 // the schema accepts any URI scheme, javascript: included, so only web addresses become links
