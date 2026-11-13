@@ -30,6 +30,8 @@ Son `nuxt.config.ts` étend `@datagouv/regles-site-gouv-fr` et désigne le dossi
 
 Le site DSFR dépend de `@shallowred/jsonforms-vue-dsfr` par l'adresse d'une release de survey-kit. Avec pnpm 12, le projet qui étend le site autorise cette dépendance par `blockExoticSubdeps: false` dans son `pnpm-workspace.yaml`.
 
+À son installation, `@gouvfr/dsfr` vérifie que le projet a accepté les [modalités d'utilisation du DSFR](https://github.com/GouvernementFR/dsfr/blob/main/doc/legal/cgu.md), dans un fichier `.dsfr.yml` à sa racine (`accept-license: <version>`). Le projet qui étend le site ajoute ce fichier, que `pnpm create @gouvfr/dsfr` écrit après acceptation, et autorise le script de vérification par `'@gouvfr/dsfr': true` sous `allowBuilds` dans son `pnpm-workspace.yaml`.
+
 Un site extérieur au dépôt installe l'élément depuis son archive, par exemple `npm install https://github.com/datagouv/regles.data.gouv.fr/releases/download/v0.0.2/datagouv-regles-rule-form-0.0.2.tgz`. L'archive contient le JavaScript et la feuille de style de l'élément, avec toutes leurs dépendances. La page importe `@datagouv/regles-rule-form` et `@datagouv/regles-rule-form/style.css`, et place l'élément à l'endroit du formulaire :
 
 ```html
