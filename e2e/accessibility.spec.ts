@@ -2,7 +2,12 @@ import type { Page } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
 
-const WCAG_21_AA = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']
+const WCAG_21_AA = [
+  'wcag2a',
+  'wcag2aa',
+  'wcag21a',
+  'wcag21aa',
+]
 
 async function findViolations(page: Page) {
   const results = await new AxeBuilder({ page }).withTags(WCAG_21_AA).analyze()

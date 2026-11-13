@@ -18,11 +18,15 @@ describe('readRecords', () => {
   })
 
   it('reports a field outside the schema', () => {
-    expect(readRecords([{ ...exampleRecord, extra: 1 }])).toEqual(gaps({ recordIndex: 0, field: 'extra' }))
+    expect(readRecords([
+      { ...exampleRecord, extra: 1 },
+    ])).toEqual(gaps({ recordIndex: 0, field: 'extra' }))
   })
 
   it('reports a value outside the format of its field', () => {
-    expect(readRecords([{ ...exampleRecord, id: 'not a uri' }])).toEqual(gaps({ recordIndex: 0, field: 'id' }))
+    expect(readRecords([
+      { ...exampleRecord, id: 'not a uri' },
+    ])).toEqual(gaps({ recordIndex: 0, field: 'id' }))
   })
 
   it('reports a file that contains no list of records', () => {
@@ -31,5 +35,8 @@ describe('readRecords', () => {
 })
 
 function gaps(...expected: { recordIndex: number | null, field: string | null }[]) {
-  return { valid: false, gaps: expected.map(gap => expect.objectContaining(gap)) }
+  return {
+    valid: false,
+    gaps: expected.map(gap => expect.objectContaining(gap)),
+  }
 }

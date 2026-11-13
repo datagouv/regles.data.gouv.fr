@@ -10,10 +10,15 @@ export interface RecordsOptions {
 
 export default defineNuxtModule<RecordsOptions>({
   meta: { name: 'records', configKey: 'records' },
-  defaults: { dir: fileURLToPath(new URL('../../data', import.meta.url)) },
+  defaults: {
+    dir: fileURLToPath(new URL('../../data', import.meta.url)),
+  },
   setup(options, nuxt) {
     const dir = resolveRecordsDir(nuxt.options.rootDir, options.dir)
-    nuxt.options.nitro.serverAssets = [...nuxt.options.nitro.serverAssets ?? [], { baseName: 'records', dir }]
+    nuxt.options.nitro.serverAssets = [
+      ...nuxt.options.nitro.serverAssets ?? [],
+      { baseName: 'records', dir },
+    ]
   },
 })
 

@@ -3,13 +3,17 @@ import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+  ],
   publicDir: false,
   define: { 'process.env.NODE_ENV': '"production"' },
   resolve: {
     dedupe: ['vue'],
     // the component imports the web layer by the alias that Nuxt generates for its sites
-    alias: { '#layers/web': fileURLToPath(new URL('node_modules/@datagouv/regles-web', import.meta.url)) },
+    alias: {
+      '#layers/web': fileURLToPath(new URL('node_modules/@datagouv/regles-web', import.meta.url)),
+    },
   },
   build: {
     lib: {

@@ -10,7 +10,10 @@ describe('buildRegistry', () => {
     const otherRecord = { ...exampleRecord, id: 'https://regles.data.gouv.fr/regles/autre', identifier: 'autre' }
     const result = buildRegistry([
       { path: EXAMPLE_PATH, content: records },
-      { path: 'data/autre.json', content: [otherRecord] },
+      {
+        path: 'data/autre.json',
+        content: [otherRecord],
+      },
     ])
     assert(result.valid)
     expect(result.registry.records.map(record => record.identifier)).toEqual(['prestagri-aide-scolarite', 'autre'])
@@ -19,9 +22,16 @@ describe('buildRegistry', () => {
 
   it('reports the file of an invalid record', () => {
     const { competent_authority, ...incomplete } = exampleRecord
-    expect(buildRegistry([{ path: 'data/incomplete.json', content: [incomplete] }])).toEqual({
+    expect(buildRegistry([
+      {
+        path: 'data/incomplete.json',
+        content: [incomplete],
+      },
+    ])).toEqual({
       valid: false,
-      gaps: [expect.objectContaining({ path: 'data/incomplete.json', recordIndex: 0, field: 'competent_authority' })],
+      gaps: [
+        expect.objectContaining({ path: 'data/incomplete.json', recordIndex: 0, field: 'competent_authority' }),
+      ],
     })
   })
 
@@ -32,8 +42,18 @@ describe('buildRegistry', () => {
     ])).toEqual({
       valid: false,
       gaps: [
-        { path: 'data/copie.json', recordIndex: 0, field: 'id', message: `has the same id as ${EXAMPLE_PATH}, record 0` },
-        { path: 'data/copie.json', recordIndex: 0, field: 'identifier', message: `has the same identifier as ${EXAMPLE_PATH}, record 0` },
+        {
+          path: 'data/copie.json',
+          recordIndex: 0,
+          field: 'id',
+          message: `has the same id as ${EXAMPLE_PATH}, record 0`,
+        },
+        {
+          path: 'data/copie.json',
+          recordIndex: 0,
+          field: 'identifier',
+          message: `has the same identifier as ${EXAMPLE_PATH}, record 0`,
+        },
       ],
     })
   })

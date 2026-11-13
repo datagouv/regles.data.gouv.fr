@@ -56,14 +56,22 @@ export function toRecordDetail(record: RegistryRecord): RecordDetail {
     validity: describeValidity(record.valid_from, record.valid_to),
     source: record.source_repository === null
       ? null
-      : { repository: externalLink(record.source_repository), commit: record.source_commit?.slice(0, 7) ?? null },
+      : {
+          repository: externalLink(record.source_repository),
+          commit: record.source_commit?.slice(0, 7) ?? null,
+        },
     subjects: (record.subjects ?? []).filter(subject => typeof subject === 'string'),
     updatedOn: formatDate(record.updated_at ?? record.created_at),
   }
 }
 
 export function catalogueBreadcrumb(current: string): UiBreadcrumbProps {
-  return { links: [{ label: CATALOGUE_TITLE, to: routes.catalogue }], current }
+  return {
+    links: [
+      { label: CATALOGUE_TITLE, to: routes.catalogue },
+    ],
+    current,
+  }
 }
 
 function frenchText(text: { [language: string]: unknown }): string {

@@ -24,7 +24,10 @@ export function readRecords(content: unknown): ReadRecordsResult {
   if (validateRecords(content)) {
     return { valid: true, records: content }
   }
-  return { valid: false, gaps: (validateRecords.errors ?? []).map(toRecordGap) }
+  return {
+    valid: false,
+    gaps: (validateRecords.errors ?? []).map(toRecordGap),
+  }
 }
 
 function toRecordGap(error: ErrorObject): RecordGap {

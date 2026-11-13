@@ -17,69 +17,116 @@ export default antfu(
       overrides: {
         'antfu/curly': 'off',
         'curly': ['error', 'all'],
-        'style/brace-style': ['error', 'stroustrup', { allowSingleLine: false }],
+        'style/brace-style': [
+          'error',
+          'stroustrup',
+          { allowSingleLine: false },
+        ],
         'style/multiline-ternary': ['error', 'always'],
       },
     },
     toml: false,
     pnpm: false,
     markdown: false,
-    ignores: ['contract/', 'data/', 'docs/', '.github/'],
+    ignores: [
+      'contract/',
+      'data/',
+      'docs/',
+      '.github/',
+    ],
   },
   {
     files: ['web/**', 'sites/white-label/**'],
     rules: {
-      'no-restricted-imports': ['error', { patterns: [designSystemImports] }],
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [designSystemImports],
+        },
+      ],
     },
   },
   {
     files: ['web/catalogue/**'],
     rules: {
-      'no-restricted-imports': ['error', {
-        patterns: [{
-          regex: frameworkImports,
-          message: 'The catalogue holds pure presenters from a record to a view model, kept out of the framework: it imports @datagouv/regles-core and its own files.',
-        }, designSystemImports],
-      }],
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              regex: frameworkImports,
+              message: 'The catalogue holds pure presenters from a record to a view model, kept out of the framework: it imports @datagouv/regles-core and its own files.',
+            },
+            designSystemImports,
+          ],
+        },
+      ],
     },
   },
   {
     files: ['web/calculation/**'],
     rules: {
-      'no-restricted-imports': ['error', {
-        patterns: [{
-          regex: frameworkImports,
-          message: 'The calculation calls a calculation service and presents its results out of the framework: it imports its own files.',
-        }, designSystemImports],
-      }],
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              regex: frameworkImports,
+              message: 'The calculation calls a calculation service and presents its results out of the framework: it imports its own files.',
+            },
+            designSystemImports,
+          ],
+        },
+      ],
     },
   },
   {
     files: ['**/routes.ts'],
     rules: {
-      'no-restricted-imports': ['error', {
-        patterns: [{
-          regex: frameworkImports,
-          message: 'A routes.ts file declares the routes of its layer out of the framework: the presenters and modules/view-routes.ts import it.',
-        }, designSystemImports],
-      }],
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              regex: frameworkImports,
+              message: 'A routes.ts file declares the routes of its layer out of the framework: the presenters and modules/view-routes.ts import it.',
+            },
+            designSystemImports,
+          ],
+        },
+      ],
     },
   },
   {
     files: ['web/app/**'],
     rules: {
-      'no-restricted-imports': ['error', {
-        patterns: [{
-          regex: '^@datagouv/regles-core',
-          message: 'Pages and components read view models from the server routes, prepared by web/catalogue.',
-        }, designSystemImports],
-      }],
-      'vue/no-restricted-block': ['error', {
-        element: 'style',
-        message: 'The shared layer holds no style: each site under sites/ styles its UI components.',
-      }],
-      'vue/no-restricted-static-attribute': ['error', ...['class', 'style'].map(key => ({ key, message: noStyle }))],
-      'vue/no-restricted-v-bind': ['error', ...['class', 'style'].map(argument => ({ argument, message: noStyle }))],
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              regex: '^@datagouv/regles-core',
+              message: 'Pages and components read view models from the server routes, prepared by web/catalogue.',
+            },
+            designSystemImports,
+          ],
+        },
+      ],
+      'vue/no-restricted-block': [
+        'error',
+        {
+          element: 'style',
+          message: 'The shared layer holds no style: each site under sites/ styles its UI components.',
+        },
+      ],
+      'vue/no-restricted-static-attribute': [
+        'error',
+        ...['class', 'style'].map(key => ({ key, message: noStyle })),
+      ],
+      'vue/no-restricted-v-bind': [
+        'error',
+        ...['class', 'style'].map(argument => ({ argument, message: noStyle })),
+      ],
     },
   },
 )

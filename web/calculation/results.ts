@@ -8,7 +8,10 @@ export interface CalculationResult {
 export function presentResults(outputSchema: JsonSchemaObject | undefined, output: Record<string, unknown>): CalculationResult[] {
   return Object.entries(outputSchema?.properties ?? {})
     .filter(([name, schema]) => schema.title && output[name] !== undefined)
-    .map(([name, schema]) => ({ label: schema.title!, value: format(output[name]) }))
+    .map(([name, schema]) => ({
+      label: schema.title!,
+      value: format(output[name]),
+    }))
 }
 
 function format(value: unknown): string {

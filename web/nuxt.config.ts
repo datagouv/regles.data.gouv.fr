@@ -10,14 +10,20 @@ export default defineNuxtConfig({
   },
   typescript: {
     // vue-tsc accepts an unknown component by default, so a site missing a UI component would pass
-    tsConfig: { vueCompilerOptions: { checkUnknownComponents: true } },
+    tsConfig: {
+      vueCompilerOptions: { checkUnknownComponents: true },
+    },
     // the shared project declares no Vue auto-import, so nuxt typecheck rejects a Vue global in the catalogue and the calculation
-    sharedTsConfig: { include: ['catalogue', 'calculation'].map(dir => fileURLToPath(new URL(`${dir}/**/*`, import.meta.url))) },
+    sharedTsConfig: {
+      include: ['catalogue', 'calculation'].map(dir => fileURLToPath(new URL(`${dir}/**/*`, import.meta.url))),
+    },
   },
   // enable vue-router without scanning app/pages: modules/view-routes.ts adds the routes of each layer
   pages: { enabled: true, pattern: [] },
   nitro: {
     // no page links to the registry file, so the crawler does not find it
-    prerender: { routes: ['/registry.json'] },
+    prerender: {
+      routes: ['/registry.json'],
+    },
   },
 })
