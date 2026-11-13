@@ -45,12 +45,16 @@ function toPages(layers: LayerRoutes[]): NuxtPage[] {
   for (const { source, app, routes } of layers) {
     for (const [name, path] of Object.entries(routes)) {
       const file = join(app, 'views', `${name[0]!.toUpperCase()}${name.slice(1)}View.vue`)
-      const taken = [...sources.keys()].find(page => page.name === name || page.path === path)
+      const taken = [
+        ...sources.keys(),
+      ].find(page => page.name === name || page.path === path)
       if (taken) {
         throw new Error(`${source} declares the route ${name} at ${path}, already declared by ${sources.get(taken)} as ${String(taken.name)} at ${taken.path}`)
       }
       sources.set({ name, path, file }, source)
     }
   }
-  return [...sources.keys()]
+  return [
+    ...sources.keys(),
+  ]
 }

@@ -9,12 +9,18 @@ function answering(status: number, body: unknown) {
 
 describe('fetchCallContract', () => {
   it('reads the schemas of the rule, with its identifier encoded in the address', async () => {
-    const fetcher = answering(200, { input_schema: { type: 'object' }, output_schema: { type: 'object' } })
+    const fetcher = answering(200, {
+      input_schema: { type: 'object' },
+      output_schema: { type: 'object' },
+    })
 
     const contract = await fetchCallContract(SERVICE, 'a/b c', fetcher)
 
     expect(fetcher).toHaveBeenCalledWith(`${SERVICE}/public/catalog/a%2Fb%20c`)
-    expect(contract).toEqual({ inputSchema: { type: 'object' }, outputSchema: { type: 'object' } })
+    expect(contract).toEqual({
+      inputSchema: { type: 'object' },
+      outputSchema: { type: 'object' },
+    })
   })
 
   it('fails when the service answers with an error status', async () => {
@@ -28,7 +34,10 @@ describe('fetchCallContract', () => {
 
 describe('executeRule', () => {
   it('posts the inputs and returns the output', async () => {
-    const fetcher = answering(200, { status: 'success', output: { quotient_familial: 666.67 } })
+    const fetcher = answering(200, {
+      status: 'success',
+      output: { quotient_familial: 666.67 },
+    })
 
     const output = await executeRule(SERVICE, 'a/b', { menage: {} }, fetcher)
 
@@ -37,9 +46,19 @@ describe('executeRule', () => {
   })
 
   it.each([
-    [400, { detail: 'input validation error' }, 'refused', 'input validation error'],
+    [
+      400,
+      { detail: 'input validation error' },
+      'refused',
+      'input validation error',
+    ],
     [500, {}, 'unavailable', '500'],
-    [200, { status: 'failed', error: 'division by zero' }, 'failed', 'division by zero'],
+    [
+      200,
+      { status: 'failed', error: 'division by zero' },
+      'failed',
+      'division by zero',
+    ],
   ])('classifies an answer %i as an error of kind %s', async (status, body, kind, message) => {
     const error = await executeRule(SERVICE, 'rule', {}, answering(status as number, body)).catch(error => error)
 

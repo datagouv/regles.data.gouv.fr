@@ -20,16 +20,25 @@ describe('readLayerPages', () => {
   })
 
   it('rejects a site that redeclares a route name of the shared layer, and names both files', async () => {
-    await expect(readLayerPages([site('redeclared-name'), web])).rejects.toThrow(
+    await expect(readLayerPages([
+      site('redeclared-name'),
+      web,
+    ])).rejects.toThrow(
       /fixtures\/redeclared-name\/routes\.ts declares the route catalogue at \/catalogue, already declared by .*web\/routes\.ts as catalogue at \/$/,
     )
   })
 
   it('rejects a site that redeclares an address of the shared layer', async () => {
-    await expect(readLayerPages([site('redeclared-path'), web])).rejects.toThrow(/route home at \/, already declared by .*web\/routes\.ts as catalogue/)
+    await expect(readLayerPages([
+      site('redeclared-path'),
+      web,
+    ])).rejects.toThrow(/route home at \/, already declared by .*web\/routes\.ts as catalogue/)
   })
 
   it('rejects a routes.ts that exports its routes under another name', async () => {
-    await expect(readLayerPages([site('no-routes'), web])).rejects.toThrow(/no-routes\/routes\.ts exports no routes/)
+    await expect(readLayerPages([
+      site('no-routes'),
+      web,
+    ])).rejects.toThrow(/no-routes\/routes\.ts exports no routes/)
   })
 })

@@ -28,7 +28,10 @@ describe('toRecordCard', () => {
   })
 
   it('falls back on the first language when the French text is missing', () => {
-    const record = { ...exampleRecord, title: { en: 'School allowance calculation' } }
+    const record = {
+      ...exampleRecord,
+      title: { en: 'School allowance calculation' },
+    }
     expect(toRecordCard(record).title).toBe('School allowance calculation')
   })
 })
@@ -37,7 +40,9 @@ describe('toCataloguePage', () => {
   it('titles the catalogue and shows a card per record', () => {
     expect(toCataloguePage([exampleRecord])).toEqual({
       title: 'Catalogue des règles',
-      cards: [toRecordCard(exampleRecord)],
+      cards: [
+        toRecordCard(exampleRecord),
+      ],
     })
   })
 })
@@ -52,7 +57,9 @@ describe('toRecordDetail', () => {
 
   it('leads back to the catalogue in the breadcrumb', () => {
     expect(toRecordDetail(exampleRecord).breadcrumb).toEqual({
-      links: [{ label: 'Catalogue des règles', to: '/' }],
+      links: [
+        { label: 'Catalogue des règles', to: '/' },
+      ],
       current: 'Calcul de l\'aide à la scolarité',
     })
   })

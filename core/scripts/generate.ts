@@ -32,7 +32,10 @@ function toRecordSchema(tableSchema: Schema): JSONSchema7 {
   // json-schema-to-typescript names a type after its title.
   const { title, ...converted } = convertSchemaToJsonSchema(tableSchema)
   const properties = Object.fromEntries(
-    tableSchema.fields.map(field => [field.name, toRecordProperty(field, converted.properties?.[field.name])]),
+    tableSchema.fields.map(field => [
+      field.name,
+      toRecordProperty(field, converted.properties?.[field.name]),
+    ]),
   )
 
   // A row of a JSON table contains every field of the schema, and no other.
@@ -66,7 +69,12 @@ function toUniqueFields(tableSchema: Schema): string[] {
   const uniqueFields = tableSchema.fields
     .filter(field => field.constraints?.unique)
     .map(field => field.name)
-  return [...new Set([...tableSchema.primaryKey ?? [], ...uniqueFields])]
+  return [
+    ...new Set([
+      ...tableSchema.primaryKey ?? [],
+      ...uniqueFields,
+    ]),
+  ]
 }
 
 function toSchemaVersion(tableSchema: ContractSchema): string {
